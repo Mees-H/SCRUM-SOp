@@ -14,6 +14,13 @@ Then create a virtual host with the following link: https://medium.com/d6-digita
 Install your IDE of choice and refrence a JavaScript document in your html document. Thats's all!
 If you dont know what IDE to use, I recommend using Visual Studio Code. https://code.visualstudio.com/Download
 
+## Laravel
+Before you can start working with Laravel, you need to install PHP first.
+Next, install composer at https://getcomposer.org/download/
+Then create a project with "composer create-project laravel/laravel example-app"
+Then go to the directory of your app with "cd example-app"
+And then start the local server with "php artisan serve"
+Now your Laravel server is hosted on http://localhost:8000
 # Usage
 
 ## Coding Guidelines
