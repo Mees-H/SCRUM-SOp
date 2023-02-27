@@ -1,4 +1,5 @@
 @extends('layouts.layout')
  
 @section('content')
-    <p>This is my body content.</p>
+    <p>tekst hier</p>
+@stop
