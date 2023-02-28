@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-<form>
+<form method="post" action="{{url('/trainingCMS')}}">
+  @csrf
   <div class="form-group">
     <label for="name">Naam</label>
     <input type="text" name="name" class="form-control" placeholder="Hoe wil je de training noemen?" required>
@@ -28,4 +29,10 @@
   </div>
   <button type="submit" class="btn btn-gradient=primary me-2">Training toevoegen</button>
 </form>
+@if(Session::has('status'))
+    <div class="text-success">
+        {{ Session::get('status') }}
+    </div>
+@endif
+
 @stop

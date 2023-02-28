@@ -27,3 +27,4 @@ Route::get('/faq', [NavigationController::class, 'faq']);
 Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
 Route::get('/trainingCMS', [NavigationController::class, 'trainingCMS']);
+Route::post('/trainingCMS', [NavigationController::class, 'store']);

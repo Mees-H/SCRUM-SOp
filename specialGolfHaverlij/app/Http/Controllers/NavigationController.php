@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Training;
 use Illuminate\Http\Request;
 
 class NavigationController extends Controller
 {
-    //
     function index() 
     {
         return view('index');
@@ -43,5 +43,18 @@ class NavigationController extends Controller
     function trainingCMS() 
     {
         return view('trainingCMS');
+    }
+
+    public function store(Request $request)
+    {
+        $post = new Training;
+        $post->naam = $request->name;
+        $post->datum = $request->date;
+        $post->starttijd = $request->start;
+        $post->eindtijd = $request->end;
+        $post->locatie = $request->location;
+        $post->trainers = $request->trainers;
+        $post->save();
+        return redirect('trainingCMS')->with('status', 'De training is toegevoegd!');
     }
 }
