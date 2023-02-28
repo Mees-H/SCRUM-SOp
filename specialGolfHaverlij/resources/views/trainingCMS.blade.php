@@ -30,9 +30,29 @@
   <button type="submit" class="btn btn-gradient=primary me-2">Training toevoegen</button>
 </form>
 @if(Session::has('status'))
-    <div class="text-success">
-        {{ Session::get('status') }}
-    </div>
+  <div class="text-success">
+    {{ Session::get('status') }}
+  </div>
 @endif
 
+<table class="table">
+  <tr>
+    <th>Naam</th>
+    <th>Datum</th>
+    <th>Begintijd</th>
+    <th>Eindtijd</th>
+    <th>Locatie</th>
+    <th>Trainers</th>
+  </tr>
+@foreach($trainingen as $key => $data)
+  <tr>
+    <td>{{$data->naam}}</td>
+    <td>{{$data->datum}}</td>
+    <td>{{$data->starttijd}}</td>
+    <td>{{$data->eindtijd}}</td>
+    <td>{{$data->locatie}}</td>
+    <td>{{$data->trainers}}</td>
+  </tr>
+@endforeach
+</table>
 @stop
