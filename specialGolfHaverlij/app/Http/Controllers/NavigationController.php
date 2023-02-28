@@ -40,4 +40,8 @@ class NavigationController extends Controller
     {
         return view('team');
     }
+    function trainingCMS() 
+    {
+        return view('trainingCMS');
+    }
 }
