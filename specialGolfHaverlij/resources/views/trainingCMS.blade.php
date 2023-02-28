@@ -35,7 +35,7 @@
   </div>
 @endif
 
-<table class="table">
+<table class="table text-center">
   <tr>
     <th>Naam</th>
     <th>Datum</th>
@@ -43,16 +43,24 @@
     <th>Eindtijd</th>
     <th>Locatie</th>
     <th>Trainers</th>
+    <th>Training Verwijderen</th>
   </tr>
+
+<?php
+    $counter = 1;
+?>
+
 @foreach($trainingen as $key => $data)
-  <tr>
+  <tr class="text-center">
     <td>{{$data->naam}}</td>
     <td>{{$data->datum}}</td>
     <td>{{$data->starttijd}}</td>
     <td>{{$data->eindtijd}}</td>
     <td>{{$data->locatie}}</td>
     <td>{{$data->trainers}}</td>
+    <td><button class="btn btn-secondary" id="deleteTraining<?php echo $counter ?>">x</button></td>
   </tr>
+  <?php $counter++ ?>
 @endforeach
 </table>
 @stop
