@@ -58,7 +58,7 @@
     <td>{{$data->eindtijd}}</td>
     <td>{{$data->locatie}}</td>
     <td>{{$data->trainers}}</td>
-    <td><button class="btn btn-secondary" id="deleteTraining<?php echo $counter ?>">x</button></td>
+    <td><button class="btn btn-danger" id="deleteTraining<?php echo $counter ?>" onclick="removeRow(this)">x</button></td>
   </tr>
   <?php $counter++ ?>
 @endforeach
