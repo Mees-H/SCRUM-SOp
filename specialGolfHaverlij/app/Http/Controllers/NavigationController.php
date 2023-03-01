@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\Training;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class NavigationController extends Controller
 {
@@ -42,7 +43,8 @@ class NavigationController extends Controller
     }
     function trainingCMS() 
     {
-        return view('trainingCMS');
+        $trainingen = DB::table('trainings')->get();
+        return view('trainingCMS', ['trainingen' => $trainingen]);
     }
 
     public function store(Request $request)
