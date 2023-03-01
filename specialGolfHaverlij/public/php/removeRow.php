@@ -14,7 +14,7 @@ if ($conn->connect_error) {
 }
 
 // sql to delete a record
-$sql = "DELETE FROM trainings WHERE id=$id";
+$sql = "DELETE FROM trainings WHERE id = (SELECT id FROM (SELECT id FROM trainings ORDER BY id LIMIT $id,1) AS tbl)";
 
 if ($conn->query($sql) === TRUE) {
   echo "Record deleted successfully";

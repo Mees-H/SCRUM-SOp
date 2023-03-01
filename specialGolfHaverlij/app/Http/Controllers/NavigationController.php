@@ -47,6 +47,8 @@ class NavigationController extends Controller
 
     public function store(Request $request)
     {
+        //validatie hier
+
         $post = new Training;
         $post->naam = $request->name;
         $post->datum = $request->date;

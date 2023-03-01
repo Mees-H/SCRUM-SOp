@@ -1,6 +1,13 @@
 function getRowNumber(button) {
-    console.log(button.id.slice(-1));
-    return button.id.slice(-1);
+    var trainingen = document.getElementsByClassName("deleteTraining");
+    //for loop through the list of buttons
+    //if statement that checks if the button is the same as the button in the list
+    //return the index + 1
+    for (let i = 0; i < trainingen.length; i++) {
+        if (trainingen[i] == button) {
+            return i;
+        }
+    }
 }
 
 function removeRow(button) {

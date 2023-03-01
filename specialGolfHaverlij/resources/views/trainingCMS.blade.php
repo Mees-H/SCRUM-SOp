@@ -46,10 +46,6 @@
     <th>Training Verwijderen</th>
   </tr>
 
-<?php
-    $counter = 1;
-?>
-
 @foreach($trainingen as $key => $data)
   <tr class="text-center">
     <td>{{$data->naam}}</td>
@@ -58,9 +54,8 @@
     <td>{{$data->eindtijd}}</td>
     <td>{{$data->locatie}}</td>
     <td>{{$data->trainers}}</td>
-    <td><button class="btn btn-danger" id="deleteTraining<?php echo $counter ?>" onclick="removeRow(this)">x</button></td>
+    <td><button class="btn btn-danger deleteTraining" onclick="removeRow(this)">x</button></td>
   </tr>
-  <?php $counter++ ?>
 @endforeach
 </table>
 @stop
