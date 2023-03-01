@@ -6,14 +6,11 @@ $dbname = "laravel";
 
 $id = $_POST['data'];
 
-// Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
-// Check connection
 if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
-// sql to delete a record
 $sql = "DELETE FROM trainings WHERE id = (SELECT id FROM (SELECT id FROM trainings ORDER BY id LIMIT $id,1) AS tbl)";
 
 if ($conn->query($sql) === TRUE) {
