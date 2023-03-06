@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Event;
 
 class NavigationController extends Controller
 {
@@ -17,7 +18,7 @@ class NavigationController extends Controller
     }
     function evenement() 
     {
-        return view('evenement');
+        return view('evenement', ['posts' => Event::all()]);
     }
     function galerij() 
     {
