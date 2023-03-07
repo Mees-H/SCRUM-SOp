@@ -15,7 +15,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::all();
+        $events = Event::all()->sortBy('updated_at');
         return view('events.index', compact('events'));
     }
 
@@ -75,7 +75,7 @@ class EventController extends Controller
         $request->validate([
             'title' => 'required',
             'body' => 'required',
-            'slug' => 'required',
+            'date' => 'required',
         ]);
         $event = Event::find($id);
         $event->title = $request->get('title');
