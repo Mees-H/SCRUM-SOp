@@ -40,4 +40,16 @@ class NavigationController extends Controller
     {
         return view('team');
     }
+
+    function J2023() {
+        return view('gallerij2023');
+    }
+
+    function J2022() {
+        return view('gallerij2022');
+    }
+
+    function J2021() {
+        return view('gallerij2021');
+    }
 }
