@@ -1,7 +1,14 @@
 @extends('layouts.layout')
  
 @section('content')
-    <h1>Evenementen</h1>
+    <div class="container text-center">
+        <div class="row align-items-center">
+            <h1 class="col">Evenementen</h1>
+            <div class="col">
+                <a class="btn btn-primary" href="/events">Evenementen onderhouden</a>
+            </div>
+        </div>
+    </div>
 
     @foreach($posts as $post)
         <article>

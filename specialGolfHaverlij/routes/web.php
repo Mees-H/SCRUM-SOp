@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,11 +19,19 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/index', [NavigationController::class, 'index']);
-Route::get('/training', [NavigationController::class, 'training']);
-Route::get('/evenement', [NavigationController::class, 'evenement']);
-Route::get('/gallerij', [NavigationController::class, 'gallerij']);
-Route::get('/aanmelden', [NavigationController::class, 'aanmelden']);
-Route::get('/faq', [NavigationController::class, 'faq']);
-Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
-Route::get('/team', [NavigationController::class, 'team']);
+Route::controller(NavigationController::class)->group(function() {
+    Route::get('/index', 'index');
+    Route::get('/training', 'training');
+    Route::get('/evenement', 'evenement');
+    Route::get('/gallerij', 'gallerij');
+    Route::get('/aanmelden', 'aanmelden');
+    Route::get('/faq', 'faq');
+    Route::get('/nieuwsbrief', 'nieuwsbrief');
+    Route::get('/team', 'team');
+});
+
+Route::resource('events', EventController::class);
+
+// Route::controller(EventController::class)->group(function (){
+//     Route::get('/eventscrud/index', 'index');
+// });
