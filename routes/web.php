@@ -26,10 +26,13 @@ Route::controller(NavigationController::class)->group(function() {
     Route::get('/training', 'training');
     Route::get('/evenement', 'evenement');
     Route::get('/gallerij', 'gallerij');
-    Route::get('/aanmelden', 'aanmelden');
+    Route::get('/gallerij', [NavigationController::class, 'gallery']);
+Route::get('/gallerij/aanmaken', [NavigationController::class, 'gallery']);
+Route::get('/aanmelden', 'aanmelden');
     Route::get('/faq', 'faq');
     Route::get('/nieuwsbrief', 'nieuwsbrief');
     Route::get('/team', 'team');
+
 });
 
 Route::resource('events', EventController::class);
