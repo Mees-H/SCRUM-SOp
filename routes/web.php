@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
 use App\Models\Mail\MailFactory;
@@ -26,8 +27,8 @@ Route::controller(NavigationController::class)->group(function() {
     Route::get('/training', 'training');
     Route::get('/evenement', 'evenement');
     Route::get('/gallerij', 'gallerij');
-    Route::get('/gallerij', [NavigationController::class, 'gallery']);
-Route::get('/gallerij/aanmaken', [NavigationController::class, 'gallery']);
+    Route::get('/gallerij', [NavigationController::class, 'gallerij']);
+Route::get('/gallerij/aanmaken', [GalleryController::class, 'create']);
 Route::get('/aanmelden', 'aanmelden');
     Route::get('/faq', 'faq');
     Route::get('/nieuwsbrief', 'nieuwsbrief');
@@ -38,6 +39,9 @@ Route::get('/aanmelden', 'aanmelden');
 Route::resource('events', EventController::class);
 
 // });//dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
+Route::post('/gallerij/aanmaken', [GalleryController::class, 'store']);
+
+//dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
 //TODO:remove
 Route::get('/mail', function () {return view('mailForm');});
 Route::post('/mail', function (Request $request){
