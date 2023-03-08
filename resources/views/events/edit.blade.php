@@ -2,7 +2,8 @@
 @section('content')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Editing Stock</h1>
+        <h1 class="display-3">Evenement aanpassen
+        <a href="/events" class="btn btn-primary">Ga terug</a></h1>
  
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -25,7 +26,12 @@
  
             <div class="form-group">
                 <label for="date">Datum:</label>
-                <input type="text" class="form-control" name="date" value="{{ $event->date }}" />
+                <input type="date" class="form-control" name="date" value="{{ $event->date }}" />
+            </div>
+            
+            <div class="form-group">
+                <label for="time">Tijd:</label>
+                <input type="time" class="form-control" name="time" value="{{ $event->time }}" />
             </div>
  
             <div class="form-group">
