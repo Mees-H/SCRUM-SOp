@@ -21,8 +21,15 @@ Route::get('/', function () {
 Route::get('/index', [NavigationController::class, 'index']);
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
-Route::get('/gallerij', [NavigationController::class, 'gallerij']);
+Route::get('/galerij', [NavigationController::class, 'galerij']);
+Route::get('/galerij/2023', [NavigationController::class, 'J2023']);
+Route::get('/galerij/2022', [NavigationController::class, 'J2022']);
+Route::get('/galerij/2021', [NavigationController::class, 'J2021']);
 Route::get('/aanmelden', [NavigationController::class, 'aanmelden']);
 Route::get('/faq', [NavigationController::class, 'faq']);
 Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
+Route::get('/partner', [NavigationController::class, 'partner']);
+Route::get('/overons', [NavigationController::class, 'overons']);
+Route::get('/locatie', [NavigationController::class, 'locatie']);
+Route::get('/links', [NavigationController::class, 'links']);
