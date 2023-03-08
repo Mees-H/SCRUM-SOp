@@ -20,9 +20,9 @@ class NavigationController extends Controller
     {
         return view('evenement');
     }
-    function gallerij() 
+    function galerij() 
     {
-        return view('gallerij');
+        return view('galerij');
     }
     function aanmelden() 
     {
@@ -63,14 +63,14 @@ class NavigationController extends Controller
 
 
     function J2023() {
-        return view('gallerij2023');
+        return view('galerij2023');
     }
 
     function J2022() {
-        return view('gallerij2022');
+        return view('galerij2022');
     }
 
     function J2021() {
-        return view('gallerij2021');
+        return view('galerij2021');
     }
 }

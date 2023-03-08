@@ -25,15 +25,15 @@
                 <a class="nav-link {{ (request()->segment(1) == 'evenement') ? 'active' : '' }}" href="/evenement">Evenementen</a>
             </li>
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ (request()->segment(1) == 'gallerij') ? 'active' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                Gallerij
+            <a class="nav-link dropdown-toggle {{ (request()->segment(1) == 'galerij') ? 'active' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Galerij
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="/gallerij/2023">2023</a></li>
+                <li><a class="dropdown-item" href="/galerij/2023">2023</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/gallerij/2022">2022</a></li>
+                <li><a class="dropdown-item" href="/galerij/2022">2022</a></li>
                 <li><hr class="dropdown-divider"></li>
-                <li><a class="dropdown-item" href="/gallerij/2021">2021</a></li>
+                <li><a class="dropdown-item" href="/galerij/2021">2021</a></li>
             </ul>
             </li>
             <li class="nav-item">
