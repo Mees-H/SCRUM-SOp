@@ -19,8 +19,18 @@
             </h1>
 
             <div>
-                <p>Datum: {{$post->date}}</p>
-                {!!$post->body!!}
+                <p>Datum: {{$post->date}} om {{$post->time}}</p>
+                <p>{!!$post->body!!}</p>
+                <div class="row">
+                    @foreach($post->groups as $group)
+                        <div class="col-3">
+                            {{$group->name}}<br>
+                            {{$group->street}} {{$group->housenumber}}<br>
+                            {{$group->zipcode}} {{$group->city}}<br>
+                            <a href="{{$group->link}}">{{$group->link}}</a>
+                        </div>
+                    @endforeach
+                </div>
             </div>
         </article>
         <hr>
