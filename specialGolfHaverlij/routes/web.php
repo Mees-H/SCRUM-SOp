@@ -29,3 +29,7 @@ Route::get('/aanmelden', [NavigationController::class, 'aanmelden']);
 Route::get('/faq', [NavigationController::class, 'faq']);
 Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
+Route::get('/partner', [NavigationController::class, 'partner']);
+Route::get('/overons', [NavigationController::class, 'overons']);
+Route::get('/locatie', [NavigationController::class, 'locatie']);
+Route::get('/links', [NavigationController::class, 'links']);

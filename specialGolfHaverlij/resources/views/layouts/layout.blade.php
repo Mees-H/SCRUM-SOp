@@ -1,4 +1,4 @@
-<html>
+<html lang="nl">
     <head>
         <title>Special Golf Haverlij</title>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.1.3/dist/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
@@ -47,6 +47,18 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ (request()->segment(1) == 'team') ? 'active' : '' }}" href="/team">Team</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->segment(1) == 'partner') ? 'active' : '' }}" href="/partner">Partner</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->segment(1) == 'overons') ? 'active' : '' }}" href="/overons">Over Ons</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->segment(1) == 'locatie') ? 'active' : '' }}" href="/locatie">Locatie</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ (request()->segment(1) == 'links') ? 'active' : '' }}" href="/links">Links</a>
             </li>
             </ul>
         </div>

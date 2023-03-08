@@ -41,6 +41,27 @@ class NavigationController extends Controller
         return view('team');
     }
 
+    function partner() 
+    {
+        return view('partner');
+    }
+
+    function overons() 
+    {
+        return view('overons');
+    }
+
+    function locatie() 
+    {
+        return view('locatie');
+    }
+
+    function links() 
+    {
+        return view('links');
+    }
+
+
     function J2023() {
         return view('gallerij2023');
     }
