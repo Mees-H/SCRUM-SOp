@@ -40,8 +40,8 @@
                 <a class="nav-link" href="/team">Team</a>
             </li>
             </ul>
-                <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Zoek hier..." aria-label="Search">
+                <form class="form-inline my-2 my-lg-0" method="GET" action="#">
+                <input class="form-control mr-sm-2" type="search" name="search" placeholder="Zoek hier..." aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Zoeken</button>
             </form>
         </div>

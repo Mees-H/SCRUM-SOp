@@ -15,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
+    if (request('search')) {
+        
+    }
     return view('index');
 });
 
