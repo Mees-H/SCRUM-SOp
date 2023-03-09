@@ -15,11 +15,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/mail', function () {
+    return view('mailForm');
 });
 
-Route::post('/', function (Request $request){
+Route::post('/mail', function (Request $request){
     $name = $request['name'];
     $age = $request['age'];
     $eventId = $request['event_id'];

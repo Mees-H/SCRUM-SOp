@@ -8,14 +8,30 @@ use Illuminate\Mail\Mailable;
 
 class MailFactory
 {
-    public function CreateMail(string $type, $arguments){
-        switch ($type){
-            case "event_registration":
-                return $this->CreateEventRegistrationMail($arguments['name'],$arguments['event_id']);
+    private $types = [];
+    private $forbiddenMethods = ['__construct', 'CreateMail'];
+
+    public function __construct()
+    {
+        $tempTypes = get_class_methods(get_class($this));
+        foreach ($tempTypes as $tempType){
+            if(in_array($tempType,$this->forbiddenMethods)) continue;
+            array_push($this->types,$tempType);
         }
     }
 
-    private function CreateEventRegistrationMail($name,$eventId) : Mailable{
+    public function CreateMail(string $type, $arguments){
+
+        foreach ($this->types as $typee){
+            if($type == $typee){
+                return call_user_func(array($this,$typee),$arguments);
+            }
+        }
+    }
+
+    private function event_registration($arguments) : Mailable{
+        $name = $arguments['name'];
+        $eventId = $arguments['event_id'];
         $event = Event::find($eventId);
         $text = 'hallo '.$name;
         $mail = new Mail\test($name,$event->name,$event->date);

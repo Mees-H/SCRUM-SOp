@@ -9,7 +9,8 @@ use Illuminate\Support\Facades\Mail;
 class Mailer
 {
     /**
-     * params: recepients mailable
+     * @param array $recepients an array of the recipients. the first element is assumed to be the primary recipient and the rest are bcc'd.
+     * @param Mailable $mailable an object that extends laravel's Mailable class which represents the objact that is to be mailed.
      * @return void
      */
     public static function Mail($recepients, Mailable $mailable){
