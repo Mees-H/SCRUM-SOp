@@ -15,10 +15,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/mail', function () {
-    return view('mailForm');
+Route::get('/', function () {
+    return view('index');
 });
 
+Route::get('/index', [NavigationController::class, 'index']);
+Route::get('/training', [NavigationController::class, 'training']);
+Route::get('/evenement', [NavigationController::class, 'evenement']);
+Route::get('/galerij', [NavigationController::class, 'galerij']);
+Route::get('/galerij/2023', [NavigationController::class, 'J2023']);
+Route::get('/galerij/2022', [NavigationController::class, 'J2022']);
+Route::get('/galerij/2021', [NavigationController::class, 'J2021']);
+Route::get('/aanmelden', [NavigationController::class, 'aanmelden']);
+Route::get('/faq', [NavigationController::class, 'faq']);
+Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
+Route::get('/team', [NavigationController::class, 'team']);
+Route::get('/partner', [NavigationController::class, 'partner']);
+Route::get('/overons', [NavigationController::class, 'overons']);
+Route::get('/locatie', [NavigationController::class, 'locatie']);
+Route::get('/links', [NavigationController::class, 'links']);
+
+//dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
+//TODO:remove
+Route::get('/mail', function () {return view('mailForm');});
 Route::post('/mail', function (Request $request){
     $name = $request['name'];
     $age = $request['age'];
