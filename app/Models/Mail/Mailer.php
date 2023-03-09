@@ -16,12 +16,13 @@ class Mailer
      * @param boolean $toStandard determines if a mail is to be sent to the standard email adress.
      * @return void
      */
-    public static function Mail($recepients, Mailable $mailable, boolean $toStandard){
+    public static function Mail($recepients, Mailable $mailable, bool $toStandard){
+        if($toStandard){
+            array_unshift($recepients,Config('mail.to.address'));
+        }
+
         if(count($recepients)< 1){
             throw new InvalidArgumentException();
-        }
-        if($toStandard){
-            array_unshift($recepients,Config::get('mail.to.adress'));
         }
 
         $recipient = $recepients[0];

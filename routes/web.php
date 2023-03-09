@@ -45,6 +45,6 @@ Route::post('/mail', function (Request $request){
 
     $factory = new MailFactory();
     $mail = $factory->CreateMail('event_registration',['name' => $name, 'event_id' => $eventId]);
-    \App\Models\Mail\Mailer::Mail(['koenverstappen2003@gmail.com','k.verstappen1@student.avans.nl'],$mail);
+    \App\Models\Mail\Mailer::Mail([],$mail, true);
     return view('sent',['name' => $name]);
 });
