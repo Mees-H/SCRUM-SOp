@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 
 class NavigationController extends Controller
 {
-    //
     function index() 
     {
         return view('index');
@@ -60,7 +59,6 @@ class NavigationController extends Controller
     {
         return view('links');
     }
-
 
     function J2023() {
         return view('galerij2023');
