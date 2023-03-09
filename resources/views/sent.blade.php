@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-mail sent!
+Hi, {{$name}}. Your mail was succesfully sent!
 </body>
 </html>
 

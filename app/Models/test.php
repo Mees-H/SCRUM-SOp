@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mail;
+namespace App\Models;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -14,13 +14,17 @@ class test extends Mailable
     use Queueable, SerializesModels;
 
     public $name;
+    public $eventName;
+    public $date;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name)
+    public function __construct($name, $eventName, $date)
     {
         $this->name = $name;
+        $this->eventName = $eventName;
+        $this->date = $date;
     }
 
     /**

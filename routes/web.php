@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\MailFactory;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Http\Request;
 
@@ -19,5 +20,12 @@ Route::get('/', function () {
 });
 
 Route::post('/', function (Request $request){
-    echo $request->get('yeet');
+    $name = $request['name'];
+    $age = $request['age'];
+    $eventId = $request['event_id'];
+
+    $factory = new MailFactory();
+    $mail = $factory->CreateMail('event_registration',['name' => $name, 'event_id' => $eventId]);
+    \App\Models\Mailer::Mail(['koenverstappen2003@gmail.com', 'e.vangurp1@student.avans.nl'],$mail);
+    return view('sent',['name' => $name]);
 });
