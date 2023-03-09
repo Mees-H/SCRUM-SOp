@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Mail;
 
 use http\Exception\InvalidArgumentException;
 use Illuminate\Mail\Mailable;
@@ -26,7 +26,7 @@ class Mailer
         }
 
         Mail::to($recepient)
-            ->cc($bcc)
+            ->bcc($bcc)
             ->send($mailable);
     }
 

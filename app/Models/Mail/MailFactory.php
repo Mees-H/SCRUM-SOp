@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Mail;
 
-use App\Models\test;
 use App\Models\Event;
+use App\Models\Mail;
 use Illuminate\Mail\Mailable;
 
 class MailFactory
@@ -18,7 +18,7 @@ class MailFactory
     private function CreateEventRegistrationMail($name,$eventId) : Mailable{
         $event = Event::find($eventId);
         $text = 'hallo '.$name;
-        $mail = new test($name,$event->name,$event->date);
+        $mail = new Mail\test($name,$event->name,$event->date);
         return $mail;
     }
 
