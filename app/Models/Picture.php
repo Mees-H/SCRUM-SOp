@@ -5,17 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Album extends Model
+class Picture extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
-
-
-    public function picture()
+    public function album()
     {
-        return $this->hasMany(Picture::class);
+        return $this->belongsTo(Album::class);
     }
-
-
 }
