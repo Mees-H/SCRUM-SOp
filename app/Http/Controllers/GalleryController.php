@@ -8,17 +8,20 @@ class GalleryController extends Controller
 {
     public function index()
     {
-        return view('galerij', [
+        /*return view('galerij', [
             'albums' => Album::all()
-        ]);
+        ]);*/
+        $albums = Album::with('picture')->get();
+        return view('galerij', compact('albums'));
+
     }
 
-    public function show($id, $title, $date)
+/*    public function show($id)
     {
         return view('galerij', [
-            'album' => Album::findOrFail($id, $title, $date)
+            'album' => Album::findOrFail($id)
         ]);
-    }
+    }*/
     public function create()
     {
         return view('aanmakenAlbum');
@@ -26,10 +29,15 @@ class GalleryController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required'
+        ]);
+
         $album = new Album();
         $album->title = $request->title;
         $album->date = $request->date;
         $album->save();
-        return redirect()->route('galerij');
+        return redirect('/galerij')->with('success', 'Album is aangemaakt!');
     }
 }
