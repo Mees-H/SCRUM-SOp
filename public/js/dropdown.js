@@ -21,7 +21,6 @@ function FilterWords() {
     for (i = 0; i < a.length; i++) {
       curra = a[i];
       txtValue = curra.textContent || curra.innerText;
-      console.log(txtValue);
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
         a[i].style.display = "";
       } else {
