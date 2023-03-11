@@ -3,16 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Album;
+use App\Models\Picture;
 use Illuminate\Http\Request;
 class GalleryController extends Controller
 {
     public function index()
     {
-        /*return view('galerij', [
-            'albums' => Album::all()
-        ]);*/
         $albums = Album::with('picture')->get();
-        return view('galerij', compact('albums'));
+        $picture = Picture::with('album')->first('imageUrl');
+
+        return view('galerij', [
+            'albums' => $albums,
+            'picture' => $picture
+        ]);
 
     }
 
@@ -38,6 +41,12 @@ class GalleryController extends Controller
         $album->title = $request->title;
         $album->date = $request->date;
         $album->save();
-        return redirect('/galerij')->with('success', 'Album is aangemaakt!');
+
+        return redirect('/galerij')->with('success', 'Album is aangemaakt');
+    }
+
+    public function delete()
+    {
+        return view('verwijderenAlbum');
     }
 }

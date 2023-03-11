@@ -3,7 +3,7 @@
 @section('content')
     <div class="container">
         <h1>Album toevoegen</h1>
-        <form action="{{url("galerij/aanmakenAlbum")}}" method="post" enctype="multipart/form-data">
+        <form action="{{url("galerij/aanmakenAlbum")}}" type="submit" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title">Album titel</label>
@@ -14,7 +14,6 @@
                 <input type="date" name="date" class="form-control" id="date" placeholder="Datum">
             </div>
             <button type="submit" class="btn btn-primary">Album toevoegen</button>
-
         </form>
     </div>
 @stop
