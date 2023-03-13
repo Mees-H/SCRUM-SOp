@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\NavigationController;
+use App\Models\Mail\MailFactory;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -33,3 +34,17 @@ Route::get('/partner', [NavigationController::class, 'partner']);
 Route::get('/overons', [NavigationController::class, 'overons']);
 Route::get('/locatie', [NavigationController::class, 'locatie']);
 Route::get('/links', [NavigationController::class, 'links']);
+
+//dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
+//TODO:remove
+Route::get('/mail', function () {return view('mailForm');});
+Route::post('/mail', function (Request $request){
+    $name = $request['name'];
+    $age = $request['age'];
+    $eventId = $request['event_id'];
+
+    $factory = new MailFactory();
+    $mail = $factory->createMail('eventRegistration',['name' => $name, 'event_id' => $eventId]);
+    \App\Models\Mail\Mailer::Mail([],$mail, true);
+    return view('sent',['name' => $name]);
+});

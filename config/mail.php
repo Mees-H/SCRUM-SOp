@@ -102,6 +102,11 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Example'),
     ],
 
+    'to' =>[
+        'address' => env('STANDARD_MAIL_TO_ADRESS', 'specialgolfhaverleij@gmail.com'),
+        'name' => env('STANDARD_MAIL_TO_NAME', 'Special Golf Haveley')
+    ],
+
     /*
     |--------------------------------------------------------------------------
     | Markdown Mail Settings
