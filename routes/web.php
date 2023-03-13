@@ -44,7 +44,7 @@ Route::post('/mail', function (Request $request){
     $eventId = $request['event_id'];
 
     $factory = new MailFactory();
-    $mail = $factory->CreateMail('event_registration',['name' => $name, 'event_id' => $eventId]);
+    $mail = $factory->createMail('eventRegistration',['name' => $name, 'event_id' => $eventId]);
     \App\Models\Mail\Mailer::Mail([],$mail, true);
     return view('sent',['name' => $name]);
 });

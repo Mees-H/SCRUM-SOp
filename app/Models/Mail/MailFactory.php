@@ -30,7 +30,7 @@ class MailFactory
      * @param array $arguments dictionary with as keys the variable names
      * @return Mailable an object that extends the mailable class and is ready to be sent.
      */
-    public function CreateMail(string $type, $arguments) : Mailable{
+    public function createMail(string $type, $arguments) : Mailable{
 
         foreach ($this->types as $typee){
             if($type == $typee){
@@ -40,7 +40,7 @@ class MailFactory
         throw new InvalidArgumentException('the right method was not found.');
     }
 
-    private function event_registration($arguments) : Mailable{
+    private function eventRegistration($arguments) : Mailable{
         $name = $arguments['name'];
         $eventId = $arguments['event_id'];
         $event = Event::find($eventId);
