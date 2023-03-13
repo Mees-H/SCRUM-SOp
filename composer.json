@@ -13,6 +13,7 @@
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
+        "laravel/dusk": "^7.7",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
         "mockery/mockery": "^1.4.4",
@@ -48,9 +49,6 @@
         ]
     },
     "extra": {
-        "branch-alias": {
-            "dev-master": "10.x-dev"
-        },
         "laravel": {
             "dont-discover": []
         }
@@ -60,7 +58,8 @@
         "preferred-install": "dist",
         "sort-packages": true,
         "allow-plugins": {
-            "pestphp/pest-plugin": true
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
         }
     },
     "minimum-stability": "stable",
