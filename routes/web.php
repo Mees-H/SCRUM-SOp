@@ -3,6 +3,8 @@
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\EnrollController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +50,5 @@ Route::post('/mail', function (Request $request){
     \App\Models\Mail\Mailer::Mail([],$mail, true);
     return view('sent',['name' => $name]);
 });
+
+Route::post('/aanmelden', [EnrollController::class, 'mail']);
