@@ -18,7 +18,9 @@
                     <td>ID</td>
                     <td>Titel</td>
                     <td>Datum</td>
+                    <td>Tijd</td>
                     <td>Tekst</td>
+                    <td>Groepen</td>
                     <td colspan = 2>Actions</td>
                 </tr>
             </thead>
@@ -28,7 +30,13 @@
                         <td>{{$event->id}}</td>
                         <td>{{$event->title}} </td>
                         <td>{{$event->date}}</td>
+                        <td>{{$event->time}}</td>
                         <td>{{$event->body}}</td>
+                        <td>
+                            @foreach($event->groups as $group)
+                                {{$group->name}}<br>
+                            @endforeach
+                        </td>
                         <td>
                             <a href="{{ route('events.edit',$event->id)}}" class="btn btn-primary">Edit</a>
                         </td>

@@ -7,6 +7,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Event;
+use App\Models\Group;
 
 class EventController extends Controller
 {
@@ -37,16 +38,30 @@ class EventController extends Controller
             'body' => 'required',
             'date' => 'required',
         ]);
+
+        $groups = explode(', ', $request->get('groups'));
+
         $event = new Event([
             'title' => $request->get('title'),
             'id' => $request->get('id'),
             'date' => $request->get('date'),
+            'time' => $request->get('time'),
             'slug' => 'event_' . $request->get('id'),
             'body' => $request->get('body'),
             'created_at' => $request->get('created_at'),
             'updated_at' => $request->get('updated_at'),
         ]);
+
         $event->save();
+        $event->slug = $event->slug . $event->id;
+        ddd($event);
+
+        foreach($groups as $groupName){
+            $group = Group::where('name', $groupName)->first();
+            $event->groups()->attach($group->id);
+        }
+        $event->save();
+
         return redirect('/events')->with('success', 'Evenement opgeslagen.');
     }
 
@@ -80,6 +95,7 @@ class EventController extends Controller
         $event = Event::find($id);
         $event->title = $request->get('title');
         $event->date = $request->get('date');
+        $event->time = $request->get('time');
         $event->body = $request->get('body');
         $event->updated_at = $request->get('updated_at');
         $event->save();
