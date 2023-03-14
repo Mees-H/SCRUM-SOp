@@ -42,10 +42,16 @@ class MailFactory
 
     private function eventRegistration($arguments) : Mailable{
         $name = $arguments['name'];
+        $birthday = $arguments['birthday'];
+        $email = $arguments['email'];
+        $phonenumber = $arguments['phonenumber'];
+        $address = $arguments['address'];
+        $city = $arguments['city'];
+        $disability = $arguments['disability'];
         $eventId = $arguments['event_id'];
         $event = Event::find($eventId);
         $text = 'hallo '.$name;
-        $mail = new Mail\test($name,$event->name,$event->date);
+        $mail = new Mail\RegisterMail($name,$birthday,$email,$phonenumber,$address,$city,$disability,$event->name,$event->date);
         return $mail;
     }
 
