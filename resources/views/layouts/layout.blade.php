@@ -7,9 +7,9 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ asset('css/app.css')}}">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="{{ asset('/js/dropdown.js') }}" defer></script>
- 
+
     </head>
     <body>
         <nav class="navbar navbar-expand-xl navbar-light bg-light">
@@ -33,13 +33,15 @@
             <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
                 Galerij
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/galerij/2023">2023</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/galerij/2022">2022</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/galerij/2021">2021</a>
-            </div>
+
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @if(isset($allYears))
+                        @foreach($allYears as $year)
+                            <li><a class="dropdown-item" href="{{ route('galerij_jaar', $year) }}">{{$year}}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                        @endforeach
+                    @endif
+                </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'aanmelden') ? 'font-weight-bold' : '' }}" href="/aanmelden">Aanmelden</a>
@@ -112,11 +114,11 @@
                         Links
                     </a></li>
                 </ul>
-                </form>	             
-            
+                </form>
+
         </div>
         </nav>
-        
+
 
 
         <div class="container">

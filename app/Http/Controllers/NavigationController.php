@@ -3,62 +3,86 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Album;
 use Illuminate\Http\Request;
 use App\Models\Event;
 
 class NavigationController extends Controller
 {
-    function index() 
+    function index()
     {
+
         return view('index');
     }
-    function training() 
+    function training()
     {
         return view('training');
     }
-    function evenement() 
+    function evenement()
     {
         return view('evenement', ['posts' => Event::all()]);
     }
-    function galerij() 
+    function galerij()
     {
-        return view('galerij');
+        $allYears = $this->allYears();
+        return view('galerij', [
+            'allYears' => $allYears
+        ]);
     }
-    function aanmelden() 
+
+    function dropdown()
+    {
+        $allYears = $this->allYears();
+        return view('dropdownYears', [
+            'allYears' => $allYears
+        ]);
+    }
+
+    function aanmelden()
     {
         return view('aanmelden');
     }
-    function faq() 
+    function faq()
     {
         return view('faq');
     }
-    function nieuwsbrief() 
+    function nieuwsbrief()
     {
         return view('nieuwsbrief');
     }
-    function team() 
+    function team()
     {
         return view('team');
     }
 
-    function partner() 
+    function partner()
     {
         return view('partner');
     }
 
-    function overons() 
+    function overons()
     {
         return view('overons');
     }
 
-    function locatie() 
+    function locatie()
     {
         return view('locatie');
     }
 
-    function links() 
+    function links()
     {
         return view('links');
+    }
+    function allYears(){
+        //jaar eruit filteren
+        $allYears = array();
+        $years = Album::with('picture')->select('date')->get();
+        foreach ($years as $year) {
+            $allYears[] = date('Y', strtotime($year->date));
+        }
+        //distinct maken op basis van jaar
+        return array_unique($allYears);
     }
 
     function J2023() {
