@@ -19,20 +19,35 @@ class GalleryController extends Controller
     public function show($id)
     {
         $album = Album::with('picture')->find($id);
+        $year = date('Y', strtotime($album->date));
         $pictures = Picture::with('album')->where('album_id', $id)->get();
+
         return view('showAlbum', [
             'album' => $album,
-            'pictures' => $pictures
+            'pictures' => $pictures,
+            'year' => $year
         ]);
     }
 
     public function showGallery($year)
     {
-        $albums = Album::with('picture')->find($year);
+        $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get();
 
-        return view('galerij', [
+        return view('galerijYear', [
             'albums' => $albums,
+            'year' => $year
         ]);
+    }
+
+    function ShowAYearsOfGallerys(){
+        //jaar eruit filteren
+        $allYears = array();
+        $years = Album::with('picture')->select('date')->get();
+        foreach ($years as $year) {
+            $allYears[] = date('Y', strtotime($year->date));
+        }
+        //distinct maken op basis van jaar
+        return array_unique($allYears);
     }
 
 

@@ -12,6 +12,6 @@ class Picture extends Model
     public $timestamps = false;
     public function album()
     {
-        return $this->belongsTo(Album::class);
+        return $this->belongsTo(Album::class, 'album_id', 'id');
     }
 }

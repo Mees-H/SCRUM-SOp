@@ -22,21 +22,7 @@ class NavigationController extends Controller
     {
         return view('evenement', ['posts' => Event::all()]);
     }
-    function galerij()
-    {
-        $allYears = $this->allYears();
-        return view('galerij', [
-            'allYears' => $allYears
-        ]);
-    }
 
-    function dropdown()
-    {
-        $allYears = $this->allYears();
-        return view('dropdownYears', [
-            'allYears' => $allYears
-        ]);
-    }
 
     function aanmelden()
     {
@@ -74,26 +60,6 @@ class NavigationController extends Controller
     {
         return view('links');
     }
-    function allYears(){
-        //jaar eruit filteren
-        $allYears = array();
-        $years = Album::with('picture')->select('date')->get();
-        foreach ($years as $year) {
-            $allYears[] = date('Y', strtotime($year->date));
-        }
-        //distinct maken op basis van jaar
-        return array_unique($allYears);
-    }
 
-    function J2023() {
-        return view('galerij2023');
-    }
 
-    function J2022() {
-        return view('galerij2022');
-    }
-
-    function J2021() {
-        return view('galerij2021');
-    }
 }
