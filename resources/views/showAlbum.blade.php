@@ -7,12 +7,12 @@
     <body>
 
         <div class="col justify-content-start">
-            <button class="btn btn-outline-secondary mt-4 text-right" onclick="window.location='{{url("/galerij/{$year}")}}'">Terug</button>
+            <button class="btn btn-outline-secondary mt-4 text-right" name="Terugknop naar galerij" onclick="window.location='{{url("/galerij/{$year}")}}'">Terug</button>
         </div>
             <div class="col text-center">
 
-            <h1 class="">{{$album->date }} | {{$album->title}}</h1>
-            <article class="">
+            <h1>{{$album->date }} | {{$album->title}}</h1>
+            <article>
                 {{$album->description}}
             </article>
             </div>

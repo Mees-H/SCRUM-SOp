@@ -7,15 +7,16 @@ use App\Models\Picture;
 use Illuminate\Http\Request;
 class GalleryController extends Controller
 {
-    public function index()
-    {
-        $albums = Album::with('picture')->get();
 
-        return view('galerij', [
+    public function showGallery($year)
+    {
+        $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
+
+        return view('galerijYear', [
             'albums' => $albums,
+            'year' => $year
         ]);
     }
-
     public function show($id)
     {
         $album = Album::with('picture')->find($id);
@@ -25,16 +26,6 @@ class GalleryController extends Controller
         return view('showAlbum', [
             'album' => $album,
             'pictures' => $pictures,
-            'year' => $year
-        ]);
-    }
-
-    public function showGallery($year)
-    {
-        $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get();
-
-        return view('galerijYear', [
-            'albums' => $albums,
             'year' => $year
         ]);
     }

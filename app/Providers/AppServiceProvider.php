@@ -2,9 +2,8 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\ServiceProvider;
-use App\Http\Controllers\NavigationController;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**

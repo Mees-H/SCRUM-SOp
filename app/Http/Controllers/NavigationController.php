@@ -23,7 +23,6 @@ class NavigationController extends Controller
         return view('evenement', ['posts' => Event::all()]);
     }
 
-
     function aanmelden()
     {
         return view('aanmelden');
@@ -60,6 +59,4 @@ class NavigationController extends Controller
     {
         return view('links');
     }
-
-
 }
