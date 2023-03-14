@@ -38,7 +38,7 @@ class MailFactory
                 return $response;
             }
         }
-        throw new InvalidArgumentException(message: 'the right method was not found.');
+        throw new InvalidArgumentException(message: 'de aangegeven methode werd niet gevonden');
     }
 
     /**
@@ -48,7 +48,7 @@ class MailFactory
      */
     private function eventRegistration($arguments) : Mailable{
         if($arguments['name'] == null || $arguments['event_id'] == null){
-            throw new InvalidArgumentException(message: 'the right arguments were not found.');
+            throw new InvalidArgumentException(message: 'de juiste argumenten werden niet gevonden');
         }
         $name = $arguments['name'];
         $eventId = $arguments['event_id'];
