@@ -20,9 +20,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        $allYears = (new \App\Http\Controllers\NavigationController)->allYears();
+        $allYears = (new \App\Http\Controllers\GalleryController())->ShowAYearsOfGallerys();
         view()->share('allYears', $allYears);
-        Cache::forever('allYears', $allYears);
-
     }
 }

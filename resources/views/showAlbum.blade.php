@@ -7,11 +7,11 @@
     <body>
 
         <div class="col justify-content-start">
-            <button class="btn btn-outline-secondary mt-4 text-right" onclick="window.location='{{url("/galerij")}}'">Terug</button>
+            <button class="btn btn-outline-secondary mt-4 text-right" onclick="window.location='{{url("/galerij/{$year}")}}'">Terug</button>
         </div>
-
             <div class="col text-center">
-            <h1 class="">{{$album->date}} | {{$album->title}}</h1>
+
+            <h1 class="">{{$album->date }} | {{$album->title}}</h1>
             <article class="">
                 {{$album->description}}
             </article>
