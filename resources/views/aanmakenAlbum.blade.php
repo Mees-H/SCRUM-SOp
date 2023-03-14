@@ -10,6 +10,10 @@
                 <input type="text" name="title" class="form-control" id="title">
             </div>
             <div class="form-group">
+                <label for="description">Omschrijving van de album</label>
+                <input type="text" name="description" class="form-control" id="description" placeholder="Omschrijving">
+            </div>
+            <div class="form-group">
                 <label for="date">Datum gemaakte foto's</label>
                 <input type="date" name="date" class="form-control" id="date" placeholder="Datum">
             </div>

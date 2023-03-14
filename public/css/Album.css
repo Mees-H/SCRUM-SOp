@@ -1,0 +1,17 @@
+ h1{
+     color: #8d7824;
+     margin-top:10px;
+ }
+ div img{
+     width: 400px;
+     height: 350px;
+     object-fit: cover;
+ }
+
+article{
+    margin-top: 10px;
+    margin-bottom: 50px;
+    padding: 10px;
+    color: #1a202c;
+    font-family: "Museo Sans 500", sans-serif;
+}
