@@ -16,8 +16,11 @@ footer {
  flex-direction: column;
  text-align: center;
  padding-top: 10px;
+ 
 }
-
+.footer-info{
+ flex-direction: column;
+}
 .footer-content p {
  max-width: 500px;
  margin: auto;
@@ -57,3 +60,4 @@ footer {
 .socials a:hover i {
  color: grey;
 }
+
