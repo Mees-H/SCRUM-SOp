@@ -2,13 +2,10 @@
 
 namespace App\Models\Mail;
 
+use App\Exceptions\invalidArgumentException;
 use App\Models\Event;
 use App\Models\Mail;
-use http\Exception\InvalidArgumentException;
-use http\Exception\RuntimeException;
 use Illuminate\Mail\Mailable;
-use Illuminate\Process\Exceptions\ProcessFailedException;
-use mysql_xdevapi\Exception;
 
 class MailFactory
 {
@@ -32,22 +29,16 @@ class MailFactory
      * @param array $arguments dictionary with as keys the variable names
      * @return Mailable an object that extends the mailable class and is ready to be sent.
      * @throws InvalidArgumentException if the method was not found
-     * @throws RuntimeException if the underlying method did not return a Mailable
      */
     public function createMail(string $type, $arguments) : Mailable{
 
         foreach ($this->types as $typee){
             if($type == $typee){
                 $response = call_user_func(array($this,$typee),$arguments);
-                if($response::extends(Mailable::class)){
-                    return $response;
-                }else{
-                    throw new RuntimeException('the underlying method did not return a Mailable');
-                }
-
+                return $response;
             }
         }
-        throw new InvalidArgumentException('the right method was not found.');
+        throw new InvalidArgumentException(message: 'the right method was not found.');
     }
 
     /**
@@ -57,7 +48,7 @@ class MailFactory
      */
     private function eventRegistration($arguments) : Mailable{
         if($arguments['name'] == null || $arguments['event_id'] == null){
-            throw new InvalidArgumentException('the right arguments were not found.');
+            throw new InvalidArgumentException(message: 'the right arguments were not found.');
         }
         $name = $arguments['name'];
         $eventId = $arguments['event_id'];
