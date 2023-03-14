@@ -13,14 +13,14 @@ class MailFactoryTest extends TestCase
     public function test_eventRegistrationTest_FalseMethodName_shouldFail(): void
     {
         $factory = new MailFactory();
-        $this->expectException(\App\Exceptions\invalidArgumentException::class);
+        $this->expectException(\App\Exceptions\InvalidArgumentException::class);
         $factory->createMail('', ['name' => 'test', 'event_id' => 1]);
     }
 
     public function test_eventRegistrationTest_EmptyArguments_shouldFail(): void
     {
         $factory = new MailFactory();
-        $this->expectException(\App\Exceptions\invalidArgumentException::class);
+        $this->expectException(\App\Exceptions\InvalidArgumentException::class);
         $mail = $factory->createMail('eventRegistration', []);
     }
 }

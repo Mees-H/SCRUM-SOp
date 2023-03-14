@@ -2,7 +2,7 @@
 
 namespace App\Models\Mail;
 
-use App\Exceptions\invalidArgumentException;
+use App\Exceptions\InvalidArgumentException;
 use App\Models\Event;
 use App\Models\Mail;
 use Illuminate\Mail\Mailable;
