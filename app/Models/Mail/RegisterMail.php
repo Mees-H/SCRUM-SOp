@@ -13,15 +13,27 @@ class RegisterMail extends Mailable
     use Queueable, SerializesModels;
 
     public $name;
+    public $birthday;
+    public $email;
+    public $phonenumber;
+    public $address;
+    public $city;
+    public $disability;
     public $eventName;
     public $date;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $eventName, $date)
+    public function __construct($name, $birthday, $email, $phonenumber, $address, $city, $disability, $eventName, $date)
     {
         $this->name = $name;
+        $this->birthday = $birthday;
+        $this->email = $email;
+        $this->phonenumber = $phonenumber;
+        $this->address = $address;
+        $this->city = $city;
+        $this->disability = $disability;
         $this->eventName = $eventName;
         $this->date = $date;
     }
@@ -42,7 +54,7 @@ class RegisterMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.test'
+            view: 'emails.registrationmail'
         );
     }
 

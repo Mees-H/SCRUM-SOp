@@ -12,7 +12,8 @@ class EnrollController extends Controller
     function mail(Request $request) 
     {
         //TODO: Implementeer mailstuff
-        MailFactory::createMail('eventRegistration', 
+        $mailFactory = new MailFactory();
+        $mail = $mailFactory->createMail('eventRegistration', 
                                 ['name' => $request['name'], 'birthday' => $request['birthday'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $request['disability'], 'event_id' => $request['event_id']]);
         Mailer::Mail([], $mail, true);
         return redirect('aanmelden')->with('success', 'Uw aanmelding is verzonden!');

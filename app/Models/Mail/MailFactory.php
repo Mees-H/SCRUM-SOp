@@ -2,7 +2,7 @@
 
 namespace App\Models\Mail;
 
-use App\Models\Event;
+use App\Models\TestEvent;
 use App\Models\Mail;
 use http\Exception\InvalidArgumentException;
 use Illuminate\Mail\Mailable;
@@ -49,7 +49,7 @@ class MailFactory
         $city = $arguments['city'];
         $disability = $arguments['disability'];
         $eventId = $arguments['event_id'];
-        $event = Event::find($eventId);
+        $event = TestEvent::find($eventId);
         $text = 'hallo '.$name;
         $mail = new Mail\RegisterMail($name,$birthday,$email,$phonenumber,$address,$city,$disability,$event->name,$event->date);
         return $mail;
