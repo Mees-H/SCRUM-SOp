@@ -3,7 +3,7 @@
 namespace Tests\Unit;
 
 use App\Models\Mail\MailFactory;
-use http\Exception\InvalidArgumentException;
+use App\Exceptions\InvalidArgumentException;
 use Illuminate\Mail\Mailable;
 use PHPUnit\Framework\TestCase;
 
