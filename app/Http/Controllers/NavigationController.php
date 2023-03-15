@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Slider;
 
 class NavigationController extends Controller
 {
     function index() 
     {
-        return view('index');
+        $sliders = Slider::all();
+        return view('index', compact('sliders'));
     }
     function training() 
     {

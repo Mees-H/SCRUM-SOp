@@ -3,6 +3,8 @@
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\http\Controllers\SliderController;
+use App\http\Controllers\NavigationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-
+Route::get('/', [NavigationController::class, 'index']);
 Route::get('/index', [NavigationController::class, 'index']);
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
@@ -34,6 +33,11 @@ Route::get('/partner', [NavigationController::class, 'partner']);
 Route::get('/overons', [NavigationController::class, 'overons']);
 Route::get('/locatie', [NavigationController::class, 'locatie']);
 Route::get('/links', [NavigationController::class, 'links']);
+
+
+//Resource routes
+
+Route::resource('slider', SliderController::class);
 
 //dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
 //TODO:remove
