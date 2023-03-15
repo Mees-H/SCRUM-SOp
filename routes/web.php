@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\http\Controllers\SliderController;
 use App\http\Controllers\NavigationController;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
