@@ -1,14 +1,20 @@
 let dropdown = document.getElementById("dropdown");
 let content = document.getElementById("content");
 
-dropdown.onclick = function(){
-    if (content.classList.contains("d-none")) {
-        content.classList.remove("d-none");
-    }
-    else {
-        content.classList.add("d-none");
-    }
-};
+
+function showContent(){
+  if (content.classList.contains("d-none")) {
+      content.classList.remove("d-none");
+  }
+  else {
+      content.classList.add("d-none");
+  }
+}
+
+dropdown.addEventListener("focusin", showContent);
+dropdown.addEventListener("focusout", function() {
+  setTimeout(showContent, 100)});
+
 
 function FilterWords() {
     var input, filter, div, a, curra, i, txtValue;
