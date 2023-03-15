@@ -35,11 +35,13 @@
             </a>
 
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    @if(isset($allYears))
+                    @if(count($allYears) > 0)
                         @foreach($allYears as $year)
                             <li><a class="dropdown-item" href="{{ route('galerij_jaar', $year) }}">{{$year}}</a></li>
                             <li><hr class="dropdown-divider"></li>
                         @endforeach
+                    @else
+                        <li><a class="dropdown-item">Nog geen galerij zichtbaar</a></li>
                     @endif
                 </ul>
             </li>
