@@ -1,6 +1,7 @@
 let dropdown = document.getElementById("dropdown");
 let content = document.getElementById("content");
 
+
 function showContent(){
   if (content.classList.contains("d-none")) {
       content.classList.remove("d-none");
@@ -11,7 +12,9 @@ function showContent(){
 }
 
 dropdown.addEventListener("focusin", showContent);
-dropdown.addEventListener("focusout", showContent);
+dropdown.addEventListener("focusout", function() {
+  setTimeout(showContent, 100)});
+
 
 function FilterWords() {
     var input, filter, div, a, curra, i, txtValue;
