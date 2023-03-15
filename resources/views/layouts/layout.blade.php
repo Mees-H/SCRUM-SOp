@@ -118,7 +118,8 @@
                 Links
             </a>
         </div>
-        
+
+
         <div class="container">
             @yield('content')
         </div>
@@ -130,10 +131,10 @@
           <p>KvK nr. 88714543 - RSIN 864744328 - ANBI</p>
           </div>
           <ul class='socials'>
-             <li alt="link naar het facebook account"><a href=https://www.facebook.com/DeHaverleij/?locale=nl_NL ><i class="fa-brands fa-facebook" ></i></a></li>
-             <li  alt="link naar het instagram account"><a href=https://www.instagram.com/specialgolf2021/><i class="fa-brands fa-instagram"></i></a></li>
-             <li  alt="link naar het twitter account"><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-             <li  alt="link naar het linkedin account"><a href="#"><i class="fa-brands fa-linkedin"></i></a></li>
+             <li><a alt="link naar het facebook account" href=https://www.facebook.com/DeHaverleij/?locale=nl_NL  ><i class="fa-brands fa-facebook" ></i></a></li>
+             <li><a alt="link naar het instagram account" href=https://www.instagram.com/specialgolf2021/  ><i class="fa-brands fa-instagram"></i></a></li>
+             <!-- <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+             <li><a href="#"><i class="fa-brands fa-linkedin"></i></a></li> -->
           </ul>
 
           </div>
