@@ -30,7 +30,8 @@ class MailFactory
      * @param array $arguments dictionary with as keys the variable names
      * @return Mailable an object that extends the mailable class and is ready to be sent.
      */
-    public function createMail(string $type, $arguments) : Mailable{
+    public function createMail(string $type, $arguments) : Mailable
+    {
 
         foreach ($this->types as $typee){
             if($type == $typee){
@@ -40,7 +41,26 @@ class MailFactory
         throw new InvalidArgumentException('the right method was not found.');
     }
 
-    private function eventRegistration($arguments) : Mailable{
+    private function eventRegistration($arguments) : Mailable
+    {
+        foreach($arguments as $key => $value) {
+            if($value === '') {
+                throw new InvalidArgumentException('argument is empty');
+            }
+
+            if($key == 'name' || $key == 'city') {
+                if(!$this->validateWordsOnly($value)) throw new InvalidArgumentException('the right arguments were not found.');
+            }
+            if($key == 'email') {
+                if(!$this->validateEmail($value)) throw new InvalidArgumentException('the right arguments were not found.');
+            }
+            if($key == 'phonenumber') {
+                if(!$this->validatePhonenumber($value)) throw new InvalidArgumentException('the right arguments were not found.');
+            }
+            if($key == 'address' || $key == 'disability') {
+                if(!$this->generalValidation($value)) throw new InvalidArgumentException('the right arguments were not found.');
+            }
+        }
         $name = $arguments['name'];
         $birthday = $arguments['birthday'];
         $email = $arguments['email'];
@@ -53,6 +73,43 @@ class MailFactory
         $text = 'hallo '.$name;
         $mail = new Mail\RegisterMail($name,$birthday,$email,$phonenumber,$address,$city,$disability,$event->name,$event->date);
         return $mail;
+    }
+
+    private function generalValidation($argument) 
+    {
+        if (preg_match('/[^;="]/', $argument)) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    private function validateWordsOnly($string) 
+    {
+        if (preg_match('/^[a-zA-Z -\']+$/', $string) && generalValidation($string)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private function validateEmail($string) 
+    {
+        if (filter_var($string, FILTER_VALIDATE_EMAIL) && generalValidation($string)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    private function validatePhonenumber($number) 
+    {
+        $number = preg_replace('/[\D]/', '', $number);
+        if(strlen($number) == 10) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
 }

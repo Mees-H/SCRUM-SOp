@@ -16,7 +16,7 @@
     <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name">
   </div>
   <div class="form-group">
-    <label for="birthday">Leeftijd</label>
+    <label for="birthday">Geboortedatum</label>
     <input type="date" class="form-control" id="birthday" name="birthday">
   </div>
   <div class="form-group">
