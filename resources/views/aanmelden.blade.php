@@ -1,5 +1,5 @@
 @extends('layouts.layout')
- 
+
 @section('content')
 <h1>Inschrijven voor Evenement</h1>
 
@@ -16,7 +16,7 @@
     <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name">
   </div>
   <div class="form-group">
-    <label for="birthday">Leeftijd</label>
+    <label for="birthday">geboortedatum</label>
     <input type="date" class="form-control" id="birthday" name="birthday">
   </div>
   <div class="form-group">
@@ -40,10 +40,10 @@
     <input type="text" class="form-control" id="disability" placeholder="Vul hier uw verstandelijke beperking(en) in" name="disability">
   </div>
   <div class="form-group">
-    <label for="event_id">EventId</label>
+    <label for="event_id">evenement nummer</label>
     <input type="text" class="form-control" id="event_id" placeholder="" name="event_id">
   </div>
   <button type="submit" class="btn btn-primary">Verzend inschrijving</button>
-</form> 
+</form>
 
 @stop
