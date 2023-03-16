@@ -51,16 +51,16 @@ class MailFactory
             }
 
             if($key == 'name' || $key == 'city') {
-                if(!$this->validateWordsOnly($value)) throw new InvalidArgumentException('the right arguments were not found.');
+                if(!$this->validateWordsOnly($value)) throw new InvalidArgumentException('Name or city is invalid');
             }
             if($key == 'email') {
-                if(!$this->validateEmail($value)) throw new InvalidArgumentException('the right arguments were not found.');
+                if(!$this->validateEmail($value)) throw new InvalidArgumentException('Email is invalid');
             }
             if($key == 'phonenumber') {
-                if(!$this->validatePhonenumber($value)) throw new InvalidArgumentException('the right arguments were not found.');
+                if(!$this->validatePhonenumber($value)) throw new InvalidArgumentException('Phonenumber is invalid');
             }
             if($key == 'address' || $key == 'disability') {
-                if(!$this->generalValidation($value)) throw new InvalidArgumentException('the right arguments were not found.');
+                if(!$this->generalValidation($value)) throw new InvalidArgumentException('Address or disability is invalid');
             }
         }
         $name = $arguments['name'];
