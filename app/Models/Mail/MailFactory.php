@@ -80,7 +80,7 @@ class MailFactory
 
     private function generalValidation($argument) 
     {
-        if (preg_match('/[^;="]/', $argument)) {
+        if (preg_match('/[;="]/', $argument)) {
             return false;
         } else {
             return true;
@@ -89,7 +89,7 @@ class MailFactory
 
     private function validateWordsOnly($string) 
     {
-        if (preg_match('/^[a-zA-Z -\']+$/', $string) && $this->generalValidation($string)) {
+        if (preg_match('/[-a-zA-Z \']/', $string) && $this->generalValidation($string)) {
             return true;
         } else {
             return false;
@@ -98,7 +98,7 @@ class MailFactory
 
     private function validateEmail($string) 
     {
-        if (filter_var($string, FILTER_VALIDATE_EMAIL) && generalValidation($string)) {
+        if (filter_var($string, FILTER_VALIDATE_EMAIL) && $this->generalValidation($string)) {
             return true;
         } else {
             return false;
