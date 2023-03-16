@@ -3,8 +3,8 @@
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\http\Controllers\SliderController;
-use App\http\Controllers\NavigationController;
+use App\Http\Controllers\SliderController;
+use App\Http\Controllers\NavigationController;
 
 
 /*
