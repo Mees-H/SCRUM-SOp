@@ -107,11 +107,10 @@ class MailFactory
 
     private function validatePhonenumber($number) 
     {
-        $number = preg_replace('/[\D]/', '', $number);
-        if(strlen($number) == 10) {
-            return true;
-        } else {
+        if (preg_match('/[a-zA-Z]/', $number) && $this->generalValidation($string)) {
             return false;
+        } else {
+            return true;
         }
     }
 

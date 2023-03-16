@@ -17,7 +17,7 @@ class EnrollForEventTest extends DuskTestCase
             $browser->visit('/aanmelden')
                     ->assertSee('Inschrijven voor Evenement')
                     ->type('name', 'Test')
-                    ->type('birthday', '2000-01-01')
+                    ->type('birthday', '01-01-2000')
                     ->type('email', 'test@gmail.com')
                     ->type('phonenumber', '0612345678')
                     ->type('address', 'Teststraat 1')
