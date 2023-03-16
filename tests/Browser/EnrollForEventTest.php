@@ -18,13 +18,13 @@ class EnrollForEventTest extends DuskTestCase
                     ->assertSee('Inschrijven voor Evenement')
                     ->type('name', 'Test')
                     ->type('birthday', '2000-01-01')
-                    ->type('email', 'test@gmail.com')
+                    ->type('emailaddress', 'test@gmail.com')
                     ->type('phonenumber', '0612345678')
                     ->type('address', 'Teststraat 1')
                     ->type('city', 'Teststad')
                     ->type('disability', 'Geen')
                     ->type('event_id', '1')
-                    ->press('Aanmelden')
+                    ->press('aanmeldknop')
                     ->assertSee('success');
         });
     }
