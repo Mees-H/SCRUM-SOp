@@ -20,8 +20,8 @@
     <input type="date" class="form-control" id="birthday" name="birthday">
   </div>
   <div class="form-group">
-    <label for="emailaddress">Email adres</label>
-    <input type="email" class="form-control" id="emailaddress" placeholder="bv: jandegraaf@gmail.com" name="emailaddress">
+    <label for="email">Email adres</label>
+    <input type="email" class="form-control" id="email" placeholder="bv: jandegraaf@gmail.com" name="email">
   </div>
   <div class="form-group">
     <label for="phonenumber">Telefoonnummer</label>

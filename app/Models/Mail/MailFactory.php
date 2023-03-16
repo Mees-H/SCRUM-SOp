@@ -51,16 +51,16 @@ class MailFactory
             }
 
             if($key == 'name' || $key == 'city') {
-                if(!$this->validateWordsOnly($value)) throw new InvalidArgumentException('the right arguments were not found.');
+                if(!$this->validateWordsOnly($value)) throw new InvalidArgumentException('Name or city is invalid');
             }
             if($key == 'email') {
-                if(!$this->validateEmail($value)) throw new InvalidArgumentException('the right arguments were not found.');
+                if(!$this->validateEmail($value)) throw new InvalidArgumentException('Email is invalid');
             }
             if($key == 'phonenumber') {
-                if(!$this->validatePhonenumber($value)) throw new InvalidArgumentException('the right arguments were not found.');
+                if(!$this->validatePhonenumber($value)) throw new InvalidArgumentException('Phonenumber is invalid');
             }
             if($key == 'address' || $key == 'disability') {
-                if(!$this->generalValidation($value)) throw new InvalidArgumentException('the right arguments were not found.');
+                if(!$this->generalValidation($value)) throw new InvalidArgumentException('Address or disability is invalid');
             }
         }
         $name = $arguments['name'];
@@ -80,7 +80,7 @@ class MailFactory
 
     private function generalValidation($argument) 
     {
-        if (preg_match('/[^;="]/', $argument)) {
+        if (preg_match('/[;="]/', $argument)) {
             return false;
         } else {
             return true;
@@ -89,7 +89,7 @@ class MailFactory
 
     private function validateWordsOnly($string) 
     {
-        if (preg_match('/^[a-zA-Z -\']+$/', $string) && $this->generalValidation($string)) {
+        if (preg_match('/[-a-zA-Z \']/', $string) && $this->generalValidation($string)) {
             return true;
         } else {
             return false;
@@ -98,7 +98,7 @@ class MailFactory
 
     private function validateEmail($string) 
     {
-        if (filter_var($string, FILTER_VALIDATE_EMAIL) && generalValidation($string)) {
+        if (filter_var($string, FILTER_VALIDATE_EMAIL) && $this->generalValidation($string)) {
             return true;
         } else {
             return false;

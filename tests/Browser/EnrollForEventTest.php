@@ -25,7 +25,7 @@ class EnrollForEventTest extends DuskTestCase
                     ->type('disability', 'Geen')
                     ->type('event_id', '1')
                     ->press('aanmeldknop')
-                    ->assertSee('success');
+                    ->assertSee('Uw aanmelding is verzonden!');
         });
     }
 }
