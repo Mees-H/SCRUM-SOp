@@ -59,10 +59,11 @@ class MailFactory
             if($key == 'phonenumber') {
                 if(!$this->validatePhonenumber($value)) throw new InvalidArgumentException('Phonenumber is invalid');
             }
-            if($key == 'address' || $key == 'disability') {
+            if($key == 'address') {
                 if(!$this->generalValidation($value)) throw new InvalidArgumentException('Address or disability is invalid');
             }
         }
+
         $name = $arguments['name'];
         $birthday = $arguments['birthday'];
         $email = $arguments['email'];
@@ -72,7 +73,6 @@ class MailFactory
         $disability = $arguments['disability'];
         $eventId = $arguments['event_id'];
         $event = TestEvent::find($eventId);
-//        ddd($event);
         $text = 'hallo '.$name;
         $mail = new Mail\RegisterMail($name,$birthday,$email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
         return $mail;
@@ -89,7 +89,7 @@ class MailFactory
 
     private function validateWordsOnly($string) 
     {
-        if (preg_match('/[-a-zA-Z \']/', $string) && $this->generalValidation($string)) {
+        if (preg_match('/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.\'-]+$/u', $string) && $this->generalValidation($string)) {
             return true;
         } else {
             return false;
