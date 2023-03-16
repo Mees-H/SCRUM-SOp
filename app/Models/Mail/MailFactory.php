@@ -70,8 +70,9 @@ class MailFactory
         $disability = $arguments['disability'];
         $eventId = $arguments['event_id'];
         $event = TestEvent::find($eventId);
+//        ddd($event);
         $text = 'hallo '.$name;
-        $mail = new Mail\RegisterMail($name,$birthday,$email,$phonenumber,$address,$city,$disability,$event->name,$event->date);
+        $mail = new Mail\RegisterMail($name,$birthday,$email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
         return $mail;
     }
 

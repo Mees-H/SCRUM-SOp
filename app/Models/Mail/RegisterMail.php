@@ -13,7 +13,7 @@ class RegisterMail extends Mailable
     use Queueable, SerializesModels;
 
     public $name;
-    public $birthday;
+    public $age;
     public $email;
     public $phonenumber;
     public $address;
@@ -28,7 +28,7 @@ class RegisterMail extends Mailable
     public function __construct($name, $birthday, $email, $phonenumber, $address, $city, $disability, $eventName, $date)
     {
         $this->name = $name;
-        $this->birthday = $birthday;
+        $this->age = date_diff(date_create($birthday), date_create(date('Y-m-d')))->format('%y');
         $this->email = $email;
         $this->phonenumber = $phonenumber;
         $this->address = $address;
@@ -44,7 +44,7 @@ class RegisterMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Test',
+            subject: 'inschrijving evenement '.$this->eventName
         );
     }
 
