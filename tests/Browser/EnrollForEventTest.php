@@ -15,6 +15,7 @@ class EnrollForEventTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/aanmelden')
+                    ->assertSee('Inschrijven voor Evenement')
                     ->type('name', 'Test')
                     ->type('birthday', '2000-01-01')
                     ->type('email', 'test@gmail.com')

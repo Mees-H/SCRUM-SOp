@@ -87,7 +87,7 @@ class MailFactory
 
     private function validateWordsOnly($string) 
     {
-        if (preg_match('/^[a-zA-Z -\']+$/', $string) && generalValidation($string)) {
+        if (preg_match('/^[a-zA-Z -\']+$/', $string) && $this->generalValidation($string)) {
             return true;
         } else {
             return false;
