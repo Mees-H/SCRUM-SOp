@@ -9,8 +9,10 @@ use App\Models\Mail\MailFactory;
 
 class EnrollController extends Controller
 {
-    function mail(Request $request)
+    function mail(MailPostRequest $request)
     {
+        $validated = $request->validated();
+
         //TODO: Implementeer mailstuff
         $mailFactory = new MailFactory();
         $mail = $mailFactory->createMail('eventRegistration',
