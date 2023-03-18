@@ -43,7 +43,7 @@
     <label for="event_id">evenement nummer</label>
     <input type="text" class="form-control" id="event_id" placeholder="" name="event_id">
   </div>
-  <button type="submit" id="aanmeldknop" name="aanmeldknop" class="btn btn-primary">Verzend inschrijving</button>
+  <button type="submit" id="aanmeldknop" name="aanmeldknop" class=" btn darkBlueBackground">Verzend inschrijving</button>
 </form>
 
 @stop

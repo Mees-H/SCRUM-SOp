@@ -26,7 +26,7 @@ margin-top:auto;
  flex-direction: row;
  text-align: center;
  padding-top: 10px;
- 
+
 }
 .footer-info{
  flex-direction: column;
@@ -71,3 +71,7 @@ margin-top:auto;
  color: grey;
 }
 
+.primaryButtonColor {
+    background-color: #0000ff;
+    color: white;
+}
