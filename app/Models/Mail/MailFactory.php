@@ -73,12 +73,18 @@ class MailFactory
         $disability = $arguments['disability'];
         $eventId = $arguments['event_id'];
         $event = TestEvent::find($eventId);
+        $age = date_diff(date_create($birthday), date_create(date('Y-m-d')))->format('%y');
+
+        if($age <= 0) {
+            throw new InvalidArgumentException('birthday is invalid');
+        }
+
         $text = 'hallo '.$name;
-        $mail = new Mail\RegisterMail($name,$birthday,$email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
+        $mail = new Mail\RegisterMail($name,$age,$email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
         return $mail;
     }
 
-    private function generalValidation($argument) 
+    private function generalValidation($argument)
     {
         if (preg_match('/[;="]/', $argument)) {
             return false;
@@ -87,7 +93,7 @@ class MailFactory
         }
     }
 
-    private function validateWordsOnly($string) 
+    private function validateWordsOnly($string)
     {
         if (preg_match('/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.\'-]+$/u', $string) && $this->generalValidation($string)) {
             return true;
@@ -96,7 +102,7 @@ class MailFactory
         }
     }
 
-    private function validateEmail($string) 
+    private function validateEmail($string)
     {
         if (filter_var($string, FILTER_VALIDATE_EMAIL) && $this->generalValidation($string)) {
             return true;
@@ -105,7 +111,7 @@ class MailFactory
         }
     }
 
-    private function validatePhonenumber($number) 
+    private function validatePhonenumber($number)
     {
         if (preg_match('/[a-zA-Z]/', $number) && $this->generalValidation($string)) {
             return false;
