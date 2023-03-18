@@ -48,8 +48,10 @@ class EventController extends Controller
         ]);
 
         $event->save();
-        foreach($request->get('groups') as $groupId){
-            $event->groups()->save(Group::find($groupId));
+        if($request->get('groups') != null){
+            foreach($request->get('groups') as $groupId){
+                $event->groups()->save(Group::find($groupId));
+            }
         }
         $event->slug = 'event_' . $event->id;
         $event->save();
