@@ -19,7 +19,7 @@
                     <td>Titel</td>
                     <td>Datum</td>
                     <td>Tijd</td>
-                    <td>Tekst</td>
+                    <td>Beschrijving</td>
                     <td>Groepen</td>
                     <td colspan = 2>Actions</td>
                 </tr>
@@ -38,7 +38,7 @@
                             @endforeach
                         </td>
                         <td>
-                            <a href="{{ route('events.edit',$event->id)}}" class="btn btn-primary">Edit</a>
+                            <a href="{{ route('events.edit',$event->id)}}" class="btn btn-primary">Aanpassen</a>
                         </td>
                         <td>
                             <form action="{{ route('events.destroy', $event->id)}}" method="post">

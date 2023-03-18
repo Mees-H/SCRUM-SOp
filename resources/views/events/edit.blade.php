@@ -33,11 +33,21 @@
                 <label for="time">Tijd:</label>
                 <input type="time" class="form-control" name="time" value="{{ $event->time }}" />
             </div>
- 
+
             <div class="form-group">
-                <label for="body" class="form-label">Tekst:</label>
+                <label for="body">Beschrijving:</label>
                 <textarea rows="5" class="form-control" name="body">{{ $event->body }}</textarea>
             </div>
+ 
+            <label>Groepen:</label>
+                @foreach($groups as $group)
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}" 
+                        {{in_array($group->id, $event->groups()->allRelatedIds()->toArray())? 'checked':''}}
+                    />
+                    <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
+                </div>
+                @endforeach
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>

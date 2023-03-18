@@ -33,14 +33,17 @@
                 </div>
         
                 <div class="form-group">
-                    <label for="body">Tekst:</label>
+                    <label for="body">Beschrijving:</label>
                     <textarea rows="5" class="form-control" name="body"></textarea>
                 </div>
                 
-                <div class="form-group">
-                    <label for="groups">Groepen:</label>
-                    <input type="text" class="form-control" name="groups"/>
+                <label>Groepen:</label>
+                @foreach($groups as $group)
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"/>
+                    <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
                 </div>
+                @endforeach
                 
                 <button type="submit" class="btn btn-primary">Voeg evenement toe</button>
             </form>

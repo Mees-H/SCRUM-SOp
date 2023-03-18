@@ -25,7 +25,8 @@ class EventController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        $groups = Group::all();
+        return view('events.create', compact('groups'));
     }
 
     /**
@@ -34,32 +35,23 @@ class EventController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'body' => 'required',
-            'date' => 'required',
+            'title' => 'required|max:255',
+            'body' => 'required|max:999',
+            'date' => 'required|after:today'
         ]);
-
-        $groups = explode(', ', $request->get('groups'));
 
         $event = new Event([
             'title' => $request->get('title'),
-            'id' => $request->get('id'),
             'date' => $request->get('date'),
             'time' => $request->get('time'),
-            'slug' => 'event_' . $request->get('id'),
-            'body' => $request->get('body'),
-            'created_at' => $request->get('created_at'),
-            'updated_at' => $request->get('updated_at'),
+            'body' => $request->get('body')
         ]);
 
         $event->save();
-        $event->slug = $event->slug . $event->id;
-        ddd($event);
-
-        foreach($groups as $groupName){
-            $group = Group::where('name', $groupName)->first();
-            $event->groups()->attach($group->id);
+        foreach($request->get('groups') as $groupId){
+            $event->groups()->save(Group::find($groupId));
         }
+        $event->slug = 'event_' . $event->id;
         $event->save();
 
         return redirect('/events')->with('success', 'Evenement opgeslagen.');
@@ -79,7 +71,8 @@ class EventController extends Controller
     public function edit(string $id)
     {
         $event = Event::find($id);
-        return view('events.edit', compact('event'));
+        $groups = Group::all();
+        return view('events.edit', compact('event', 'groups'));
     }
 
     /**
@@ -88,9 +81,9 @@ class EventController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'title' => 'required',
-            'body' => 'required',
-            'date' => 'required',
+            'title' => 'required|max:255',
+            'body' => 'required|max:999',
+            'date' => 'required|after:today'
         ]);
         $event = Event::find($id);
         $event->title = $request->get('title');
