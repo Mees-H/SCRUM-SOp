@@ -11,7 +11,7 @@ class MailPostRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -37,11 +37,20 @@ class MailPostRequest extends FormRequest
     {
         return [
             'name.required' => 'Uw naam is verplicht',
+            'name.regex' => 'Uw naam mag alleen letters, apostrofs of koppeltekens bevatten',
+            'name.max' => 'Uw naam mag niet langer zijn dan 255 karakters',
             'birthday.required' => 'Uw geboortedatum is verplicht',
+            'birthday.before' => 'Uw geboortedatum mag niet in de toekomst liggen',
             'email.required' => 'Uw email is verplicht',
+            'email.email' => 'Uw email is ongeldig',
+            'email.max' => 'Uw email mag niet langer zijn dan 255 karakters',
             'phonenumber.required' => 'Uw telefoonnummer is verplicht',
+            'phonenumber.regex' => 'Uw telefoonnummer is ongeldig',
+            'phonenumber.min' => 'Uw telefoonnummer moet minimaal 10 karakters bevatten',
             'address.required' => 'Uw adres is verplicht',
+            'address.max' => 'Uw adres mag niet langer zijn dan 255 karakters',
             'city.required' => 'Uw woonplaats is verplicht',
+            'city.regex' => 'Uw woonplaats mag alleen letters, apostrofs of koppeltekens bevatten',
             'disability.required' => 'Uw beperking is verplicht'
         ];
     }
