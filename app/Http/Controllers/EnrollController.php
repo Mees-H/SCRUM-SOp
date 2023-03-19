@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Mail\Mailer;
 use App\Models\Mail\MailFactory;
-use App\Http\Requests\MailPostRequest;
 
 class EnrollController extends Controller
 {
