@@ -74,7 +74,7 @@
             
         </div>
         </nav>
-        <div class="border border-dark rounded float-right d-none marginright" id="content">
+        <div class="border border-dark rounded d-none marginright" id="content">
             <a class="dropdown-item text-center" href="/index">
                 Hoofdpagina
             </a>

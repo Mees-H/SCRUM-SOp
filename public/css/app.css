@@ -15,7 +15,6 @@ margin-top:auto;
  margin-top:auto;
  background: #111;
  height: auto;
- width: 100vw;
  color: #fff;
 }
 
@@ -26,6 +25,7 @@ margin-top:auto;
  flex-direction: row;
  text-align: center;
  padding-top: 10px;
+ padding-bottom: 5px;
  
 }
 .footer-info{

@@ -1,4 +1,8 @@
 .marginright {
     margin-right: 22px;
+    margin-top: 55px;
     width: 210px;
+    margin-left: auto;
+    position: absolute;
+    align-self: flex-end;
 }
