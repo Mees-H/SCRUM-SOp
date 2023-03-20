@@ -25,10 +25,10 @@ class MailPostRequest extends FormRequest
             'name' => 'required|regex:/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð \'-]+$/u|max:255',
             'birthday' => 'required|before:today',
             'email' => 'required|email|max:255',
-            'phonenumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',	
+            'phonenumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'address' => 'required|max:255',
             'city' => 'required|regex:/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð \'-]+$/u|max:255',
-            'disability' => 'required',
+            'disability' => 'required|max:255',
             'event_id' => 'required|numeric'
         ];
     }
@@ -51,7 +51,8 @@ class MailPostRequest extends FormRequest
             'address.max' => 'Uw adres mag niet langer zijn dan 255 karakters',
             'city.required' => 'Uw woonplaats is verplicht',
             'city.regex' => 'Uw woonplaats mag alleen letters, apostrofs of koppeltekens bevatten',
-            'disability.required' => 'Uw beperking is verplicht'
+            'disability.required' => 'Het invoeren van de beperking is verplicht',
+            'disability.max' => 'De beschrijving van uw beperking mag niet langer zijn dan 255 karakters',
         ];
     }
 }

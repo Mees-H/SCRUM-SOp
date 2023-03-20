@@ -8,9 +8,6 @@ use Tests\DuskTestCase;
 
 class EnrollForEventTest extends DuskTestCase
 {
-    /**
-     * A Dusk test example.
-     */
     public function testFormSuccess(): void
     {
         $this->browse(function (Browser $browser) {
@@ -43,7 +40,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('disability', 'Geen')
                 ->type('event_id', '1')
                 ->press('aanmeldknop')
-                ->assertSee('500');
+                ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
     public function testForm_BadBirthday_shouldFail(): void
@@ -60,7 +57,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('disability', 'Geen')
                 ->type('event_id', '1')
                 ->press('aanmeldknop')
-                ->assertSee('500');
+                ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
     public function testForm_BadEmail_shouldFail(): void
@@ -77,7 +74,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('disability', 'Geen')
                 ->type('event_id', '1')
                 ->press('aanmeldknop')
-                ->assertSee('Inschrijven voor Evenement');
+                ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
     public function testForm_BadPhoneNumber_shouldFail(): void
@@ -94,7 +91,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('disability', 'Geen')
                 ->type('event_id', '1')
                 ->press('aanmeldknop')
-                ->assertSee('500');
+                ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
 
@@ -112,7 +109,7 @@ class EnrollForEventTest extends DuskTestCase
                     ->type('disability', 'Geen')
                     ->type('event_id', '1')
                     ->press('aanmeldknop')
-                    ->assertSee('500');
+                    ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
 
@@ -126,11 +123,11 @@ class EnrollForEventTest extends DuskTestCase
                     ->type('email', 'test@gmail.com')
                     ->type('phonenumber', '0612345678')
                     ->type('address', '=Teststraat; 1')
-                    ->type('city', 'Teststad1')
+                    ->type('city', 'Teststad1231 ;dsafnjs;1')
                     ->type('disability', 'Geen')
                     ->type('event_id', '1')
                     ->press('aanmeldknop')
-                    ->assertSee('500');
+                    ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
 

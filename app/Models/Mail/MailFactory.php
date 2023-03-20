@@ -45,23 +45,16 @@ class MailFactory
 
     private function eventRegistration($arguments) : Mailable
     {
-        foreach($arguments as $key => $value) {
-            if($value === '') {
-                throw new InvalidArgumentException('argument is empty');
-            }
-
-            if($key == 'name' || $key == 'city') {
-                if(!$this->validateWordsOnly($value)) throw new InvalidArgumentException('Name or city is invalid');
-            }
-            if($key == 'email') {
-                if(!$this->validateEmail($value)) throw new InvalidArgumentException('Email is invalid');
-            }
-            if($key == 'phonenumber') {
-                if(!$this->validatePhonenumber($value)) throw new InvalidArgumentException('Phonenumber is invalid');
-            }
-            if($key == 'address') {
-                if(!$this->generalValidation($value)) throw new InvalidArgumentException('Address or disability is invalid');
-            }
+        if($arguments['name'] == null ||
+            $arguments['birthday'] == null ||
+            $arguments['email'] == null ||
+            $arguments['phonenumber'] == null ||
+            $arguments['address'] == null ||
+            $arguments['city'] == null ||
+            $arguments['disability'] == null ||
+            $arguments['event_id'] == null
+        ){
+            throw new InvalidArgumentException('niet alle argumenten waren gevonden');
         }
 
         $name = $arguments['name'];
@@ -83,41 +76,4 @@ class MailFactory
         $mail = new Mail\RegisterMail($name,$age,$email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
         return $mail;
     }
-
-    private function generalValidation($argument)
-    {
-        if (preg_match('/[;="]/', $argument)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
-    private function validateWordsOnly($string)
-    {
-        if (preg_match('/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð ,.\'-]+$/u', $string) && $this->generalValidation($string)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private function validateEmail($string)
-    {
-        if (filter_var($string, FILTER_VALIDATE_EMAIL) && $this->generalValidation($string)) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    private function validatePhonenumber($number)
-    {
-        if (preg_match('/[a-zA-Z]/', $number) && $this->generalValidation($string)) {
-            return false;
-        } else {
-            return true;
-        }
-    }
-
 }
