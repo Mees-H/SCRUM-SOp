@@ -71,3 +71,14 @@ margin-top:auto;
  color: grey;
 }
 
+.btn-primary{
+    background-color: darkblue;
+}
+
+a{
+    color: #000CD9;
+}
+
+td{
+    max-width: 250px;
+}

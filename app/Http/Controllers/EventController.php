@@ -72,7 +72,7 @@ class EventController extends Controller
      */
     public function edit(string $id)
     {
-        $event = Event::find($id);
+        $event = Event::findOrFail($id);
         $groups = Group::all();
         return view('events.edit', compact('event', 'groups'));
     }
@@ -110,7 +110,7 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        Event::find($id)->delete();
+        Event::findOrFail($id)->delete();
         return redirect('/events')->with('success', 'Evenement verwijdert.');
     }
 }

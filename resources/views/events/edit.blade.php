@@ -21,22 +21,22 @@
             <div class="form-group">
  
                 <label for="title">Titel:</label>
-                <input type="text" class="form-control" name="title" value="{{ $event->title }}" />
+                <input type="text" class="form-control" name="title" value="{{ $event->title }}" id="title"/>
             </div>
  
             <div class="form-group">
                 <label for="date">Datum:</label>
-                <input type="date" class="form-control" name="date" value="{{ $event->date }}" />
+                <input type="date" class="form-control" name="date" value="{{ $event->date }}" id="date"/>
             </div>
             
             <div class="form-group">
                 <label for="time">Tijd:</label>
-                <input type="time" class="form-control" name="time" value="{{ $event->time }}" />
+                <input type="time" class="form-control" name="time" value="{{ $event->time }}" id="time"/>
             </div>
 
             <div class="form-group">
                 <label for="body">Beschrijving:</label>
-                <textarea rows="5" class="form-control" name="body">{{ $event->body }}</textarea>
+                <textarea rows="5" class="form-control" name="body" id="body">{{ $event->body }}</textarea>
             </div>
  
             <label>Groepen:</label>

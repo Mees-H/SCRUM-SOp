@@ -165,6 +165,17 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'title' => 'titel',
+        'body' => 'beschrijving',
+        'date' => 'datum',
+        'time' => 'tijd'
+    ],
+
+    'values' => [
+        'date' => [
+            'today' => 'vandaag'
+        ]
+    ]
 
 ];

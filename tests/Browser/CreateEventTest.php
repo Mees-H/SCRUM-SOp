@@ -36,7 +36,7 @@ class CreateEventTest extends DuskTestCase
                     ->click('label[for="1"]')
                     ->press("Voeg evenement toe")
                     ->assertPathIs("/events/create")
-                    ->assertSee("Title mag niet groter zijn dan 255 karakters.");
+                    ->assertSee("Titel mag niet groter zijn dan 255 karakters.");
         });
     }
     
@@ -52,7 +52,7 @@ class CreateEventTest extends DuskTestCase
                     ->click('label[for="1"]')
                     ->press("Voeg evenement toe")
                     ->assertPathIs("/events/create")
-                    ->assertSee("Body mag niet groter zijn dan 999 karakters.");
+                    ->assertSee("Beschrijving mag niet groter zijn dan 999 karakters.");
         });
     }
 
@@ -63,9 +63,9 @@ class CreateEventTest extends DuskTestCase
                     ->clickLink("Creeër nieuw evenement")
                     ->press("Voeg evenement toe")
                     ->assertPathIs("/events/create")
-                    ->assertSee("Het title veld is verplicht.")
-                    ->assertSee("Het body veld is verplicht.")
-                    ->assertSee("Het date veld is verplicht.");
+                    ->assertSee("Het titel veld is verplicht.")
+                    ->assertSee("Het beschrijving veld is verplicht.")
+                    ->assertSee("Het datum veld is verplicht.");
         });
     }
 
@@ -95,7 +95,7 @@ class CreateEventTest extends DuskTestCase
                     ->type("body", "Er is een superleuke event gaande!!!1!")
                     ->press("Update")
                     ->assertPathIs("/events/*/edit")
-                    ->assertSee("Title mag niet groter zijn dan 255 karakters.");
+                    ->assertSee("Titel mag niet groter zijn dan 255 karakters.");
         });
     }
 
@@ -110,7 +110,7 @@ class CreateEventTest extends DuskTestCase
                     ->type("body", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
                     ->press("Update")
                     ->assertPathIs("/events/*/edit")
-                    ->assertSee("Body mag niet groter zijn dan 999 karakters.");
+                    ->assertSee("Beschrijving mag niet groter zijn dan 999 karakters.");
         });
     }
 
@@ -125,9 +125,9 @@ class CreateEventTest extends DuskTestCase
                     ->type("body", "")
                     ->press("Update")
                     ->assertPathIs("/events/*/edit")
-                    ->assertSee("Het title veld is verplicht.")
-                    ->assertSee("Het body veld is verplicht.")
-                    ->assertSee("Het date veld is verplicht.");
+                    ->assertSee("Het titel veld is verplicht.")
+                    ->assertSee("Het beschrijving veld is verplicht.")
+                    ->assertSee("Het datum veld is verplicht.");
         });
     }
 
