@@ -1,8 +1,14 @@
-.marginright {
-    margin-right: 22px;
-    margin-top: 55px;
-    width: 210px;
-    margin-left: auto;
+#content {
     position: absolute;
-    align-self: flex-end;
+    padding: 0;
+    top:50%;
+    margin-top: 30px;
+    width: 150px;
+    list-style-type: none;
 }
+
+#dropdown {
+    width: 150px;
+}
+
+

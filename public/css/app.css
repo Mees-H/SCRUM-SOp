@@ -5,17 +5,13 @@ body {
  flex-direction: column;
 }
 
-
-
 footer {
 margin-top:auto;
  bottom: 0;
  left: 0;
  right: 0;
  margin-top:auto;
- background: #111;
  height: auto;
- color: #fff;
 }
 
 .footer-content {
@@ -36,7 +32,6 @@ margin-top:auto;
  margin: auto;
  line-height: 20px;
  font-size: 14px;
- color: #cacdd2;
 }
 
 
@@ -55,8 +50,7 @@ margin-top:auto;
 
 .socials a {
  text-decoration: none;
- color: #fff;
- border: 1.1px solid white;
+ border: 1.1px solid black;
  padding: 5px;
  border-radius: 50%;
 }
@@ -70,4 +64,11 @@ margin-top:auto;
 .socials a:hover i {
  color: grey;
 }
+
+#logo {
+    width: auto;
+    height: 40px;
+}
+
+
 
