@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('events', function (Blueprint $table){
             $table->id();
-            $table->string('title');
+            $table->string('title')->unique();
             $table->date('date');
-            $table->time('time');
-            $table->string('slug')->unique();
+            $table->time('time')->nullable();
+            $table->string('slug')->unique()->nullable();
             $table->text('body');
             $table->timestamps();
         });
