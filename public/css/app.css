@@ -1,9 +1,45 @@
-
 body {
  min-height: 100vh;
  display: flex;
  flex-direction: column;
 }
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .nav-link {
+        font-size: 200%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .nav-link {
+        font-size: 150%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .nav-link {
+        font-size: 125%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .nav-link {
+        font-size: 100%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .nav-link {
+        font-size: 100%;
+    }
+}
+
+
 
 footer {
 margin-top:auto;
