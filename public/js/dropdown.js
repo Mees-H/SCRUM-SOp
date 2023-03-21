@@ -17,12 +17,11 @@ dropdown.addEventListener("focusout", function() {
 
 
 function FilterWords() {
-    var input, filter, div, a, curra, i, txtValue;
+    let input, filter, div, a, curra, i, txtValue;
     input = document.getElementById('dropdown');
     filter = input.value.toUpperCase();
     div = document.getElementById('content');
     a = div.getElementsByTagName('a');
-
     // Loop through all list items, and hide those who don't match the search query
     for (i = 0; i < a.length; i++) {
       curra = a[i];
@@ -33,5 +32,6 @@ function FilterWords() {
         a[i].style.display = "none";
       }
     }
+    
   }
 
