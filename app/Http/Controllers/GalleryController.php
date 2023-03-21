@@ -36,7 +36,6 @@ class GalleryController extends Controller
         foreach ($years as $year) {
             $allYears[] = date('Y', strtotime($year->date));
         }
-
         //distinct maken op basis van jaar
         return array_unique($allYears);
     }
