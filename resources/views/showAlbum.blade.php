@@ -20,7 +20,7 @@
                 @foreach($pictures as $picture)
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" src="{{$picture->imageUrl}}" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
+                            <img type="button" class="card-img-top" src="{{$picture->imageUrl}}" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
                         </div>
                     </div>
                 @endforeach
