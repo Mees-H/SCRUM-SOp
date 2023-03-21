@@ -106,5 +106,14 @@ margin-top:auto;
     height: 40px;
 }
 
+.btn-primary{
+    background-color: darkblue;
+}
 
+a{
+    color: #000CD9;
+}
 
+td{
+    max-width: 250px;
+}
