@@ -121,3 +121,10 @@ td{
     color: red;
     font-size: 1em;
 }
+
+.memberimg{
+    width: 75px;
+    height: 75px;
+    padding: 2px;
+    border:1px solid darkgray;
+}
