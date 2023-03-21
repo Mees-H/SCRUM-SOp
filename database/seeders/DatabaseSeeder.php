@@ -6,14 +6,15 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\Group;
 use App\Models\Event;
+use App\Models\MemberGroup;
+use App\Models\TeamMember;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+    
     public function run(): void
     {
+        #region events
         $indoorGolf = Event::create([
             'title' => 'Indoor-Golf-Middag',
             'date' => '2023-01-21',
@@ -79,5 +80,9 @@ class DatabaseSeeder extends Seeder
         $pros->groups()->attach($burgGolf->id);
         $prise->groups()->attach($burgGolf->id);
         $superG->groups()->attach($specialGolf->id);
+        #endregion
+        $this->call([
+            MemberSeeder::class
+        ]);
     }
 }
