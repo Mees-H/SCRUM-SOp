@@ -32,7 +32,7 @@
                         <div class="card mb-4 shadow-sm border-0">
 
                             @if(count($album->picture) > 0)
-                                <a href="{{route('galerij_album',$album->id) }}">
+                                <a href="{{route('galerij_album',[$year, $album->title])}}">
                                     <img src="{{$album->picture[0]->imageUrl}}" class="card-img-top" alt="Knop album {{$album->title}}">
                                 </a>
                             @else

@@ -11,17 +11,17 @@ class GalleryController extends Controller
     public function showGallery($year)
     {
         $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
+       // dd($albums, $year);
 
         return view('galerijYear', [
             'albums' => $albums,
             'year' => $year
         ]);
     }
-    public function show($id)
+    public function show($year, $title)
     {
-        $album = Album::with('picture')->find($id);
-        $year = date('Y', strtotime($album->date));
-        $pictures = Picture::with('album')->where('album_id', $id)->get();
+        $album = Album::with('picture')->where('title', $title)->first();
+        $pictures = Picture::with('album')->where('album_id', $album->id)->get();
 
         return view('showAlbum', [
             'album' => $album,
@@ -30,7 +30,7 @@ class GalleryController extends Controller
         ]);
     }
 
-    function ShowAYearsOfGallerys(){
+    function ShowAllYearsOfGallerys(){
         //jaar eruit filteren
         $allYears = array();
         $years = Album::with('picture')->select('date')->get();

@@ -22,7 +22,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Schema::defaultStringLength(191);
 
-        $allYears = (new \App\Http\Controllers\GalleryController())->ShowAYearsOfGallerys();
+        $allYears = (new \App\Http\Controllers\GalleryController())->ShowAllYearsOfGallerys();
         view()->share('allYears', $allYears);
     }
 }

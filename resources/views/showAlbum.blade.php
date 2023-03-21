@@ -26,5 +26,25 @@
                 @endforeach
             </div>
             </div>
+
+
+
+        <script>
+            $(document).ready(function(){
+                $('.card-img-top').click(function(){
+                    let src = $(this).attr('src');
+                    $('.modal-body').empty().append("<img src='"+src+"' class='modal-img' alt='De geklikte foto'>");
+                    $('#imageModal').modal('show');
+                });
+            });
+        </script>
+
     </body>
+    <div class="modal justify-content-center container fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-body">
+
+            </div>
+        </div>
+    </div>
 @stop
