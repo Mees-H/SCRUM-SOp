@@ -85,11 +85,11 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-
-        //testSeedData();
+        //Album::factory()->create();
+        //$this->testSeedData();
     }
 
-    function testSeedData(){
+    function testSeedData() : void{
         DB::table('albums')->insert([
             'title' => 'Eten en drinken',
             'description' => 'Vandaag heeft iedereen gegeten en gedronken op de golfbaan',
@@ -105,7 +105,7 @@ class DatabaseSeeder extends Seeder
             'date' => '2023-01-11'
         ]);
 
-        DB::table('pictures')->insert([
+        /*DB::table('pictures')->insert([
             'album_id' => '1',
             'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/a61897bc-6113-466c-827d-bbe3c75537b6_orig.jpg'
         ]);
@@ -130,7 +130,7 @@ class DatabaseSeeder extends Seeder
         DB::table('pictures')->insert([
             'album_id' => '1',
             'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/10526cc9-7c01-4f25-bf39-9354b3900363.jpg'
-        ]);
+        ]);*/
     }
 
 

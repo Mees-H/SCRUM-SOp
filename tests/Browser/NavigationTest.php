@@ -61,7 +61,7 @@ class NavigationTest extends DuskTestCase
 
     public function testSearch() : void
     {
-    
+
         $this->browse(function (Browser $browser) {
             $this->browse(function (Browser $browser) {
                 $browser->visit('/')
@@ -122,7 +122,7 @@ class NavigationTest extends DuskTestCase
                 $browser->visit('/')
                         ->click(".search")
                         ->clickLink("Links")
-                        ->assertPathIs("/links");   
+                        ->assertPathIs("/links");
             });
         });
     }
