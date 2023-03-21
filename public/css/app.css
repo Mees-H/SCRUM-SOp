@@ -71,7 +71,14 @@ margin-top:auto;
  color: grey;
 }
 
-.primaryButtonColor {
-    background-color: #0000ff;
-    color: white;
+.btn-primary{
+    background-color: darkblue;
+}
+
+a{
+    color: #000CD9;
+}
+
+td{
+    max-width: 250px;
 }
