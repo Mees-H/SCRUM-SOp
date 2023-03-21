@@ -7,11 +7,9 @@ use App\Models\Picture;
 use Illuminate\Http\Request;
 class GalleryController extends Controller
 {
-
     public function showGallery($year)
     {
         $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
-       // dd($albums, $year);
 
         return view('galerijYear', [
             'albums' => $albums,
@@ -31,19 +29,20 @@ class GalleryController extends Controller
     }
 
     function ShowAllYearsOfGallerys(){
+
         //jaar eruit filteren
         $allYears = array();
-        $years = Album::with('picture')->select('date')->get();
+        $years = Album::with('picture')->select('date')->get()->sortByDesc('date');
         foreach ($years as $year) {
             $allYears[] = date('Y', strtotime($year->date));
         }
+
         //distinct maken op basis van jaar
         return array_unique($allYears);
     }
 
 
     /// Dit is voor een andere user story, deze wordt later gemaakt. Jira: S8S-32 en S8S-33///
-
     /*public function create()
     {
         return view('aanmakenAlbum');

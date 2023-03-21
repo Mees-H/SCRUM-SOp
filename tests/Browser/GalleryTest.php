@@ -22,7 +22,7 @@ class GalleryTest extends DuskTestCase
     public function testGalleryRoutes(): void
     {
 
-        //database objecten ophalen
+        //database testobjecten ophalen
         $album = Album::factory()->create([
             'id' => 1,
             'title' => 'Test album',
