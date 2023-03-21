@@ -8,10 +8,10 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
 
         <link rel="stylesheet" href="{{ asset('css/app.css')}}">
-       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" /> 
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
         <script src="{{ asset('/js/dropdown.js') }}" defer></script>
- 
+
     </head>
     <body>
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -44,9 +44,6 @@
             </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link {{ (request()->segment(1) == 'aanmelden') ? 'active' : '' }}" href="/aanmelden">Aanmelden</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link {{ (request()->segment(1) == 'faq') ? 'active' : '' }}" href="/faq">FAQ</a>
             </li>
             <li class="nav-item">
@@ -70,8 +67,8 @@
             </ul>
             <form class="form-inline my-2 my-lg-0" method="GET" action="#" >
                 <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
-            </form>	             
-            
+            </form>
+
         </div>
         </nav>
         <div class="border border-dark rounded float-right d-none marginright" id="content">

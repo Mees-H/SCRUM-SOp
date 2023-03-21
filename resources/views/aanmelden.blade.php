@@ -9,7 +9,7 @@
         </div>
     @endif
 
-    <form method="POST" action="/aanmelden">
+    <form method="POST" action="/events/submit/{{$eventId}}">
         @csrf
         <div class="form-group">
             <label for="name">Voor- en achternaam</label>

@@ -34,5 +34,6 @@ Route::controller(NavigationController::class)->group(function() {
 
 Route::resource('events', EventController::class);
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
+Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
 //Route::post('/aanmelden', [EventController::class, 'submit']);

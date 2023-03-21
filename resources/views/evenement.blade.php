@@ -24,7 +24,7 @@
                     {{$post->title}}
                 </a>
             </h1>
-                <a href="/events/enroll/{{$post->id}}">Inschrijven</a>
+                <a href="/events/enroll/{{$post->id}}" >Inschrijven</a>
             </div>
 
             <div>
