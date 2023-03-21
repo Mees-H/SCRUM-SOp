@@ -13,6 +13,6 @@ class MemberGroup extends Model
     public function members(): BelongsToMany{
         return $this->belongsToMany(
             TeamMember::class,
-        'member_in_groups');
+            'member_in_groups');
     }
 }

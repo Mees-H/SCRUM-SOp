@@ -20,21 +20,24 @@ class MemberSeeder extends Seeder
             'name' => 'Dhr. Wim Jansen',
             'email' => 'wthjansen@gmail.com',
             'phonenumber' => '+31 (0) 653148657',
-            'function' => 'Voorzitter/Coördinator'
+            'function' => 'Voorzitter/Coördinator',
+            'imgurl' => '/img/teammembers/wim.jpeg'
         ]);
         
         $frans = TeamMember::create([
             'name' => 'Dhr. Frans Reek',
             'email' => 'frans@fransreek.com',
             'phonenumber' => '+31 (0) 683589290',
-            'function' => 'Penningmeester'
+            'function' => 'Penningmeester',
+            'imgurl' => '/img/teammembers/frans.png'
         ]);
         
         $cees = TeamMember::create([
             'name' => 'Dhr. Cees Heesbeen',
             'email' => 'ceesheesbeen@gmail.com',
             'phonenumber' => '+31 (0) 628429285',
-            'function' => 'Secretaris/Materiaalbeheer'
+            'function' => 'Secretaris/Materiaalbeheer',
+            'imgurl' => '/img/teammembers/cees.png'
         ]);
 
         //Golfprofessionals
@@ -42,26 +45,30 @@ class MemberSeeder extends Seeder
             'name' => 'Dhr. Helmuth van Heel',
             'email' => 'info@helmuthvanheel.nl',
             'phonenumber' => '+31 (0) 648082902',
-            'website' => 'www.helmuthvanheel.nl'
+            'website' => 'www.helmuthvanheel.nl',
+            'imgurl' => '/img/teammembers/helmuth.jpeg'
         ]);
         
         $naud = TeamMember::create([
             'name' => 'Dhr. Naud Bank',
             'email' => 'naud.pga@gmail.com',
-            'phonenumber' => '+31 (0) 651808202'
+            'phonenumber' => '+31 (0) 651808202',
+            'imgurl' => '/img/teammembers/naud.jpeg'
         ]);
         
         $suzanne = TeamMember::create([
             'name' => 'Mevr. Suzanne Lanfermeijer',
             'email' => 'suzannelanfermeijer@yahoo.co.uk',
             'phonenumber' => '+31 (0) 655597304',
-            'website' => 'www.golfclubookmeer.nl'
+            'website' => 'www.golfclubookmeer.nl',
+            'imgurl' => '/img/teammembers/suzanne.jpeg'
         ]);
         
         $robbin = TeamMember::create([
             'name' => 'Dhr.Robbin Schuurman',
             'email' => 'rschuurman@xebia.com',
-            'phonenumber' => '+31 (0) 655414822'
+            'phonenumber' => '+31 (0) 655414822',
+            'imgurl' => '/img/teammembers/robbin.jpeg'
         ]);
 
         //Begeleiders
@@ -115,7 +122,8 @@ class MemberSeeder extends Seeder
             'name' => 'Dhr. Peter Janssen',
             'email' => 'pjanssen@cello-zorg.nl',
             'phonenumber' => '+31 (0) 654650449',
-            'function' => 'Projectleider vrije tijd Cello'
+            'function' => 'Projectleider vrije tijd Cello',
+            'imgurl' => '/img/teammembers/peter.jpeg'
         ]);
 
         //Webmaster
