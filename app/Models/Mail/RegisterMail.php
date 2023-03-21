@@ -44,7 +44,7 @@ class RegisterMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'inschrijving evenement '.$this->eventName
+            subject: 'Inschrijving evenement '.$this->eventName
         );
     }
 
