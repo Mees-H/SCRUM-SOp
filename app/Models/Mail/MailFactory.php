@@ -2,11 +2,11 @@
 
 namespace App\Models\Mail;
 
-use App\Models\TestEvent;
 use App\Exceptions\InvalidArgumentException;
 use App\Models\Event;
 use App\Models\Mail;
 use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\DB;
 
 class MailFactory
 {
@@ -65,7 +65,7 @@ class MailFactory
         $city = $arguments['city'];
         $disability = $arguments['disability'];
         $eventId = $arguments['event_id'];
-        $event = TestEvent::find($eventId);
+        $event = Event::find($eventId) ?? throw new InvalidArgumentException('event_id is invalid');
         $age = date_diff(date_create($birthday), date_create(date('Y-m-d')))->format('%y');
 
         if($age <= 0) {

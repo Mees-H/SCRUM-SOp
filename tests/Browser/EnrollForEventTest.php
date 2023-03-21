@@ -3,6 +3,7 @@
 namespace Tests\Browser;
 
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\DB;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
@@ -20,9 +21,27 @@ class EnrollForEventTest extends DuskTestCase
                     ->type('address', 'Teststraat 1')
                     ->type('city', 'Teststad')
                     ->type('disability', 'Geen')
-                    ->type('event_id', '1')
+                    ->type('event_id', DB::table('events')->min('id'))
                     ->press('aanmeldknop')
                     ->assertSee('Uw aanmelding is verzonden!');
+        });
+    }
+
+    public function testForm_BadId_shouldFail(): void
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/aanmelden')
+                ->assertSee('Inschrijven voor Evenement')
+                ->type('name', 'Test')
+                ->type('birthday', '2000-01-01')
+                ->type('email', 'test@gmail.com')
+                ->type('phonenumber', '0612345678')
+                ->type('address', 'Teststraat 1')
+                ->type('city', 'Teststad')
+                ->type('disability', 'Geen')
+                ->type('event_id', DB::table('events')->max('id') + 1)
+                ->press('aanmeldknop')
+                ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
 
