@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Picture;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Album;
 use Illuminate\Database\Seeder;
@@ -84,53 +85,54 @@ class DatabaseSeeder extends Seeder
         // \App\Models\User::factory()->create([
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
-        // ]);
-        //Album::factory()->create();
-        //$this->testSeedData();
+        //
+
+
+        $this->testSeedData();
+
     }
 
     function testSeedData() : void{
-        DB::table('albums')->insert([
-            'title' => 'Eten en drinken',
-            'description' => 'Vandaag heeft iedereen gegeten en gedronken op de golfbaan',
-            'date' => '2023-03-10'
+        Album::factory()->create([
+            'id' => 1,
+            'title' => 'Album 1',
+            'description' => 'Dit is album 1',
+            'date' => '2021-01-01'
         ]);
-        DB::table('albums')->insert([
-            'title' => 'Bedrijfsuitje',
-            'description' => 'Dit zijn fotos van het bedrijfsuitje van heel het team',
-            'date' => '2023-02-23'
+        Album::factory()->create([
+            'id' => 2,
+            'title' => 'Album 2',
+            'description' => 'Dit is album 2',
+            'date' => '2022-01-01'
         ]);
-        DB::table('albums')->insert([
-            'title' => 'Buiten Golfen',
-            'date' => '2023-01-11'
+         Album::factory()->create([
+            'id' => 3,
+            'title' => 'Album 3',
+            'description' => 'Dit is album 3',
+            'date' => '2022-04-01'
         ]);
 
-        /*DB::table('pictures')->insert([
-            'album_id' => '1',
+
+        Picture::factory()->create([
+            'id' => 1,
+            'album_id' => 1,
             'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/a61897bc-6113-466c-827d-bbe3c75537b6_orig.jpg'
         ]);
-        DB::table('pictures')->insert([
-            'album_id' => '1',
+        Picture::factory()->create([
+            'id' => 2,
+            'album_id' => 1,
             'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/img-0321_orig.jpeg'
         ]);
-
-        DB::table('pictures')->insert([
-            'album_id' => '2',
+        Picture::factory()->create([
+            'id' => 3,
+            'album_id' => 1,
             'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/7bce0e71-6854-4429-b5d3-1ce6a051f800.jpeg'
         ]);
-        DB::table('pictures')->insert([
-            'album_id' => '1',
-            'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/d5c749c9-c6c8-4a3b-8cd4-baddc1a2cf7a.jpg'
-        ]);
-
-        DB::table('pictures')->insert([
-            'album_id' => '1',
+        Picture::factory()->create([
+            'id' => 4,
+            'album_id' => 2,
             'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/65cf6eb0-24b6-46bc-a569-80c3a9af1b7e.jpg'
         ]);
-        DB::table('pictures')->insert([
-            'album_id' => '1',
-            'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/10526cc9-7c01-4f25-bf39-9354b3900363.jpg'
-        ]);*/
     }
 
 
