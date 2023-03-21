@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('phonenumber')->nullable();
             $table->string('function')->nullable();
             $table->string('website')->nullable();
+            $table->string('imgurl')->nullable();
             $table->timestamps();
         });
     }
