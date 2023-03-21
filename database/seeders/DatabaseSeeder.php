@@ -9,15 +9,17 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Group;
 use App\Models\Event;
+use App\Models\MemberGroup;
+use App\Models\TeamMember;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+    
     public function run(): void
     {
         $this->call(ImageSeeder::class);
+		
+        #region events
         $indoorGolf = Event::create([
             'title' => 'Indoor-Golf-Middag',
             'date' => '2023-01-21',
@@ -83,14 +85,11 @@ class DatabaseSeeder extends Seeder
         $pros->groups()->attach($burgGolf->id);
         $prise->groups()->attach($burgGolf->id);
         $superG->groups()->attach($specialGolf->id);
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        //
-
-
-        $this->testSeedData();
-
+        #endregion
+		
+        $this->call([
+            MemberSeeder::class
+        ]);
     }
 
     function testSeedData() : void{
