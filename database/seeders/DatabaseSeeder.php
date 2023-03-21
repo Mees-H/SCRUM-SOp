@@ -81,6 +81,7 @@ class DatabaseSeeder extends Seeder
         $prise->groups()->attach($burgGolf->id);
         $superG->groups()->attach($specialGolf->id);
         #endregion
+
         $this->call([
             MemberSeeder::class
         ]);

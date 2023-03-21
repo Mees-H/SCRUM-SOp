@@ -117,3 +117,10 @@ a{
 td{
     max-width: 250px;
 }
+
+.memberimg{
+    width: 75px;
+    height: 75px;
+    padding: 2px;
+    border:1px solid darkgray;
+}
