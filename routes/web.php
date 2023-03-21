@@ -27,12 +27,12 @@ Route::controller(NavigationController::class)->group(function() {
     Route::get('/training', 'training');
     Route::get('/evenement', 'evenement');
     Route::get('/gallerij', 'gallerij');
-    Route::get('/aanmelden', 'aanmelden');
     Route::get('/faq', 'faq');
     Route::get('/nieuwsbrief', 'nieuwsbrief');
     Route::get('/team', 'team');
 });
 
 Route::resource('events', EventController::class);
+Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 
-Route::post('/aanmelden', [EnrollController::class, 'mail']);
+//Route::post('/aanmelden', [EventController::class, 'submit']);

@@ -61,10 +61,12 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div class="form-group">
-            <label for="event_id">evenement nummer</label>
-            <input type="text" class="form-control" id="event_id" placeholder="" name="event_id">
-        </div>
+{{--        <div class="form-group">--}}
+{{--            <label for="event_id">evenement nummer</label>--}}
+{{--            <input type="text" class="form-control" id="event_id" placeholder="" name="event_id">--}}
+{{--        </div>--}}
+        <input type="hidden" value="{{$eventId}}" name="event_id" id="event_id">
+
         <button type="submit" id="aanmeldknop" name="aanmeldknop" class=" btn darkBlueBackground">Verzend inschrijving
         </button>
     </form>
