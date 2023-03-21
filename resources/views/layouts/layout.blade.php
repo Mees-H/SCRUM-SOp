@@ -32,10 +32,9 @@
                 <a class="nav-link {{ (request()->segment(1) == 'evenement') ? 'active' : '' }}" href="/evenement">Evenementen</a>
             </li>
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle {{ (request()->segment(1) == 'galerij') ? 'active' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <a class="nav-link dropdown-toggle {{ (request()->segment(1) == 'galerij') ? 'active' : '' }}" href="/galerij" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Galerij
             </a>
-
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @if(count($allYears) > 0)
                         @foreach($allYears as $year)
