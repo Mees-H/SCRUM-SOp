@@ -70,11 +70,12 @@ class EventController extends Controller
 
     }
 
-    public function enroll(int $id){
+    public function enroll(int $id)
+    {
         return view('aanmelden', ['eventId' => $id]);
     }
 
-    function submit(MailPostRequest $request)
+    public function submit(MailPostRequest $request)
     {
         $validated = $request->validated();
 
