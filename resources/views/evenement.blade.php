@@ -5,10 +5,11 @@
         <div class="row align-items-center">
             <h1 class="col">Evenementen</h1>
             <div class="col">
-                <a class="btn btn-primary" href="/events">Evenementen onderhouden</a>
+                <a href="/events">Evenementen onderhouden</a>
             </div>
         </div>
     </div>
+    <hr>
 
     @if(session()->get('success'))
         <div class="alert alert-success">
@@ -24,7 +25,7 @@
                     {{$post->title}}
                 </a>
             </h1>
-                <a href="/events/enroll/{{$post->id}}" >Inschrijven</a>
+                <a href="/events/enroll/{{$post->id}}" class="btn-primary btn">Inschrijven</a>
             </div>
 
             <div>
