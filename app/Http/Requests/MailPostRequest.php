@@ -22,7 +22,7 @@ class MailPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|regex:/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð \'-]+$/u|max:255',
+            'name' => 'required|regex:/^[^\d,._]+$/u|max:255',
             'birthday' => 'required|before:today',
             'email' => 'required|email|max:255',
             'phonenumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
