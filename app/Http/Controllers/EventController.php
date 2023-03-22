@@ -78,7 +78,6 @@ class EventController extends Controller
     {
         $validated = $request->validated();
 
-        //TODO: Implementeer mailstuff
         $mailFactory = new MailFactory();
         $mail = $mailFactory->createMail('eventRegistration',
             ['name' => $request['name'], 'birthday' => $request['birthday'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $request['disability'], 'event_id' => $request['event_id']]);
