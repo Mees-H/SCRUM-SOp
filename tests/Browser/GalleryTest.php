@@ -33,7 +33,7 @@ class GalleryTest extends DuskTestCase
         Picture::factory()->create([
             'id' => 1,
             'album_id' => $album->id,
-            'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/a61897bc-6113-466c-827d-bbe3c75537b6_orig.jpg'
+            'imageUrl' => '/TestImage/TestImageSpecialGolf.jpg'
         ]);
 
 
@@ -51,11 +51,11 @@ class GalleryTest extends DuskTestCase
                     ->press("Terug")
                     ->assertPathIs("/galerij/" . $year);
                 $browser
-                    ->click('img')
+                    ->click('@AlbumTest')
                     ->assertPathIs("/galerij/" . $year . "/" . "Test%20album");
                 $browser
-                    ->press('img')
-                    ->assertAttribute('img', 'src', 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/a61897bc-6113-466c-827d-bbe3c75537b6_orig.jpg');
+                    ->click('@PictureTest')
+                    ->assertAttribute('@PictureTest', 'src', '/TestImage/TestImageSpecialGolf.jpg');
             });
 
     }
