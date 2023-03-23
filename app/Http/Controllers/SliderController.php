@@ -36,19 +36,25 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-        'image' => 'required|mimes:jpeg,jpg,png,bmp,gif|max: 2000'
-        ]);
-        $uploadImage = $request->file('image');
-        $imageNameWithExt = $uploadImage->getClientOriginalName(); 
-        $imageName =pathinfo($imageNameWithExt, PATHINFO_FILENAME);
-        $imageExt=$uploadImage->getClientOriginalExtension();
-        $storeImage=$imageName . time() . "." . $imageExt;
-        $request->image->move(public_path('images'), $storeImage);
-        $carousel= slider::create([
-            'image' => $storeImage
-        ]);
-        return redirect('slider');    
+        try{
+            $request->validate([
+            'image' => 'required|mimes:jpeg,jpg,png,bmp,gif|max: 2000'
+            ]);
+            $uploadImage = $request->file('image');
+            $imageNameWithExt = $uploadImage->getClientOriginalName(); 
+            $imageName =pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+            $imageExt=$uploadImage->getClientOriginalExtension();
+            $storeImage=$imageName . time() . "." . $imageExt;
+            $request->image->move(public_path('images'), $storeImage);
+            $carousel= slider::create([
+                'image' => $storeImage
+            ]);
+            return redirect('slider');
+        }
+        catch (\Exception $e){
+            return Redirect::back()->withErrors("Geen geldige afbeelding extensie");
+        }
+            
     }
 
     /**

@@ -1,4 +1,5 @@
 .marginright {
     margin-right: 22px;
     width: 210px;
+    justify-self: flex-end;
 }
