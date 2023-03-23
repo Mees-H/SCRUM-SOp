@@ -24,7 +24,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="carouselExampleCaptions" class="carousel slide text-center" data-bs-ride="carousel">
+                    <div id="carouselExampleCaptions" data-bs-interval="false" class="carousel slide" >
                         <div class="carousel-inner ">
                             @foreach($sliders as $slider)
                                 <div class="carousel-item @if($loop->first) active @endif">

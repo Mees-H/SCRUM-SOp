@@ -5,7 +5,7 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12 mt-4">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleCaptions" data-bs-interval="false" class="carousel slide" >
                     <div class="carousel-inner ">
                         @foreach($sliders as $slider)
                             <div class="carousel-item @if($loop->first) active @endif">
