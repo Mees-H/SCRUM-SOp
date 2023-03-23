@@ -36,14 +36,13 @@ class GalleryController extends Controller
         foreach ($years as $year) {
             $allYears[] = date('Y', strtotime($year->date));
         }
-
         //distinct maken op basis van jaar
         return array_unique($allYears);
     }
 
 
     /// Dit is voor een andere user story, deze wordt later gemaakt. Jira: S8S-32 en S8S-33///
-    /*public function create()
+    public function create()
     {
         return view('aanmakenAlbum');
     }
@@ -66,5 +65,5 @@ class GalleryController extends Controller
     public function delete()
     {
         return view('verwijderenAlbum');
-    }*/
+    }
 }

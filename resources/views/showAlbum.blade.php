@@ -20,31 +20,29 @@
                 @foreach($pictures as $picture)
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" src="{{$picture->imageUrl}}" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
+                            <img type="button" class="card-img-top" src="{{$picture->imageUrl}}" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
                         </div>
                     </div>
                 @endforeach
             </div>
             </div>
 
-
-
-        <script>
-            $(document).ready(function(){
-                $('.card-img-top').click(function(){
-                    let src = $(this).attr('src');
-                    $('.modal-body').empty().append("<img src='"+src+"' class='modal-img' alt='De geklikte foto'>");
-                    $('#imageModal').modal('show');
-                });
-            });
-        </script>
-
     </body>
-    <div class="modal justify-content-center container fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-body">
 
             </div>
         </div>
     </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.card-img-top').click(function(){
+                let src = $(this).attr('src');
+                $('.modal-body').empty().append("<img src='"+src+"' class='modal-img' alt='De geklikte foto'>");
+                $('#imageModal').modal('show');
+            });
+        });
+    </script>
 @stop

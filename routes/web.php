@@ -26,7 +26,6 @@ Route::controller(NavigationController::class)->group(function() {
     Route::get('/index', 'index');
     Route::get('/training', 'training');
     Route::get('/evenement', 'evenement');
-    Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
     Route::get('/aanmelden', 'aanmelden');
     Route::get('/faq', 'faq');
     Route::get('/nieuwsbrief', 'nieuwsbrief');
@@ -38,6 +37,7 @@ Route::resource('events', EventController::class);
 
 
 //Galerij routes
+Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 
 //TODO: voor een andere user story
