@@ -1,21 +1,63 @@
+body {
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+    .nav-link {
+        font-size: 200%;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+    .nav-link {
+        font-size: 150%;
+    }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+    .nav-link {
+        font-size: 125%;
+    }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+    .nav-link {
+        font-size: 100%;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+    .nav-link {
+        font-size: 100%;
+    }
+}
+
+
+
 footer {
- position: absolute;
+margin-top:auto;
  bottom: 0;
  left: 0;
  right: 0;
- background: #111;
+ margin-top:auto;
  height: auto;
- width: 100vw;
- color: #fff;
 }
 
 .footer-content {
  display: flex;
  align-items: center;
  justify-content: center;
- flex-direction: column;
+ flex-direction: row;
  text-align: center;
  padding-top: 10px;
+ padding-bottom: 5px;
  
 }
 .footer-info{
@@ -26,7 +68,6 @@ footer {
  margin: auto;
  line-height: 20px;
  font-size: 14px;
- color: #cacdd2;
 }
 
 
@@ -45,8 +86,7 @@ footer {
 
 .socials a {
  text-decoration: none;
- color: #fff;
- border: 1.1px solid white;
+ border: 1.1px solid black;
  padding: 5px;
  border-radius: 50%;
 }
@@ -61,3 +101,19 @@ footer {
  color: grey;
 }
 
+#logo {
+    width: auto;
+    height: 40px;
+}
+
+.btn-primary{
+    background-color: darkblue;
+}
+
+a{
+    color: #000CD9;
+}
+
+td{
+    max-width: 250px;
+}
