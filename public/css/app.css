@@ -44,7 +44,9 @@ nav {
     }
 }
 
-
+h1{
+    color: #B89C30;
+}
 
 footer {
 margin-top:auto;
@@ -63,6 +65,7 @@ margin-top:auto;
  text-align: center;
  padding-top: 10px;
  padding-bottom: 5px;
+
 }
 .footer-info{
  flex-direction: column;
@@ -111,11 +114,29 @@ margin-top:auto;
 }
 
 .btn-primary{
-    background-color: darkblue;
+    background:none;
+    border-color: #04ADBF;
+    color:#04ADBF;
+}
+.btn-primary:hover{
+    background-color: #04ADBF;
+    border-color: white;
+    color:white;
+}
+
+.btn-secondary{
+    background:none;
+    border-color: #8A048C;
+    color:#8A048C;
+}
+.btn-secondary:hover{
+    background-color: #8A048C;
+    border-color: white;
+    color:white;
 }
 
 a{
-    color: #000CD9;
+    color: #0F0E0E;
 }
 
 td{

@@ -2,14 +2,14 @@
 
 @section('content')
 <div class="row">
-    <div class="col-sm-12">
+    <div class="col-sm-12 container">
         <h1 class="display-3">Evenementen</h1>
         <div>
             <a href="{{ route('events.create')}}" class="btn btn-primary mb-3">Creeër nieuw evenement</a>
-        </div>     
+        </div>
         @if(session()->get('success'))
             <div class="alert alert-success">
-                {{ session()->get('success') }}  
+                {{ session()->get('success') }}
             </div>
         @endif
         <table class="table table-striped">

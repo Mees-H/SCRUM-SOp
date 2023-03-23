@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="container text-center">
+    <div class="container justify-content-between ">
         <div class="row align-items-center">
             <h1 class="col">Evenementen</h1>
             <div class="col">
@@ -9,6 +9,7 @@
             </div>
         </div>
     </div>
+    <div class="container">
     <hr>
 
     @if(session()->get('success'))
@@ -45,4 +46,6 @@
         </article>
         <hr>
     @endforeach
+    </div>
 @stop
+
