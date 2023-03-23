@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Slider;
+use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class SliderController extends Controller
 {
@@ -57,6 +59,19 @@ class SliderController extends Controller
             
     }
 
+    public function delete(Request $request){
+        $slider = $request->slider;
+        //naam van image ophalen uit database
+        //image verwijderen uit local file
+        DB::table('sliders')->get([
+            'id' => $slider,
+        ]);
+
+        slider::where('id', $slider)->delete();
+
+        return redirect('slider');
+      }
+
     /**
      * Display the specified resource.
      *
@@ -97,7 +112,7 @@ class SliderController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
         //
     }
