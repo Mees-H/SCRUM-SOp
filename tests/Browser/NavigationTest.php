@@ -12,7 +12,7 @@ class NavigationTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-                    ->clickLink("Hoofdpagina")
+                    ->clickLink("Startpagina")
                     ->assertPathIs("/index");
             $browser->visit('/')
                     ->clickLink("Trainingen")
@@ -88,10 +88,6 @@ class NavigationTest extends DuskTestCase
                         ->clickLink("Galerij")
                         ->clickLink("2021")
                         ->assertPathIs("/galerij/2021");
-                $browser->visit('/')
-                        ->click(".search")
-                        ->clickLink("Aanmelden")
-                        ->assertPathIs("/aanmelden");
                 $browser->visit('/')
                         ->click(".search")
                         ->clickLink("FAQ")

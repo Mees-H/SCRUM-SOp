@@ -49,6 +49,7 @@ class MailPostRequest extends FormRequest
             'address.required' => 'Uw adres is verplicht',
             'address.max' => 'Uw adres mag niet langer zijn dan 255 karakters',
             'city.required' => 'Uw woonplaats is verplicht',
+            'city.max' => 'De naam van uw woonplaats mag niet langer zijn dan 255 karakters',
             'disability.required' => 'Het invoeren van de beperking is verplicht',
             'disability.max' => 'De beschrijving van uw beperking mag niet langer zijn dan 255 karakters',
         ];
