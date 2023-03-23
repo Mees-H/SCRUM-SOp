@@ -138,6 +138,12 @@ margin-top:auto;
 a{
     color: #0F0E0E;
 }
+a:hover{
+    color:#2d3748 ;
+}
+.darkTitle{
+    color: #0F0E0E;
+}
 
 td{
     max-width: 250px;
