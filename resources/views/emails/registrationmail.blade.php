@@ -1,22 +1,6 @@
 <!DOCTYPE html>
 <head>
-    <style>
-        table{
-            padding: 3px;
-            margin: auto;
-            border: none;
-            width: 500px;
-        }
-
-        th{
-            background-color: #4CAF50;
-            color: white;
-        }
-
-        th, td{
-            border: 1px solid black;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('css/registrationMail.css')}}">
 </head>
 <body>
     <h1>{{$name}} heeft zich ingeschreven voor {{$eventName}} op {{$date}}.</h1>

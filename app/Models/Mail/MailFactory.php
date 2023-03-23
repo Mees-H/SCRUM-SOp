@@ -65,11 +65,11 @@ class MailFactory
         $city = $arguments['city'];
         $disability = $arguments['disability'];
         $eventId = $arguments['event_id'];
-        $event = Event::find($eventId) ?? throw new InvalidArgumentException('event_id is invalid');
+        $event = Event::find($eventId) ?? throw new InvalidArgumentException('evenement is niet gevonden');
         $age = date_diff(date_create($birthday), date_create(date('Y-m-d')))->format('%y');
 
         if($age <= 0) {
-            throw new InvalidArgumentException('birthday is invalid');
+            throw new InvalidArgumentException('geboortedatum ligt in de toekomst');
         }
 
         $text = 'hallo '.$name;
