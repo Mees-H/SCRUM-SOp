@@ -61,12 +61,6 @@ class SliderController extends Controller
 
     public function delete(Request $request){
         $slider = $request->slider;
-        //naam van image ophalen uit database
-        //image verwijderen uit local file
-        DB::table('sliders')->get([
-            'id' => $slider,
-        ]);
-
         slider::where('id', $slider)->delete();
 
         return redirect('slider');
