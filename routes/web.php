@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
@@ -42,6 +43,9 @@ Route::resource('slider', SliderController::class);
 Route::resource('events', EventController::class);
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
+
+//Team routes
+Route::resource('members', TeamController::class);
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
