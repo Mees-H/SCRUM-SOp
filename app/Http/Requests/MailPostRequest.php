@@ -22,12 +22,12 @@ class MailPostRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|regex:/^[^\d,._]+$/u|max:255',
+            'name' => 'required|max:255',
             'birthday' => 'required|before:today',
             'email' => 'required|email|max:255',
             'phonenumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'address' => 'required|max:255',
-            'city' => 'required|regex:/^[a-zA-ZàáâäãåąčćęèéêëėįìíîïłńòóôöõøùúûüųūÿýżźñçčšžÀÁÂÄÃÅĄĆČĖĘÈÉÊËÌÍÎÏĮŁŃÒÓÔÖÕØÙÚÛÜŲŪŸÝŻŹÑßÇŒÆČŠŽ∂ð \'-]+$/u|max:255',
+            'city' => 'required|max:255',
             'disability' => 'required|max:255',
             'event_id' => 'required|numeric'
         ];
@@ -37,7 +37,6 @@ class MailPostRequest extends FormRequest
     {
         return [
             'name.required' => 'Uw naam is verplicht',
-            'name.regex' => 'Uw naam mag alleen letters, apostrofs of koppeltekens bevatten',
             'name.max' => 'Uw naam mag niet langer zijn dan 255 karakters',
             'birthday.required' => 'Uw geboortedatum is verplicht',
             'birthday.before' => 'Uw geboortedatum mag niet in de toekomst liggen',
@@ -50,7 +49,6 @@ class MailPostRequest extends FormRequest
             'address.required' => 'Uw adres is verplicht',
             'address.max' => 'Uw adres mag niet langer zijn dan 255 karakters',
             'city.required' => 'Uw woonplaats is verplicht',
-            'city.regex' => 'Uw woonplaats mag alleen letters, apostrofs of koppeltekens bevatten',
             'disability.required' => 'Het invoeren van de beperking is verplicht',
             'disability.max' => 'De beschrijving van uw beperking mag niet langer zijn dan 255 karakters',
         ];
