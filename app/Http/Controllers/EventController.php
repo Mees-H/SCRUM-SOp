@@ -95,14 +95,14 @@ class EventController extends Controller
         $event->updated_at = $request->get('updated_at');
         $event->groups()->detach();
         $event->save();
-        
+
         if($request->get('groups') != null){
             foreach($request->get('groups') as $groupId){
                 $event->groups()->save(Group::find($groupId));
             }
         }
 
-        return redirect('/events')->with('success', 'Evenement geupdatet.');
+        return redirect('/events')->with('success', 'Evenement geüpdatet.');
     }
 
     /**
@@ -111,6 +111,6 @@ class EventController extends Controller
     public function destroy(string $id)
     {
         Event::findOrFail($id)->delete();
-        return redirect('/events')->with('success', 'Evenement verwijdert.');
+        return redirect('/events')->with('success', 'Evenement verwijderd.');
     }
 }
