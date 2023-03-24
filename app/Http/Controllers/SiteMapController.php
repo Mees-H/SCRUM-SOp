@@ -70,9 +70,10 @@ class SiteMapController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id): Response
+    public function edit(string $id)
     {
-        //
+        $sitemap = Sitemap::findOrFail($id);
+        return view('sitemap.edit', compact('sitemap'));
     }
 
     /**
@@ -80,7 +81,21 @@ class SiteMapController extends Controller
      */
     public function update(Request $request, string $id): RedirectResponse
     {
-        //
+        $request->validate([
+            'category' => 'required|max:255',
+            'function' => 'required|max:255',
+            'name' => 'required|max:255',
+            'link' => 'required|max:255',
+        ]);
+        $sitemap = Sitemap::find($id);
+        $sitemap->categorie = $request->get('category');
+        $sitemap->functie = $request->get('function');
+        $sitemap->naam = $request->get('name');
+        $sitemap->verwijzing = $request->get('link');
+        $sitemap->updated_at = $request->get('updated_at');
+        $sitemap->save();
+        
+        return redirect('/links')->with('success', 'Evenement geupdatet.');
     }
 
     /**
@@ -88,6 +103,7 @@ class SiteMapController extends Controller
      */
     public function destroy(string $id): RedirectResponse
     {
-        //
+        Sitemap::findOrFail($id)->delete();
+        return redirect('/links')->with('success', 'Sitemap verwijdert.');
     }
 }
