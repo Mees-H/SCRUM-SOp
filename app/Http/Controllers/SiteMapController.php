@@ -74,20 +74,20 @@ class SiteMapController extends Controller
     public function update(Request $request, string $id): RedirectResponse
     {
         $request->validate([
-            'category' => 'required|max:255',
-            'function' => 'required|max:255',
-            'name' => 'required|max:255',
-            'link' => 'required|max:255',
+            'categorie' => 'required|max:255',
+            'functie' => 'required|max:255',
+            'naam' => 'required|max:255',
+            'verwijzing' => 'required|max:255',
         ]);
         $sitemap = Sitemap::find($id);
-        $sitemap->categorie = $request->get('category');
-        $sitemap->functie = $request->get('function');
-        $sitemap->naam = $request->get('name');
-        $sitemap->verwijzing = $request->get('link');
+        $sitemap->categorie = $request->get('categorie');
+        $sitemap->functie = $request->get('functie');
+        $sitemap->naam = $request->get('naam');
+        $sitemap->verwijzing = $request->get('verwijzing');
         $sitemap->updated_at = $request->get('updated_at');
         $sitemap->save();
-
-        return redirect('/links')->with('success', 'Evenement geupdatet.');
+        
+        return redirect('/links')->with('success', 'Link geupdatet.');
     }
 
     /**
@@ -96,6 +96,6 @@ class SiteMapController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         Sitemap::findOrFail($id)->delete();
-        return redirect('/links')->with('success', 'Link verwijderd.');
+        return redirect('/links')->with('success', 'Link verwijdert.');
     }
 }
