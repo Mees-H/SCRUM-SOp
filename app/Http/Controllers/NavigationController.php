@@ -24,11 +24,11 @@ class NavigationController extends Controller
     }
     function faq()
     {
-        return view('faq');
+        return view('faq.faq');
     }
     function nieuwsbrief()
     {
-        return view('nieuwsbrief');
+        return view('news.nieuwsbrief');
     }
     function team()
     {
