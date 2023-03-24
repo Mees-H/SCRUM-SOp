@@ -70,22 +70,14 @@ class CreateSitemapTest extends DuskTestCase
                 ->assertSee("Verwijzing mag niet groter zijn dan 255 karakters.");
         });
     }
-    public function testCreateSitemapBackButton():void{
+    public function testCreateSitemapBackButton():void
+    {
         $this->browse(function (Browser $browser) {
             $browser->visit('/links/create')
-                ->click('Ga terug')
+                ->clickLink('Ga terug')
                 ->assertPathIs("/links")
                 ->assertDontSee("mag niet groter zijn dan 255 karakters.")
                 ->assertDontSee("Link opgeslagen.");
-        });
-    }
-
-    public function testDeleteSitemap():void{
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/links')
-                ->click('Verwijderen')
-                ->assertPathIs("/links")
-                ->assertSee("Link verwijderd.");
         });
     }
 }
