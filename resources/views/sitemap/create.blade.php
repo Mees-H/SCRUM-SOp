@@ -1,5 +1,5 @@
 @extends('layouts.layout')
- 
+
 @section('content')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
@@ -17,26 +17,26 @@
             @endif
             <form method="post" action="{{ route('links.store') }}">
                 @csrf
-                <div class="form-group">    
-                    <label for="category">Categorie:</label>
-                    <input type="text" class="form-control" name="category" id="category"/>
-                </div>
-        
                 <div class="form-group">
-                    <label for="function">Functie:</label>
-                    <input type="text" class="form-control" name="function" id="function"/>
+                    <label for="categorie">Categorie:</label>
+                    <input type="text" class="form-control" name="categorie" id="categorie"/>
                 </div>
-        
+
                 <div class="form-group">
-                    <label for="name">Naam:</label>
-                    <input type="text" class="form-control" name="name" id="name"/>
+                    <label for="functie">Functie:</label>
+                    <input type="text" class="form-control" name="functie" id="functie"/>
                 </div>
-        
+
                 <div class="form-group">
-                    <label for="link">Verwijzing:</label>
-                    <input type="text" class="form-control" name="link" id="link"/>
+                    <label for="naam">Naam:</label>
+                    <input type="text" class="form-control" name="naam" id="naam"/>
                 </div>
-                
+
+                <div class="form-group">
+                    <label for="verwijzing">Verwijzing:</label>
+                    <input type="text" class="form-control" name="verwijzing" id="verwijzing"/>
+                </div>
+
                 <button type="submit" class="btn btn-primary">Voeg link toe</button>
             </form>
         </div>
