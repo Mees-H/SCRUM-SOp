@@ -7,9 +7,8 @@ use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EnrollController;
-use App\Http\Controllers\EventController;
 
-/*
+/*  
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -46,17 +45,3 @@ Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name(
 Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
 Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
 Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
-
-//dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
-//TODO:remove
-Route::get('/mail', function () {return view('mailForm');});
-Route::post('/mail', function (Request $request){
-    $name = $request['name'];
-    $age = $request['age'];
-    $eventId = $request['event_id'];
-
-    $factory = new MailFactory();
-    $mail = $factory->createMail('eventRegistration',['name' => $name, 'event_id' => $eventId]);
-    \App\Models\Mail\Mailer::Mail([],$mail, true);
-    return view('sent',['name' => $name]);
-});

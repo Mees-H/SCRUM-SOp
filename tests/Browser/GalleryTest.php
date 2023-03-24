@@ -10,6 +10,7 @@ use Tests\DuskTestCase;
 use Laravel\Dusk\Browser;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use App\Models\Album;
+use RefreshDatabase;
 
 class GalleryTest extends DuskTestCase
 {
