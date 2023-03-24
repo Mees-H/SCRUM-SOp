@@ -20,23 +20,23 @@
             @method('PATCH') 
             @csrf
             <div class="form-group">    
-                <label for="category">Categorie:</label>
-                <input type="text" class="form-control" name="category" value="{{ $sitemap->categorie}}" id="category"/>
+                <label for="categorie">Categorie:</label>
+                <input type="text" class="form-control" name="categorie" value="{{ $sitemap->categorie}}" id="categorie"/>
             </div>
     
             <div class="form-group">
-                <label for="function">Functie:</label>
-                <input type="text" class="form-control" name="function" value="{{ $sitemap->functie}}" id="function"/>
+                <label for="functie">Functie:</label>
+                <input type="text" class="form-control" name="functie" value="{{ $sitemap->functie}}" id="functie"/>
             </div>
     
             <div class="form-group">
-                <label for="name">Naam:</label>
-                <input type="text" class="form-control" name="name" value="{{ $sitemap->naam}}" id="name"/>
+                <label for="naam">Naam:</label>
+                <input type="text" class="form-control" name="naam" value="{{ $sitemap->naam}}" id="naam"/>
             </div>
     
             <div class="form-group">
-                <label for="link">Verwijzing:</label>
-                <input type="text" class="form-control" name="link" value="{{ $sitemap->verwijzing}}" id="link"/>
+                <label for="verwijzing">Verwijzing:</label>
+                <input type="text" class="form-control" name="verwijzing" value="{{ $sitemap->verwijzing}}" id="verwijzing"/>
             </div>
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
