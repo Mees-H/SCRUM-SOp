@@ -35,28 +35,20 @@ class SiteMapController extends Controller
     {
         $request->validate([
             'categorie' => 'required|max:255',
-            'functie' => 'required|max:999',
-            'naam' => 'required|after:today',
-            'verwijzing' => '',
+            'functie' => 'required|max:255',
+            'naam' => 'required|max:255',
+            'verwijzing' => 'required|max:255',
         ]);
 
-        $event = new Event([
-            'title' => $request->get('title'),
-            'date' => $request->get('date'),
-            'time' => $request->get('time'),
-            'body' => $request->get('body')
+        $sitemap = new Sitemap([
+            'categorie' => $request->get('categorie'),
+            'functie' => $request->get('functie'),
+            'naam' => $request->get('naam'),
+            'verwijzing' => $request->get('verwijzing')
         ]);
+        $sitemap->save();
 
-        $event->save();
-        if($request->get('groups') != null){
-            foreach($request->get('groups') as $groupId){
-                $event->groups()->save(Group::find($groupId));
-            }
-        }
-        $event->slug = 'event_' . $event->id;
-        $event->save();
-
-        return redirect('/events')->with('success', 'Evenement opgeslagen.');
+        return redirect('/links')->with('success', $sitemap);
     }
 
     /**
