@@ -33,15 +33,15 @@ class NavigationTest extends DuskTestCase
                     ->clickLink("Galerij")
                     ->clickLink("2021")
                     ->assertPathIs("/galerij/2021");
-        //     $browser->visit('/')
-        //             ->clickLink("FAQ")
-        //             ->assertPathIs("/faq");
-        //     $browser->visit('/')
-        //             ->clickLink("Nieuws")
-        //             ->assertPathIs("/nieuwsbrief");
-        //     $browser->visit('/')
-        //             ->clickLink("Team")
-        //             ->assertPathIs("/team");
+            $browser->visit('/')
+                    ->clickLink("FAQ")
+                    ->assertPathIs("/faq");
+            $browser->visit('/')
+                    ->clickLink("Nieuws")
+                    ->assertPathIs("/nieuwsbrief");
+            $browser->visit('/')
+                    ->clickLink("Team")
+                    ->assertPathIs("/team");
         });
     }
 
