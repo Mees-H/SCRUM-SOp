@@ -3,6 +3,7 @@
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\SiteMapController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -35,6 +36,7 @@ Route::controller(NavigationController::class)->group(function() {
 
 Route::resource('events', EventController::class);
 
+Route::resource('links', SiteMapController::class);
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
