@@ -18,7 +18,7 @@ class EditSitemapTest extends DuskTestCase
                     ->type('naam', 'Henk Hendrik')
                     ->type('verwijzing', 'https://www.nu.nl/')
                     ->press('Update')
-                    ->assertSee('Evenement geupdatet')
+                    ->assertSee('Evenement geüpdatet')
                     ->assertPathIs('/events');
         });
     }
@@ -101,5 +101,5 @@ class EditSitemapTest extends DuskTestCase
         });
     }
 
-    
+
 }

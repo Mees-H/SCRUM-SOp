@@ -39,7 +39,7 @@ class CreateEventTest extends DuskTestCase
                     ->assertSee("Titel mag niet groter zijn dan 255 karakters.");
         });
     }
-    
+
     public function testCreateEventLongTextText(): void
     {
         $this->browse(function (Browser $browser) {
@@ -80,7 +80,7 @@ class CreateEventTest extends DuskTestCase
                     ->type("body", "Er is een superleuke event gaande!!!1!")
                     ->press("Update")
                     ->assertPathIs("/events")
-                    ->assertSee("Evenement geupdatet.");
+                    ->assertSee("Evenement geüpdatet.");
         });
     }
 
@@ -137,7 +137,7 @@ class CreateEventTest extends DuskTestCase
             $browser->visit('/events')
                     ->press("Verwijderen")
                     ->assertPathIs("/events")
-                    ->assertSee("Evenement verwijdert.");
+                    ->assertSee("Evenement verwijderd.");
         });
     }
 

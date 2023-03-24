@@ -86,8 +86,8 @@ class SiteMapController extends Controller
         $sitemap->verwijzing = $request->get('verwijzing');
         $sitemap->updated_at = $request->get('updated_at');
         $sitemap->save();
-        
-        return redirect('/links')->with('success', 'Link geupdatet.');
+
+        return redirect('/links')->with('success', 'Link geüpdatet.');
     }
 
     /**

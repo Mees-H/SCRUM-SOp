@@ -121,7 +121,7 @@ class EventController extends Controller
             }
         }
 
-        return redirect('/events')->with('success', 'Evenement geupdatet.');
+        return redirect('/events')->with('success', 'Evenement geüpdatet.');
     }
 
     /**
@@ -130,6 +130,6 @@ class EventController extends Controller
     public function destroy(string $id)
     {
         Event::findOrFail($id)->delete();
-        return redirect('/events')->with('success', 'Evenement verwijdert.');
+        return redirect('/events')->with('success', 'Evenement verwijderd.');
     }
 }
