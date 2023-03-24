@@ -114,6 +114,12 @@ class DatabaseSeeder extends Seeder
             'description' => 'Dit is album 3',
             'date' => '2022-04-01'
         ]);
+        Album::factory()->create([
+            'id' => 4,
+            'title' => 'Album 4',
+            'description' => 'Dit is album 4',
+            'date' => '2023-04-01'
+        ]);
 
         Picture::factory()->create([
             'id' => 1,
