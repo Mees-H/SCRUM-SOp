@@ -96,6 +96,6 @@ class SiteMapController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         Sitemap::findOrFail($id)->delete();
-        return redirect('/links')->with('success', 'Sitemap verwijdert.');
+        return redirect('/links')->with('success', 'Link verwijderd.');
     }
 }
