@@ -18,7 +18,7 @@ class ImageSeeder extends Seeder
         ]);
 
         DB::table('sliders')->insert([
-            'image' => 'Slider2j.jpg',
+            'image' => 'Slider2.jpg',
         ]);
     }
 }
