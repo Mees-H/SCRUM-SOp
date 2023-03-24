@@ -8,10 +8,8 @@ use Tests\DuskTestCase;
 
 class CreateSitemapTest extends DuskTestCase
 {
-    /**
-     * A Dusk test example.
-     */
-    public function testExample(): void
+
+    public function testCreateSitemapNormal(): void
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/links/create')
@@ -70,6 +68,24 @@ class CreateSitemapTest extends DuskTestCase
                 ->press('Voeg link toe')
                 ->assertPathIs("/links/create")
                 ->assertSee("Verwijzing mag niet groter zijn dan 255 karakters.");
+        });
+    }
+    public function testCreateSitemapBackButton():void{
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/links/create')
+                ->click('Ga terug')
+                ->assertPathIs("/links")
+                ->assertDontSee("mag niet groter zijn dan 255 karakters.")
+                ->assertDontSee("Link opgeslagen.");
+        });
+    }
+
+    public function testDeleteSitemap():void{
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/links')
+                ->click('Verwijderen')
+                ->assertPathIs("/links")
+                ->assertSee("Link verwijderd.");
         });
     }
 }
