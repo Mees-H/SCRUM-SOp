@@ -48,7 +48,7 @@ class SiteMapController extends Controller
         ]);
         $sitemap->save();
 
-        return redirect('/links')->with('success', $sitemap);
+        return redirect('/links')->with('success', 'Link opgeslagen.');
     }
 
     /**
@@ -86,7 +86,7 @@ class SiteMapController extends Controller
         $sitemap->verwijzing = $request->get('link');
         $sitemap->updated_at = $request->get('updated_at');
         $sitemap->save();
-        
+
         return redirect('/links')->with('success', 'Evenement geupdatet.');
     }
 
