@@ -1,15 +1,15 @@
 @extends('layouts.layout')
- 
+
 @section('content')
 <div class="row">
     <div class="col-sm-12">
         <h1 class="display-3">Links</h1>
         <div>
             <a href="{{ route('links.create')}}" class="btn btn-primary mb-3">Creeër nieuwe links</a>
-        </div>     
+        </div>
         @if(session()->get('success'))
             <div class="alert alert-success">
-                {{ session()->get('success') }}  
+                {{ session()->get('success') }}
             </div>
         @endif
         <table class="table table-striped">
@@ -24,12 +24,12 @@
             </thead>
             <tbody>
                 @foreach($sitemaps as $sitemap)
-                    <tr>
+                    <tr class="text-break">
                         <td>{{$sitemap->id}}</td>
-                        <td>{{$sitemap->categorie}} </td>
+                        <td>{{$sitemap->categorie}}</td>
                         <td>{{$sitemap->functie}}</td>
                         <td>{{$sitemap->naam}}</td>
-                        @if (str_contains($sitemap->verwijzing, '@')) 
+                        @if (str_contains($sitemap->verwijzing, '@'))
                         <td><a href="mailto:{{$sitemap->verwijzing}}">{{$sitemap->verwijzing}}</a></td>
                         @else
                         <td><a href="{{$sitemap->verwijzing}}">{{$sitemap->verwijzing}}</a></td>
