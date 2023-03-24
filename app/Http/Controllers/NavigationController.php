@@ -21,12 +21,7 @@ class NavigationController extends Controller
     }
     function evenement()
     {
-        return view('evenement', ['posts' => Event::all()]);
-    }
-
-    function aanmelden()
-    {
-        return view('aanmelden');
+        return view('events.evenement', ['posts' => Event::all()]);
     }
     function faq()
     {
