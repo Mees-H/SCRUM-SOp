@@ -65,7 +65,7 @@ class MailFactory
         $city = $arguments['city'];
         $disability = $arguments['disability'];
         $eventId = $arguments['event_id'];
-        $event = Event::find($eventId) ?? throw new InvalidArgumentException('evenement is niet gevonden');
+        $event = Event::find($eventId) ?: throw new InvalidArgumentException('evenement is niet gevonden');
         $age = date_diff(date_create($birthday), date_create(date('Y-m-d')))->format('%y');
 
         if($age <= 0) {

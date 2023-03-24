@@ -61,7 +61,7 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <input type="hidden" value="{{old('eventId')}}" name="event_id" id="event_id" >
+        <input type="hidden" value="{{old('eventId',$eventId)}}" name="event_id" id="event_id" >
 
         <button type="submit" id="aanmeldknop" name="aanmeldknop" class=" btn btn-primary">Verzend inschrijving
         </button>

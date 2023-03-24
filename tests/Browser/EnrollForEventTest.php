@@ -48,7 +48,7 @@ class EnrollForEventTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
                 ->assertSee('Inschrijven voor Evenement')
-                ->type('name', 'Test4;drop table users;')
+                ->type('name', 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv')
                 ->type('birthday', '2000-01-01')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
@@ -135,7 +135,7 @@ class EnrollForEventTest extends DuskTestCase
                     ->type('email', 'test@gmail.com')
                     ->type('phonenumber', '0612345678')
                     ->type('address', 'Teststraat 6')
-                    ->type('city', 'Teststad1231 ;dsafnjs;1')
+                    ->type('city', 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv')
                     ->type('disability', 'Geen')
                     ->press('aanmeldknop')
                     ->assertDontSee('Uw aanmelding is verzonden!');
