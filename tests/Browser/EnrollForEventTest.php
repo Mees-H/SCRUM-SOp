@@ -46,9 +46,13 @@ class EnrollForEventTest extends DuskTestCase
     public function testForm_BadName_shouldFail(): void
     {
         $this->browse(function (Browser $browser) {
+            $string = '';
+            for ($i = 0; $i < 300; $i++) {
+                $string .= 'a';
+            }
             $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
                 ->assertSee('Inschrijven voor Evenement')
-                ->type('name', 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv')
+                ->type('name', $string)
                 ->type('birthday', '2000-01-01')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
@@ -128,6 +132,10 @@ class EnrollForEventTest extends DuskTestCase
     public function testForm_BadCity_shouldFail(): void
     {
         $this->browse(function (Browser $browser) {
+            $string = '';
+            for ($i = 0; $i < 300; $i++) {
+                $string .= 'a';
+            }
             $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
                     ->assertSee('Inschrijven voor Evenement')
                     ->type('name', 'Test')
@@ -135,7 +143,7 @@ class EnrollForEventTest extends DuskTestCase
                     ->type('email', 'test@gmail.com')
                     ->type('phonenumber', '0612345678')
                     ->type('address', 'Teststraat 6')
-                    ->type('city', 'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv')
+                    ->type('city', $string)
                     ->type('disability', 'Geen')
                     ->press('aanmeldknop')
                     ->assertDontSee('Uw aanmelding is verzonden!');
