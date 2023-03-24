@@ -5,6 +5,7 @@
     margin-top: 30px;
     width: 150px;
     list-style-type: none;
+    z-index: 2;
 }
 
 #dropdown {
