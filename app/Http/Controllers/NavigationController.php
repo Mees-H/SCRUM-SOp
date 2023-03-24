@@ -17,7 +17,7 @@ class NavigationController extends Controller
     }
     function training()
     {
-        return view('training');
+        return view('calendar.training');
     }
     function evenement()
     {
