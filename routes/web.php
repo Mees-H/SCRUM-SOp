@@ -7,6 +7,8 @@ use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EnrollController;
+use App\Http\Controllers\SliderController;
+
 
 /*  
 |--------------------------------------------------------------------------
@@ -19,20 +21,28 @@ use App\Http\Controllers\EnrollController;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', [NavigationController::class, 'index']);
+Route::get('/index', [NavigationController::class, 'index']);
+Route::get('/training', [NavigationController::class, 'training']);
+Route::get('/evenement', [NavigationController::class, 'evenement']);
+Route::get('/galerij', [NavigationController::class, 'galerij']);
+Route::get('/galerij/2023', [NavigationController::class, 'J2023']);
+Route::get('/galerij/2022', [NavigationController::class, 'J2022']);
+Route::get('/galerij/2021', [NavigationController::class, 'J2021']);
+Route::get('/aanmelden', [NavigationController::class, 'aanmelden']);
+Route::get('/faq', [NavigationController::class, 'faq']);
+Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
+Route::get('/team', [NavigationController::class, 'team']);
+Route::get('/partner', [NavigationController::class, 'partner']);
+Route::get('/overons', [NavigationController::class, 'overons']);
+Route::get('/locatie', [NavigationController::class, 'locatie']);
+Route::get('/links', [NavigationController::class, 'links']);
+Route::get('slider-delete/{slider}',[SliderController::class,'delete'])->name('slider.delete');
 
-Route::controller(NavigationController::class)->group(function() {
-    Route::get('/index', 'index');
-    Route::get('/training', 'training');
-    Route::get('/evenement', 'evenement');
-    Route::get('/faq', 'faq');
-    Route::get('/nieuwsbrief', 'nieuwsbrief');
-    Route::get('/team', 'team');
+//Resource routes
+Route::resource('slider', SliderController::class);
 
-});
-
+//Event routes
 Route::resource('events', EventController::class);
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
