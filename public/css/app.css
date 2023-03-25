@@ -120,7 +120,7 @@ td{
 
 .siteMap {
     color: black;
-    font-size: 1.2em;
+    /*font-size: 1.2em;*/
 }
 
 .siteMap:hover {
@@ -140,7 +140,7 @@ a.effect-underline:after {
 
 a.effect-underline{
     top: 50%;
-    left: 50%;
+
     /*transform: translate(-50%, -50%);*/
 }
 
