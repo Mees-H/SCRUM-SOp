@@ -2,8 +2,11 @@
 
 namespace Database\Seeders;
 
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Picture;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Album;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 use App\Models\Group;
 use App\Models\Event;
 
@@ -44,7 +47,7 @@ class DatabaseSeeder extends Seeder
             'date' => '2023-06-04',
             'time' => '12:00:00',
             'slug' => 'event_4',
-            'body' => 'In navolging van 2022 gaat Super-G weer plaatsvinden. Aan dit evenement nemen deel veel verenigingen en stichtingen o.a. tennis, paardrijden, basketbal, voetbal, wielrennen, wandelen, judo, hockey, darten en petanque uit de gemeente ’s-Hertogenbosch. 
+            'body' => 'In navolging van 2022 gaat Super-G weer plaatsvinden. Aan dit evenement nemen deel veel verenigingen en stichtingen o.a. tennis, paardrijden, basketbal, voetbal, wielrennen, wandelen, judo, hockey, darten en petanque uit de gemeente ’s-Hertogenbosch.
             Ook Special Golf (G-Golf) is op deze dag gastheer op BurgGolf Haverleij, waar mensen met een verstandelijke beperking kunnen kennismaken met het Golfen. Een parcours bestaande uit golfvaardigheid skills kan door de deelnemers worden afgelegd, waarbij begeleiders van Special Golf hun de eerste beginselen zullen aanreiken. Deze dag staat dan ook in het teken van verbinden waar we iedereen een leuke ervaring willen meegeven. Voor het programma op 4 juni 2023 komen wij tijdig met nadere  informatie over de locatie en tijden, bezoek daarvoor de website: www.super-g.nl  of www.specialgolfhaverleij2021.com.'
         ]);
 
@@ -80,5 +83,59 @@ class DatabaseSeeder extends Seeder
         $pros->groups()->attach($burgGolf->id);
         $prise->groups()->attach($burgGolf->id);
         $superG->groups()->attach($specialGolf->id);
+        // \App\Models\User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        //
+
+
+        $this->testSeedData();
+
     }
+
+    function testSeedData() : void{
+        Album::factory()->create([
+            'id' => 1,
+            'title' => 'Album 1',
+            'description' => 'Dit is album 1',
+            'date' => '2021-01-01'
+        ]);
+        Album::factory()->create([
+            'id' => 2,
+            'title' => 'Album 2',
+            'description' => 'Dit is album 2',
+            'date' => '2022-01-01'
+        ]);
+         Album::factory()->create([
+            'id' => 3,
+            'title' => 'Album 3',
+            'description' => 'Dit is album 3',
+            'date' => '2022-04-01'
+        ]);
+
+
+        Picture::factory()->create([
+            'id' => 1,
+            'album_id' => 1,
+            'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/a61897bc-6113-466c-827d-bbe3c75537b6_orig.jpg'
+        ]);
+        Picture::factory()->create([
+            'id' => 2,
+            'album_id' => 1,
+            'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/img-0321_orig.jpeg'
+        ]);
+        Picture::factory()->create([
+            'id' => 3,
+            'album_id' => 1,
+            'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/7bce0e71-6854-4429-b5d3-1ce6a051f800.jpeg'
+        ]);
+        Picture::factory()->create([
+            'id' => 4,
+            'album_id' => 2,
+            'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/65cf6eb0-24b6-46bc-a569-80c3a9af1b7e.jpg'
+        ]);
+    }
+
+
+
 }

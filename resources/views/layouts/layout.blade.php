@@ -38,16 +38,22 @@
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}" href="/evenement">Evenementen</a>
             </li>
             <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+
+            <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="/galerij" id="navbarDropdown" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+
                 Galerij
             </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="/galerij/2023">2023</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/galerij/2022">2022</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/galerij/2021">2021</a>
-            </div>
+
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    @if(count($allYears) > 0)
+                        @foreach($allYears as $year)
+                            <li><a class="dropdown-item" href="{{ route('galerij_jaar', $year) }}">{{$year}}</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                        @endforeach
+                    @else
+                        <li><a class="dropdown-item">Nog geen galerij zichtbaar</a></li>
+                    @endif
+                </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'aanmelden') ? 'font-weight-bold' : '' }}" href="/aanmelden">Aanmelden</a>
@@ -120,11 +126,11 @@
                         Links
                     </a></li>
                 </ul>
-                </form>	             
-            
+                </form>
+
         </div>
         </nav>
-        
+
         <div class="container">
             @yield('content')
         </div>
