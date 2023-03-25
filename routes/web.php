@@ -3,6 +3,7 @@
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\FAQController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -33,8 +34,11 @@ Route::controller(NavigationController::class)->group(function() {
 
 });
 
-Route::resource('events', EventController::class);
+//FAQ routes
+Route::get('/faq/vraagformulier', [FAQController::class, 'questionform']);
+Route::post('/faq/submit', [FAQController::class, 'submit']);
 
+Route::resource('events', EventController::class);
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');

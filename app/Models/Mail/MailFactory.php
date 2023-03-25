@@ -58,4 +58,15 @@ class MailFactory
         return $mail;
     }
 
+    private function sendQuestion($arguments) : Mailable{
+        if($arguments['name'] == null || $arguments['email'] == null || $arguments['question'] == null){
+            throw new InvalidArgumentException(message: 'de juiste argumenten werden niet gevonden');
+        }
+        $name = $arguments['name'];
+        $email = $arguments['email'];
+        $question = $arguments['question'];
+        $mail = new Mail\QuestionMail($name,$email,$question);
+        return $mail;
+    }
+
 }
