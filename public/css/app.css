@@ -117,3 +117,8 @@ a{
 td{
     max-width: 250px;
 }
+
+.requiredStar{
+    color: red;
+    font-size: 1.5em;
+}
