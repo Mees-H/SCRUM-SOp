@@ -3,18 +3,19 @@
 @section('content')
     <div class="">
         <h1 class="text-center p-4">Links</h1>
-<div class="container">
     @foreach($links->keys() as $category)
-        <div class="row">
-        <div class="siteMap col-sm">{{$category}}</div>
-            <div class="w-50 col-sm d-flex flex-column">
+        <h2>{{$category}}</h2>
+        <div class="container">
         @foreach($links[$category] as $link)
-            <div class="row"><a class="siteMap effect-underline" href="{{$link->verwijzing}}">{{$link->naam}}</a><div></div></div>
-        @endforeach
+            <div class="row">
+                <div class="col">{{$link->functie}}</div>
+                <div class="col">{{$link->naam}}</div>
+                <div class="row col"><a class="siteMap effect-underline justify-content-between text-center
+                " href="{{$link->verwijzing}}">{{$link->verwijzing}}</a><div></div></div>
             </div>
+        @endforeach
         </div>
         <hr>
     @endforeach
-</div>
     </div>
 @stop
