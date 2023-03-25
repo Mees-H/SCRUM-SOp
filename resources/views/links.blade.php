@@ -2,9 +2,9 @@
 
 @section('content')
     <div class="">
-        <h1 class="text-center p-4">Links</h1>
+        <h1 class="text-center specialBrown p-4"><b>Links</b></h1>
     @foreach($links->keys() as $category)
-        <h2>{{$category}}</h2>
+        <h2 class="specialBrown">{{$category}}</h2>
         <div class="container">
         @foreach($links[$category] as $link)
             <div class="row">
