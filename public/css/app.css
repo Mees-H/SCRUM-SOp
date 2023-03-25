@@ -39,7 +39,9 @@ body {
     }
 }
 
-
+.specialBrown{
+    color: #8d7824;
+}
 
 footer {
 margin-top:auto;
@@ -58,7 +60,7 @@ margin-top:auto;
  text-align: center;
  padding-top: 10px;
  padding-bottom: 5px;
- 
+
 }
 .footer-info{
  flex-direction: column;
@@ -116,4 +118,28 @@ a{
 
 td{
     max-width: 250px;
+}
+
+.siteMap:hover {
+    text-decoration: none;
+}
+
+a.effect-underline:after {
+    content: "";
+    display: block;
+    width: 100%;
+    height: 2px;
+    background: #000CD9;
+    transition: transform 0.2s ease-in-out;
+    transform: scale(0);
+}
+
+a.effect-underline{
+    top: 50%;
+
+    /*transform: translate(-50%, -50%);*/
+}
+
+a.effect-underline:hover:after {
+    transform: scale(1);
 }

@@ -54,9 +54,11 @@ class SiteMapController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id): Response
+    public function show()
     {
-        //
+        $links = Sitemap::all()->groupBy('categorie');
+
+        return view('links', ['links' => $links]);
     }
 
     /**
