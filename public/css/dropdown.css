@@ -1,3 +1,8 @@
+.marginright {
+    margin-right: 22px;
+    width: 210px;
+    justify-self: flex-end;
+}
 #content {
     position: absolute;
     padding: 0;
@@ -5,7 +10,8 @@
     margin-top: 30px;
     width: 150px;
     list-style-type: none;
-    z-index: 2;
+    z-index: 1;
+    background-color: white;
 }
 
 #dropdown {
