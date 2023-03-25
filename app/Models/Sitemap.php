@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Sitemap extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'naam',
+        'categorie',
+        'functie',
+        'verwijzing',
+    ];
 }
