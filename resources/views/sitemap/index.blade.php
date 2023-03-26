@@ -1,56 +1,21 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="row">
-    <div class="col-sm-12">
-        <h1 class="display-3">Links</h1>
-        <div>
-            <a href="{{ route('links.create')}}" class="btn btn-primary mb-3">Creeër nieuwe links</a>
-        </div>
-        @if(session()->get('success'))
-            <div class="alert alert-success">
-                {{ session()->get('success') }}
-            </div>
-        @endif
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Categorie</td>
-                    <td>Functie</td>
-                    <td>Naam</td>
-                    <td>Verwijzing</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($sitemaps as $sitemap)
-                    <tr class="text-break">
-                        <td>{{$sitemap->id}}</td>
-                        <td>{{$sitemap->categorie}}</td>
-                        <td>{{$sitemap->functie}}</td>
-                        <td>{{$sitemap->naam}}</td>
-                        @if (str_contains($sitemap->verwijzing, '@'))
-                        <td><a href="mailto:{{$sitemap->verwijzing}}">{{$sitemap->verwijzing}}</a></td>
-                        @else
-                        <td><a href="{{$sitemap->verwijzing}}">{{$sitemap->verwijzing}}</a></td>
-                        @endif
-                        <td>
-                        </td>
-                        <td>
-                            <a href="{{ route('links.edit',$sitemap->id)}}" class="btn btn-primary">Aanpassen</a>
-                        </td>
-                        <td>
-                            <form action="{{ route('links.destroy', $sitemap->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Verwijderen</button>
-                            </form>
-                        </td>
-                    </tr>
+    <div class="">
+        <h1 class="text-center specialBrown p-4"><b>Links</b></h1>
+        @foreach($links->keys() as $category)
+            <h2 class="specialBrown">{{$category}}</h2>
+            <div class="container">
+                @foreach($links[$category] as $link)
+                    <div class="row">
+                        <div class="col">{{$link->functie}}</div>
+                        <div class="col">{{$link->naam}}</div>
+                        <div class="row col"><a class="siteMap effect-underline justify-content-between text-center
+                " href="{{$link->verwijzing}}">{{$link->verwijzing}}</a><div></div></div>
+                    </div>
                 @endforeach
-            </tbody>
-        </table>
-    <div>
-</div>
-
-@endsection
+            </div>
+            <hr>
+        @endforeach
+    </div>
+@stop
