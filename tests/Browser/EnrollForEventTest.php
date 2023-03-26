@@ -13,16 +13,16 @@ class EnrollForEventTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
-                    ->assertSee('Inschrijven voor Evenement')
-                    ->type('name', 'Test')
-                    ->type('birthday', '2000-01-01')
-                    ->type('email', 'test@gmail.com')
-                    ->type('phonenumber', '0612345678')
-                    ->type('address', 'Teststraat 1')
-                    ->type('city', 'Teststad')
-                    ->type('disability', 'Geen')
-                    ->press('aanmeldknop')
-                    ->assertSee('Uw aanmelding is verzonden!');
+                ->assertSee('Inschrijven voor Evenement')
+                ->type('name', 'Test')
+                ->type('birthday', '2000-01-01')
+                ->type('email', 'test@gmail.com')
+                ->type('phonenumber', '0612345678')
+                ->type('address', 'Teststraat 1')
+                ->type('city', 'Teststad')
+                ->type('disability', 'Geen')
+                ->press('#aanmeldknop')
+                ->assertSee('Uw aanmelding is verzonden!');
         });
     }
 
@@ -38,7 +38,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('disability', 'Geen')
-                ->press('aanmeldknop')
+                ->press('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -59,7 +59,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('disability', 'Geen')
-                ->press('aanmeldknop')
+                ->press('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -75,7 +75,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('disability', 'Geen')
-                ->press('aanmeldknop')
+                ->press('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -91,7 +91,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('disability', 'Geen')
-                ->press('aanmeldknop')
+                ->press('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -107,7 +107,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('disability', 'Geen')
-                ->press('aanmeldknop')
+                ->press('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -116,16 +116,16 @@ class EnrollForEventTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
-                    ->assertSee('Inschrijven voor Evenement')
-                    ->type('name', 'Test')
-                    ->type('birthday', '2000-01-01')
-                    ->type('email', 'test@gmail.com')
-                    ->type('phonenumber', '0612345678')
-                    ->type('address', '')
-                    ->type('city', 'Teststad')
-                    ->type('disability', 'Geen')
-                    ->press('aanmeldknop')
-                    ->assertDontSee('Uw aanmelding is verzonden!');
+                ->assertSee('Inschrijven voor Evenement')
+                ->type('name', 'Test')
+                ->type('birthday', '2000-01-01')
+                ->type('email', 'test@gmail.com')
+                ->type('phonenumber', '0612345678')
+                ->type('address', '')
+                ->type('city', 'Teststad')
+                ->type('disability', 'Geen')
+                ->press('#aanmeldknop')
+                ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
 
@@ -137,16 +137,16 @@ class EnrollForEventTest extends DuskTestCase
                 $string .= 'a';
             }
             $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
-                    ->assertSee('Inschrijven voor Evenement')
-                    ->type('name', 'Test')
-                    ->type('birthday', '2000-01-01')
-                    ->type('email', 'test@gmail.com')
-                    ->type('phonenumber', '0612345678')
-                    ->type('address', 'Teststraat 6')
-                    ->type('city', $string)
-                    ->type('disability', 'Geen')
-                    ->press('aanmeldknop')
-                    ->assertDontSee('Uw aanmelding is verzonden!');
+                ->assertSee('Inschrijven voor Evenement')
+                ->type('name', 'Test')
+                ->type('birthday', '2000-01-01')
+                ->type('email', 'test@gmail.com')
+                ->type('phonenumber', '0612345678')
+                ->type('address', 'Teststraat 6')
+                ->type('city', $string)
+                ->type('disability', 'Geen')
+                ->press('#aanmeldknop')
+                ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
 
