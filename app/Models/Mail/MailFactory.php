@@ -6,6 +6,7 @@ use App\Exceptions\InvalidArgumentException;
 use App\Models\Event;
 use App\Models\Mail;
 use Illuminate\Mail\Mailable;
+use Illuminate\Support\Facades\DB;
 
 class MailFactory
 {
@@ -30,7 +31,8 @@ class MailFactory
      * @return Mailable an object that extends the mailable class and is ready to be sent.
      * @throws InvalidArgumentException if the method was not found
      */
-    public function createMail(string $type, $arguments) : Mailable{
+    public function createMail(string $type, $arguments) : Mailable
+    {
 
         foreach ($this->types as $typee){
             if($type == $typee){
@@ -41,20 +43,37 @@ class MailFactory
         throw new InvalidArgumentException(message: 'de aangegeven methode werd niet gevonden');
     }
 
-    /**
-     * @param $arguments dictionary that contains at least the following keys: name and event_id
-     * @return Mailable an object that extends the mailable class and is ready to be sent.
-     * @throws InvalidArgumentException if the right arguments were not found
-     */
-    private function eventRegistration($arguments) : Mailable{
-        if($arguments['name'] == null || $arguments['event_id'] == null){
-            throw new InvalidArgumentException(message: 'de juiste argumenten werden niet gevonden');
+    private function eventRegistration($arguments) : Mailable
+    {
+        if($arguments['name'] == null ||
+            $arguments['birthday'] == null ||
+            $arguments['email'] == null ||
+            $arguments['phonenumber'] == null ||
+            $arguments['address'] == null ||
+            $arguments['city'] == null ||
+            $arguments['disability'] == null ||
+            $arguments['event_id'] == null
+        ){
+            throw new InvalidArgumentException('niet alle argumenten waren gevonden');
         }
+
         $name = $arguments['name'];
+        $birthday = $arguments['birthday'];
+        $email = $arguments['email'];
+        $phonenumber = $arguments['phonenumber'];
+        $address = $arguments['address'];
+        $city = $arguments['city'];
+        $disability = $arguments['disability'];
         $eventId = $arguments['event_id'];
-        $event = Event::find($eventId);
+        $event = Event::find($eventId) ?: throw new InvalidArgumentException('evenement is niet gevonden');
+        $age = date_diff(date_create($birthday), date_create(date('Y-m-d')))->format('%y');
+
+        if($age <= 0) {
+            throw new InvalidArgumentException('geboortedatum ligt in de toekomst');
+        }
+
         $text = 'hallo '.$name;
-        $mail = new Mail\test($name,$event->name,$event->date);
+        $mail = new Mail\RegisterMail($name,$age,$email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
         return $mail;
     }
 

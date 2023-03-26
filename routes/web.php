@@ -7,10 +7,11 @@ use App\Http\Controllers\FAQController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EnrollController;
 use App\Http\Controllers\SliderController;
 
 
-/*
+/*  
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -25,10 +26,6 @@ Route::get('/', [NavigationController::class, 'index']);
 Route::get('/index', [NavigationController::class, 'index']);
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
-Route::get('/galerij', [NavigationController::class, 'galerij']);
-Route::get('/galerij/2023', [NavigationController::class, 'J2023']);
-Route::get('/galerij/2022', [NavigationController::class, 'J2022']);
-Route::get('/galerij/2021', [NavigationController::class, 'J2021']);
 Route::get('/aanmelden', [NavigationController::class, 'aanmelden']);
 Route::get('/faq', [NavigationController::class, 'faq']);
 Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
@@ -48,6 +45,8 @@ Route::post('/faq/submit', [FAQController::class, 'submit']);
 
 //Event routes
 Route::resource('events', EventController::class);
+Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
+Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');

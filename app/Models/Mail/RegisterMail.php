@@ -8,20 +8,32 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class test extends Mailable
+class RegisterMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $name;
+    public $age;
+    public $email;
+    public $phonenumber;
+    public $address;
+    public $city;
+    public $disability;
     public $eventName;
     public $date;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $eventName, $date)
+    public function __construct($name, $age, $email, $phonenumber, $address, $city, $disability, $eventName, $date)
     {
         $this->name = $name;
+        $this->age = $age;
+        $this->email = $email;
+        $this->phonenumber = $phonenumber;
+        $this->address = $address;
+        $this->city = $city;
+        $this->disability = $disability;
         $this->eventName = $eventName;
         $this->date = $date;
     }
@@ -32,7 +44,7 @@ class test extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Test',
+            subject: 'Inschrijving evenement '.$this->eventName
         );
     }
 
@@ -42,7 +54,7 @@ class test extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.test'
+            view: 'emails.registrationmail'
         );
     }
 
