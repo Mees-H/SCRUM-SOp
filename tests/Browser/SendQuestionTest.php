@@ -13,12 +13,12 @@ class SendQuestionTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/faq/vraagformulier/')
-                    ->assertSee('Stel een vraag')
-                    ->type('name', 'Test')
-                    ->type('email', 'test@gmail.com')
-                    ->type('question', 'Hoe werkt de evenementen pagina?')
-                    ->press('verstuurknop')
-                    ->assertSee('Uw vraag is verzonden!');
+                ->assertSee('Stel een vraag')
+                ->type('name', 'Test')
+                ->type('email', 'test@gmail.com')
+                ->type('question', 'Hoe werkt de evenementen pagina?')
+                ->press('verstuurknop')
+                ->assertSee('Uw vraag is verzonden!');
         });
     }
 
@@ -26,9 +26,20 @@ class SendQuestionTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $string = '';
-            for ($i = 0; $i < 300; $i++) {
+            for ($i = 0; $i < 256; $i++) {
                 $string .= 'a';
             }
+
+            //Test required field
+            $browser->visit('/faq/vraagformulier/')
+                ->assertSee('Stel een vraag')
+                ->type('name', '')
+                ->type('email', 'test@gmail.com')
+                ->type('question', 'Hoe werkt de evenementen pagina?')
+                ->press('verstuurknop')
+                ->assertDontSee('Uw vraag is verzonden!');
+
+            //Test max length
             $browser->visit('/faq/vraagformulier/')
                 ->assertSee('Stel een vraag')
                 ->type('name', $string)
@@ -42,11 +53,63 @@ class SendQuestionTest extends DuskTestCase
     public function testForm_BadEmail_shouldFail(): void
     {
         $this->browse(function (Browser $browser) {
+            $string = '';
+            for ($i = 0; $i < 256; $i++) {
+                $string .= 'a';
+            }
+
+            //Test required field
+            $browser->visit('/faq/vraagformulier/')
+                ->assertSee('Stel een vraag')
+                ->type('name', 'Test')
+                ->type('email', '')
+                ->type('question', 'Hoe werkt de evenementen pagina?')
+                ->press('verstuurknop')
+                ->assertDontSee('Uw vraag is verzonden!');
+
+            //Test e-mail validation
             $browser->visit('/faq/vraagformulier/')
                 ->assertSee('Stel een vraag')
                 ->type('name', 'Test')
                 ->type('email', 'adsbfiobadsuygbfoulabfuygbdfvhybalxbvudsblyuierub')
                 ->type('question', 'Hoe werkt de evenementen pagina?')
+                ->press('verstuurknop')
+                ->assertDontSee('Uw vraag is verzonden!');
+
+            //Test max length
+            $browser->visit('/faq/vraagformulier/')
+                ->assertSee('Stel een vraag')
+                ->type('name', 'Test')
+                ->type('email', $string)
+                ->type('question', 'Hoe werkt de evenementen pagina?')
+                ->press('verstuurknop')
+                ->assertDontSee('Uw vraag is verzonden!');
+        });
+    }
+
+    public function testForm_BadQuestion_shouldFail(): void
+    {
+        $this->browse(function (Browser $browser) {
+            $string = '';
+            for ($i = 0; $i < 501; $i++) {
+                $string .= 'a';
+            }
+
+            //Test required field
+            $browser->visit('/faq/vraagformulier/')
+                ->assertSee('Stel een vraag')
+                ->type('name', 'Test')
+                ->type('email', 'test@gmail.com')
+                ->type('question', '')
+                ->press('verstuurknop')
+                ->assertDontSee('Uw vraag is verzonden!');
+
+            //Test max length
+            $browser->visit('/faq/vraagformulier/')
+                ->assertSee('Stel een vraag')
+                ->type('name', 'Test')
+                ->type('email', 'test@gmail.com')
+                ->type('question', $string)
                 ->press('verstuurknop')
                 ->assertDontSee('Uw vraag is verzonden!');
         });
