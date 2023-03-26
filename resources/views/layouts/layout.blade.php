@@ -39,7 +39,7 @@
             </li>
             <li class="nav-item dropdown">
 
-            <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="/galerij" id="navbarDropdown" role="button" data-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
 
                 Galerij
             </a>
@@ -54,9 +54,6 @@
                         <li><a class="dropdown-item">Nog geen galerij zichtbaar</a></li>
                     @endif
                 </ul>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'aanmelden') ? 'font-weight-bold' : '' }}" href="/aanmelden">Aanmelden</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/faq">FAQ</a>
@@ -100,9 +97,6 @@
                     </a></li>
                     <li> <a class="dropdown-item text-center" href="/galerij/2021">
                         2021
-                    </a></li>
-                    <li><a class="dropdown-item text-center" href="/aanmelden">
-                        Aanmelden
                     </a></li>
                     <li><a class="dropdown-item text-center" href="/faq">
                         FAQ
