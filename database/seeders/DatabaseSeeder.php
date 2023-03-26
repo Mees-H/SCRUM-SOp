@@ -90,7 +90,6 @@ class DatabaseSeeder extends Seeder
 
 
         $this->testSeedData();
-        $this->seedSitemap();
     }
 
     function testSeedData() : void{
@@ -135,32 +134,4 @@ class DatabaseSeeder extends Seeder
             'imageUrl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/65cf6eb0-24b6-46bc-a569-80c3a9af1b7e.jpg'
         ]);
     }
-
-    function seedSitemap() : void{
-
-        Sitemap::create([
-            'id' => 1,
-            'categorie' => 'Golf',
-            'functie' => 'Golfleraar',
-            'naam' => 'Dirk-jan',
-            'verwijzing' => 'https://www.specialgolfhaverleij2021.com/'
-        ]);
-
-        Sitemap::create([
-            'id' => 2,
-            'categorie' => 'Golf',
-            'functie' => 'Arts',
-            'naam' => 'Pietje',
-            'verwijzing' => 'https://www.specialgolfhaverleij2021.com/'
-        ]);
-
-        Sitemap::create([
-            'id' => 3,
-            'categorie' => 'Horeca',
-            'functie' => 'Ober',
-            'naam' => 'Gerrit',
-            'verwijzing' => 'test@test.nl'
-        ]);
-    }
-
 }
