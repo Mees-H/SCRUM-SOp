@@ -1,4 +1,20 @@
 .card{
-   /* background-color: #E3735D;*/
-   /*color: white;*/
+    color: black;
+}
+
+.card-header{
+    background-color: #04ADBF;
+    color: white;
+}
+.card-body{
+    background-color: #F2F2F2;
+    color: black;
+}
+.card-body i{
+    margin-right: 10px;
+}
+
+div img{
+    width: 300px;
+    height: 200px;
 }

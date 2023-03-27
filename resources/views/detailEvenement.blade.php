@@ -11,24 +11,50 @@
         </div>
     </div>
     <div class="justify-content-center d-flex p-3">
-        <img src="{{asset('img/specialgolflogodark.png')}}" class="img-fluid" alt="Responsive image">
+        <img src="{{asset('img/specialgolflogodark.png')}}" class="" alt="Evenement afbeelding">
     </div>
-    <div class="container mt-5 d-flex">
+    <div class="container mt-5 ">
         <div class="row justify-content-center">
+
             <div class="col-sm-6 font-normal">
+                <h3>
+                    {{$group->name}}
+                </h3>
                 {{$event->body}}
             </div>
-        <div class="col-sm-3 card border shadow p-2 text-center">
-            Algemeen
-            <div>
-                <object data="{{asset('Icons/clock.svg')}}" type="image/svg+xml" class="img-fluid" "></object>
-                {{$event->date}} / {{date('H:i', strtotime($event->time))}}
+
+        <div class="col-sm-3 d-flex">
+            <div class="card border shadow  ">
+            <div class="card-header text-center">
+            Het Evenement
             </div>
-
-        </div>
-        </div>
+            <div class="card-body text-left">
+            <div>
+                <span>
+                 <i class="bi bi-calendar-check fs-2x"></i>
+                    {{date('H:i', strtotime($event->time))}} {{$event->date}}
+                </span>
+            </div>
+                <div>
+                <span>
+                <i class="bi bi-clock fs-2x"></i>
+                    {{$group->city}}
+                </span>
+                </div>
+                <div>
+                <span>
+                <i class="bi bi-clock fs-2x"></i>
+                    {{$group->street}} {{$group->housenumber}}
+                </span>
+                </div>
+                <div>
+                <span>
+                <i class="bi bi-clock fs-2x"></i>
+                    {{$group->link}}
+                </span>
+            </div>
     </div>
-
+    </div>
 </div>
 
 
