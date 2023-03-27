@@ -39,11 +39,6 @@ class NavigationController extends Controller
     }
     function team() 
     {
-        $groups = MemberGroup::all();
-        foreach($groups as $group){
-            foreach($group->members as $member){
-            }
-        }
         return view('team', ['groups' => MemberGroup::all()]);
     }
 
