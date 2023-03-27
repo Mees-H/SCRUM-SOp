@@ -35,8 +35,8 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|unique:team_members,email|max:255',
-            'phonenumber' => 'nullable|numeric|min:10'
-        ]);
+            'phonenumber' => 'nullable|numeric|digits_between:10,10'
+        ], ['phonenumber.digits_between' => 'Telefoonnummer moet 10 cijfers zijn.']);
         $member = TeamMember::create([
             'name' => $request->get('name'),
             'email' => $request->get('email'),
@@ -92,8 +92,8 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
-            'phonenumber' => 'numeric|min:10'
-        ]);
+            'phonenumber' => 'nullable|numeric|digits_between:10,10'
+        ], ['phonenumber.digits_between' => 'Telefoonnummer moet 10 cijfers zijn.']);
         $member = TeamMember::findOrFail($id);
         $member->name = $request->get('name');
         $member->email = $request->get('email');
