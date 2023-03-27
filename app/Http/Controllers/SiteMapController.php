@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Album;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -17,6 +18,26 @@ class SiteMapController extends Controller
     public function index()
     {
         $json = json_decode(Storage::disk('public')->get('sitemap.json'),true);
+
+
+        //get all years of albums and add them to a new category called Foto's
+        $years = (new GalleryController())->ShowAllYearsOfGallerys();
+        $json['categories'][] = array(
+            'name' => 'Foto\'s',
+            'links' => []
+        );
+        $json['categories'] = array_map(function($category) use ($years) {
+            if($category['name'] === "Foto's"){
+                foreach ($years as $year){
+                    $category['links'][] = [
+                        'name' => $year,
+                        'link' => route('galerij_jaar', $year)
+                    ];
+                }
+            }
+            return $category;
+        }, $json['categories']);
+
         return view('links', ['links' => $json['categories']]);
     }
 
