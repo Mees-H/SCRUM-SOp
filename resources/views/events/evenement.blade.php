@@ -20,17 +20,15 @@
 
     @foreach($posts as $post)
         <article>
+            <div class="d-flex justify-content-between align-items-center">
             <h2>
                 <a href="{{route('eventsDetails', $post->id)}}" class="text-decoration-none">
-            <div class="d-flex justify-content-between align-items-center">
-            <h1>
-                <a href="/events/{{$post->slug}}">
                     {{$post->title}}
                 </a>
-            </h1>
+            </h2>
                 <a href="/events/enroll/{{$post->id}}" class="btn-primary btn">Inschrijven</a>
             </div>
-            </h2>
+
 
             <div>
                 <p>Datum: {{$post->date}} om {{$post->time}}</p>
