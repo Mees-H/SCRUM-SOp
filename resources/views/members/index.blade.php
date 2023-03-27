@@ -21,6 +21,7 @@
                     <td>Telefoonnummer</td>
                     <td>Functie</td>
                     <td>Website</td>
+                    <td>Groepen</td>
                     <td colspan = 2>Actions</td>
                 </tr>
             </thead>
@@ -33,6 +34,11 @@
                         <td>{{$member->phonenumber}}</td>
                         <td>{{$member->function}}</td>
                         <td>{{$member->website}}</td>
+                        <td>
+                            @foreach($member->groups as $group)
+                                {{$group->name}}<br>
+                            @endforeach
+                        </td>
                         <td>
                             <a href="{{ route('members.edit',$member->id)}}" class="btn btn-primary">Aanpassen</a>
                         </td>

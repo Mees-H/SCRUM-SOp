@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\TeamMember;
+use App\Models\MemberGroup;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -23,7 +24,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('members.create');
+        return view('members.create', ['groups' => MemberGroup::all()]);
     }
 
     /**
@@ -34,6 +35,7 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|unique:team_members,email|max:255',
+            'phonenumber' => 'nullable|numeric|min:10'
         ]);
         $member = TeamMember::create([
             'name' => $request->get('name'),
@@ -41,8 +43,25 @@ class TeamController extends Controller
             'phonenumber' => $request->get('phonenumber'),
             'function' => $request->get('function'),
             'website' => $request->get('website'),
-            'imgurl' => $request->get('imgurl')
+            'imgurl' => $request->get('image')
         ]);
+
+        //Saving image
+        if($request->hasFile('image')){
+            $destination_path = 'public/img/teammembers';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs($destination_path, $image_name);
+
+            $member['imgurl'] = $image_name;
+        }
+
+        //Saving groups
+        if($request->get('groups') != null){
+            foreach($request->get('groups') as $groupId){
+                $member->groups()->save(MemberGroup::find($groupId));
+            }
+        }
         $member->save();
 
         return redirect('members')->with('success', 'Lid opgeslagen.');
@@ -61,7 +80,8 @@ class TeamController extends Controller
      */
     public function edit(string $id)
     {
-        return view('members.edit', ['member' => TeamMember::findOrFail($id)]);
+        return view('members.edit', ['member' => TeamMember::findOrFail($id), 
+                                    'groups' => MemberGroup::all()]);
     }
 
     /**
@@ -72,6 +92,7 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255',
+            'phonenumber' => 'numeric|min:10'
         ]);
         $member = TeamMember::findOrFail($id);
         $member->name = $request->get('name');
@@ -80,6 +101,25 @@ class TeamController extends Controller
         $member->function = $request->get('function');
         $member->website = $request->get('website');
         $member->imgurl = $request->get('image');
+        $member->groups()->detach();
+
+        
+        //Updating image
+        if($request->hasFile('image')){
+            $destination_path = 'public/img/teammembers';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $path = $request->file('image')->storeAs($destination_path, $image_name);
+
+            $member['imgurl'] = $image_name;
+        }
+
+        //Updating groups
+        if($request->get('groups') != null){
+            foreach($request->get('groups') as $groupId){
+                $member->groups()->save(MemberGroup::find($groupId));
+            }
+        }
         $member->save();
 
         return redirect('members')->with('success', 'Lid aangepast.');

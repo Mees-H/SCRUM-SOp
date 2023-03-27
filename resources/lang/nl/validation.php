@@ -171,7 +171,8 @@ return [
         'date' => 'datum',
         'time' => 'tijd',
         'name' => 'naam',
-        'image' => 'afbeelding'
+        'image' => 'afbeelding',
+        'phonenumber' => 'telefoonnummer'
     ],
 
     'values' => [

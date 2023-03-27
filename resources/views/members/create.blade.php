@@ -15,7 +15,7 @@
                     </ul>
                 </div><br />
             @endif
-            <form method="post" action="{{ route('members.store') }}" files="true">
+            <form method="post" action="{{ route('members.store') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="form-group">    
                     <label for="name">Naam:</label>
@@ -29,7 +29,8 @@
         
                 <div class="form-group">
                     <label for="phonenumber">Telefoonnummer:</label>
-                    <input type="tel" class="form-control" name="phonenumber" id="phonenumber"/>
+                    <input type="tel" class="form-control" name="phonenumber" id="phonenumber" aria-describedby="examplenumber"/>
+                    <small id="examplenumber" class="form-text text-muted">Bijv: 0612345678</small>
                 </div>
         
                 <div class="form-group">
@@ -44,10 +45,19 @@
                 
                 <div class="form-group">
                     <label for="image">Foto:</label>
-                    <input type="file" class="form-control" name="image" id="image"/>
+                    <input type="file" class="form-control-file" name="image" id="image"/>
                 </div>
-                
-                <button type="submit" class="btn btn-primary">Voeg evenement toe</button>
+
+                <label>Groepen:</label>
+                @foreach($groups as $group)
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"/>
+                    <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
+                </div>
+                @endforeach
+                <br>
+
+                <button type="submit" class="btn btn-primary">Voeg lid toe</button>
             </form>
         </div>
     </div>

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 class MemberGroup extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
 
     public function members(): BelongsToMany{
         return $this->belongsToMany(

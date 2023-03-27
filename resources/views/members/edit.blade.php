@@ -15,44 +15,49 @@
             </div>
             <br /> 
         @endif
-        <form method="post" action="{{ route('members.update', $member->id) }}">
+        <form method="post" action="{{ route('members.update', $member->id) }}" enctype="multipart/form-data">
             @method('PATCH') 
             @csrf
             <div class="form-group">    
                 <label for="name">Naam:</label>
                 *<input type="text" class="form-control" name="name" value="{{$member->name}}"/>
-                <input type="checkbox" class="form-check-input" name="activated[]" value="name"/>
             </div>
     
             <div class="form-group">
                 <label for="email">E-mail:</label>
                 *<input type="email" class="form-control" name="email" id="email" value="{{$member->email}}"/>
-                <input type="checkbox" class="form-check-input" name="activated[]" value="email"/>
             </div>
     
             <div class="form-group">
                 <label for="phonenumber">Telefoonnummer:</label>
-                <input type="tel" class="form-control" name="phonenumber" id="phonenumber" value="{{$member->phonenumber}}"/>
-                <input type="checkbox" class="form-check-input" name="activated[]" value="phonenumber"/>
+                <input type="tel" class="form-control" name="phonenumber" id="phonenumber" value="{{$member->phonenumber}}" aria-describedby="examplenumber"/>
+                    <small id="examplenumber" class="form-text text-muted">Bijv: 0612345678</small>
             </div>
     
             <div class="form-group">
                 <label for="function">Functie:</label>
                 <input type="text" class="form-control" name="function" id="function" value="{{$member->function}}"/>
-                <input type="checkbox" class="form-check-input" name="activated[]" value="function"/>
             </div>
             
             <div class="form-group">
                 <label for="website">Website:</label>
                 <input type="text" class="form-control" name="website" id="website" value="{{$member->website}}"/>
-                <input type="checkbox" class="form-check-input" name="activated[]" value="website"/>
             </div>
             
             <div class="form-group">
                 <label for="image">Foto:</label>
                 <input type="file" class="form-control" name="image" id="image" value="{{$member->imgurl}}"/>
-                <input type="checkbox" class="form-check-input" name="activated[]" value="image"/>
             </div>
+            
+            <label>Groepen:</label>
+                @foreach($groups as $group)
+                <div class="form-check">
+                    <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}" 
+                    {{in_array($group->id, $member->groups()->allRelatedIds()->toArray())? 'checked':''}}/>
+                    <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
+                </div>
+                @endforeach
+                <br>
             
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
