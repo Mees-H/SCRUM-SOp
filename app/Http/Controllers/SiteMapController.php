@@ -17,7 +17,14 @@ class SiteMapController extends Controller
      */
     public function index()
     {
-        $json = json_decode(Storage::disk('public')->get('sitemap.json'),true);
+        if(Storage::disk('public')->exists('sitemap.json')){
+            $json = json_decode(Storage::disk('public')->get('sitemap.json'),true);
+        }else{
+            $json = [
+                'categories' => []
+            ];
+        }
+
 
 
         //get all years of albums and add them to a new category called Foto's
@@ -37,6 +44,8 @@ class SiteMapController extends Controller
             }
             return $category;
         }, $json['categories']);
+
+        //TODO: later we need to automatically add news items aswell
 
         return view('links', ['links' => $json['categories']]);
     }
