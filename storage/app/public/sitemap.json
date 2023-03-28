@@ -1,0 +1,62 @@
+{
+    "categories": [
+        {
+            "name": "Algemene pagina's",
+            "links": [
+                {
+                    "name": "home",
+                    "link": "/"
+                },
+                {
+                    "name": "trainingen",
+                    "link": "/training"
+                },
+                {
+                    "name": "evenementen",
+                    "link": "/evenement"
+                },
+                {
+                    "name": "aanmelden",
+                    "link": "/aanmelden"
+                },
+                {
+                    "name": "faq",
+                    "link": "/faq"
+                },
+                {
+                    "name": "nieuws",
+                    "link": "/nieuwsbrief"
+                },
+                {
+                    "name": "team",
+                    "link": "/team"
+                },
+                {
+                    "name": "partners",
+                    "link": "/partner"
+                },
+                {
+                    "name": "over ons",
+                    "link": "/overons"
+                },
+                {
+                    "name": "locatie",
+                    "link": "/locatie"
+                }
+            ]
+        },
+        {
+            "name": "Galerij",
+            "links": [
+                {
+                    "name": "2021",
+                    "link": "/galerij/2021"
+                },
+                {
+                    "name": "2022",
+                    "link": "/galerij/2022"
+                }
+            ]
+        }
+    ]
+}
