@@ -1,11 +1,22 @@
 .card{
     color: black;
+    min-width: 340px;
+    max-width: 350px;
 }
 
-.card-header{
+#cardHeaderEvent{
     background-color: #04ADBF;
     color: white;
 }
+#cardGroup{
+    align-content: space-evenly;
+}
+
+#cardHeaderGroups{
+    background-color: #F2B705;
+    color: white;
+}
+
 .card-body{
     background-color: #F2F2F2;
     color: black;
@@ -18,3 +29,21 @@ div img{
     width: 300px;
     height: 200px;
 }
+.title{
+    text-align: center;
+    font-size: 20px;
+}
+span{
+    margin-right: 10px;
+}
+
+a span:hover{
+    border-bottom: 2px solid #04ADBF;
+}
+
+.bi{
+    margin-right: 5px;
+    font-size: 18px;
+    font-style: inherit;
+}
+
