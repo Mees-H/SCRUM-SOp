@@ -31,7 +31,7 @@
             <div class="form-group">
                 <label for="phonenumber">Telefoonnummer:</label>
                 <input type="tel" class="form-control" name="phonenumber" id="phonenumber" value="{{$member->phonenumber}}" aria-describedby="examplenumber"/>
-                    <small id="examplenumber" class="form-text text-muted">Bijv: 0612345678</small>
+                <small id="examplenumber" class="form-text text-muted">Bijv: 0612345678</small>
             </div>
     
             <div class="form-group">
@@ -47,9 +47,10 @@
             <div class="form-group">
                 <label for="image">Foto:</label>
                 <input type="file" class="form-control" name="image" id="image" value="{{$member->imgurl}}"/>
+                <small id="imagehelp" class="form-text text-muted">Laat leeg om foto te verwijderen.</small>
             </div>
             
-            <label>Groepen:</label>
+            <label>Groepen:*</label>
                 @foreach($groups as $group)
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}" 

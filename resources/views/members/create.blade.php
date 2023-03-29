@@ -48,7 +48,7 @@
                     <input type="file" class="form-control-file" name="image" id="image"/>
                 </div>
 
-                <label>Groepen:</label>
+                <label>Groepen:*</label>
                 @foreach($groups as $group)
                 <div class="form-check">
                     <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"/>

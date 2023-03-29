@@ -5,7 +5,7 @@
     <div class="row align-items-center">
         <h1 class="col">Team samenstelling</h1>
         <div class="col">
-            <a class="btn btn-primary" href="/team">Team onderhouden</a>
+            <a class="btn btn-primary" href="members">Team onderhouden</a>
         </div>
     </div>
 </div>
@@ -28,7 +28,7 @@
                     </p>
                     @if($member->imgurl != '')
                         <div class="memberimg-box">
-                            <img src="{{ asset($member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
+                            <img src="{{ asset('storage/img/teammembers/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
                         </div>
                     @endif
                 </div>

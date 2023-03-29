@@ -39,7 +39,7 @@ class NavigationController extends Controller
     }
     function team()
     {
-        return view('team', ['groups' => MemberGroup::all()]);
+        return view('members/team', ['groups' => MemberGroup::all()]);
     }
 
     function partner()
