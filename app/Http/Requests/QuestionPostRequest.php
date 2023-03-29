@@ -23,7 +23,7 @@ class QuestionPostRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255',
-            'email' => 'required|email|max:255',
+            'email' => 'required|max:255',
             'question' => 'required|max:500'
         ];
     }
@@ -34,7 +34,6 @@ class QuestionPostRequest extends FormRequest
             'name.required' => 'Uw naam is verplicht',
             'name.max' => 'Uw naam mag niet langer zijn dan 255 karakters',
             'email.required' => 'Uw email is verplicht',
-            'email.email' => 'Uw email is ongeldig',
             'email.max' => 'Uw email mag niet langer zijn dan 255 karakters',
             'question.required' => 'Het invoeren van de vraag is verplicht',
             'question.max' => 'Uw vraag mag niet langer zijn dan 500 karakters',
