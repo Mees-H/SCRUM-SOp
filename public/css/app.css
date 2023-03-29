@@ -118,9 +118,14 @@ td{
     max-width: 250px;
 }
 
-.memberimg{
+.memberimg-box{
     width: 75px;
     height: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.memberimg{
     padding: 2px;
-    border:1px solid darkgray;
+    border: 1px solid darkgray;
 }

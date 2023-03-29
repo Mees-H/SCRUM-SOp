@@ -27,7 +27,9 @@
                         {{$member->phonenumber == '' ? '' : 'Mobiel: '.$member->phonenumber}}
                     </p>
                     @if($member->imgurl != '')
-                        <img src="{{ asset($member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
+                        <div class="memberimg-box">
+                            <img src="{{ asset($member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
+                        </div>
                     @endif
                 </div>
             </div>
