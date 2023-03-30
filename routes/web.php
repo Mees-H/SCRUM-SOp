@@ -3,6 +3,7 @@
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\FAQController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -51,3 +52,6 @@ Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name(
 Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
 Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
 Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
+
+//FAQ routes
+Route::resource('faq', FAQController::class);
