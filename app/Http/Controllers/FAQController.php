@@ -12,4 +12,16 @@ class FAQController extends Controller
         $FAQ = FAQ::all();
         return view('faq.index', compact('FAQ'));
     }
+
+    function create() {
+
+    }
+    
+    function edit() {
+
+    }
+
+    function delete() {
+
+    }
 }
