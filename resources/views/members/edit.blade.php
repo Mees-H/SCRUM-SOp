@@ -21,34 +21,34 @@
             <div class="form-group">    
                 <label for="name">Naam:</label>
                 *<input type="text" class="form-control" name="name" value="{{$member->name}}"/>
-            </div>
+            </div><br>
     
             <div class="form-group">
                 <label for="email">E-mail:</label>
                 *<input type="email" class="form-control" name="email" id="email" value="{{$member->email}}"/>
-            </div>
+            </div><br>
     
             <div class="form-group">
                 <label for="phonenumber">Telefoonnummer:</label>
                 <input type="tel" class="form-control" name="phonenumber" id="phonenumber" value="{{$member->phonenumber}}" aria-describedby="examplenumber"/>
                 <small id="examplenumber" class="form-text text-muted">Bijv: 0612345678</small>
-            </div>
+            </div><br>
     
             <div class="form-group">
                 <label for="function">Functie:</label>
                 <input type="text" class="form-control" name="function" id="function" value="{{$member->function}}"/>
-            </div>
+            </div><br>
             
             <div class="form-group">
                 <label for="website">Website:</label>
                 <input type="text" class="form-control" name="website" id="website" value="{{$member->website}}"/>
-            </div>
+            </div><br>
             
             <div class="form-group">
                 <label for="image">Foto:</label>
                 <input type="file" class="form-control" name="image" id="image" value="{{$member->imgurl}}"/>
                 <small id="imagehelp" class="form-text text-muted">Laat leeg om foto te verwijderen.</small>
-            </div>
+            </div><br>
             
             <label>Groepen:*</label>
                 @foreach($groups as $group)
