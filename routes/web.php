@@ -3,6 +3,7 @@
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\TrainingController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -10,7 +11,7 @@ use App\Http\Controllers\EnrollController;
 use App\Http\Controllers\SliderController;
 
 
-/*  
+/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -37,6 +38,7 @@ Route::get('slider-delete/{slider}',[SliderController::class,'delete'])->name('s
 
 //Resource routes
 Route::resource('slider', SliderController::class);
+Route::resource('training', TrainingController::class);
 
 //Event routes
 Route::resource('events', EventController::class);
