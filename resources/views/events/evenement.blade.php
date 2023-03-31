@@ -22,9 +22,7 @@
         <article>
             <div class="d-flex justify-content-between align-items-center">
             <h2>
-                <a href="{{route('eventsDetails', $post->id)}}" class="text-decoration-none">
                     {{$post->title}}
-                </a>
             </h2>
                 <a href="/events/enroll/{{$post->id}}" class="btn-primary btn">Inschrijven</a>
             </div>
@@ -32,16 +30,27 @@
 
             <div>
                 <p>Datum: {{$post->date}} om {{$post->time}}</p>
-                <p>{!!$post->body!!}</p>
-                <div class="row">
+                <div class="d-flex justify-content-between">
+                    <p class="col-sm-8">
+                    {!!$post->body!!}
+                    </p>
+                    <div class="">
+                        <a href="{{route('eventsDetails', $post->id)}}" class="btn btn-secondary ">
+                            Meer informatie <i class="bi bi-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+                <div>
+                    {{--                    TODO: Moet nog worden vervangen met 1 locatie--}}
                     @foreach($post->groups as $group)
-                        <div class="col-3">
+                        <div class="">
                             {{$group->name}}<br>
                             {{$group->street}} {{$group->housenumber}}<br>
                             {{$group->zipcode}} {{$group->city}}<br>
                             <a href="https://{{$group->link}}">{{$group->link}}</a>
                         </div>
                     @endforeach
+
                 </div>
             </div>
         </article>
