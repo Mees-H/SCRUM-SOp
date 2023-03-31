@@ -36,9 +36,11 @@
                             <td>{{$member->function}}</td>
                             <td>{{$member->website}}</td>
                             @if($member->imgurl != '')
-                                <td class="memberimg-box">
+                            <td>
+                                <div class="memberimg-box">
                                     <img src="{{ asset('storage/img/teammembers/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
-                                </td>
+                                </div>
+                            </td>
                             @else
                                 <td></td>
                             @endif

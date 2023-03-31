@@ -125,12 +125,7 @@ class MemberSeeder extends Seeder
             'function' => 'Projectleider vrije tijd Cello',
             'imgurl' => 'peter.jpeg'
         ]);
-
-        //Webmaster
-        $webmasterWim = TeamMember::create([
-            'name' => 'Dhr.Wim Jansen',
-            'email' => 'specialgolfhaverleij@gmail.com'
-        ]);
+        
         #endregion
         #region membergroups
 
@@ -200,7 +195,7 @@ class MemberSeeder extends Seeder
 
         $contacten->members()->attach($peter->id);
 
-        $webmaster->members()->attach($webmasterWim->id);
+        $webmaster->members()->attach($wim->id);
         #endregion
     }
 }
