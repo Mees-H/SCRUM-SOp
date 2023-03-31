@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MailPostRequest;
+use App\Models\Mail\Mailer;
+use App\Models\Mail\MailFactory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -64,7 +67,23 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-        //
+
+    }
+
+    public function enroll(int $id)
+    {
+        return view('events.aanmelden', ['eventId' => $id]);
+    }
+
+    public function submit(MailPostRequest $request)
+    {
+        $validated = $request->validated();
+
+        $mailFactory = new MailFactory();
+        $mail = $mailFactory->createMail('eventRegistration',
+            ['name' => $request['name'], 'birthday' => $request['birthday'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $request['disability'], 'event_id' => $request['event_id']]);
+        Mailer::Mail([], $mail, true);
+        return redirect('evenement')->with('success', 'Uw aanmelding is verzonden!');
     }
 
     /**

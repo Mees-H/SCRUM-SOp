@@ -145,3 +145,8 @@ a.effect-underline:hover:after {
 h2.siteMap{
     vertical-align: sub;
 }
+
+.requiredStar{
+    color: red;
+    font-size: 1em;
+}
