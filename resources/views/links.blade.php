@@ -8,7 +8,7 @@
                 <div class="col d-flex"><h2 class="specialBrown">{{$category['name']}}</h2></div>
                     <div class="col">
         @foreach($category['links'] as $link)
-                <div class="row"><a class="siteMap effect-underline" href="{{$link['link']}}">{{$link['name']}}</a><div></div></div>
+                <div class="row"><a class="siteMap" href="{{$link['link']}}">{{$link['name']}}</a><div></div></div>
         @endforeach</div>
                 </div>
         </div>
