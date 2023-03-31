@@ -1,20 +1,28 @@
 .card{
     color: black;
-    min-width: 340px;
     max-width: 350px;
+}
+
+#bodyDetail{
+    max-width: 1200px;
+    margin: auto;
+    font-size: 18px;
+}
+
+.row{
+    margin-top: 80px;
 }
 
 #cardHeaderEvent{
     background-color: #04ADBF;
     color: white;
 }
-#cardGroup{
-    align-content: space-evenly;
+#cardEvent{
+    height: fit-content;
 }
 
-#cardHeaderGroups{
-    background-color: #F2B705;
-    color: white;
+.card-img-top{
+    object-fit: scale-down;
 }
 
 .card-body{
@@ -27,7 +35,7 @@
 
 div img{
     width: 300px;
-    height: 200px;
+    height: 150px;
 }
 .title{
     text-align: center;
