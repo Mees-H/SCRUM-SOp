@@ -143,3 +143,8 @@ a.effect-underline{
 a.effect-underline:hover:after {
     transform: scale(1);
 }
+
+.requiredStar{
+    color: red;
+    font-size: 1em;
+}
