@@ -50,6 +50,6 @@ class FAQController extends Controller
     function destroy(string $id)
     {
         FAQ::findOrFail($id)->delete();
-        return redirect('/faq')->with('success', 'Vraag & antwoord verwijdert.');
+        return redirect('/faq')->with('success', 'Vraag & antwoord verwijderd.');
     }
 }
