@@ -11,15 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('groups', function (Blueprint $table){
+        Schema::create('group_members', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->unique();
-            $table->integer('housenumber');
-            $table->string('street');
-            $table->string('zipcode');
+            $table->foreignId('group_id');
+            $table->string('name');
+            $table->string('adress');
             $table->string('city');
-            $table->string('link');
-            $table->string('imageurl');
+            $table->string('email');
+            $table->string('phone_number');
+            $table->text('description');
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('groups');
+        Schema::dropIfExists('group_members');
     }
 };
