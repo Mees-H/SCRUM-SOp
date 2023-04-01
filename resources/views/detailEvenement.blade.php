@@ -38,7 +38,7 @@
             </div>
 
             <div class="justify-content-center d-flex p-3 border">
-                <img src="{{asset('img/specialgolflogodark.png')}}" class="" alt="Evenement afbeelding">
+                <img src="{{$group->imageurl}}" class="" alt="Evenement afbeelding">
             </div>
 
         </div>
@@ -99,8 +99,7 @@
                 <div class="d-flex card-deck">
                     @foreach($groups as $group)
                         <div id="groupCard" class="card col-sm-3 m-3">
-{{--                            Afbeelding toevoegen van het team--}}
-                            <img id="cardImage" src="{{asset('img/specialgolflogodark.png')}}" class="card-img-top" alt="Afbeelding van de golfgroep">
+                            <img id="cardImage" src="{{$group->imageurl}}" class="card-img-top" alt="Afbeelding van de golfgroep">
                             <div  class="card-body text-center">
                                 <div class="card-title">
                                     <h4>
