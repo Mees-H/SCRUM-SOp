@@ -43,7 +43,6 @@ Route::resource('slider', SliderController::class);
 //Route::resource('trainingsessions', TrainingController::class);
 Route::get('/training/signout', [TrainingController::class, 'signout']);
 Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail']);
-
 //Event routes
 Route::resource('events', EventController::class);
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
