@@ -114,7 +114,7 @@ class FAQTest extends DuskTestCase
             $browser->visit('/faq')
                     ->press("Verwijderen")
                     ->assertPathIs("/faq")
-                    ->assertSee("Vraag & antwoord verwijdert.");
+                    ->assertSee("Vraag & antwoord verwijderd.");
         });
     }
 
