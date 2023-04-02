@@ -42,7 +42,7 @@ class FAQController extends Controller
             'antwoord' => 'required|max:999',
         ]);
 
-        FAQ::find($id)->update($attributes);
+        FAQ::where('id', $id)->update(['question' => $attributes['vraag'], 'answer' => $attributes['antwoord']]);
 
         return redirect('/faq')->with('success', 'Vraag & antwoord geupdatet.');
     }
