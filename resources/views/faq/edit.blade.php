@@ -14,7 +14,7 @@
         </div>
         <br /> 
     @endif
-    <form method="post" action="{{ route('faq.update', $FAQ->id) }}">
+    <form method="POST" action="{{ route('faq.update', $FAQ->id) }}">
         @method('PATCH') 
         @csrf
         <div class="form-group">
