@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\MailPostRequest;
+use App\Models\Mail\Mailer;
+use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 
 class TrainingController extends Controller
@@ -12,11 +15,18 @@ class TrainingController extends Controller
         return view('training.signout');
     }
 
-    public function sendsignoutmail() 
+    public function sendsignoutmail(MailPostRequest $request) 
     {
         //1. validatie hier
-        
+        request()->validate([
+            'name' => ['required', 'max:255'],
+            'date' => ['required', 'after:today']
+        ]);
         //2. mail versturen hier
+        $mailFactory = new MailFactory();
+        $mail = $mailFactory->createMail('trainingSignout',
+            ['name' => $request['name'], 'date' => $request['date']]);
+        Mailer::Mail([], $mail, true);
 
         return redirect('training')->with('success', 'U heeft zich successvol afgemeld.');
     }

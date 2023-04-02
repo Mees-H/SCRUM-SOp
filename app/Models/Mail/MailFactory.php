@@ -33,7 +33,7 @@ class MailFactory
      */
     public function createMail(string $type, $arguments) : Mailable
     {
-
+        //deze functie roept de methode in deze klasse aan die overeenkomt met de 'type' parameter
         foreach ($this->types as $typee){
             if($type == $typee){
                 $response = call_user_func(array($this,$typee),$arguments);
@@ -74,6 +74,21 @@ class MailFactory
 
         $text = 'hallo '.$name;
         $mail = new Mail\RegisterMail($name,$age,$email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
+        return $mail;
+    }
+
+    private function trainingSignout($arguments) : Mailable
+    {
+        if($arguments['name'] == null ||
+            $arguments['date'] == null 
+        ){
+            throw new InvalidArgumentException('niet alle argumenten waren gevonden');
+        }
+
+        $name = $arguments['name'];
+        $date = $arguments['date'];
+
+        $mail = new Mail\SignoutMail($name,$date);
         return $mail;
     }
 }
