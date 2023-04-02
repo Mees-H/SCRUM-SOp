@@ -9,6 +9,7 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use App\Models\Group;
 use App\Models\Event;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -18,6 +19,13 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(ImageSeeder::class);
+
+        $user = User::create([
+            'name' => 'Test',
+            'email' => 'test@gmail.com',
+            'password' => bcrypt('Ab12345!')
+        ]);
+
         $indoorGolf = Event::create([
             'title' => 'Indoor-Golf-Middag',
             'date' => '2023-01-21',

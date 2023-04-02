@@ -3,6 +3,7 @@
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\ProfileController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,8 +22,13 @@ use App\Http\Controllers\SliderController;
 |
 */
 
-Route::get('/', [NavigationController::class, 'index']);
-Route::get('/index', [NavigationController::class, 'index']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/', [NavigationController::class, 'index'])->name('mainmenu');
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
 Route::get('/aanmelden', [NavigationController::class, 'aanmelden']);
@@ -51,3 +57,5 @@ Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name(
 Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
 Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
 Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
+
+require __DIR__.'/auth.php';
