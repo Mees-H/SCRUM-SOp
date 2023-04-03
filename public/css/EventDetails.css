@@ -32,9 +32,12 @@
 .card-body i{
     margin-right: 10px;
 }
+#detailsImages{
+      object-fit: fill;
+}
 
 div img{
-    width: 300px;
+    width: 200px;
     height: 150px;
 }
 .title{

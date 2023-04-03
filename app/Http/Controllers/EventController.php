@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MailPostEventRequest;
+use App\Models\GroupMember;
 use App\Models\Mail\Mailer;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\RedirectResponse;
@@ -70,7 +71,8 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         $group = $event->groups->first();
         $groups = $event->groups;
-        return view('detailEvenement', compact('event', 'group'), compact('groups'));
+        $groupmembers = $group->members;
+        return view('detailEvenement', compact('event', 'group', 'groupmembers'), compact('groups'));
 
     }
 

@@ -28,19 +28,18 @@
             <i class="bi bi-geo fs-2x"></i>
             {{$group->street}} {{$group->housenumber}}, {{$group->city}}
         </span>
-
-                <a class="text-decoration-none" href="https://{{$group->link}}">
+                <a class="text-decoration-none" rel="Link naar de website van de golfclub" href="https://{{$group->link}}">
             <span>
                 <i class="bi bi-link fs-2x"></i>
             {{$group->link}}
             </span>
                 </a>
             </div>
-
-            <div class="justify-content-center d-flex p-3 border">
-                <img src="{{$group->imageurl}}" class="" alt="Evenement afbeelding">
+            <div id="detailsImages" class="justify-content-center d-flex border">
+            @foreach($groups as $group)
+                <img src="{{$group->imageurl}}" class="border m-3 card shadow" alt="Evenement afbeelding">
+            @endforeach
             </div>
-
         </div>
 
         <div class="container">
@@ -94,7 +93,7 @@
 
             <div class="row container">
                 <h4>
-                    Groepen
+                    Teams
                 </h4>
                 <div class="d-flex card-deck">
                     @foreach($groups as $group)
@@ -107,17 +106,17 @@
                                     </h4>
                                 </div>
                                 <div class="card-text">
-                                @if(is_null($group->people))
+                                @if(is_null($group->members))
                                     <div>
                                         Er zijn nog geen personen ingedeeld
                                     </div>
                                 @else
-                                    <div>
+                                    <div class="border-bottom">
                                         Ingedeelde personen
                                     </div>
-                                    @foreach($group->people as $persons)
-                                        <div>
-                                            naam: blabla
+                                    @foreach($group->members as $persons)
+                                        <div >
+                                            {{$persons->name}}
                                         </div>
                                     @endforeach
                                 @endif

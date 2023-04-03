@@ -59,6 +59,7 @@ Route::post('/mail', function (Request $request){
     $name = $request['name'];
     $age = $request['age'];
     $eventId = $request['event_id'];
+
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
