@@ -71,8 +71,7 @@ class EventController extends Controller
         $event = Event::findOrFail($id);
         $group = $event->groups->first();
         $groups = $event->groups;
-        $groupmembers = $group->members;
-        return view('detailEvenement', compact('event', 'group', 'groupmembers'), compact('groups'));
+        return view('detailEvenement', compact('event', 'group'), compact('groups'));
 
     }
 

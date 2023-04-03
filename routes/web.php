@@ -48,11 +48,12 @@ Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail'])
 //FAQ routes
 Route::get('/faq/vraagformulier', [FAQController::class, 'questionform']);
 Route::post('/faq/submit', [FAQController::class, 'submit']);
-
 //Event routes
 Route::resource('events', EventController::class);
-Route::get('/events/{event}/details', [EventController::class, 'show'])->name('eventsDetails');
+Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name('eventsDetails');
 // });//dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
+
+
 //TODO:remove
 Route::get('/mail', function () {return view('mailForm');});
 Route::post('/mail', function (Request $request){
