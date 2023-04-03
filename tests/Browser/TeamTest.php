@@ -13,7 +13,7 @@ class TeamTest extends DuskTestCase
      * A Dusk test example.
      */
     use DatabaseTruncation;
-
+    
     #region create validation
     public function testCreateMember(): void
     {
@@ -25,7 +25,9 @@ class TeamTest extends DuskTestCase
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press('Voeg lid toe')
                     ->assertPathIs('/members')
                     ->assertSee('Lid opgeslagen.');
         });
@@ -40,7 +42,9 @@ class TeamTest extends DuskTestCase
             $browser->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('email', 'freek@vonk.nl')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Het naam veld is verplicht.');
         });
@@ -55,7 +59,9 @@ class TeamTest extends DuskTestCase
             $browser->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Het email veld is verplicht.');
         });
@@ -72,7 +78,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', 'hoihoi:3:3')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Telefoonnummer dient een nummer te zijn.');
         });
@@ -89,7 +97,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', '06123456789')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
         });
@@ -106,7 +116,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', '061234567')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
         });
@@ -122,7 +134,9 @@ class TeamTest extends DuskTestCase
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                     ->type('email', 'freek@vonk.nl')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Naam mag niet groter zijn dan 255 karakters.');
         });
@@ -138,7 +152,9 @@ class TeamTest extends DuskTestCase
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('email', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@a.nl')
                     ->type('name', 'Freek Vonk')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Email mag niet groter zijn dan 255 karakters.');
         });
@@ -157,7 +173,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', '')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press("Update")
                     ->assertPathIs('/members')
                     ->assertSee('Lid aangepast.');
         });
@@ -174,7 +192,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', '')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', '')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press("Update")
                     ->assertPathIs('/members/*/edit')
                     ->assertSee('Het naam veld is verplicht.');
         });
@@ -191,7 +211,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', 'Freek Vonk')
                     ->type('email', '')
                     ->type('phonenumber', '')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press("Update")
                     ->assertPathIs('/members/*/edit')
                     ->assertSee('Het email veld is verplicht.');
         });
@@ -208,7 +230,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', 'hoihoi:3:3')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press("Update")
                     ->assertPathIs('/members/*/edit')
                     ->assertSee('Telefoonnummer dient een nummer te zijn.');
         });
@@ -225,7 +249,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', '06123456789')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press("Update")
                     ->assertPathIs('/members/*/edit')
                     ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
         });
@@ -242,7 +268,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', '061234567')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press("Update")
                     ->assertPathIs('/members/*/edit')
                     ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
         });
@@ -259,7 +287,9 @@ class TeamTest extends DuskTestCase
                     ->type('name', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', '')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press("Update")
                     ->assertPathIs('/members/*/edit')
                     ->assertSee('Naam mag niet groter zijn dan 255 karakters.');
         });
@@ -276,7 +306,9 @@ class TeamTest extends DuskTestCase
                     ->type('email', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@a.nl')
                     ->type('name', 'Freek Vonk')
                     ->type('phonenumber', '')
-                    ->click('button[type="submit"]')
+                    ->click('input[id="1"]')
+                    ->scrollIntoView('button[type="submit"]')
+                    ->press("Update")
                     ->assertPathIs('/members/*/edit')
                     ->assertSee('Email mag niet groter zijn dan 255 karakters.');
         });
@@ -290,7 +322,7 @@ class TeamTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/members')
-                    ->clickLink('Verwijderen')
+                    ->press('Verwijderen')
                     ->assertPathIs('/members')
                     ->assertSee('Lid verwijdert.');
         });
