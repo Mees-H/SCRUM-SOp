@@ -34,8 +34,8 @@
                     <p class="col-sm-8">
                     {!!$post->body!!}
                     </p>
-                    <div class="">
-                        <a href="{{route('eventsDetails', $post->id)}}" class="btn btn-secondary ">
+                    <div>
+                        <a dusk="ButtonToDetailsEvent" href="{{route('eventsDetails', $post->id)}}" class="btn btn-secondary" rel="Knop naar de details pagina">
                             Meer informatie <i class="bi bi-arrow-right"></i>
                         </a>
                     </div>

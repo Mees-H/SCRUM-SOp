@@ -79,7 +79,7 @@
                         </span>
                             </div>
                             <div>
-                                <a class="text-decoration-none " href="https://{{$group->link}}">
+                                <a class="text-decoration-none " href="https://{{$group->link}}" rel="link naar de website van de golfclub">
                          <span>
                              <i class="bi bi-link fs-2x"></i>
                         {{$group->link}}
