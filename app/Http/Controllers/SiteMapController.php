@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\Album;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Sitemap;
+use Illuminate\Support\Facades\Storage;
 
 class SiteMapController extends Controller
 {
@@ -15,8 +17,37 @@ class SiteMapController extends Controller
      */
     public function index()
     {
-        $sitemaps = Sitemap::all()->sortBy('updated_at');
-        return view('sitemap.index', compact('sitemaps'));
+        if(Storage::disk('public')->exists('sitemap.json')){
+            $json = json_decode(Storage::disk('public')->get('sitemap.json'),true);
+        }else{
+            $json = [
+                'categories' => []
+            ];
+        }
+
+
+
+        //get all years of albums and add them to a new category called Foto's
+        $years = (new GalleryController())->ShowAllYearsOfGallerys();
+        $json['categories'][] = array(
+            'name' => 'Foto\'s',
+            'links' => []
+        );
+        $json['categories'] = array_map(function($category) use ($years) {
+            if($category['name'] === "Foto's"){
+                foreach ($years as $year){
+                    $category['links'][] = [
+                        'name' => $year,
+                        'link' => route('galerij_jaar', $year)
+                    ];
+                }
+            }
+            return $category;
+        }, $json['categories']);
+
+        //TODO: later we need to automatically add news items aswell
+
+        return view('links', ['links' => $json['categories']]);
     }
 
     /**
@@ -24,8 +55,6 @@ class SiteMapController extends Controller
      */
     public function create()
     {
-        $sitemaps = Sitemap::all();
-        return view('sitemap.create', compact('sitemaps'));
     }
 
     /**
@@ -33,22 +62,6 @@ class SiteMapController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'categorie' => 'required|max:255',
-            'functie' => 'required|max:255',
-            'naam' => 'required|max:255',
-            'verwijzing' => 'required|max:255',
-        ]);
-
-        $sitemap = new Sitemap([
-            'categorie' => $request->get('categorie'),
-            'functie' => $request->get('functie'),
-            'naam' => $request->get('naam'),
-            'verwijzing' => $request->get('verwijzing')
-        ]);
-        $sitemap->save();
-
-        return redirect('/links')->with('success', 'Link opgeslagen.');
     }
 
     /**
@@ -56,9 +69,7 @@ class SiteMapController extends Controller
      */
     public function show()
     {
-        $links = Sitemap::all()->groupBy('categorie');
 
-        return view('links', ['links' => $links]);
     }
 
     /**
@@ -66,8 +77,6 @@ class SiteMapController extends Controller
      */
     public function edit(string $id)
     {
-        $sitemap = Sitemap::findOrFail($id);
-        return view('sitemap.edit', compact('sitemap'));
     }
 
     /**
@@ -75,21 +84,6 @@ class SiteMapController extends Controller
      */
     public function update(Request $request, string $id): RedirectResponse
     {
-        $request->validate([
-            'categorie' => 'required|max:255',
-            'functie' => 'required|max:255',
-            'naam' => 'required|max:255',
-            'verwijzing' => 'required|max:255',
-        ]);
-        $sitemap = Sitemap::find($id);
-        $sitemap->categorie = $request->get('categorie');
-        $sitemap->functie = $request->get('functie');
-        $sitemap->naam = $request->get('naam');
-        $sitemap->verwijzing = $request->get('verwijzing');
-        $sitemap->updated_at = $request->get('updated_at');
-        $sitemap->save();
-
-        return redirect('/links')->with('success', 'Link geüpdatet.');
     }
 
     /**
@@ -97,7 +91,5 @@ class SiteMapController extends Controller
      */
     public function destroy(string $id): RedirectResponse
     {
-        Sitemap::findOrFail($id)->delete();
-        return redirect('/links')->with('success', 'Link verwijderd.');
     }
 }

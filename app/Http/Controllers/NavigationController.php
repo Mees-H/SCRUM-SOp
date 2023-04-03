@@ -58,6 +58,6 @@ class NavigationController extends Controller
 
     function links()
     {
-        return redirect('/links/show');
+        return redirect('/links');
     }
 }
