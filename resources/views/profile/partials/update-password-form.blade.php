@@ -14,25 +14,45 @@
         @method('put')
 
         <div>
-            <x-input-label for="current_password" :value="__('Current Password')" />
-            <x-text-input id="current_password" name="current_password" type="password" class="mt-1 block w-full" autocomplete="current-password" />
-            <x-input-error :messages="$errors->updatePassword->get('current_password')" class="mt-2" />
+            <label for="current_password" class="col-sm-2 col-form-label">
+                Huidig wachtwoord
+            </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="current_password" name="current_password">
+            </div>
+            @error('current_password')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div>
-            <x-input-label for="password" :value="__('New Password')" />
-            <x-text-input id="password" name="password" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password')" class="mt-2" />
+            <label for="password" class="col-sm-2 col-form-label">
+                Nieuw wachtwoord
+            </label>
+            <div class="col-sm-8">
+                <input type="password" class="form-control" id="password" name="password">
+            </div>
+            @error('password')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div>
-            <x-input-label for="password_confirmation" :value="__('Confirm Password')" />
-            <x-text-input id="password_confirmation" name="password_confirmation" type="password" class="mt-1 block w-full" autocomplete="new-password" />
-            <x-input-error :messages="$errors->updatePassword->get('password_confirmation')" class="mt-2" />
+            <label for="password_confirmation" class="col-sm-2 col-form-label">
+                Herhaal nieuw wachtwoord
+            </label>
+            <div class="col-sm-8">
+                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+            </div>
+            @error('password_confirmation')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
+
+        <br />
 
         <div class="flex items-center gap-4">
-            <x-primary-button>{{ __('Save') }}</x-primary-button>
+            <button class="btn btn-primary" type="submit">{{ __('Save') }}</button>
 
             @if (session('status') === 'password-updated')
                 <p
