@@ -17,7 +17,7 @@ class FAQTest extends DuskTestCase
                     ->assertPathIs("/faq/vraagformulier");
         });
     }
-}
+    
     public function testCreateFAQ(): void
     {
         $this->browse(function (Browser $browser) {
