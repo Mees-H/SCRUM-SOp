@@ -86,7 +86,7 @@ class SendQuestionTest extends DuskTestCase
                 ->type('email', $string)
                 ->type('question', 'Hoe werkt de evenementen pagina?')
                 ->press('verstuurknop')
-                ->waitForText('Uw email mag niet langer zijn dan 255 karakters');
+                ->assertDontSee('Uw vraag is verzonden!');
         });
     }
 

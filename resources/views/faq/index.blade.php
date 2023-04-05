@@ -2,6 +2,10 @@
 
 @section('content')
 
+<div class="col">
+    <a href="/faq/vraagformulier" class="btn-primary btn">Stel een vraag</a>
+</div>
+<br />
 <div class="accordion">
 @foreach($FAQ as $faq) 
   <div class="accordion-item">
