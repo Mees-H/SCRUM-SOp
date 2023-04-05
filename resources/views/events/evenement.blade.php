@@ -17,7 +17,7 @@
             {{ session()->get('success') }}
         </div>
     @endif
-
+    <div>
     @foreach($posts as $post)
         <article>
             <div class="d-flex justify-content-between align-items-center">
@@ -40,10 +40,10 @@
                         </a>
                     </div>
                 </div>
-                <div>
+                <div class="d-flex">
                     {{--                    TODO: Moet nog worden vervangen met 1 locatie--}}
                     @foreach($post->groups as $group)
-                        <div class="">
+                        <div class="m-3">
                             {{$group->name}}<br>
                             {{$group->street}} {{$group->housenumber}}<br>
                             {{$group->zipcode}} {{$group->city}}<br>

@@ -26,13 +26,13 @@
              </span>
                 <span>
             <i class="bi bi-geo fs-2x"></i>
-            {{$group->street}} {{$group->housenumber}}, {{$group->city}}
+            {{$first_group->street}} {{$first_group->housenumber}}, {{$first_group->city}}
         </span>
                 <a class="text-decoration-none" rel="Link naar de website van de golfclub"
-                   href="https://{{$group->link}}">
+                   href="https://{{$first_group->link}}">
             <span>
                 <i class="bi bi-link fs-2x"></i>
-            {{$group->link}}
+            {{$first_group->link}}
             </span>
                 </a>
             </div>
@@ -47,7 +47,7 @@
             <div class="row justify-content-between d-lg-flex">
                 <div class="col ">
                     <div class="h5">
-                        {{$event->title}} | {{$group->city}}
+                        {{$event->title}} | {{$first_group->city}}
                     </div>
                     <div>
                         {{$event->body}}
@@ -76,15 +76,15 @@
                             <div>
                         <span>
                         <i class="bi bi-geo fs-2x"></i>
-                        {{$group->street}} {{$group->housenumber}}, {{$group->city}}
+                        {{$first_group->street}} {{$first_group->housenumber}}, {{$first_group->city}}
                         </span>
                             </div>
                             <div>
-                                <a dusk="WebsiteLink" class="text-decoration-none " href="https://{{$group->link}}"
+                                <a dusk="WebsiteLink" class="text-decoration-none " href="https://{{$first_group->link}}"
                                    rel="link naar de website van de golfclub">
                          <span>
                              <i class="bi bi-link fs-2x"></i>
-                        {{$group->link}}
+                        {{$first_group->link}}
                         </span>
                                 </a>
                             </div>
