@@ -26,7 +26,6 @@ Route::get('/', [NavigationController::class, 'index']);
 Route::get('/index', [NavigationController::class, 'index']);
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
-Route::get('/aanmelden', [NavigationController::class, 'aanmelden']);
 Route::get('/faq', [NavigationController::class, 'faq']);
 Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
@@ -38,6 +37,10 @@ Route::get('slider-delete/{slider}',[SliderController::class,'delete'])->name('s
 
 //Resource routes
 Route::resource('slider', SliderController::class);
+
+//FAQ routes
+Route::get('/faq/vraagformulier', [FAQController::class, 'questionform']);
+Route::post('/faq/submit', [FAQController::class, 'submit']);
 
 //Event routes
 Route::resource('events', EventController::class);
