@@ -4,6 +4,11 @@ body {
  flex-direction: column;
 }
 
+nav {
+    margin-bottom: 20px;
+}
+
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
     .nav-link {
@@ -58,7 +63,6 @@ margin-top:auto;
  text-align: center;
  padding-top: 10px;
  padding-bottom: 5px;
- 
 }
 .footer-info{
  flex-direction: column;
@@ -116,4 +120,9 @@ a{
 
 td{
     max-width: 250px;
+}
+
+.requiredStar{
+    color: red;
+    font-size: 1em;
 }

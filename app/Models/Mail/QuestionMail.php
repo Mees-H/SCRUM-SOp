@@ -8,22 +8,22 @@ use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
 
-class test extends Mailable
+class QuestionMail extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $name;
-    public $eventName;
-    public $date;
+    public $email;
+    public $question;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $eventName, $date)
+    public function __construct($name, $email, $question)
     {
         $this->name = $name;
-        $this->eventName = $eventName;
-        $this->date = $date;
+        $this->email = $email;
+        $this->question = $question;
     }
 
     /**
@@ -32,7 +32,7 @@ class test extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Test',
+            subject: 'Vraag van '.$this->name
         );
     }
 
@@ -42,7 +42,7 @@ class test extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.test'
+            view: 'emails.questionmail'
         );
     }
 
