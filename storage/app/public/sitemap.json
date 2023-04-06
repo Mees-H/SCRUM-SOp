@@ -51,8 +51,12 @@
             "name": "Onderwater pagina's",
             "links": [
                 {
-                    "name": "locatie",
-                    "link": "/locatie"
+                    "name": "Evenementen aanpassen",
+                    "link": "/events"
+                },
+                {
+                    "name": "Galerij aanpassen",
+                    "link": "/galerij/aanmakenAlbum"
                 }
             ]
         }
