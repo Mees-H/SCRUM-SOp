@@ -19,12 +19,8 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
         $this->call(ImageSeeder::class);
-
-        $user = User::create([
-            'name' => 'Test',
-            'email' => 'test@gmail.com',
-            'password' => bcrypt('Ab12345!')
-        ]);
+        $this->call(RoleSeeder::class);
+        $this->call(UserSeeder::class);
         $this->call(FAQSeeder::class);
 
         $indoorGolf = Event::create([
