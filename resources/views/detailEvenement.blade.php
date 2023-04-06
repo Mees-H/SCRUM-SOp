@@ -36,25 +36,25 @@
             </span>
                 </a>
             </div>
-            <div id="detailsImages" class="justify-content-center d-flex border">
+            <div id="detailsImages" class=" d-lg-flex">
                 @foreach($groups as $group)
-                    <img src="{{$group->imageurl}}" class="border m-3 card shadow" alt="Evenement afbeelding">
+                    <img src="{{$group->imageurl}}" class="shadow border-0" alt="Evenement afbeelding">
                 @endforeach
             </div>
         </div>
 
-        <div class="container">
-            <div class="row justify-content-between d-lg-flex">
-                <div class="col ">
-                    <div class="h5">
+        <div class="container d-lg-flex ">
+            <div class="row mt-5 justify-content-between">
+                <div class="col-sm-6">
+                    <h4>
                         {{$event->title}} | {{$first_group->city}}
-                    </div>
-                    <div>
+                    </h4>
+                    <div class="mb-4">
                         {{$event->body}}
                     </div>
                 </div>
-                <div class="col justify-content-end d-flex mt-3">
-                    <div id="cardEvent" class="card shadow">
+                <div class="col-sm-4">
+                    <div id="cardEvent" class="card border-0">
                         <div id="cardHeaderEvent" class="card-header text-center">
                             Het Evenement
                         </div>
@@ -90,43 +90,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-
-            <div class="container mt-4">
-                <h4>
-                    Teams
-                </h4>
-                <div class="d-lg-flex">
-                    @foreach($groups as $group)
-                        <div id="groupCard" class="card m-3">
-                            <img id="cardImage" src="{{$group->imageurl}}" class="card-img-top"
-                                 alt="Afbeelding van de golfgroep">
-                            <div class="card-body text-center">
-                                <div class="card-title">
-                                    <h4>
-                                        {{$group->name}}
-                                    </h4>
-                                </div>
-                                <div class="card-text">
-                                    @if(is_null($group->members))
-                                        <div>
-                                            Er zijn nog geen personen ingedeeld
-                                        </div>
-                                    @else
-                                        <div class="border-bottom">
-                                            Ingedeelde personen
-                                        </div>
-                                        @foreach($group->members as $persons)
-                                            <div>
-                                                {{$persons->name}}
-                                            </div>
-                                        @endforeach
-                                    @endif
-                                </div>
-                            </div>
-                        </div>
-                    @endforeach
                 </div>
             </div>
         </div>
