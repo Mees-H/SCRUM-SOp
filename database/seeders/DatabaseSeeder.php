@@ -19,7 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(EventAndGroupSeeder::class);
         $this->call(AlbumSeeder::class);
         $this->call(PictureSeeder::class);
-        $this->call(GroupMemberSeeder::class);
         $this->call(FAQSeeder::class);
     }
 

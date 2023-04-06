@@ -19,8 +19,4 @@ class Group extends Model{
             'event_id'
         );
     }
-    public function members(){
-        return $this->hasMany(GroupMember::class);
-    }
-
 }
