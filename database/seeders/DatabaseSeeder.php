@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@gmail.com',
             'password' => bcrypt('Ab12345!')
         ]);
+        $this->call(FAQSeeder::class);
 
         $indoorGolf = Event::create([
             'title' => 'Indoor-Golf-Middag',
@@ -74,7 +75,7 @@ class DatabaseSeeder extends Seeder
             'street' => 'De Binckhorst, Waterleidingstraat',
             'zipcode' => '5244 PE',
             'city' => 'Rosmalen',
-            'link' => '​www.cello-zorg.nl'
+            'link' => 'www.cello-zorg.nl'
         ]);
 
         $specialGolf = Group::create([
@@ -83,7 +84,7 @@ class DatabaseSeeder extends Seeder
             'street' => 'Leunweg',
             'zipcode' => '5221 BC',
             'city' => '\'s-Hertogenbosch',
-            'link' => '​www.specialgolfhaverleij2021.com'
+            'link' => 'www.specialgolfhaverleij2021.com'
         ]);
 
         $indoorGolf->groups()->attach($cello->id);
@@ -120,7 +121,6 @@ class DatabaseSeeder extends Seeder
             'description' => 'Dit is album 3',
             'date' => '2022-04-01'
         ]);
-
 
         Picture::factory()->create([
             'id' => 1,
