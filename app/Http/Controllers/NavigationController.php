@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Album;
+use App\Models\FAQ;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Event;
@@ -28,9 +29,9 @@ class NavigationController extends Controller
     {
         return view('aanmelden');
     }
-    function faq()
+    function vragenantwoorden()
     {
-        return view('faq');
+        return view('vragenantwoorden', ['FAQ' => FAQ::all()]);
     }
     function nieuwsbrief()
     {

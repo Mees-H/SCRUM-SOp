@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [NavigationController::class, 'index'])->name('mainmenu');
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
-Route::get('/faq', [NavigationController::class, 'faq']);
+Route::get('/vragenantwoorden', [NavigationController::class, 'vragenantwoorden']);
 Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
 Route::get('/partner', [NavigationController::class, 'partner']);
@@ -45,8 +45,9 @@ Route::get('slider-delete/{slider}',[SliderController::class,'delete'])->name('s
 Route::resource('slider', SliderController::class);
 
 //FAQ routes
-Route::get('/faq/vraagformulier', [FAQController::class, 'questionform']);
-Route::post('/faq/submit', [FAQController::class, 'submit']);
+Route::resource('faq', FAQController::class);
+Route::get('/vragenantwoorden/vraagformulier', [FAQController::class, 'questionform']);
+Route::post('/vragenantwoorden/submit', [FAQController::class, 'submit']);
 
 //Event routes
 Route::resource('events', EventController::class);
@@ -61,8 +62,5 @@ Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name(
 Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
 Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
 Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
-
-//FAQ routes
-Route::resource('faq', FAQController::class);
 
 require __DIR__.'/auth.php';
