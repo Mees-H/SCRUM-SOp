@@ -23,7 +23,7 @@
     </head>
     <body>
         <nav class="navbar navbar-expand-xl navbar-light bg-light">
-        <a class="navbar-brand text-dark" href="/index"><img src="/img/specialgolflogodark.png" aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan" id="logo"></a>
+        <a class="navbar-brand text-dark" href="/"><img src="/img/specialgolflogodark.png" aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan" id="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -31,7 +31,7 @@
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav mr-auto">
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'index') ? 'font-weight-bold' : '' }}" href="/index">Startpagina</a>
+                <a class="nav-link text-dark {{ (request()->segment(1) == 'index') ? 'font-weight-bold' : '' }}" href="/">Startpagina</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'training') ? 'font-weight-bold' : '' }}" href="/training">Trainingen</a>
@@ -109,7 +109,7 @@
             <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#" >
                 <input class="form-control mr-sm-2 search"id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
                 <ul class="border border-dark rounded d-none" id="content">
-                    <li><a class="dropdown-item text-center" href="/index">
+                    <li><a class="dropdown-item text-center" href="/">
                         Hoofdpagina
                     </a></li>
                     <li><a class="dropdown-item text-center" href="/training">
