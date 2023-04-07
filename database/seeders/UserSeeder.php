@@ -17,21 +17,21 @@ class UserSeeder extends Seeder
             'name' => 'admin',
             'email' => 'test@gmail.com',
             'password' => bcrypt('Ab12345!'),
-            'role_id' => 1,
+            'role' => 'admin',
         ]);
 
         User::create([
             'name' => 'coach',
             'email' => 'test2@gmail.com',
             'password' => bcrypt('Ab12345!'),
-            'role_id' => 2,
+            'role' => 'coach',
         ]);
 
         User::create([
             'name' => 'supervisor',
             'email' => 'test3@gmail.com',
             'password' => bcrypt('Ab12345!'),
-            'role_id' => 3,
+            'role' => 'supervisor',
         ]);
     }
 }

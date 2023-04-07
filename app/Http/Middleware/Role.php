@@ -15,6 +15,9 @@ class Role
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
     public function handle($request, Closure $next) {
+        if (request()->user() === null) {
+            abort(403);
+        }
         $role = strtolower( request()->user()->role );
         $allowed_roles = array_slice(func_get_args(), 0);
 
