@@ -68,4 +68,12 @@ Route::middleware(['role:admin'])->group(function () {
 
 });
 
+Route::middleware(['role:admin,coach'])->group(function () {
+
+});
+
+Route::middleware(['role:admin,coach,supervisor'])->group(function () {
+
+});
+
 require __DIR__.'/auth.php';
