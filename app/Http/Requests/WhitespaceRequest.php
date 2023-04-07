@@ -22,7 +22,7 @@ class WhitespaceRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['required', 'max:255', 'regex:/\s/'],
+            'name' => ['required', 'max:255', 'regex:/\w+\s\w+/'],
             'date' => ['required', 'after:today'],
         ];
     }
