@@ -31,7 +31,7 @@ class FAQController extends Controller
         $mail = $mailFactory->createMail('sendQuestion',
             ['name' => $request['name'], 'email' => $request['email'], 'question' => $request['question']]);
         Mailer::Mail([], $mail, true);
-        return redirect('faq')->with('success', 'Uw vraag is verzonden!');
+        return redirect('vragenantwoorden')->with('success', 'Uw vraag is verzonden!');
     }
 
     function create() {

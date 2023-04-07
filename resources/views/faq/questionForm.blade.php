@@ -9,7 +9,7 @@
         </div>
     @endif
 
-    <form method="POST" action="/faq/submit">
+    <form method="POST" action="/vragenantwoorden/submit">
         @csrf
         <div class="row mb-3">
             <label for="name" class="col-sm-2 col-form-label">

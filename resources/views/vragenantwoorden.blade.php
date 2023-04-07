@@ -1,7 +1,11 @@
 @extends('layouts.layout')
 
 @section('content')
-
+@if(session()->get('success'))
+  <div class="alert alert-success">
+      {{ session()->get('success') }}
+  </div>
+@endif
 <div class="col">
     <a href="/vragenantwoorden/vraagformulier" class="btn-primary btn">Stel een vraag</a>
 </div>

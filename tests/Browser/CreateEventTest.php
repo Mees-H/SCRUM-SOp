@@ -2,6 +2,7 @@
 
 namespace Tests\Browser;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
@@ -11,7 +12,8 @@ class CreateEventTest extends DuskTestCase
     public function testCreateEvent(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/events')
+            $browser->loginAs(User::find(1))
+                    ->visit('/events')
                     ->clickLink("Creeër nieuw evenement")
                     ->type("title", "DuskGolf")
                     ->type("date", "06062023")
