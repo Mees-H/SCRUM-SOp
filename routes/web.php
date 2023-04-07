@@ -54,7 +54,8 @@ Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
 Route::middleware(['role:admin'])->group(function () {
     //User creation routes
-    Route::get('/admin/create', [CreateUserController::class, 'adminIndex']);
+    Route::get('/admin/gebruikers', [CreateUserController::class, 'adminIndex']);
+    Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
 
     //Resource routes

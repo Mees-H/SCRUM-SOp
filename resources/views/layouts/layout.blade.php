@@ -190,7 +190,7 @@
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'index') ? 'font-weight-bold' : '' }}" href="/index">Startpagina</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'createuser') ? 'font-weight-bold' : '' }}" href="/admin/create">Gebruikers</a>
+                <a class="nav-link text-dark {{ (request()->segment(1) == 'userlist') ? 'font-weight-bold' : '' }}" href="/admin/gebruikers">Gebruikers</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'training') ? 'font-weight-bold' : '' }}" href="/training">Trainingen</a>
