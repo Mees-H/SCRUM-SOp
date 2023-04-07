@@ -73,7 +73,8 @@ Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 Route::middleware(['role:admin'])->group(function () {
     //User creation routes
-    Route::get('/admin/create', [CreateUserController::class, 'adminIndex']);
+    Route::get('/admin/gebruikers', [CreateUserController::class, 'adminIndex']);
+    Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
 
     //Resource routes

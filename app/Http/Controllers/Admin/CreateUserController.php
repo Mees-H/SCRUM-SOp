@@ -12,9 +12,15 @@ use Illuminate\Validation\Rules;
 
 class CreateUserController extends Controller
 {
-    public function adminIndex()
+    public function adminindex()
     {
-        // TO-DO: Adjust to User list
+        $users = User::all();
+
+        return view('admin.userlist', ['users' => $users]);
+    }
+
+    public function adminCreateUser()
+    {
         return view('admin.createUser');
     }
 
