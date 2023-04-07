@@ -72,6 +72,10 @@ Route::resource('links', SiteMapController::class);
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 Route::middleware(['role:admin'])->group(function () {
+    //User creation routes
+    Route::get('/admin/create', [CreateUserController::class, 'adminIndex']);
+    Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
+
     //Resource routes
     Route::resource('slider', SliderController::class);
 
