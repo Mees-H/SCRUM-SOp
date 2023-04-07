@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MailPostTrainingRequest;
+use App\Http\Requests\WhitespaceRequest;
 use App\Models\Mail\Mailer;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
@@ -15,14 +16,8 @@ class TrainingController extends Controller
         return view('training.signout');
     }
 
-    public function sendsignoutmail(MailPostTrainingRequest $request) 
+    public function sendsignoutmail(WhitespaceRequest $request) 
     {
-        //1. validatie hier
-        $request->validate([
-            'name' => ['required', 'max:255'],
-            'date' => ['required', 'after:today']
-        ]);
-
         //2. mail versturen hier
         $mailFactory = new MailFactory();
         $mail = $mailFactory->createMail('trainingSignout',
