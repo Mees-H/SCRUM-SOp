@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\Admin\CreateUserController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -52,6 +53,10 @@ Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
 Route::middleware(['role:admin'])->group(function () {
+    //User creation routes
+    Route::get('/admin/create', [CreateUserController::class, 'adminIndex']);
+    Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
+
     //Resource routes
     Route::resource('slider', SliderController::class);
 
