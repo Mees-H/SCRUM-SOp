@@ -56,6 +56,6 @@ class SiteMapController extends Controller
             });
         }
 
-        return view('links', ['links' => $json['categories']]);
+        return view('sitemap.links', ['links' => $json['categories']]);
     }
 }
