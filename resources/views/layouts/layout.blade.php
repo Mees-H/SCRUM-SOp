@@ -116,7 +116,7 @@
                     <li><a class="dropdown-item text-center" href="/locatie">
                         Locatie
                     </a></li>
-                    <li><a class="dropdown-item text-center" href="/links/show">
+                    <li><a class="dropdown-item text-center" href="/links">
                         Links
                     </a></li>
                 </ul>
