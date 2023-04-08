@@ -9,5 +9,10 @@ class Sitemap extends Model
 {
     use HasFactory;
 
-    protected $guarded = [];
+    protected $fillable = [
+        'naam',
+        'categorie',
+        'functie',
+        'verwijzing',
+    ];
 }

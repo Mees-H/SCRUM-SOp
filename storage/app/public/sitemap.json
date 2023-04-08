@@ -1,6 +1,7 @@
 {
     "categories": [
         {
+            "private": false,
             "name": "Algemene pagina's",
             "links": [
                 {
@@ -46,15 +47,16 @@
             ]
         },
         {
-            "name": "Galerij",
+            "private": true,
+            "name": "Onderwater pagina's",
             "links": [
                 {
-                    "name": "2021",
-                    "link": "/galerij/2021"
+                    "name": "Evenementen aanpassen",
+                    "link": "/events"
                 },
                 {
-                    "name": "2022",
-                    "link": "/galerij/2022"
+                    "name": "Galerij aanpassen",
+                    "link": "/galerij/aanmakenAlbum"
                 }
             ]
         }

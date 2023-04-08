@@ -30,11 +30,12 @@ class SiteMapController extends Controller
         //get all years of albums and add them to a new category called Foto's
         $years = (new GalleryController())->ShowAllYearsOfGallerys();
         $json['categories'][] = array(
-            'name' => 'Foto\'s',
+            'private' => false,
+            'name' => 'Galerij',
             'links' => []
         );
         $json['categories'] = array_map(function($category) use ($years) {
-            if($category['name'] === "Foto's"){
+            if($category['name'] === "Galerij"){
                 foreach ($years as $year){
                     $category['links'][] = [
                         'name' => $year,
@@ -47,49 +48,14 @@ class SiteMapController extends Controller
 
         //TODO: later we need to automatically add news items aswell
 
+
+        //filter private results if not authenticated
+        if (!auth()->check()) {
+            $json['categories'] = array_filter($json['categories'], function ($category) {
+                return $category['private'] !== true;
+            });
+        }
+
         return view('links', ['links' => $json['categories']]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show()
-    {
-
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id): RedirectResponse
-    {
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id): RedirectResponse
-    {
     }
 }

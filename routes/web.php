@@ -3,6 +3,7 @@
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\FAQController;
 use App\Http\Controllers\SiteMapController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
@@ -26,7 +27,6 @@ Route::get('/', [NavigationController::class, 'index']);
 Route::get('/index', [NavigationController::class, 'index']);
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
-Route::get('/aanmelden', [NavigationController::class, 'aanmelden']);
 Route::get('/faq', [NavigationController::class, 'faq']);
 Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
@@ -34,17 +34,21 @@ Route::get('/partner', [NavigationController::class, 'partner']);
 Route::get('/overons', [NavigationController::class, 'overons']);
 Route::get('/locatie', [NavigationController::class, 'locatie']);
 Route::get('/links', [NavigationController::class, 'links']);
-Route::get('slider-delete/{slider}', [SliderController::class, 'delete'])->name('slider.delete');
+Route::get('slider-delete/{slider}',[SliderController::class,'delete'])->name('slider.delete');
 
 //Resource routes
 Route::resource('slider', SliderController::class);
 
+//FAQ routes
+Route::get('/faq/vraagformulier', [FAQController::class, 'questionform']);
+Route::post('/faq/submit', [FAQController::class, 'submit']);
+
 //Event routes
 Route::resource('events', EventController::class);
-
-Route::resource('links', SiteMapController::class);
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
+
+Route::resource('links', SiteMapController::class);
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
@@ -54,3 +58,6 @@ Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name(
 Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
 Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
 Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
+
+//FAQ routes
+Route::resource('faq', FAQController::class);

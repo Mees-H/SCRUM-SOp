@@ -25,7 +25,7 @@ class MailPostRequest extends FormRequest
             'name' => 'required|max:255',
             'birthday' => 'required|before:today',
             'email' => 'required|email|max:255',
-            'phonenumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phonenumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:255',
             'address' => 'required|max:255',
             'city' => 'required|max:255',
             'disability' => 'required|max:255',
