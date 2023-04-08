@@ -67,10 +67,17 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-        $event = Event::findOrFail($id);
-        $first_group = $event->groups->first();
-        $groups = $event->groups;
-        return view('detailEvenement', compact('event', 'first_group'), compact('groups'));
+
+        try {
+            $event = Event::findOrFail($id);
+            $first_group = $event->groups->first();
+            $groups = $event->groups;
+            return view('detailEvenement', compact('event', 'first_group'), compact('groups'));
+        } catch (\Exception $e) {
+            return redirect('/evenement')->with('error', 'Evenement niet gevonden.');
+        }
+
+
 
     }
 
