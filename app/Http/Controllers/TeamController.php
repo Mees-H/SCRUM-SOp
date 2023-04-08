@@ -132,6 +132,6 @@ class TeamController extends Controller
     public function destroy(string $id): RedirectResponse
     {
         TeamMember::findOrFail($id)->delete();
-        return redirect('/members')->with('success', 'Lid verwijdert.');
+        return redirect('/members')->with('success', 'Lid verwijderd.');
     }
 }

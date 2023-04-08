@@ -19,7 +19,7 @@ class MemberSeeder extends Seeder
         $wim = TeamMember::create([
             'name' => 'Dhr. Wim Jansen',
             'email' => 'wthjansen@gmail.com',
-            'phonenumber' => '+31 (0) 653148657',
+            'phonenumber' => '0653148657',
             'function' => 'Voorzitter/Coördinator',
             'imgurl' => 'wim.jpeg'
         ]);
@@ -27,7 +27,7 @@ class MemberSeeder extends Seeder
         $frans = TeamMember::create([
             'name' => 'Dhr. Frans Reek',
             'email' => 'frans@fransreek.com',
-            'phonenumber' => '+31 (0) 683589290',
+            'phonenumber' => '0683589290',
             'function' => 'Penningmeester',
             'imgurl' => 'frans.png'
         ]);
@@ -35,7 +35,7 @@ class MemberSeeder extends Seeder
         $cees = TeamMember::create([
             'name' => 'Dhr. Cees Heesbeen',
             'email' => 'ceesheesbeen@gmail.com',
-            'phonenumber' => '+31 (0) 628429285',
+            'phonenumber' => '0628429285',
             'function' => 'Secretaris/Materiaalbeheer',
             'imgurl' => 'cees.png'
         ]);
@@ -44,7 +44,7 @@ class MemberSeeder extends Seeder
         $helmuth = TeamMember::create([
             'name' => 'Dhr. Helmuth van Heel',
             'email' => 'info@helmuthvanheel.nl',
-            'phonenumber' => '+31 (0) 648082902',
+            'phonenumber' => '0648082902',
             'website' => 'www.helmuthvanheel.nl',
             'imgurl' => 'helmuth.jpeg'
         ]);
@@ -52,14 +52,14 @@ class MemberSeeder extends Seeder
         $naud = TeamMember::create([
             'name' => 'Dhr. Naud Bank',
             'email' => 'naud.pga@gmail.com',
-            'phonenumber' => '+31 (0) 651808202',
+            'phonenumber' => '0651808202',
             'imgurl' => 'naud.jpeg'
         ]);
         
         $suzanne = TeamMember::create([
             'name' => 'Mevr. Suzanne Lanfermeijer',
             'email' => 'suzannelanfermeijer@yahoo.co.uk',
-            'phonenumber' => '+31 (0) 655597304',
+            'phonenumber' => '0655597304',
             'website' => 'www.golfclubookmeer.nl',
             'imgurl' => 'suzanne.jpeg'
         ]);
@@ -67,7 +67,7 @@ class MemberSeeder extends Seeder
         $robbin = TeamMember::create([
             'name' => 'Dhr.Robbin Schuurman',
             'email' => 'rschuurman@xebia.com',
-            'phonenumber' => '+31 (0) 655414822',
+            'phonenumber' => '0655414822',
             'imgurl' => 'robbin.jpeg'
         ]);
 
@@ -121,7 +121,7 @@ class MemberSeeder extends Seeder
         $peter = TeamMember::create([
             'name' => 'Dhr. Peter Janssen',
             'email' => 'pjanssen@cello-zorg.nl',
-            'phonenumber' => '+31 (0) 654650449',
+            'phonenumber' => '0654650449',
             'function' => 'Projectleider vrije tijd Cello',
             'imgurl' => 'peter.jpeg'
         ]);
