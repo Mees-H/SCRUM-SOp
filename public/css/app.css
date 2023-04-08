@@ -45,7 +45,7 @@ nav {
 }
 
 h1{
-    color: #B89C30;
+    color: #A68D2B;
 }
 
 footer {
@@ -92,7 +92,7 @@ margin-top:auto;
 
 .socials a {
  text-decoration: none;
- border: 1.1px solid black;
+ border: 1px solid black;
  padding: 5px;
  border-radius: 50%;
 }
@@ -114,8 +114,8 @@ margin-top:auto;
 
 .btn-primary{
     background:none;
-    border-color: #04ADBF;
-    color:#04ADBF;
+    border-color: #038391;
+    color:#038391;
 }
 .btn-primary:hover{
     background-color: #04ADBF;
