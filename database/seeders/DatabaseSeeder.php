@@ -20,6 +20,7 @@ class DatabaseSeeder extends Seeder
         $this->call(ImageSeeder::class);
 		
         #region events
+        $this->call(FAQSeeder::class);
         $indoorGolf = Event::create([
             'title' => 'Indoor-Golf-Middag',
             'date' => '2023-01-21',
@@ -111,7 +112,6 @@ class DatabaseSeeder extends Seeder
             'description' => 'Dit is album 3',
             'date' => '2022-04-01'
         ]);
-
 
         Picture::factory()->create([
             'id' => 1,
