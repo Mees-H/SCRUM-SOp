@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MailPostRequest;
+use App\Http\Requests\MailPostEventRequest;
 use App\Models\Mail\Mailer;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\RedirectResponse;
@@ -75,7 +75,7 @@ class EventController extends Controller
         return view('events.aanmelden', ['eventId' => $id]);
     }
 
-    public function submit(MailPostRequest $request)
+    public function submit(MailPostEventRequest $request)
     {
         $validated = $request->validated();
 
