@@ -21,6 +21,9 @@
                         {{ session('success') }}
                     </div>
                 @endif
+                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    {{ __('Gebruikers') }}
+                </h2>
                 <table class="table">
                     <thead>
                     <th>{{__('Gebruikersnaam')}}</th>
