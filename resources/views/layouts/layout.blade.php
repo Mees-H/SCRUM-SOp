@@ -189,7 +189,7 @@
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
                             <a href="{{ route('profile.edit') }}" class="dropdown-item">
-                                {{ __('Profile') }}
+                                Profiel
                             </a>
                         </li>
                         <li><hr class="dropdown-divider"></li>
@@ -197,7 +197,7 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
                                 <a href="route('logout')" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
-                                    {{ __('Log Out') }}
+                                    Uitloggen
                                 </a>
                             </form>
                         </li>
