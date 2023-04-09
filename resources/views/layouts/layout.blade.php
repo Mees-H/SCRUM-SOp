@@ -83,7 +83,7 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link text-dark {{ (request()->segment(1) == 'login') ? 'font-weight-bold' : '' }}" href="/login">Login</a>
+                    <a class="nav-link text-dark {{ (request()->segment(1) == 'login') ? 'font-weight-bold' : '' }}" href="/login">Inloggen</a>
                 </li>
                 <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#" >
                     <input class="form-control mr-sm-2 search"id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
