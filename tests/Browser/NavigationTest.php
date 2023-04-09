@@ -2,6 +2,7 @@
 
 namespace Tests\Browser;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
@@ -13,7 +14,7 @@ class NavigationTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
                 $browser->visit('/')
                         ->clickLink("Startpagina")
-                        ->assertPathIs("/index");
+                        ->assertPathIs("/");
                 $browser->visit('/')
                         ->clickLink("Trainingen")
                         ->assertPathIs("/training");
@@ -26,7 +27,7 @@ class NavigationTest extends DuskTestCase
                         ->assertPathIs("/galerij/2021");
                 $browser->visit('/')
                         ->clickLink("FAQ")
-                        ->assertPathIs("/faq");
+                        ->assertPathIs("/vragenantwoorden");
                 $browser->visit('/')
                         ->clickLink("Nieuws")
                         ->assertPathIs("/nieuwsbrief");
@@ -56,7 +57,7 @@ class NavigationTest extends DuskTestCase
                 $browser->visit('/')
                         ->click(".search")
                         ->clickLink("Hoofdpagina")
-                        ->assertPathIs("/index");
+                        ->assertPathIs("/");
                 $browser->visit('/')
                         ->click(".search")
                         ->clickLink("Trainingen")
@@ -83,7 +84,7 @@ class NavigationTest extends DuskTestCase
                 $browser->visit('/')
                         ->click(".search")
                         ->clickLink("FAQ")
-                        ->assertPathIs("/faq");
+                        ->assertPathIs("/vragenantwoorden");
                 $browser->visit('/')
                         ->click(".search")
                         ->clickLink("Nieuwsbrief")
@@ -109,6 +110,52 @@ class NavigationTest extends DuskTestCase
                         ->clickLink("Links")
                         ->assertPathIs("/links");
             });
+        });
+    }
+
+    public function testNavigationAdmin(): void
+    {
+        $this->artisan('migrate:fresh');
+        $this->artisan('db:seed');
+
+        $this->browse(function (Browser $browser) {
+                $browser->loginAs(User::find(1));
+                $browser->visit('/')
+                        ->clickLink("Startpagina")
+                        ->assertPathIs("/");
+                $browser->visit('/')
+                        ->clickLink("Trainingen")
+                        ->assertPathIs("/training");
+                $browser->visit('/')
+                        ->clickLink("Evenementen")
+                        ->assertPathIs("/events");
+                $browser->visit('/')
+                        ->clickLink("Galerij")
+                        ->assertPathIs("/galerij/aanmakenAlbum");
+                $browser->visit('/')
+                        ->clickLink("FAQ")
+                        ->assertPathIs("/faq");
+                $browser->visit('/')
+                        ->clickLink("Nieuws")
+                        ->assertPathIs("/nieuwsbrief");
+                $browser->visit('/')
+                        ->clickLink("Team")
+                        ->assertPathIs("/team");
+                $browser->visit('/')
+                        ->clickLink("Partner")
+                        ->assertPathIs("/partner");
+                $browser->visit('/')
+                        ->clickLink("Over Ons")
+                        ->assertPathIs("/overons");
+                $browser->visit('/')
+                        ->clickLink("Locatie")
+                        ->assertPathIs("/locatie");
+                $browser->visit('/')
+                        ->clickLink("Links")
+                        ->assertPathIs("/links");
+                $browser->visit('/')
+                        ->clickLink("Slider")
+                        ->assertPathIs("/slider");
         });
     }
 }

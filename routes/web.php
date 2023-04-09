@@ -4,6 +4,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\FAQController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
@@ -41,8 +42,23 @@ Route::get('/locatie', [NavigationController::class, 'locatie']);
 Route::get('/links', [NavigationController::class, 'links']);
 Route::get('slider-delete/{slider}',[SliderController::class,'delete'])->name('slider.delete');
 
+//Resource routes
+Route::resource('slider', SliderController::class);
+
+//Training routes
+
+//Route::resource('trainingsessions', TrainingController::class);
+Route::get('/training/signout', [TrainingController::class, 'signout']);
+Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail']);
+
+//FAQ routes
 Route::get('/vragenantwoorden/vraagformulier', [FAQController::class, 'questionform']);
 Route::post('/vragenantwoorden/submit', [FAQController::class, 'submit']);
+
+//Event routes
+Route::resource('events', EventController::class);
+Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
+Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
@@ -65,6 +81,14 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
     Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
     Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
+
+});
+
+Route::middleware(['role:admin,coach'])->group(function () {
+
+});
+
+Route::middleware(['role:admin,coach,supervisor'])->group(function () {
 
 });
 
