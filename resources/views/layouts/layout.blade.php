@@ -14,7 +14,7 @@
 
         <link rel="stylesheet" href="{{ asset('/css/slider.css') }} ">
         <link rel="stylesheet" href="{{ asset('/css/dropdown.css') }} ">
-        <link rel="stylesheet" href="{{ asset('css/app.css')}}">
+        <link rel="stylesheet" href="{{ asset('/css/app.css')}}">
         <script src="{{ asset('/js/dropdown.js') }}" defer></script>
 
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />

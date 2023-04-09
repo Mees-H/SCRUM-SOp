@@ -15,9 +15,6 @@
                 <div class="col-sm-8">
                     <input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
                 </div>
-                @error('name')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
             </div>
 
             <!-- Password -->
@@ -31,9 +28,6 @@
                                 name="password"
                                 required autocomplete="current-password">
                 </div>
-                @error('name')
-                <div class="alert alert-danger">{{ $message }}</div>
-                @enderror
             </div>
 
             <!-- Remember Me -->
@@ -47,6 +41,16 @@
             <div class='mt-2'>
                 <button class="btn btn-primary" type="submit">{{ __('Log in') }}</button>
             </div>
+            
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div><br />
+            @endif
             
             <div class="flex items-center justify-end mt-2">
                 @if (Route::has('password.request'))

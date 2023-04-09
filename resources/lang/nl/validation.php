@@ -130,7 +130,7 @@ return [
         'array'   => ':Attribute moet :size items bevatten.',
     ],
     'starts_with'          => ':Attribute moet beginnen met één van het volgende: :values',
-    'string'               => ':Attribute moet een string zijn.',
+    'string'               => ':Attribute moet uit karakters bestaan.',
     'timezone'             => ':Attribute moet een geldige tijdszone zijn.',
     'unique'               => ':Attribute is al bezet.',
     'uploaded'             => 'Het uploaden van :attribute is mislukt.',
