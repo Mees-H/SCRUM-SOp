@@ -121,3 +121,13 @@ td{
     color: red;
     font-size: 1em;
 }
+
+.vacationSession{
+    background: greenyellow !important;
+}
+
+.verticalText{
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    transform: rotate(180deg);
+}

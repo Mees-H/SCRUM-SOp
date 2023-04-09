@@ -19,7 +19,7 @@ class TrainingSession extends Model
         'IstrainingSession',
     ];
 
-    public function training_sessionGroup()
+    public function training_session_group()
     {
         return $this->belongsTo(TrainingSessionGroup::class, 'GroupNumber');
     }

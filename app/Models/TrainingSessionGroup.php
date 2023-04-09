@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class TrainingSessionGroup extends Model
 {
-    protected $table = 'training_sessionGroup';
+    protected $table = 'training_session_group';
     protected $primaryKey = 'GroupNumber';
     public $incrementing = false;
     protected $fillable = [
