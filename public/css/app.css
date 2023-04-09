@@ -123,6 +123,6 @@ td{
 }
 
 .requiredStar{
-    color: red;
+    color: rgb(66, 0, 0);
     font-size: 1em;
 }
