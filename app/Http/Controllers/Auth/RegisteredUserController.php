@@ -52,7 +52,7 @@ class RegisteredUserController extends Controller
     public function destroy(Request $request): RedirectResponse
     {
         $request->validate([
-            'id'=> ['required', 'exists:users,id'],
+            'id'=> ['required', 'exists:users,id', 'not_in:'.auth()->user()->id],
         ]);
 
         User::destroy($request->id);
