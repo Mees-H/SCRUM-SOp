@@ -11,7 +11,7 @@
 
     <form method="POST" action="/vragenantwoorden/submit">
         @csrf
-        <div class="row mb-3">
+        <div>
             <label for="name" class="col-sm-2 col-form-label">
                 <span class="requiredStar">*</span>Voor- en achternaam
             </label>
@@ -22,7 +22,7 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div class="row mb-3">
+        <div>
             <label for="email" class="col-sm-2 col-form-label">
                 <span class="requiredStar">*</span>Email adres
             </label>
@@ -34,7 +34,7 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
-        <div class="row mb-3">
+        <div>
             <label for="question" class="col-sm-2 col-form-label">
                 <span class="requiredStar">*</span>Vraag
             </label>
@@ -46,6 +46,8 @@
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>
+
+        <br />
 
         <button type="submit" id="verstuurknop" name="verstuurknop" class=" btn btn-primary">Verstuur vraag
         </button>
