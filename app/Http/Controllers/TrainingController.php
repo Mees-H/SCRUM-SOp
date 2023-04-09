@@ -15,7 +15,9 @@ class TrainingController extends Controller
 {
     function index()
     {
-        $trainingSessions = TrainingSession::all();
+        $trainingSessions = TrainingSession::all()->sortBy(function ($item) {
+            return $item['Date'];
+        });;
         foreach($trainingSessions as $session){
             $session->weekNumber = $this->getWeekNumber($session->Date);
         }
@@ -30,5 +32,5 @@ class TrainingController extends Controller
         $date = Carbon::createFromFormat('Y-m-d', $dateString);
         return $date->weekOfYear;
     }
-    
+
 }

@@ -25,9 +25,11 @@
                 <th>Leden</th>
                 @foreach($group->sessions as $session)
                 @if(!$session->IstrainingSession)
-                <td class="vacationSession verticalText text-wrap">{{$session->Description}}</td>
+                <td rowspan='{{$group->participants->count()+1}}' class="test vacationSession verticalText text-center">{{$session->Description}}</td>
                 @else
-                <td rowspan="3" class="verticalText text-wrap">{{$session->Description}}</td>
+                <td rowspan='{{$group->participants->count()+1}}' class="test verticalText text-center">
+                    {{$session->Description}}
+                </td>
                 @endif
                 @endforeach
             </tr>

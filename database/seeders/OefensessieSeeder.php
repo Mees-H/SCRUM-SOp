@@ -44,37 +44,60 @@ class OefensessieSeeder extends Seeder
      */
     public function seedTrainingSessions(): void
     {
-        $now = Carbon::now();
         DB::table('training_session')->insert([
             [
-                'Date' => $now->toDateString(),
-                'StartTime' => $now->toTimeString(),
-                'EndTime' => $now->addHours(2)->toTimeString(),
+                'Date' => Carbon::now()->addRealDays(4)->toDateString(),
+                'StartTime' => Carbon::now()->toTimeString(),
+                'EndTime' => Carbon::now()->addHours(2)->toTimeString(),
                 'Description' => 'Eerste oefensesie',
                 'GroupNumber' => 1,
                 'IstrainingSession' => true,
             ],
             [
-                'Date' => $now->toDateString(),
-                'StartTime' => $now->addHours(3)->toTimeString(),
-                'EndTime' => $now->addHours(5)->toTimeString(),
-                'Description' => 'Tweede oefensesie',
-                'GroupNumber' => 2,
-                'IstrainingSession' => true,
-            ],
-            [
-                'Date' => $now->toDateString(),
-                'StartTime' => $now->addHours(6)->toTimeString(),
-                'EndTime' => $now->addHours(8)->toTimeString(),
+                'Date' => Carbon::now()->toDateString(),
+                'StartTime' => Carbon::now()->addHours(6)->toTimeString(),
+                'EndTime' => Carbon::now()->addHours(8)->toTimeString(),
                 'Description' => 'Derde oefensesie',
                 'GroupNumber' => 1,
                 'IstrainingSession' => true,
             ],
             [
-                'Date' => $now->toDateString(),
-                'StartTime' => $now->addHours(9)->toTimeString(),
-                'EndTime' => $now->addHours(11)->toTimeString(),
-                'Description' => 'Vierde oefensesie',
+                'Date' => Carbon::now()->addDays(38)->toDateString(),
+                'StartTime' => Carbon::now()->addHours(2)->toTimeString(),
+                'EndTime' => Carbon::now()->addHours(4)->toTimeString(),
+                'Description' => 'Vakantie',
+                'GroupNumber' => 1,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::now()->addRealDays(4)->toDateString(),
+                'StartTime' => Carbon::now()->addHours(2)->toTimeString(),
+                'EndTime' => Carbon::now()->addHours(4)->toTimeString(),
+                'Description' => 'Vakantie',
+                'GroupNumber' => 2,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::now()->addRealDays(32)->toDateString(),
+                'StartTime' => Carbon::now()->addHours(2)->toTimeString(),
+                'EndTime' => Carbon::now()->addHours(4)->toTimeString(),
+                'Description' => 'Vakantie',
+                'GroupNumber' => 2,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::now()->addRealDays(12)->toDateString(),
+                'StartTime' => Carbon::now()->addHours(3)->toTimeString(),
+                'EndTime' => Carbon::now()->addHours(5)->toTimeString(),
+                'Description' => 'Tweede oefensesie',
+                'GroupNumber' => 2,
+                'IstrainingSession' => true,
+            ],
+            [
+                'Date' => Carbon::now()->addRealDays(16)->toDateString(),
+                'StartTime' => Carbon::now()->addHours(9)->toTimeString(),
+                'EndTime' => Carbon::now()->addHours(11)->toTimeString(),
+                'Description' => 'Laatste oefensesie',
                 'GroupNumber' => 2,
                 'IstrainingSession' => true,
             ]
@@ -92,15 +115,39 @@ class OefensessieSeeder extends Seeder
                 'GroupNumber' => 1,
             ],
             [
-                'Name' => 'Jane',
-                'GroupNumber' => 2,
-            ],
-            [
                 'Name' => 'Jack',
                 'GroupNumber' => 1,
             ],
             [
+                'Name' => 'Marit',
+                'GroupNumber' => 1,
+            ],
+            [
+                'Name' => 'Emma',
+                'GroupNumber' => 1,
+            ],
+            [
+                'Name' => 'Tom',
+                'GroupNumber' => 2,
+            ],
+            [
+                'Name' => 'Thomas',
+                'GroupNumber' => 2,
+            ],
+            [
+                'Name' => 'Jack Meester',
+                'GroupNumber' => 2,
+            ],
+            [
+                'Name' => 'Hans Bolwerk',
+                'GroupNumber' => 2,
+            ],
+            [
                 'Name' => 'Jill',
+                'GroupNumber' => 2,
+            ],
+            [
+                'Name' => 'Jane',
                 'GroupNumber' => 2,
             ]
         ]);
