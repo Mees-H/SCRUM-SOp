@@ -18,16 +18,11 @@ class NavigationController extends Controller
     }
     function training()
     {
-        return view('training');
+        return view('calendar.training');
     }
     function evenement()
     {
-        return view('evenement', ['posts' => Event::all()]);
-    }
-
-    function aanmelden()
-    {
-        return view('aanmelden');
+        return view('events.evenement', ['posts' => Event::all()]);
     }
     function vragenantwoorden()
     {
@@ -35,7 +30,7 @@ class NavigationController extends Controller
     }
     function nieuwsbrief()
     {
-        return view('nieuwsbrief');
+        return view('news.nieuwsbrief');
     }
     function team()
     {
