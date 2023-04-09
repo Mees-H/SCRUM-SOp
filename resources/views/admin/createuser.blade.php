@@ -12,9 +12,12 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
         <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
             <div class="max-w-xl">
+                <h2 class="text-lg font-medium text-gray-900 dark:text-gray-100">
+                    {{ __('Gebruiker aanmaken') }}
+                </h2>
                 <form method="POST" action="/admin/submit" class="mt-6 space-y-6">
                     @csrf
-                    <div class="row mb-3">
+                    <div>
                         <label for="role" class="col-sm-2 col-form-label">
                             Functie
                         </label>
@@ -26,11 +29,14 @@
                                 <option value="supervisor">
                                     Begeleider
                                 </option>
+                                <option value="admin">
+                                    Beheerder
+                                </option>
                             </select>
                         </div>
                     </div>
 
-                    <div class="row mb-3">
+                    <div>
                         <label for="name" class="col-sm-2 col-form-label">
                             Naam
                         </label>
@@ -42,7 +48,7 @@
                         @enderror
                     </div>
 
-                    <div class="row mb-3">
+                    <div>
                         <label for="email" class="col-sm-2 col-form-label">
                             Email adres
                         </label>
@@ -54,7 +60,7 @@
                         @enderror
                     </div>
 
-                    <div class="row mb-3">
+                    <div>
                         <label for="password" class="col-sm-2 col-form-label">
                             Wachtwoord
                         </label>
@@ -66,7 +72,7 @@
                         @enderror
                     </div>
 
-                    <div class="row mb-3">
+                    <div>
                         <label for="password_confirmation" class="col-sm-2 col-form-label">
                             Wachtwoord herhalen
                         </label>
@@ -77,6 +83,8 @@
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
+
+                    <br />
 
                     <button type="submit" id="registreerknop" name="registreerknop" class="btn btn-outline-primary">Registreer gebruiker
                     </button>
