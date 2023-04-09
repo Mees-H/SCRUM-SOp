@@ -26,7 +26,6 @@
                     <th>{{__('Gebruikersnaam')}}</th>
                     <th>{{__('Email')}}</th>
                     <th>{{__('Functie')}}</th>
-                    <th>{{__('Verwijder gebruiker')}}</th>
                     <th></th>
                     </thead>
 
@@ -39,7 +38,7 @@
                                 <form method="post" action="/admin/delete">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$user->id}}">
-                                    <button type="submit">account verwijderen</button>
+                                    <button type="submit" class="btn btn-outline-secondary">{{__('Verwijder gebruiker')}}</button>
                                 </form>
                             </td>
                         </tr>
