@@ -14,7 +14,7 @@ class CreateUserController extends Controller
 {
     public function adminindex()
     {
-        $users = User::all();
+        $users = User::where('id', '!=', auth()->user()->id)->get();
 
         return view('admin.userlist', ['users' => $users]);
     }

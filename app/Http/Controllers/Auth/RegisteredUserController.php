@@ -57,6 +57,6 @@ class RegisteredUserController extends Controller
 
         User::destroy($request->id);
 
-        return back()->with('success', 'user-deleted');
+        return back()->with('success', 'Gebruiker verwijderd!');
     }
 }
