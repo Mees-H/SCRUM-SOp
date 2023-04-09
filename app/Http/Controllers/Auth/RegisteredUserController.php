@@ -48,4 +48,15 @@ class RegisteredUserController extends Controller
 
         return redirect(RouteServiceProvider::HOME);
     }
+
+    public function destroy(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'id'=> ['required', 'exists:users,id'],
+        ]);
+
+        User::destroy($request->id);
+
+        return back()->with('success', 'user-deleted');
+    }
 }

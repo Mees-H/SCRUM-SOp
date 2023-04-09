@@ -16,6 +16,11 @@
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 space-y-6">
         <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
             <div class="max-w-xl">
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
                 <table class="table">
                     <thead>
                     <th>{{__('Gebruikersnaam')}}</th>
@@ -30,7 +35,13 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>{{$user->role}}</td>
-                            <td></td>
+                            <td>
+                                <form method="post" action="/admin/delete">
+                                    @csrf
+                                    <input type="hidden" name="id" value="{{$user->id}}">
+                                    <button type="submit">account verwijderen</button>
+                                </form>
+                            </td>
                         </tr>
                     @endforeach
                 </table>
