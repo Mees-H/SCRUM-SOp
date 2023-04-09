@@ -43,6 +43,6 @@ class CreateUserController extends Controller
 
         event(new Registered($user));
 
-        return redirect('/admin/create')->with('success', 'Gebruiker aangemaakt!');
+        return redirect('/admin/gebruikers')->with('success', 'Gebruiker aangemaakt!');
     }
 }

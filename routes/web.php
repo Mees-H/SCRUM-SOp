@@ -13,7 +13,7 @@ use App\Http\Controllers\EnrollController;
 use App\Http\Controllers\SliderController;
 
 
-/*  
+/*
 |--------------------------------------------------------------------------
 | Web Routes
 |--------------------------------------------------------------------------
@@ -57,6 +57,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/gebruikers', [CreateUserController::class, 'adminIndex']);
     Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
+    Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
 
     //Resource routes
     Route::resource('slider', SliderController::class);
