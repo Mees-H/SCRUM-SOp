@@ -55,7 +55,7 @@ class RegisteredUserController extends Controller
             'id'=> ['required', 'exists:users,id', 'not_in:'.auth()->user()->id],
         ]);
 
-        User::destroy($request->id);
+        User::find($request->id)->delete();
 
         return back()->with('success', 'Gebruiker verwijderd!');
     }
