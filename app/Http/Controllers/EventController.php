@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\MailPostRequest;
+use App\Http\Requests\MailPostEventRequest;
 use App\Models\Mail\Mailer;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\RedirectResponse;
@@ -68,6 +68,17 @@ class EventController extends Controller
     public function show(string $id)
     {
 
+        try {
+            $event = Event::findOrFail($id);
+            $first_group = $event->groups->first();
+            $groups = $event->groups;
+            return view('detailEvenement', compact('event', 'first_group'), compact('groups'));
+        } catch (\Exception $e) {
+            return redirect('/evenement')->with('error', 'Evenement niet gevonden.');
+        }
+
+
+
     }
 
     public function enroll(int $id)
@@ -75,7 +86,7 @@ class EventController extends Controller
         return view('events.aanmelden', ['eventId' => $id]);
     }
 
-    public function submit(MailPostRequest $request)
+    public function submit(MailPostEventRequest $request)
     {
         $validated = $request->validated();
 

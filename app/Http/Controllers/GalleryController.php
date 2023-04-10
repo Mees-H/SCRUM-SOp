@@ -11,7 +11,7 @@ class GalleryController extends Controller
     {
         $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
 
-        return view('galerijYear', [
+        return view('Gallery.galerijYear', [
             'albums' => $albums,
             'year' => $year
         ]);
@@ -21,7 +21,7 @@ class GalleryController extends Controller
         $album = Album::with('picture')->where('title', $title)->first();
         $pictures = Picture::with('album')->where('album_id', $album->id)->get();
 
-        return view('showAlbum', [
+        return view('Gallery.showAlbum', [
             'album' => $album,
             'pictures' => $pictures,
             'year' => $year
@@ -44,7 +44,7 @@ class GalleryController extends Controller
     /// Dit is voor een andere user story, deze wordt later gemaakt. Jira: S8S-32 en S8S-33///
     public function create()
     {
-        return view('aanmakenAlbum');
+        return view('Gallery.aanmakenAlbum');
     }
 
     public function store(Request $request)
@@ -64,6 +64,6 @@ class GalleryController extends Controller
     }
     public function delete()
     {
-        return view('verwijderenAlbum');
+        return view('Gallery.verwijderenAlbum');
     }
 }

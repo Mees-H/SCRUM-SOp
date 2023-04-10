@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('zipcode');
             $table->string('city');
             $table->string('link');
-            $table->json('people')->nullable();
+            $table->string('imageurl');
             $table->timestamps();
         });
     }
