@@ -53,14 +53,6 @@ Route::resource('events', EventController::class);
 Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name('eventsDetails');
 // });//dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
 
-
-//TODO:remove
-Route::get('/mail', function () {return view('mailForm');});
-Route::post('/mail', function (Request $request){
-    $name = $request['name'];
-    $age = $request['age'];
-    $eventId = $request['event_id'];
-
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
@@ -68,11 +60,6 @@ Route::post('events/submit/{id}', [EventController::class, 'submit']);
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 
-    $factory = new MailFactory();
-    $mail = $factory->createMail('eventRegistration',['name' => $name, 'event_id' => $eventId]);
-    \App\Models\Mail\Mailer::Mail([],$mail, true);
-    return view('sent',['name' => $name]);
-});
 
 //TODO: voor een andere user story
 Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
