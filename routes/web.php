@@ -5,6 +5,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\SiteMapController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -55,6 +56,8 @@ Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name
 
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
+
+Route::resource('links', SiteMapController::class);
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
