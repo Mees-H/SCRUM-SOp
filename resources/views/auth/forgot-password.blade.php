@@ -13,15 +13,19 @@
 
         <!-- Email Address -->
         <div>
-            <x-input-label for="email" :value="__('E-mail')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
+        <label for="email" class="col-sm-2 col-form-label">
+                Email
+            </label>
+            <div class="col-sm-8">
+                <input type="text" class="form-control" id="email" name="email">
+            </div>
+            @error('email')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div class="flex items-center justify-end mt-4">
-            <x-primary-button>
-                Stuur E-mail reset link
-            </x-primary-button>
+            <button class="btn btn-primary" type="submit">Stuur E-mail reset link</button>
         </div>
     </form>
 @stop
