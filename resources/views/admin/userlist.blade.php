@@ -3,9 +3,15 @@
 @section('content')
 
 <div class="py-12">
-    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="p-6 text-gray-900">
+    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+        <div class="p-6 text-gray-900 d-flex justify-content-between">
             <a href="/admin/create" class="btn btn-primary m-1">{{__('Voeg gebruiker toe')}}</a>
+            @if(request()->path() == 'admin/gebruikers/all')
+                <a href="/admin/gebruikers">zie actieve gebruikers</a>
+                @else
+                <a href="/admin/gebruikers/all">zie alle gebruikers</a>
+            @endif
+
         </div>
     </div>
 </div>
@@ -21,6 +27,11 @@
                         {{ session('success') }}
                     </div>
                 @endif
+                    @if ($title != null)
+                        <h1 class="text-center">
+                            {{ $title }}
+                        </h1>
+                    @endif
                 <table class="table">
                     <thead>
                     <th>{{__('Gebruikersnaam')}}</th>
@@ -33,14 +44,18 @@
                         <tr>
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
-                            <td>{{$user->role}}</td>
+                            <td>{{$user->role}}@if($user->deleted_at !== null )💀 @endif</td>
+
                             <td>
-                                <form method="post" action="/admin/delete">
-                                    @csrf
-                                    <input type="hidden" name="id" value="{{$user->id}}">
-                                    <button type="submit" class="btn btn-outline-secondary">{{__('Verwijder gebruiker')}}</button>
-                                </form>
+                                @if($user->deleted_at === null )
+                                    <form method="post" action="/admin/delete">
+                                        @csrf
+                                        <input type="hidden" name="id" value="{{$user->id}}">
+                                        <button type="submit" class="btn btn-outline-secondary">{{__('Verwijder gebruiker')}}</button>
+                                    </form>
+                                @endif
                             </td>
+
                         </tr>
                     @endforeach
                 </table>
