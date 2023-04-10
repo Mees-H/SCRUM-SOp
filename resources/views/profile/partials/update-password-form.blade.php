@@ -14,30 +14,39 @@
         @method('put')
 
         <div>
-            <label for="current_password" class="col-sm-2 col-form-label">
+            <label for="huidig_wachtwoord" class="col-sm-2 col-form-label">
                 Huidig wachtwoord
             </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="current_password" name="current_password">
+                <input type="text" class="form-control" id="huidig_wachtwoord" name="huidig_wachtwoord">
             </div>
+            @error('huidig_wachtwoord')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div>
-            <label for="password" class="col-sm-2 col-form-label">
+            <label for="wachtwoord" class="col-sm-2 col-form-label">
                 Nieuw wachtwoord
             </label>
             <div class="col-sm-8">
-                <input type="password" class="form-control" id="password" name="password">
+                <input type="text" class="form-control" id="wachtwoord" name="wachtwoord">
             </div>
+            @error('wachtwoord')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <div>
-            <label for="password_confirmation" class="col-sm-2 col-form-label">
+            <label for="wachtwoord_confirmation" class="col-sm-2 col-form-label">
                 Herhaal nieuw wachtwoord
             </label>
             <div class="col-sm-8">
-                <input type="password" class="form-control" id="password_confirmation" name="password_confirmation">
+                <input type="text" class="form-control" id="wachtwoord_confirmation" name="wachtwoord_confirmation">
             </div>
+            @error('wachtwoord_confirmation')
+            <div class="alert alert-danger">{{ $message }}</div>
+            @enderror
         </div>
 
         <br />
@@ -56,13 +65,4 @@
             @endif
         </div>
     </form>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div><br />
-    @endif
 </section>

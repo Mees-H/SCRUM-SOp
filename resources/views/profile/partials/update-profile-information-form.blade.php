@@ -21,9 +21,9 @@
                 Naam
             </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="name" name="name" value="{{old('name', $user->name)}}">
+                <input type="text" class="form-control" id="naam" name="naam" value="{{old('naam', $user->name)}}">
             </div>
-            @error('name')
+            @error('naam')
             <div class="alert alert-danger">{{ $message }}</div>
             @enderror
         </div>

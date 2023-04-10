@@ -136,6 +136,7 @@ return [
     'uploaded'             => 'Het uploaden van :attribute is mislukt.',
     'url'                  => ':Attribute formaat is ongeldig.',
     'uuid'                 => ':Attribute moet een valide UUID zijn.',
+    'failed'               => 'Deze inloggegevens zijn onjuist.',
 
     /*
     |--------------------------------------------------------------------------
