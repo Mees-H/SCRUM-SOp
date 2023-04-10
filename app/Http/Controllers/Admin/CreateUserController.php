@@ -16,7 +16,14 @@ class CreateUserController extends Controller
     {
         $users = User::where('id', '!=', auth()->user()->id)->get();
 
-        return view('admin.userlist', ['users' => $users]);
+        return view('admin.userlist', ['users' => $users, 'title' => 'Actieve gebruikers']);
+    }
+
+    public function showAll()
+    {
+        $users = User::where('id', '!=', auth()->user()->id)->withTrashed()->get();
+
+        return view('admin.userlist', ['users' => $users, 'title' => 'Alle gebruikers']);
     }
 
     public function adminCreateUser()

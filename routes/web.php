@@ -77,6 +77,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
     Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
+    Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
 
     //Resource routes
     Route::resource('slider', SliderController::class);
