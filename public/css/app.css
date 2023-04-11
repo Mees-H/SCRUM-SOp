@@ -44,7 +44,13 @@ nav {
     }
 }
 
+h1{
+    color: #A68D2B;
+}
 
+.specialBrown{
+    color: #8d7824;
+}
 
 footer {
 margin-top:auto;
@@ -113,9 +119,25 @@ margin-top:auto;
 .btn-primary{
     background-color: darkblue;
 }
+.btn-primary:hover{
+    background-color: #04ADBF;
+    border-color: white;
+    color:white;
+}
 
-a{
-    color: #000CD9;
+.btn-secondary{
+    background:none;
+    border-color: #8A048C;
+    color:#8A048C;
+}
+.btn-secondary:hover{
+    background-color: #8A048C;
+    border-color: white;
+    color:white;
+}
+
+.darkTitle{
+    color: #0F0E0E;
 }
 
 td{
