@@ -39,6 +39,6 @@ class PasswordResetLinkController extends Controller
         return $status == Password::RESET_LINK_SENT
                     ? back()->with('status', 'Er is een email verstuurd.')
                     : back()->withInput($request->only('email'))
-                            ->withErrors(['email' => 'U stuurt te vaak een een aanvraag!']);
+                            ->withErrors(['email' => 'Er is geen account die dit mailadres heeft.']);
     }
 }
