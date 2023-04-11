@@ -51,7 +51,7 @@
                                     <form method="post" action="/admin/delete">
                                         @csrf
                                         <input type="hidden" name="id" value="{{$user->id}}">
-                                        <button type="submit" class="btn btn-outline-secondary">{{__('Verwijder gebruiker')}}</button>
+                                        <button type="submit" dusk="{{$user->id}}" class="btn btn-outline-secondary">{{__('Verwijder gebruiker')}}</button>
                                     </form>
                                 @endif
                             </td>
