@@ -7,6 +7,7 @@ use App\Models\Album;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Event;
+use App\Models\MemberGroup;
 
 class NavigationController extends Controller
 {
@@ -33,7 +34,7 @@ class NavigationController extends Controller
     }
     function team()
     {
-        return view('team');
+        return view('members/team', ['groups' => MemberGroup::all()]);
     }
 
     function partner()

@@ -13,6 +13,7 @@
         "spatie/yaml-front-matter": "^2.0"
     },
     "require-dev": {
+        "doctrine/dbal": "^3.6",
         "fakerphp/faker": "^1.9.1",
         "laravel/dusk": "^7.7",
         "laravel/pint": "^1.0",

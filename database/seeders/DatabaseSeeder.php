@@ -10,12 +10,11 @@ use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     */
+    
     public function run(): void
     {
         $this->call(ImageSeeder::class);
+        $this->call(MemberSeeder::class);
         $this->call(EventAndGroupSeeder::class);
         $this->call(AlbumSeeder::class);
         $this->call(PictureSeeder::class);
