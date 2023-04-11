@@ -65,7 +65,6 @@ Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
 //Team routes
-Route::resource('members', TeamController::class);
 Route::resource('links', SiteMapController::class);
 
 //Galerij routes
@@ -80,6 +79,8 @@ Route::middleware(['role:admin'])->group(function () {
 
     //Event routes
     Route::resource('events', EventController::class);
+
+    Route::resource('members', TeamController::class);
 
     //TODO: voor een andere user story
     Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
