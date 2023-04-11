@@ -55,7 +55,7 @@ Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail'])
 //FAQ routes
 Route::get('/vragenantwoorden/vraagformulier', [FAQController::class, 'questionform']);
 Route::post('/vragenantwoorden/submit', [FAQController::class, 'submit']);
-
+Route::get('/vragenantwoorden', [FAQController::class, 'viewquestions']);
 //Event routes
 Route::resource('events', EventController::class);
 Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name('eventsDetails');
@@ -68,7 +68,6 @@ Route::resource('links', SiteMapController::class);
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
-
 Route::middleware(['role:admin'])->group(function () {
     //Resource routes
     Route::resource('slider', SliderController::class);

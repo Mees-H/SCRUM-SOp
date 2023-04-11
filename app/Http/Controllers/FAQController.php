@@ -18,6 +18,11 @@ class FAQController extends Controller
         return view('faq.index', compact('FAQ'));
     }
 
+    function viewquestions() {
+        $FAQ = FAQ::all();
+        return view('vragenantwoorden', compact('FAQ'));
+    }
+
     function questionForm()
     {
         return view('faq.questionForm');

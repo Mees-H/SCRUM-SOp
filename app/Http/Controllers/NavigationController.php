@@ -26,7 +26,7 @@ class NavigationController extends Controller
     }
     function vragenantwoorden()
     {
-        return view('vragenantwoorden', ['FAQ' => FAQ::all()]);
+        return redirect('vragenantwoorden');
     }
     function nieuwsbrief()
     {
