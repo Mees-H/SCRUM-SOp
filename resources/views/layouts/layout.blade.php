@@ -21,7 +21,7 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     </head>
 
-@if (Auth::user() == null)
+@if (Auth::user() == null || Auth::user()->role != 'admin')
 <!-- Layout als je niet ingelogd bent -->
     <body>
         <nav class="navbar navbar-expand-xl navbar-light bg-light">
@@ -82,9 +82,33 @@
             </li>
             </ul>
             <ul class="navbar-nav ms-auto">
+                @if (Auth::user() == null)
                 <li class="nav-item">
                     <a class="nav-link text-dark {{ (request()->segment(1) == 'login') ? 'font-weight-bold' : '' }}" href="/login">Inloggen</a>
                 </li>
+                @else
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                        {{ Auth::user()->name }}
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li>
+                            <a href="{{ route('profile.edit') }}" class="dropdown-item">
+                                Profiel
+                            </a>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li>
+                            <form method="POST" action="{{ route('logout') }}">
+                                @csrf
+                                <a href="route('logout')" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
+                                    Uitloggen
+                                </a>
+                            </form>
+                        </li>
+                    </ul>
+                </li>
+                @endif
                 <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#" >
                     <input class="form-control mr-sm-2 search"id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
                     <ul class="border border-dark rounded d-none" id="content">
