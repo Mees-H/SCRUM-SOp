@@ -148,3 +148,17 @@ td{
     color: rgb(147, 4, 4);
     font-size: 1em;
 }
+
+.memberimg-box{
+    width: 75px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.memberimg{
+    padding: 2px;
+    height: auto;
+    width: auto;
+    border: 1px solid darkgray;
+}

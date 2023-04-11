@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
@@ -63,6 +64,8 @@ Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
+//Team routes
+Route::resource('members', TeamController::class);
 Route::resource('links', SiteMapController::class);
 
 //Galerij routes

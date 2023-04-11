@@ -170,7 +170,10 @@ return [
         'title' => 'titel',
         'body' => 'beschrijving',
         'date' => 'datum',
-        'time' => 'tijd'
+        'time' => 'tijd',
+        'name' => 'naam',
+        'image' => 'afbeelding',
+        'phonenumber' => 'telefoonnummer'
     ],
 
     'values' => [
