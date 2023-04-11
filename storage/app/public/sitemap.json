@@ -1,0 +1,60 @@
+{
+    "categories": [
+        {
+            "private": false,
+            "name": "Algemene pagina's",
+            "links": [
+                {
+                    "name": "home",
+                    "link": "/"
+                },
+                {
+                    "name": "trainingen",
+                    "link": "/training"
+                },
+                {
+                    "name": "evenementen",
+                    "link": "/evenement"
+                },
+                {
+                    "name": "faq",
+                    "link": "/faq"
+                },
+                {
+                    "name": "nieuws",
+                    "link": "/nieuwsbrief"
+                },
+                {
+                    "name": "team",
+                    "link": "/team"
+                },
+                {
+                    "name": "partners",
+                    "link": "/partner"
+                },
+                {
+                    "name": "over ons",
+                    "link": "/overons"
+                },
+                {
+                    "name": "locatie",
+                    "link": "/locatie"
+                }
+            ]
+        },
+        {
+            "private": true,
+            "name": "Onderwater pagina's",
+            "links": [
+                {
+                    "name": "Evenementen aanpassen",
+                    "link": "/events"
+                },
+                {
+                    "name": "Galerij aanpassen",
+                    "link": "/galerij/aanmakenAlbum"
+                }
+            ]
+        }
+    ]
+}

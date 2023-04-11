@@ -6,6 +6,7 @@ use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\FAQController;
+use App\Http\Controllers\SiteMapController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -58,23 +59,15 @@ Route::post('/vragenantwoorden/submit', [FAQController::class, 'submit']);
 //Event routes
 Route::resource('events', EventController::class);
 Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name('eventsDetails');
-// });//dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
-
 
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
+
+Route::resource('links', SiteMapController::class);
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
-
-Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
-Route::post('events/submit/{id}', [EventController::class, 'submit']);
-
-//TODO: voor een andere user story
-Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
-Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
-Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
 
 Route::middleware(['role:admin'])->group(function () {
     //Resource routes

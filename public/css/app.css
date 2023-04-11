@@ -48,11 +48,16 @@ h1{
     color: #A68D2B;
 }
 
+.specialBrown{
+    color: #8d7824;
+}
+
 footer {
 margin-top:auto;
  bottom: 0;
  left: 0;
  right: 0;
+ margin-top:auto;
  height: auto;
 }
 
@@ -64,7 +69,6 @@ margin-top:auto;
  text-align: center;
  padding-top: 10px;
  padding-bottom: 5px;
-
 }
 .footer-info{
  flex-direction: column;
@@ -92,7 +96,7 @@ margin-top:auto;
 
 .socials a {
  text-decoration: none;
- border: 1px solid black;
+ border: 1.1px solid black;
  padding: 5px;
  border-radius: 50%;
 }
@@ -113,9 +117,7 @@ margin-top:auto;
 }
 
 .btn-primary{
-    background:none;
-    border-color: #038391;
-    color:#038391;
+    background-color: darkblue;
 }
 .btn-primary:hover{
     background-color: #04ADBF;
@@ -134,12 +136,6 @@ margin-top:auto;
     color:white;
 }
 
-a{
-    color: #0F0E0E;
-}
-a:hover{
-    color:#2d3748 ;
-}
 .darkTitle{
     color: #0F0E0E;
 }
