@@ -17,9 +17,8 @@
         <h1 class="text-center">{{$group->name}}</h1>
         <br>
         <div class="row justify-content-md-left">
-        @for($iterator = 0; $iterator < count($group->members); $iterator++)
+        @foreach($group->members as $member)
             <div class="col-sm-6">
-            @php $member = $group->members[$iterator]; @endphp
                 <div class="row">
                     <p class="col">
                         {{$member->name}}{{$member->function == '' ? '' : ' - '.$member->function}}<br>
@@ -33,7 +32,7 @@
                     @endif
                 </div>
             </div>
-        @endfor
+        @endforeach
         </div>
     </div>
     <hr>
