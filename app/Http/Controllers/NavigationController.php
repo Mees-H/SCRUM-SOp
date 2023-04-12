@@ -7,6 +7,7 @@ use App\Models\Album;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Event;
+use App\Models\MemberGroup;
 
 class NavigationController extends Controller
 {
@@ -17,28 +18,23 @@ class NavigationController extends Controller
     }
     function training()
     {
-        return view('training');
+        return view('calendar.training');
     }
     function evenement()
     {
-        return view('evenement', ['posts' => Event::all()]);
-    }
-
-    function aanmelden()
-    {
-        return view('aanmelden');
+        return view('events.evenement', ['posts' => Event::all()]);
     }
     function faq()
     {
-        return view('faq');
+        return view('faq.faq');
     }
     function nieuwsbrief()
     {
-        return view('nieuwsbrief');
+        return view('news.nieuwsbrief');
     }
     function team()
     {
-        return view('team');
+        return view('members/team', ['groups' => MemberGroup::all()]);
     }
 
     function partner()
@@ -58,6 +54,6 @@ class NavigationController extends Controller
 
     function links()
     {
-        return view('links');
+        return redirect('/links');
     }
 }

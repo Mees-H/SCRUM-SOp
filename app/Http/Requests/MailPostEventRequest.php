@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class MailPostRequest extends FormRequest
+class MailPostEventRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -25,7 +25,7 @@ class MailPostRequest extends FormRequest
             'name' => 'required|max:255',
             'birthday' => 'required|before:today',
             'email' => 'required|email|max:255',
-            'phonenumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'phonenumber' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10|max:255',
             'address' => 'required|max:255',
             'city' => 'required|max:255',
             'disability' => 'required|max:255',
