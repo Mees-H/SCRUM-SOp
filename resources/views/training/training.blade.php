@@ -6,7 +6,7 @@
     @foreach($trainingGroups as $group)
 
         <h2>Traininggroep {{$group->GroupNumber}}</h2>
-        <div class="table-container">
+        <div class="table-container mx-5">
             <table class="table table-bordered">
                 <tr>
                     <th>Datum</th>
