@@ -4,9 +4,6 @@
     <div class="container justify-content-between ">
         <div class="row align-items-center">
             <h1 class="col">Evenementen</h1>
-            <div class="col">
-                <a href="/events">Evenementen onderhouden</a>
-            </div>
         </div>
     </div>
     <div class="container">

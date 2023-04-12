@@ -4,6 +4,7 @@ use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\SiteMapController;
@@ -25,11 +26,16 @@ use App\Http\Controllers\SliderController;
 |
 */
 
-Route::get('/', [NavigationController::class, 'index']);
-Route::get('/index', [NavigationController::class, 'index']);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+Route::get('/', [NavigationController::class, 'index'])->name('mainmenu');
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
-Route::get('/faq', [NavigationController::class, 'faq']);
+Route::get('/vragenantwoorden', [NavigationController::class, 'vragenantwoorden']);
 Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
 Route::get('/partner', [NavigationController::class, 'partner']);
@@ -49,29 +55,47 @@ Route::get('/training/signout', [TrainingController::class, 'signout']);
 Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail']);
 
 //FAQ routes
-Route::get('/faq/vraagformulier', [FAQController::class, 'questionform']);
-Route::post('/faq/submit', [FAQController::class, 'submit']);
+Route::get('/vragenantwoorden/vraagformulier', [FAQController::class, 'questionform']);
+Route::post('/vragenantwoorden/submit', [FAQController::class, 'submit']);
+Route::get('/vragenantwoorden', [FAQController::class, 'viewquestions']);
 //Event routes
 Route::resource('events', EventController::class);
 Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name('eventsDetails');
-// });//dit is voor het testen van de mailer, wordt er nog uitgehaald maar heb het er in gelaten om het testen makkelijker te maken.
 
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
 //Team routes
-Route::resource('members', TeamController::class);
 Route::resource('links', SiteMapController::class);
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+Route::middleware(['role:admin'])->group(function () {
+    //Resource routes
+    Route::resource('slider', SliderController::class);
 
+    //FAQ routes
+    Route::resource('faq', FAQController::class);
 
-//TODO: voor een andere user story
-Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
-Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
-Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
+    //Event routes
+    Route::resource('events', EventController::class);
 
-//FAQ routes
-Route::resource('faq', FAQController::class);
+    Route::resource('members', TeamController::class);
+
+    //TODO: voor een andere user story
+    Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
+    Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
+    Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
+
+});
+
+Route::middleware(['role:admin,coach'])->group(function () {
+
+});
+
+Route::middleware(['role:admin,coach,supervisor'])->group(function () {
+
+});
+
+require __DIR__ . '/auth.php';

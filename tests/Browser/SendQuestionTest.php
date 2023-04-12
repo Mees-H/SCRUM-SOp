@@ -12,7 +12,7 @@ class SendQuestionTest extends DuskTestCase
     public function testFormSuccess(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/faq/vraagformulier/')
+            $browser->visit('/vragenantwoorden/vraagformulier/')
                 ->assertSee('Stel een vraag')
                 ->type('name', 'Test')
                 ->type('email', 'test@gmail.com')
@@ -31,7 +31,7 @@ class SendQuestionTest extends DuskTestCase
             }
 
             //Test required field
-            $browser->visit('/faq/vraagformulier/')
+            $browser->visit('/vragenantwoorden/vraagformulier/')
                 ->assertSee('Stel een vraag')
                 ->type('name', '')
                 ->type('email', 'test@gmail.com')
@@ -40,7 +40,7 @@ class SendQuestionTest extends DuskTestCase
                 ->waitForText('Uw naam is verplicht');
 
             //Test max length
-            $browser->visit('/faq/vraagformulier/')
+            $browser->visit('/vragenantwoorden/vraagformulier/')
                 ->assertSee('Stel een vraag')
                 ->type('name', $string)
                 ->type('email', 'test@gmail.com')
@@ -61,7 +61,7 @@ class SendQuestionTest extends DuskTestCase
             $email = 'adsbfiobadsuygbfoulabfuygbdfvhybalxbvudsblyuierub';
 
             //Test required field
-            $browser->visit('/faq/vraagformulier/')
+            $browser->visit('/vragenantwoorden/vraagformulier/')
                 ->assertSee('Stel een vraag')
                 ->type('name', 'Test')
                 ->type('email', '')
@@ -71,7 +71,7 @@ class SendQuestionTest extends DuskTestCase
 
             //Test e-mail validation
             //Can't use assertSee because it doesn't work with the type="email" validation
-            $browser->visit('/faq/vraagformulier/')
+            $browser->visit('/vragenantwoorden/vraagformulier/')
                 ->assertSee('Stel een vraag')
                 ->type('name', 'Test')
                 ->type('email', 'adsbfiobadsuygbfoulabfuygbdfvhybalxbvudsblyuierub')
@@ -80,7 +80,7 @@ class SendQuestionTest extends DuskTestCase
                 ->assertDontSee('Uw vraag is verzonden!');
 
             //Test max length
-            $browser->visit('/faq/vraagformulier/')
+            $browser->visit('/vragenantwoorden/vraagformulier/')
                 ->assertSee('Stel een vraag')
                 ->type('name', 'Test')
                 ->type('email', $string)
@@ -99,7 +99,7 @@ class SendQuestionTest extends DuskTestCase
             }
 
             //Test required field
-            $browser->visit('/faq/vraagformulier/')
+            $browser->visit('/vragenantwoorden/vraagformulier/')
             ->assertSee('Stel een vraag')
             ->type('name', 'Test')
             ->type('email', 'test@gmail.com')
@@ -108,7 +108,7 @@ class SendQuestionTest extends DuskTestCase
             ->waitForText('Het invoeren van de vraag is verplicht');
 
             //Test max length
-            $browser->visit('/faq/vraagformulier/')
+            $browser->visit('/vragenantwoorden/vraagformulier/')
                 ->assertSee('Stel een vraag')
                 ->type('name', 'Test')
                 ->type('email', 'test@gmail.com')

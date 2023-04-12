@@ -4,9 +4,6 @@
 <div class="container text-center">
     <div class="row align-items-center">
         <h1 class="col">Team samenstelling</h1>
-        <div class="col">
-            <a class="btn btn-primary" href="members">Team onderhouden</a>
-        </div>
     </div>
 </div>
 <br>

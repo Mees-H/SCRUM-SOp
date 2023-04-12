@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
         <h1 class="display-3">Voeg lid toe</h1>
-        <a href="/members" class="btn btn-primary">Ga terug</a>
+            <a href="/members" class="btn btn-primary">Ga terug</a>
         <div>
             @if ($errors->any())
                 <div class="alert alert-danger">

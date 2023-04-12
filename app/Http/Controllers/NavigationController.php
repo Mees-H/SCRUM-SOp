@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Album;
+use App\Models\FAQ;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Event;
@@ -24,9 +25,9 @@ class NavigationController extends Controller
     {
         return view('events.evenement', ['posts' => Event::all()]);
     }
-    function faq()
+    function vragenantwoorden()
     {
-        return view('faq.faq');
+        return redirect('vragenantwoorden');
     }
     function nieuwsbrief()
     {
