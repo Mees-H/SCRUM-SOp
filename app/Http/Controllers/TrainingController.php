@@ -28,7 +28,7 @@ class TrainingController extends Controller
         foreach ($trainingGroups as $group) {
             $group->sessions = $trainingSessions->where('GroupNumber', '==', $group->GroupNumber);
         }
-        return view('training', ['trainingGroups' => $trainingGroups]);
+        return view('training.training', ['trainingGroups' => $trainingGroups]);
     }
 
     function getWeekNumber($dateString)
