@@ -2,6 +2,7 @@
 
 namespace Tests\Browser;
 
+use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Support\Facades\DB;
 use Laravel\Dusk\Browser;
@@ -12,16 +13,18 @@ class FAQTest extends DuskTestCase
     public function testSendQuestionRoute(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/faq')
+            $browser->logout()
+                    ->visit('/vragenantwoorden')
                     ->clickLink("Stel een vraag")
-                    ->assertPathIs("/faq/vraagformulier");
+                    ->assertPathIs("/vragenantwoorden/vraagformulier");
         });
     }
     
     public function testCreateFAQ(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/faq')
+            $browser->loginAs(User::find(1))
+                    ->visit('/faq')
                     ->clickLink("Creeër nieuwe vraag & antwoord")
                     ->type("vraag", "Hoe kan ik het nieuws zien?")
                     ->type("antwoord", "Klik op de 'Nieuws' knop in de menubalk.")

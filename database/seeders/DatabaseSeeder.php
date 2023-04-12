@@ -7,6 +7,9 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use App\Models\Album;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use App\Models\Group;
+use App\Models\Event;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,6 +22,8 @@ class DatabaseSeeder extends Seeder
         $this->call(AlbumSeeder::class);
         $this->call(PictureSeeder::class);
         $this->call(FAQSeeder::class);
+        $this->call(RoleSeeder::class);
+        $this->call(UserSeeder::class);
     }
 
 

@@ -18,6 +18,11 @@ class FAQController extends Controller
         return view('faq.index', compact('FAQ'));
     }
 
+    function viewquestions() {
+        $FAQ = FAQ::all();
+        return view('vragenantwoorden', compact('FAQ'));
+    }
+
     function questionForm()
     {
         return view('faq.questionForm');
@@ -31,7 +36,7 @@ class FAQController extends Controller
         $mail = $mailFactory->createMail('sendQuestion',
             ['name' => $request['name'], 'email' => $request['email'], 'question' => $request['question']]);
         Mailer::Mail([], $mail, true);
-        return redirect('faq')->with('success', 'Uw vraag is verzonden!');
+        return redirect('vragenantwoorden')->with('success', 'Uw vraag is verzonden!');
     }
 
     function create() {
