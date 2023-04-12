@@ -20,6 +20,8 @@ class TrainingController extends Controller
         });;
         foreach($trainingSessions as $session){
             $session->weekNumber = $this->getWeekNumber($session->Date);
+            $session->StartTime = Carbon::createFromFormat('H:i:s', $session->StartTime)->format('H:i');
+            $session->EndTime = Carbon::createFromFormat('H:i:s', $session->EndTime)->format('H:i');
         }
         $trainingGroups = TrainingSessionGroup::all();
         foreach($trainingGroups as $group){

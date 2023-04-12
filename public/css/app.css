@@ -131,3 +131,7 @@ td{
     text-orientation: sideways;
     transform: rotate(180deg);
 }
+
+.table-container{
+    overflow-x: scroll;
+}

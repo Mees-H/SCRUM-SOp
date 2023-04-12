@@ -44,63 +44,170 @@ class OefensessieSeeder extends Seeder
      */
     public function seedTrainingSessions(): void
     {
+        $dates=[
+            '04-03-2023',
+            '11-03-2023',
+            '18-03-2023',
+            '25-03-2023',
+            '01-04-2023',
+            '15-04-2023',
+            '29-04-2023',
+            '06-05-2023',
+            '20-05-2023',
+            '03-06-2023',
+            '10-06-2023',
+            '17-06-2023',
+            '24-06-2023',
+            '01-07-2023',
+            '08-07-2023',
+            '15-07-2023',
+            '22-07-2023',
+            '02-08-2023',
+            '09-08-2023',
+            '16-08-2023',
+            '23-08-2023',
+            '30-08-2023',
+            '07-09-2023',
+            '21-09-2023',
+            '28-09-2023',
+            '04-10-2023',
+            '11-10-2023',
+            '18-10-2023'
+        ];
+        $values = [];
+        foreach ($dates as $date) {
+            $values[] = [
+                'Date' => Carbon::createFromFormat('d-m-Y', $date)->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'BurgGolf Haverleij',
+                'GroupNumber' => 1,
+                'IstrainingSession' => true,
+            ];
+            $values[] = [
+                'Date' => Carbon::createFromFormat('d-m-Y', $date)->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'BurgGolf Haverleij',
+                'GroupNumber' => 2,
+                'IstrainingSession' => true,
+            ];
+        }
+        DB::table('training_session')->insert($values);
+
         DB::table('training_session')->insert([
             [
-                'Date' => Carbon::now()->addRealDays(4)->toDateString(),
-                'StartTime' => Carbon::now()->toTimeString(),
-                'EndTime' => Carbon::now()->addHours(2)->toTimeString(),
-                'Description' => 'Eerste oefensesie',
-                'GroupNumber' => 1,
-                'IstrainingSession' => true,
-            ],
-            [
-                'Date' => Carbon::now()->toDateString(),
-                'StartTime' => Carbon::now()->addHours(6)->toTimeString(),
-                'EndTime' => Carbon::now()->addHours(8)->toTimeString(),
-                'Description' => 'Derde oefensesie',
-                'GroupNumber' => 1,
-                'IstrainingSession' => true,
-            ],
-            [
-                'Date' => Carbon::now()->addDays(38)->toDateString(),
-                'StartTime' => Carbon::now()->addHours(2)->toTimeString(),
-                'EndTime' => Carbon::now()->addHours(4)->toTimeString(),
-                'Description' => 'Vakantie',
+                'Date' => Carbon::createFromFormat('d-m-Y', '08-04-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Pasen',
                 'GroupNumber' => 1,
                 'IstrainingSession' => false,
             ],
             [
-                'Date' => Carbon::now()->addRealDays(4)->toDateString(),
-                'StartTime' => Carbon::now()->addHours(2)->toTimeString(),
-                'EndTime' => Carbon::now()->addHours(4)->toTimeString(),
-                'Description' => 'Vakantie',
+                'Date' => Carbon::createFromFormat('d-m-Y', '08-04-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Pasen',
                 'GroupNumber' => 2,
                 'IstrainingSession' => false,
             ],
             [
-                'Date' => Carbon::now()->addRealDays(32)->toDateString(),
-                'StartTime' => Carbon::now()->addHours(2)->toTimeString(),
-                'EndTime' => Carbon::now()->addHours(4)->toTimeString(),
-                'Description' => 'Vakantie',
+                'Date' => Carbon::createFromFormat('d-m-Y', '22-04-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Limeer Golf Bokaal',
+                'GroupNumber' => 1,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::createFromFormat('d-m-Y', '22-04-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Limeer Golf Bokaal',
                 'GroupNumber' => 2,
                 'IstrainingSession' => false,
             ],
             [
-                'Date' => Carbon::now()->addRealDays(12)->toDateString(),
-                'StartTime' => Carbon::now()->addHours(3)->toTimeString(),
-                'EndTime' => Carbon::now()->addHours(5)->toTimeString(),
-                'Description' => 'Tweede oefensesie',
-                'GroupNumber' => 2,
-                'IstrainingSession' => true,
+                'Date' => Carbon::createFromFormat('d-m-Y', '13-05-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Haverleij Prise d\'Eau',
+                'GroupNumber' => 1,
+                'IstrainingSession' => false,
             ],
             [
-                'Date' => Carbon::now()->addRealDays(16)->toDateString(),
-                'StartTime' => Carbon::now()->addHours(9)->toTimeString(),
-                'EndTime' => Carbon::now()->addHours(11)->toTimeString(),
-                'Description' => 'Laatste oefensesie',
+                'Date' => Carbon::createFromFormat('d-m-Y', '13-05-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Haverleij Prise d\'Eau',
                 'GroupNumber' => 2,
-                'IstrainingSession' => true,
-            ]
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::createFromFormat('d-m-Y', '27-05-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Pinksterren',
+                'GroupNumber' => 1,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::createFromFormat('d-m-Y', '27-05-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Pinksterren',
+                'GroupNumber' => 2,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::createFromFormat('d-m-Y', '29-07-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Zomervakantie',
+                'GroupNumber' => 1,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::createFromFormat('d-m-Y', '29-07-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Zomervakantie',
+                'GroupNumber' => 2,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::createFromFormat('d-m-Y', '14-09-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Herfstvakantie',
+                'GroupNumber' => 1,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::createFromFormat('d-m-Y', '14-09-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Herfstvakantie',
+                'GroupNumber' => 2,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::createFromFormat('d-m-Y', '25-10-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Afsluiting seizoen',
+                'GroupNumber' => 1,
+                'IstrainingSession' => false,
+            ],
+            [
+                'Date' => Carbon::createFromFormat('d-m-Y', '25-10-2023')->toDateString(),
+                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
+                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
+                'Description' => 'Afsluiting seizoen',
+                'GroupNumber' => 2,
+                'IstrainingSession' => false,
+            ],
         ]);
     }
 
@@ -111,45 +218,57 @@ class OefensessieSeeder extends Seeder
     {
         DB::table('participant')->insert([
             [
-                'Name' => 'John',
+                'Name' => 'Frans Toonen',
                 'GroupNumber' => 1,
             ],
             [
-                'Name' => 'Jack',
+                'Name' => 'Connie van de Ven',
                 'GroupNumber' => 1,
             ],
             [
-                'Name' => 'Marit',
+                'Name' => 'Renee Balvers',
                 'GroupNumber' => 1,
             ],
             [
-                'Name' => 'Emma',
+                'Name' => 'Roel Rademakers',
                 'GroupNumber' => 1,
             ],
             [
-                'Name' => 'Tom',
+                'Name' => 'Jacky Dekker',
+                'GroupNumber' => 1,
+            ],
+            [
+                'Name' => 'Bert van de Burgt',
+                'GroupNumber' => 1,
+            ],
+            [
+                'Name' => 'Johan Voermans',
+                'GroupNumber' => 1,
+            ],
+            [
+                'Name' => 'Bart van der Maale',
+                'GroupNumber' => 1,
+            ],
+            [
+                'Name' => 'Ilco Bosboom',
                 'GroupNumber' => 2,
             ],
             [
-                'Name' => 'Thomas',
+                'Name' => 'Sjoerd Veenstra',
                 'GroupNumber' => 2,
             ],
             [
-                'Name' => 'Jack Meester',
+                'Name' => 'Bart Schenk',
                 'GroupNumber' => 2,
             ],
             [
-                'Name' => 'Hans Bolwerk',
+                'Name' => 'Frank Bijnen',
                 'GroupNumber' => 2,
             ],
             [
-                'Name' => 'Jill',
+                'Name' => 'Peter van der Putten',
                 'GroupNumber' => 2,
             ],
-            [
-                'Name' => 'Jane',
-                'GroupNumber' => 2,
-            ]
         ]);
     }
 }
