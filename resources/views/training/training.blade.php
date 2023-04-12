@@ -1,13 +1,13 @@
 @extends('layouts.layout')
 
 @section('content')
-
+<div class="container">
     <h1>Trainingen</h1>
     @foreach($trainingGroups as $group)
 
         <h2>Traininggroep {{$group->GroupNumber}}</h2>
-        <div class="table-container mx-5">
-            <table class="table table-bordered">
+        <div class="table-container">
+            <table tabindex=0 class="table table-bordered w-auto">
                 <tr>
                     <th>Datum</th>
                     @foreach($group->sessions as $session)
@@ -51,4 +51,5 @@
         </div>
     @endforeach
 
+</div>
 @stop

@@ -18,7 +18,7 @@ class TrainingController extends Controller
         $trainingSessions = TrainingSession::all()->sortBy(function ($item) {
             return $item['Date'];
         });
-        ;
+
         foreach ($trainingSessions as $session) {
             $session->weekNumber = $this->getWeekNumber($session->Date);
             $session->StartTime = Carbon::createFromFormat('H:i:s', $session->StartTime)->format('H:i');
