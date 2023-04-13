@@ -42,10 +42,11 @@ Route::get('/partner', [NavigationController::class, 'partner']);
 Route::get('/overons', [NavigationController::class, 'overons']);
 Route::get('/locatie', [NavigationController::class, 'locatie']);
 Route::get('/links', [NavigationController::class, 'links']);
-Route::get('slider-delete/{slider}',[SliderController::class,'delete'])->name('slider.delete');
+Route::get('slider-delete/{slider}', [SliderController::class, 'delete'])->name('slider.delete');
 
 //Resource routes
 Route::resource('slider', SliderController::class);
+Route::resource('training', TrainingController::class);
 
 //Training routes
 
@@ -97,4 +98,4 @@ Route::middleware(['role:admin,coach,supervisor'])->group(function () {
 
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';

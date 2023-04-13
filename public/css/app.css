@@ -149,6 +149,20 @@ td{
     font-size: 1em;
 }
 
+.vacationSession{
+    background: greenyellow !important;
+}
+
+.verticalText{
+    writing-mode: vertical-rl;
+    text-orientation: sideways;
+    transform: rotate(180deg);
+}
+
+.table-container{
+    overflow-x: scroll;
+}
+
 .memberimg-box{
     width: 75px;
     height: 75px;
