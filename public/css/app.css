@@ -57,7 +57,6 @@ margin-top:auto;
  bottom: 0;
  left: 0;
  right: 0;
- margin-top:auto;
  height: auto;
 }
 
@@ -80,7 +79,9 @@ margin-top:auto;
  font-size: 14px;
 }
 
-
+#link{
+    color: black;
+}
 
 .socials {
  list-style: none;
@@ -117,7 +118,9 @@ margin-top:auto;
 }
 
 .btn-primary{
-    background-color: darkblue;
+    background-color: #63AFC2;
+    border-color: white;
+    color:black;
 }
 .btn-primary:hover{
     background-color: #04ADBF;

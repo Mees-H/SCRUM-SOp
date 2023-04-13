@@ -5,7 +5,7 @@
         <title>Show Album</title>
     </head>
     <body>
-        <div class="col justify-content-start">
+        <div class="col d-flex justify-content-end">
             <button class="btn btn-outline-secondary mt-4 text-right" name="Terugknop naar galerij" onclick="window.location='{{url("/galerij/{$year}")}}'">Terug</button>
         </div>
             <div class="col text-center">

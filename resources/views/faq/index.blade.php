@@ -1,14 +1,14 @@
 @extends('layouts.layout')
 
 @section('content')
-
+<div class="container">
 <h1 class="display-3">FAQ</h1>
     <div>
         <a href="{{ route('faq.create')}}" class="btn btn-primary mb-3">Creeër nieuwe vraag & antwoord</a>
-    </div>     
+    </div>
     @if(session()->get('success'))
         <div class="alert alert-success">
-            {{ session()->get('success') }}  
+            {{ session()->get('success') }}
         </div>
     @endif
     <table class="table table-striped">
@@ -39,4 +39,5 @@
             @endforeach
         </tbody>
     </table>
-@endsection
+</div>
+@stop
