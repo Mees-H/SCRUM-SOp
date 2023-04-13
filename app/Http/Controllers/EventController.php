@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Event;
 use App\Models\Group;
+use function PHPUnit\Framework\isEmpty;
 
 class EventController extends Controller
 {
@@ -76,9 +77,6 @@ class EventController extends Controller
         } catch (\Exception $e) {
             return redirect('/evenement')->with('error', 'Evenement niet gevonden.');
         }
-
-
-
     }
 
     public function enroll(int $id)
@@ -88,11 +86,23 @@ class EventController extends Controller
 
     public function submit(MailPostEventRequest $request)
     {
-        $validated = $request->validated();
-
+        $request->validate([
+            'name' => 'required|max:255',
+            'birthday' => 'required|date|before:today',
+            'disability' => 'max:255',
+            'email' => 'required|email',
+            'phonenumber' => 'required|numeric',
+            'address' => 'required|max:255',
+            'city' => 'required|max:255',
+            'event_id' => 'required|numeric'
+        ]);
         $mailFactory = new MailFactory();
+        $disability = "Niet ingevoerd";
+        if(isset($request['disability']) && !isEmpty($request['disability'])){
+            $disability = $request['disability'];
+        }
         $mail = $mailFactory->createMail('eventRegistration',
-            ['name' => $request['name'], 'birthday' => $request['birthday'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $request['disability'], 'event_id' => $request['event_id']]);
+            ['name' => $request['name'], 'birthday' => $request['birthday'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $disability, 'event_id' => $request['event_id']]);
         Mailer::Mail([], $mail, true);
         return redirect('evenement')->with('success', 'Uw aanmelding is verzonden!');
     }

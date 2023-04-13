@@ -43,7 +43,7 @@
                     </div>
                     <div>
                         <label for="disability" class="col-sm-2 col-form-label">
-                            <span class="requiredStar">*</span>Beperking
+                            Spelershandicap
                         </label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="disability"
