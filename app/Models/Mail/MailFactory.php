@@ -52,6 +52,7 @@ class MailFactory
             $arguments['address'] == null ||
             $arguments['city'] == null ||
             $arguments['disability'] == null ||
+            $arguments['gender'] == null ||
             $arguments['event_id'] == null
         ){
             throw new InvalidArgumentException('niet alle argumenten waren gevonden');
@@ -59,6 +60,7 @@ class MailFactory
 
         $name = $arguments['name'];
         $birthday = $arguments['birthday'];
+        $gender = $arguments['gender'];
         $email = $arguments['email'];
         $phonenumber = $arguments['phonenumber'];
         $address = $arguments['address'];
@@ -72,15 +74,14 @@ class MailFactory
             throw new InvalidArgumentException('geboortedatum ligt in de toekomst');
         }
 
-        $text = 'hallo '.$name;
-        $mail = new Mail\RegisterMail($name,$age,$email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
+        $mail = new Mail\RegisterMail($name,$age,$gender, $email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
         return $mail;
     }
 
     private function trainingSignout($arguments) : Mailable
     {
         if($arguments['name'] == null ||
-            $arguments['date'] == null 
+            $arguments['date'] == null
         ){
             throw new InvalidArgumentException('niet alle argumenten waren gevonden');
         }

@@ -92,7 +92,7 @@ class EventController extends Controller
 
         $mailFactory = new MailFactory();
         $mail = $mailFactory->createMail('eventRegistration',
-            ['name' => $request['name'], 'birthday' => $request['birthday'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $request['disability'], 'event_id' => $request['event_id']]);
+            ['name' => $request['name'], 'birthday' => $request['birthday'], 'gender' => $request['gender'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $request['disability'], 'event_id' => $request['event_id']]);
         Mailer::Mail([], $mail, true);
         return redirect('evenement')->with('success', 'Uw aanmelding is verzonden!');
     }

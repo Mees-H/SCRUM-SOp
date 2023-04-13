@@ -70,6 +70,14 @@
         </tr>
         <tr>
             <td>
+                Geslacht:
+            </td>
+            <td>
+                {{$gender}}
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Beperking:
             </td>
             <td>

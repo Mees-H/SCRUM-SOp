@@ -29,6 +29,7 @@ class MailPostEventRequest extends FormRequest
             'address' => 'required|max:255',
             'city' => 'required|max:255',
             'disability' => 'required|max:255',
+            'gender' => 'required|max:255',
             'event_id' => 'required|numeric'
         ];
     }
@@ -52,6 +53,8 @@ class MailPostEventRequest extends FormRequest
             'city.max' => 'De naam van uw woonplaats mag niet langer zijn dan 255 karakters',
             'disability.required' => 'Het invoeren van de beperking is verplicht',
             'disability.max' => 'De beschrijving van uw beperking mag niet langer zijn dan 255 karakters',
+            'gender.max' => 'Uw geslacht mag niet langer zijn dan 255 karakters',
+            'gender.required' => 'Het geslacht is verplicht',
         ];
     }
 }

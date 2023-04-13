@@ -42,6 +42,18 @@
                         @enderror
                     </div>
                     <div>
+                        <label for="gender" class="col-sm-2 col-form-label">
+                            <span class="requiredStar">*</span>Geslacht
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="gender"
+                                   placeholder="Vul hier uw geslacht in" name="gender"  value="{{old('gender')}}">
+                        </div>
+                        @error('gender')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div>
                         <label for="disability" class="col-sm-2 col-form-label">
                             <span class="requiredStar">*</span>Beperking
                         </label>
