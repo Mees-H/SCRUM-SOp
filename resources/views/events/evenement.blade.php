@@ -48,7 +48,7 @@
                             {{$group->name}}<br>
                             {{$group->street}} {{$group->housenumber}}<br>
                             {{$group->zipcode}} {{$group->city}}<br>
-                            <a href="https://{{$group->link}}">{{$group->link}}</a>
+                            <a id="link" href="https://{{$group->link}}">{{$group->link}}</a>
                         </div>
                     @endforeach
 

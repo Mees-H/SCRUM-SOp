@@ -29,7 +29,7 @@
             <i class="bi bi-geo fs-2x"></i>
             {{$first_group->street}} {{$first_group->housenumber}}, {{$first_group->city}}
         </span>
-                <a class="text-decoration-none" rel="Link naar de website van de golfclub"
+                <a id="link" class="text-decoration-none" rel="Link naar de website van de golfclub"
                    href="https://{{$first_group->link}}">
             <span>
                 <i class="bi bi-link fs-2x"></i>
@@ -81,11 +81,11 @@
                         </span>
                             </div>
                             <div>
-                                <a dusk="WebsiteLink" class="text-decoration-none " href="https://{{$first_group->link}}"
+                                <a dusk="WebsiteLink" class="text-decoration-none " id="link" href="https://{{$first_group->link}}"
                                    rel="link naar de website van de golfclub">
                          <span>
                              <i class="bi bi-link fs-2x"></i>
-                        {{$first_group->link}}
+                                 {{$first_group->link}}
                         </span>
                                 </a>
                             </div>
