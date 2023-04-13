@@ -18,11 +18,11 @@
 <div class="accordion">
 @foreach($FAQ as $faq)
   <div class="accordion-item">
-    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$faq->id}}" aria-controls="collapse{{$faq->id}}">
+    <a class="btn button accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{$faq->id}}" aria-controls="collapse{{$faq->id}}">
         <div class="accordion-header" id="{{$faq->id}}">
             <p>{{$faq->question}}</p>
         </div>
-    </button>
+    </a>
     <div id="collapse{{$faq->id}}" class="accordion-collapse collapse" aria-labelledby="Antwoord {{$faq->id}}" data-bs-parent="#accordion">
       <div class="accordion-body">
       {{$faq->answer}}
