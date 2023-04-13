@@ -1,5 +1,5 @@
 @extends('layouts.layout')
- 
+
 @section('content')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
@@ -17,26 +17,31 @@
             @endif
             <form method="post" action="{{ route('events.store') }}">
                 @csrf
-                <div class="form-group">    
+                <div class="form-group">
                     <label for="title">Titel:</label>
                     <input type="text" class="form-control" name="title" id="title"/>
                 </div>
-        
+
                 <div class="form-group">
                     <label for="date">Datum:</label>
                     <input type="date" class="form-control" name="date" id="date"/>
                 </div>
-        
+
                 <div class="form-group">
                     <label for="time">Tijd:</label>
                     <input type="time" class="form-control" name="time" id="time"/>
                 </div>
-        
+
+                <div class="form-group">
+                    <label for="price">Prijs:</label>
+                    <input type="number" class="form-control" name="price" id="price"/>
+                </div>
+
                 <div class="form-group">
                     <label for="body">Beschrijving:</label>
                     <textarea rows="5" class="form-control" name="body" id="body"></textarea>
                 </div>
-                
+
                 <label>Groepen:</label>
                 @foreach($groups as $group)
                 <div class="form-check">
@@ -44,7 +49,7 @@
                     <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
                 </div>
                 @endforeach
-                
+
                 <button type="submit" class="btn btn-primary">Voeg evenement toe</button>
             </form>
         </div>

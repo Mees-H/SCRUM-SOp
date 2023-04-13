@@ -17,24 +17,29 @@
             </div>
 
             <div class="justify-content-between mb-3 mt-3">
-            <span>
-                <i class="bi bi-calendar-check"></i>
-                {{$event->date}}
-            </span>
                 <span>
-                <i class="bi bi-clock fs-2x"></i>
-                {{date('H:i', strtotime($event->time))}}
-             </span>
+                    <i class="bi bi-calendar-check"></i>
+                    {{$event->date}}
+                </span>
                 <span>
-            <i class="bi bi-geo fs-2x"></i>
-            {{$first_group->street}} {{$first_group->housenumber}}, {{$first_group->city}}
-        </span>
+                    <i class="bi bi-calendar-check"></i>
+                    {{$event->date}}
+                </span>
+                @if($event->price > 0)
+                <span>
+                    €{{number_format($event->price, 2, ',', ' ')}}
+                 </span>
+                @endif
+                <span>
+                    <i class="bi bi-geo fs-2x"></i>
+                    {{$first_group->street}} {{$first_group->housenumber}}, {{$first_group->city}}
+                </span>
                 <a class="text-decoration-none" rel="Link naar de website van de golfclub"
                    href="https://{{$first_group->link}}">
-            <span>
-                <i class="bi bi-link fs-2x"></i>
-            {{$first_group->link}}
-            </span>
+                    <span>
+                        <i class="bi bi-link fs-2x"></i>
+                        {{$first_group->link}}
+                    </span>
                 </a>
             </div>
             <div id="detailsImages" class=" d-lg-flex">
@@ -53,6 +58,16 @@
                     <div class="mb-4">
                         {{$event->body}}
                     </div>
+                    @if($event->price > 0)
+                        <div>
+                            <p>
+                                Prijs: €{{number_format($event->price, 2, ',', ' ')}}
+                            </p>
+                            <p>
+                                Gelieve dit bedrag over te maken naar: NL 38 RABO 0118102206 als wilt deelnemen aan dit evenement
+                            </p>
+                        </div>
+                    @endif
                 </div>
                 <div class="col-sm-4">
                     <div id="cardEvent" class="card border-0">
@@ -61,19 +76,25 @@
                         </div>
                         <div class="card-body text-left">
                             <div>
-                        <span>
-                             <i class="bi bi-calendar-check fs-2x"></i>
-                                {{$event->date}}
-                        </span>
+                                <span>
+                                     <i class="bi bi-calendar-check fs-2x"></i>
+                                        {{$event->date}}
+                                </span>
                             </div>
 
                             <div>
-                        <span>
-                        <i class="bi bi-clock fs-2x"></i>
-                            {{date('H:i', strtotime($event->time))}}
-
-                        </span>
+                                <span>
+                                <i class="bi bi-clock fs-2x"></i>
+                                    {{date('H:i', strtotime($event->time))}}
+                                </span>
                             </div>
+                            @if($event->price > 0)
+                            <div>
+                                <span>
+                                    €{{number_format($event->price, 2, ',', ' ')}}
+                                </span>
+                            </div>
+                            @endif
                             <div>
                         <span>
                         <i class="bi bi-geo fs-2x"></i>
@@ -81,12 +102,13 @@
                         </span>
                             </div>
                             <div>
-                                <a dusk="WebsiteLink" class="text-decoration-none " href="https://{{$first_group->link}}"
+                                <a dusk="WebsiteLink" class="text-decoration-none "
+                                   href="https://{{$first_group->link}}"
                                    rel="link naar de website van de golfclub">
-                         <span>
-                             <i class="bi bi-link fs-2x"></i>
-                        {{$first_group->link}}
-                        </span>
+                                     <span>
+                                         <i class="bi bi-link fs-2x"></i>
+                                        {{$first_group->link}}
+                                    </span>
                                 </a>
                             </div>
                         </div>

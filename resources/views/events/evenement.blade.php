@@ -31,6 +31,12 @@
 
             <div>
                 <p>Datum: {{$post->date}} om {{$post->time}}</p>
+                @if($post->price <= 0)
+                    <p>Prijs: Gratis</p>
+                @else
+                    <p>Prijs: €{{number_format($post->price, 2, ',', '')}}<br>
+                        Zie meer informatie voor hoe je kunt betalen.</p>
+                @endif
                 <div class="d-flex justify-content-between">
                     <p class="col-sm-8">
                     {!!$post->body!!}
