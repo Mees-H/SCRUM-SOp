@@ -40,6 +40,11 @@
             </div>
 
             <div class="form-group">
+                    <label for="bankaccount">Rekeningnummer:</label>
+                    <input type="text" class="form-control" name="bankaccount" value="{{ $event->bankaccount }}" id="bankaccount"/>
+                </div>
+
+            <div class="form-group">
                 <label for="body">Beschrijving:</label>
                 <textarea rows="5" class="form-control" name="body" id="body">{{ $event->body }}</textarea>
             </div>

@@ -118,6 +118,7 @@ class EventController extends Controller
         $event->date = $request->get('date');
         $event->time = $request->get('time');
         $event->price = $request->get('price');
+        $event->bankaccount = $request->get('bankaccount');
         $event->body = $request->get('body');
         $event->updated_at = $request->get('updated_at');
         $event->groups()->detach();

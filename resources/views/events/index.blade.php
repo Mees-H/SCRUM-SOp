@@ -21,6 +21,7 @@
                     <td>Datum</td>
                     <td>Tijd</td>
                     <td>Prijs</td>
+                    <td>Rekeningnummer</td>
                     <td>Beschrijving</td>
                     <td>Groepen</td>
                     <td colspan = 2>Actions</td>
@@ -34,6 +35,7 @@
                         <td>{{$event->date}}</td>
                         <td>{{$event->time}}</td>
                         <td>€{{number_format($event->price, 2, ',', ' ')}}</td>
+                        <td>{{$event->bankaccount}}</td>
                         <td>{{$event->body}}</td>
                         <td>
                             @foreach($event->groups as $group)

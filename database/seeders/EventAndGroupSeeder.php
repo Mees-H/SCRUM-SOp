@@ -19,6 +19,7 @@ class EventAndGroupSeeder extends Seeder
             'date' => '2023-01-21',
             'time' => '12:00:00',
             'slug' => 'event_1',
+            'bankaccount' => 'NL41 RABO 1234 5678 90',
             'body' => 'Tijdens de winterstop organiseert Special Golf een Indoor-Golf-Middag voor de deelnemers van Special Golf. Begeleiders gaan bij Cello op De Binckhorst in Rosmalen een put & chip parcours uitzetten waar de deelnemers hun golfvaardigheid kunnen oefenen op verschillende onderdelen. We sluiten de middag af met een drankje.'
         ]);
 

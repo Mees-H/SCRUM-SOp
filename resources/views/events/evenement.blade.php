@@ -37,6 +37,9 @@
                     <p>Prijs: €{{number_format($post->price, 2, ',', '')}}<br>
                         Zie meer informatie voor hoe je kunt betalen.</p>
                 @endif
+                @if($post->bankaccount != null)
+                    <p> Rekeningnummer: {{$post->bankaccount}}
+                @endif
                 <div class="d-flex justify-content-between">
                     <p class="col-sm-8">
                     {!!$post->body!!}

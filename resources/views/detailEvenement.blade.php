@@ -29,6 +29,9 @@
                 <span>
                     €{{number_format($event->price, 2, ',', ' ')}}
                  </span>
+                 <span>
+                    {{$event->bankaccount}}
+                 </span>
                 @endif
                 <span>
                     <i class="bi bi-geo fs-2x"></i>
@@ -64,7 +67,7 @@
                                 Prijs: €{{number_format($event->price, 2, ',', ' ')}}
                             </p>
                             <p>
-                                Gelieve dit bedrag over te maken naar: NL 38 RABO 0118102206 als wilt deelnemen aan dit evenement
+                                Gelieve dit bedrag over te maken naar: {{$event->bankaccount}} als wilt deelnemen aan dit evenement
                             </p>
                         </div>
                     @endif
