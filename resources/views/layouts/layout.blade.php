@@ -177,7 +177,7 @@
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}" href="/events">Evenementen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="/galerij/aanmakenAlbum">Galerij</a>
+                <a class="nav-link text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="/galerij">Galerij</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/faq">FAQ</a>

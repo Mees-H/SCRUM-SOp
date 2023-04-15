@@ -42,9 +42,16 @@ class GalleryController extends Controller
 
 
     /// Dit is voor een andere user story, deze wordt later gemaakt. Jira: S8S-32 en S8S-33///
+
+    public function index() 
+    {
+        $albums = Album::all();
+        return view('Gallery.index', compact('albums'));
+    }
+
     public function create()
     {
-        return view('Gallery.aanmakenAlbum');
+        return view('Gallery.create');
     }
 
     public function store(Request $request)
@@ -62,8 +69,9 @@ class GalleryController extends Controller
 
         return redirect('/galerij')->with('success', 'Album is aangemaakt');
     }
-    public function delete()
+    public function destroy(string $id)
     {
-        return view('Gallery.verwijderenAlbum');
+        Album::findOrFail($id)->delete();
+        return redirect('/galerij')->with('success', 'Album verwijderd.');
     }
 }

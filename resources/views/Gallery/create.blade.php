@@ -3,7 +3,18 @@
 @section('content')
     <div class="container">
         <h1>Album toevoegen</h1>
-        <form action="{{url('galerij/aanmakenAlbum')}}" type="submit" method="post" enctype="multipart/form-data">
+        <a href="/galerij" class="btn btn-primary">Ga terug</a>
+        <div>
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div><br />
+            @endif
+        <form action="{{route('galerij.store')}}" type="submit" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
                 <label for="title">Album titel</label>

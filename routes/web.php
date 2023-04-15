@@ -68,9 +68,6 @@ Route::post('events/submit/{id}', [EventController::class, 'submit']);
 //Team routes
 Route::resource('links', SiteMapController::class);
 
-//Galerij routes
-Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 Route::middleware(['role:admin'])->group(function () {
     //Resource routes
     Route::resource('slider', SliderController::class);
@@ -83,12 +80,14 @@ Route::middleware(['role:admin'])->group(function () {
 
     Route::resource('members', TeamController::class);
 
-    //TODO: voor een andere user story
-    Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
-    Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
-    Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
+    //CRUD galerij, moeten voor de galerij routes anders override de route deze route
+    Route::resource('galerij', GalleryController::class);
 
 });
+
+//Galerij routes
+Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
+Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 
 Route::middleware(['role:admin,coach'])->group(function () {
 
