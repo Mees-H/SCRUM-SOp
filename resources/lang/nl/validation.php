@@ -173,7 +173,10 @@ return [
         'time' => 'tijd',
         'name' => 'naam',
         'image' => 'afbeelding',
-        'phonenumber' => 'telefoonnummer'
+        'phonenumber' => 'telefoonnummer',
+        'starttime' => 'begintijd',
+        'endtime' => 'eindtijd',
+        'group' => 'groep'
     ],
 
     'values' => [

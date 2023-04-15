@@ -3,6 +3,7 @@
 @section('content')
 <div class="container">
     <h1>Trainingen</h1>
+    <a class="btn btn-secondary" href="/trainingsessions">Trainingen onderhouden</a>
     @foreach($trainingGroups as $group)
 
         <h2>Traininggroep {{$group->GroupNumber}}</h2>

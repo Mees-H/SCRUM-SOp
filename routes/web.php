@@ -46,11 +46,11 @@ Route::get('slider-delete/{slider}', [SliderController::class, 'delete'])->name(
 
 //Resource routes
 Route::resource('slider', SliderController::class);
-Route::resource('training', TrainingController::class);
 
 //Training routes
 
-//Route::resource('trainingsessions', TrainingController::class);
+Route::resource('trainingsessions', TrainingController::class);
+Route::get('training', [TrainingController::class, 'training']);
 Route::get('/training/signout', [TrainingController::class, 'signout']);
 Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail']);
 
