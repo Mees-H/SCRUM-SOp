@@ -69,6 +69,25 @@ class GalleryController extends Controller
 
         return redirect('/galerij')->with('success', 'Album is aangemaakt');
     }
+
+    public function edit(string $id)
+    {
+        $albums = Album::findOrFail($id);
+        return view('Gallery.edit', compact('albums'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        $request->validate([
+            
+        ]);
+
+        return redirect('/events')->with('galerij', 'Album geüpdatet.');
+    }
+
     public function destroy(string $id)
     {
         Album::findOrFail($id)->delete();
