@@ -55,7 +55,11 @@ return [
             'use_path_style_endpoint' => env('AWS_USE_PATH_STYLE_ENDPOINT', false),
             'throw' => false,
         ],
-
+        
+        'galerij_fotos' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/'
+         ]
     ],
 
     /*

@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\Album;
 use App\Models\Picture;
 use Illuminate\Http\Request;
+use Image;
+use Storage;
+
 class GalleryController extends Controller
 {
     public function showGallery($year)
@@ -65,5 +68,50 @@ class GalleryController extends Controller
     public function delete()
     {
         return view('Gallery.verwijderenAlbum');
+    }
+
+    public function updateAlbumDescription(Request $request)
+    {
+        $request->validate([
+            'description' => 'required'
+        ]);
+
+        Album::where('id', $request->id)->update(['description' => $request->description]);
+        return redirect('/galerij')->with('success', 'Album is aangepast');
+    }
+
+    public function addAlbumPictures(Request $request)
+    {
+        $request->validate([
+            'images' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $request->image->move(public_path('images'), $imageName);
+
+        foreach ($request->file('images') as $imagefile) {
+            $path = $imagefile->store('/images/resource', ['disk' => 'galerij_fotos']);
+            Picture:create([
+                'album_id' => $request->album_id,
+                'imageUrl' => $path
+            ]);
+            $image->save();
+        }
+
+        return redirect('/galerij')->with('success', 'Afbeelding is toegevoegd aan album');
+    }
+
+    public function deleteAlbumPictures(Request $request)
+    {
+        foreach($request->images as $image){
+            $image->delete();
+            Picture::where('id', $request->id)->delete();
+        }
+
+        if(count($request->images) > 1){
+            return redirect('/galerij')->with('success', 'Afbeeldingen zijn verwijderd uit album');
+        }
+        else{
+            return redirect('/galerij')->with('success', 'Afbeelding is verwijderd uit album');
+        }
     }
 }
