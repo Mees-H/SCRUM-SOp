@@ -81,7 +81,13 @@ Route::middleware(['role:admin'])->group(function () {
     //Event routes
     Route::resource('events', EventController::class);
 
+    //Team routes
     Route::resource('members', TeamController::class);
+
+    //Gallery routes
+    Route::post('/galerij/{year}/{title}/wijzigbeschrijving', [GalleryController::class, 'updateAlbumDescription']);
+    Route::post('/galerij/{year}/{title}/voegfotostoe', [GalleryController::class, 'addAlbumPictures']);
+    Route::post('/galerij/{year}/{title}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
 
     //TODO: voor een andere user story
     Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
