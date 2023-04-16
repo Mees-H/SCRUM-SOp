@@ -98,4 +98,8 @@ Route::middleware(['role:admin,coach,supervisor'])->group(function () {
 
 });
 
+Route::get('/yeet', function () {
+    return view('Gallery.EditAlbum', ['images' => \App\Models\Picture::all()]);
+});
+
 require __DIR__ . '/auth.php';
