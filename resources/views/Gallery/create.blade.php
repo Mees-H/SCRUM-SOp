@@ -18,11 +18,11 @@
             @csrf
             <div class="form-group">
                 <label for="title">Album titel</label>
-                <input type="text" name="title" class="form-control" id="title">
+                <input type="text" name="title" class="form-control" id="title" placeholder="Titel">
             </div>
             <div class="form-group">
                 <label for="description">Omschrijving van de album</label>
-                <input type="text" name="description" class="form-control" id="description" placeholder="Omschrijving">
+                <textarea type="text" name="description" class="form-control" id="description" placeholder="Omschrijving"></textarea>
             </div>
             <div class="form-group">
                 <label for="date">Datum gemaakte foto's</label>

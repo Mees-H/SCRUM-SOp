@@ -169,6 +169,7 @@ return [
     'attributes' => [
         'title' => 'titel',
         'body' => 'beschrijving',
+        'description' => 'omschrijving',
         'date' => 'datum',
         'time' => 'tijd',
         'name' => 'naam',

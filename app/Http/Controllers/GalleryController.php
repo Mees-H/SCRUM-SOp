@@ -57,7 +57,8 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
+            'title' => 'required|max:255',
+            'description' => 'required|max:999',
             'date' => 'required'
         ]);
 
@@ -67,13 +68,13 @@ class GalleryController extends Controller
         $album->description = $request->description;
         $album->save();
 
-        return redirect('/galerij')->with('success', 'Album is aangemaakt');
+        return redirect('/galerij')->with('success', 'Album is aangemaakt.');
     }
 
     public function edit(string $id)
     {
-        $albums = Album::findOrFail($id);
-        return view('Gallery.edit', compact('albums'));
+        $album = Album::findOrFail($id);
+        return view('Gallery.edit', compact('album'));
     }
 
     /**
@@ -81,11 +82,16 @@ class GalleryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            
+        $attributes = $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'required|max:999',
+            'date' => 'required'
         ]);
+        
+        Album::where('id', $id)->update(['title' => $attributes['title'], 'description' => $attributes['description'], 'date' => $attributes['date']]);
 
-        return redirect('/events')->with('galerij', 'Album geüpdatet.');
+
+        return redirect('/galerij')->with('success', 'Album geüpdatet.');
     }
 
     public function destroy(string $id)
