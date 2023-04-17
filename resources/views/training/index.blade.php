@@ -3,7 +3,7 @@
 @section('content')
 <div class="row">
     <div class="col-sm-12 container">
-        <h1 class="display-3">Trainings</h1>
+        <h1 class="display-3">Trainingen</h1>
         <div class="justify-content-between d-lg-flex mb-3">
             <a href="{{ route('trainingsessions.create')}}" class="btn btn-primary">Creeër nieuwe training</a>
             <a class="btn btn-secondary" href="/training">Terug</a>
@@ -11,6 +11,11 @@
         @if(session()->get('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
+            </div>
+        @endif
+        @if(session()->get('error'))
+            <div class="alert alert-danger">
+                {{ session()->get('error') }}
             </div>
         @endif
         <table class="table table-striped">
@@ -35,9 +40,7 @@
                         <td>{{$session->EndTime}}</td>
                         <td>{{$session->Description}}</td>
                         <td>Groep {{$session->GroupNumber}}</td>
-                        <td>
-                            <input type="checkbox" class="form-check-input" {{$session->IstrainingSession == 1 ? '' : 'checked'}} disabled/>
-                        </td>
+                        <td>{{$session->IstrainingSession == 1 ? 'X' : '✓'}}</td>
                         <td>
                             <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>
                         </td>

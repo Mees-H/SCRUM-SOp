@@ -10,6 +10,7 @@ use App\Http\Requests\WhitespaceRequest;
 use App\Models\Mail\Mailer;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
+use Exception;
 
 
 class TrainingController extends Controller
@@ -46,7 +47,7 @@ class TrainingController extends Controller
         $request->validate([
             'date' => 'required|after:today',
             'starttime' => 'required',
-            'endtime' => 'required',
+            'endtime' => 'required|after:starttime',
             'body' => 'required|max:999',
             'group' => 'required'
         ]);
@@ -65,7 +66,12 @@ class TrainingController extends Controller
     }
 
     public function edit(string $id){
-        return view('training.edit', ['session' => TrainingSession::findOrFail($id),
+        try{
+            $session = TrainingSession::findOrFail($id);
+        } catch (Exception $e){
+            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen vinden.');
+        }
+        return view('training.edit', ['session' => $session,
                                     'groups' => TrainingSessionGroup::all()]);
     }
 
@@ -73,13 +79,17 @@ class TrainingController extends Controller
 
         $request->validate([
             'date' => 'required|after:today',
-            'starttime' => 'required',
-            'endtime' => 'required',
+            'starttime' => 'required|after:endtime',
+            'endtime' => 'required|before:starttime',
             'body' => 'required|max:999',
             'group' => 'required'
         ]);
 
-        $session = TrainingSession::findOrFail($id);
+        try{
+            $session = TrainingSession::findOrFail($id);
+        } catch (Exception $e){
+            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen updaten.');
+        }
         $session->Date = $request->get('date');
         $session->StartTime = $request->get('starttime');
         $session->EndTime = $request->get('endtime');
@@ -91,7 +101,12 @@ class TrainingController extends Controller
     }
 
     public function destroy(string $id){
-        TrainingSession::find($id)->delete();
+        try{
+            $result = TrainingSession::findOrFail($id);
+        } catch (Exception $e){
+            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen verwijderen.');
+        }
+        $result->delete();
         return redirect('/trainingsessions')->with('success', 'Trainingsessie verwijderd.');
     }
 

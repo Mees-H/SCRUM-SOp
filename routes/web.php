@@ -81,7 +81,11 @@ Route::middleware(['role:admin'])->group(function () {
     //Event routes
     Route::resource('events', EventController::class);
 
+    //Team routes
     Route::resource('members', TeamController::class);
+
+    //Training routes
+    Route::resource('trainingsessions', TrainingController::class);
 
     //TODO: voor een andere user story
     Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
