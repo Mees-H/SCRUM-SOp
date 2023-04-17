@@ -6,7 +6,6 @@
         <h1 class="display-3">Trainingen</h1>
         <div class="justify-content-between d-lg-flex mb-3">
             <a href="{{ route('trainingsessions.create')}}" class="btn btn-primary">Creeër nieuwe training</a>
-            <a class="btn btn-secondary" href="/training">Terug</a>
         </div>
         @if(session()->get('success'))
             <div class="alert alert-success">
