@@ -17,6 +17,7 @@ class EventAndGroupSeeder extends Seeder
         $indoorGolf = Event::create([
             'title' => 'Indoor-Golf-Middag',
             'date' => '2023-01-21',
+            'price' => 15,
             'time' => '12:00:00',
             'slug' => 'event_1',
             'bankaccount' => 'NL41 RABO 1234 5678 90',

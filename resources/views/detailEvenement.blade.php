@@ -27,6 +27,7 @@
                 </span>
                 @if($event->price > 0)
                 <span>
+                    <i class="bi bi-wallet"></i>
                     €{{number_format($event->price, 2, ',', ' ')}}
                  </span>
                  <span>
@@ -63,11 +64,14 @@
                     </div>
                     @if($event->price > 0)
                         <div>
-                            <p>
+                            <label>
                                 Prijs: €{{number_format($event->price, 2, ',', ' ')}}
+                            </label>
+                            <p>
+                                Rekeningnummer: {{$event->bankaccount}}
                             </p>
                             <p>
-                                Gelieve dit bedrag over te maken naar: {{$event->bankaccount}} als wilt deelnemen aan dit evenement
+                                Gelieve dit bedrag over te maken als u wenst deel te nemen aan dit evenement
                             </p>
                         </div>
                     @endif
@@ -94,7 +98,13 @@
                             @if($event->price > 0)
                             <div>
                                 <span>
+                                    <i class="bi bi-wallet"></i>
                                     €{{number_format($event->price, 2, ',', ' ')}}
+                                </span>
+                                <br />
+                                <span>
+                                    <i class="bi bi-dot"></i>
+                                    {{$event->bankaccount}}
                                 </span>
                             </div>
                             @endif
