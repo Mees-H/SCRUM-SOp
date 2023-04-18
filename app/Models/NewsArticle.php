@@ -9,6 +9,7 @@ class NewsArticle extends Model
 {
     use HasFactory;
 
+    protected $guarded = ['id'];
     protected $casts = [
         'imgurl' => 'array',
         'fileurl' => 'array'

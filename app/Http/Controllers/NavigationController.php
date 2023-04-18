@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Event;
 use App\Models\MemberGroup;
+use App\Models\NewsArticle;
 
 class NavigationController extends Controller
 {
@@ -32,7 +33,8 @@ class NavigationController extends Controller
     }
     function nieuwsbrief()
     {
-        return view('news.nieuwsbrief');
+
+        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
     }
     function team()
     {
