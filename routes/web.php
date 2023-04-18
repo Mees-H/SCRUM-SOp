@@ -73,6 +73,13 @@ Route::resource('links', SiteMapController::class);
 Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('galerij_album');
 
+//News routes
+Route::resource('nieuws', NewsArticleController::class);
+
+//Galerij routes
+Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
+Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+
 Route::middleware(['role:admin'])->group(function () {
     //User creation routes
     Route::get('/admin/gebruikers', [CreateUserController::class, 'adminIndex']);
@@ -116,3 +123,4 @@ Route::middleware(['role:admin,coach,supervisor'])->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
