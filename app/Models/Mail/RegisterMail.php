@@ -18,14 +18,14 @@ class RegisterMail extends Mailable
     public $phonenumber;
     public $address;
     public $city;
-    public $disability;
+    public $golfhandicap;
     public $eventName;
     public $date;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $age, $email, $phonenumber, $address, $city, $disability, $eventName, $date)
+    public function __construct($name, $age, $email, $phonenumber, $address, $city, $golfhandicap, $eventName, $date)
     {
         $this->name = $name;
         $this->age = $age;
@@ -33,7 +33,7 @@ class RegisterMail extends Mailable
         $this->phonenumber = $phonenumber;
         $this->address = $address;
         $this->city = $city;
-        $this->disability = $disability;
+        $this->golfhandicap = $golfhandicap;
         $this->eventName = $eventName;
         $this->date = $date;
     }
