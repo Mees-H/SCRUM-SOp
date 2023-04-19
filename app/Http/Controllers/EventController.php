@@ -89,7 +89,7 @@ class EventController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'birthday' => 'required|date|before:today',
-            'disability' => 'max:255',
+            'golfhandicap' => 'max:255',
             'email' => 'required|email',
             'phonenumber' => 'required|numeric',
             'address' => 'required|max:255',
@@ -97,12 +97,12 @@ class EventController extends Controller
             'event_id' => 'required|numeric'
         ]);
         $mailFactory = new MailFactory();
-        $disability = "Niet ingevoerd";
-        if(isset($request['disability']) && !isEmpty($request['disability'])){
-            $disability = $request['disability'];
+        $golfhandicap = "Niet ingevoerd";
+        if(isset($request['golfhandicap']) && !empty($request['golfhandicap'])){
+            $golfhandicap = $request['golfhandicap'];
         }
         $mail = $mailFactory->createMail('eventRegistration',
-            ['name' => $request['name'], 'birthday' => $request['birthday'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $disability, 'event_id' => $request['event_id']]);
+            ['name' => $request['name'], 'birthday' => $request['birthday'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'golfhandicap' => $golfhandicap, 'event_id' => $request['event_id']]);
         Mailer::Mail([], $mail, true);
         return redirect('evenement')->with('success', 'Uw aanmelding is verzonden!');
     }

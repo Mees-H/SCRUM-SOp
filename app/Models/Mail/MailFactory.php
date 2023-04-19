@@ -51,7 +51,7 @@ class MailFactory
             $arguments['phonenumber'] == null ||
             $arguments['address'] == null ||
             $arguments['city'] == null ||
-            $arguments['disability'] == null ||
+            $arguments['golfhandicap'] == null ||
             $arguments['event_id'] == null
         ){
             throw new InvalidArgumentException('niet alle argumenten waren gevonden');
@@ -63,7 +63,7 @@ class MailFactory
         $phonenumber = $arguments['phonenumber'];
         $address = $arguments['address'];
         $city = $arguments['city'];
-        $disability = $arguments['disability'];
+        $golfhandicap = $arguments['golfhandicap'];
         $eventId = $arguments['event_id'];
         $event = Event::find($eventId) ?: throw new InvalidArgumentException('evenement is niet gevonden');
         $age = date_diff(date_create($birthday), date_create(date('Y-m-d')))->format('%y');
@@ -73,14 +73,14 @@ class MailFactory
         }
 
         $text = 'hallo '.$name;
-        $mail = new Mail\RegisterMail($name,$age,$email,$phonenumber,$address,$city,$disability,$event->title,$event->date);
+        $mail = new Mail\RegisterMail($name,$age,$email,$phonenumber,$address,$city,$golfhandicap,$event->title,$event->date);
         return $mail;
     }
 
     private function trainingSignout($arguments) : Mailable
     {
         if($arguments['name'] == null ||
-            $arguments['date'] == null 
+            $arguments['date'] == null
         ){
             throw new InvalidArgumentException('niet alle argumenten waren gevonden');
         }
