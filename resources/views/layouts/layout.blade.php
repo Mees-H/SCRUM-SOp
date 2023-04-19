@@ -277,11 +277,10 @@
         </nav>
          @endif
 
-        <div class="container-fluid">
-            <div class="container">
+        <div class="container">
             @yield('content')
-            </div>
         </div>
+
         <footer>
           <div class="footer-content bg-light">
            <div class="footer-info">

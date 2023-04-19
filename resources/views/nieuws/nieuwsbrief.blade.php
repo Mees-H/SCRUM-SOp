@@ -1,11 +1,18 @@
 @extends('layouts.layout')
-
 @section('content')
+<div class="row">
+<div class="col-md-2">
+    <div class="col-md-3">
+        @include('Components.SideBar.SideBarNavigation')
+    </div>
+</div>
+<div class="col">
     <div class="container justify-content-between ">
         <div class="row align-items-center">
             <h1 class="col">Nieuwsoverzicht</h1>
         </div>
     </div>
+
     <div class="container">
         <hr>
 
@@ -73,4 +80,6 @@
                 </div>
             </div>
         </div>
+    </div>
+    </div>
 @stop
