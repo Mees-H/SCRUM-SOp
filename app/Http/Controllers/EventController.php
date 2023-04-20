@@ -67,7 +67,6 @@ class EventController extends Controller
      */
     public function show(string $id)
     {
-
         try {
             $event = Event::findOrFail($id);
             $first_group = $event->groups->first();
@@ -76,9 +75,6 @@ class EventController extends Controller
         } catch (\Exception $e) {
             return redirect('/evenement')->with('error', 'Evenement niet gevonden.');
         }
-
-
-
     }
 
     public function enroll(int $id)
@@ -121,6 +117,8 @@ class EventController extends Controller
         $event->title = $request->get('title');
         $event->date = $request->get('date');
         $event->time = $request->get('time');
+        $event->price = $request->get('price');
+        $event->bankaccount = $request->get('bankaccount');
         $event->body = $request->get('body');
         $event->updated_at = $request->get('updated_at');
         $event->groups()->detach();
