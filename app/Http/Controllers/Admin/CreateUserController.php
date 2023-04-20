@@ -40,7 +40,6 @@ class CreateUserController extends Controller
             'password_confirmation' => 'required'
         ]);
 
-        //ddd($request);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -50,6 +49,6 @@ class CreateUserController extends Controller
 
         event(new Registered($user));
 
-        return redirect('/admin/gebruikers')->with('success', 'Gebruiker aangemaakt!');
+        return redirect('/admin/gebruikers')->with('success', 'Gebruiker aangemaakt.');
     }
 }
