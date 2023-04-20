@@ -88,6 +88,7 @@ class EventController extends Controller
 
     public function submit(MailPostEventRequest $request)
     {
+        ddd($request->all());
         $validated = $request->validated();
 
         $mailFactory = new MailFactory();

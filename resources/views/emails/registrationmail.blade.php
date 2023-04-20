@@ -70,7 +70,7 @@
         </tr>
         <tr>
             <td>
-                Geslacht:
+                Gender:
             </td>
             <td>
                 {{$gender}}

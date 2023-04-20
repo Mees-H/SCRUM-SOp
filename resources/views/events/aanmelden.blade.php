@@ -10,7 +10,7 @@
             </div>
         @endif
 
-        <br />
+        <br/>
 
         <form method="POST" action="/events/submit/{{$eventId}}" class="">
             @csrf
@@ -24,7 +24,8 @@
                             <span class="requiredStar">*</span>Voor- en achternaam
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name" value="{{old('name')}}">
+                            <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name"
+                                   value="{{old('name')}}">
                         </div>
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -35,7 +36,8 @@
                             <span class="requiredStar">*</span>Geboortedatum
                         </label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" id="birthday" name="birthday" value="{{old('birthday')}}">
+                            <input type="date" class="form-control" id="birthday" name="birthday"
+                                   value="{{old('birthday')}}">
                         </div>
                         @error('birthday')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -43,11 +45,30 @@
                     </div>
                     <div>
                         <label for="gender" class="col-sm-2 col-form-label">
-                            <span class="requiredStar">*</span>Geslacht
+                            <span class="requiredStar">*</span>Gender
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="gender"
-                                   placeholder="Vul hier uw geslacht in" name="gender"  value="{{old('gender')}}">
+                            <div>
+                                <label>
+                                    <input id="GenderMan" type="radio" name="gender" value="Man"
+                                           @if(old('gender')==='Man') checked="checked" @endif>
+                                    Man
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input id="GenderVrouw" type="radio" name="gender" value="Vrouw"
+                                           @if(old('gender')==='Vrouw') checked="checked" @endif>
+                                    Vrouw
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                    <input id="GenderAnders" type="radio" name="gender" value="Anders"
+                                           @if(old('gender')==='Anders') checked="checked" @endif>
+                                    Anders
+                                </label>
+                            </div>
                         </div>
                         @error('gender')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -59,7 +80,8 @@
                         </label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="disability"
-                            placeholder="Vul hier uw verstandelijke beperking(en) in" name="disability"  value="{{old('disability')}}">
+                                   placeholder="Vul hier uw verstandelijke beperking(en) in" name="disability"
+                                   value="{{old('disability')}}">
                         </div>
                         @error('disability')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -68,7 +90,7 @@
                 </div>
             </div>
 
-            <br />
+            <br/>
 
             <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
                 <div class="max-w-xl">
@@ -80,7 +102,8 @@
                             <span class="requiredStar">*</span>Email adres
                         </label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="email" placeholder="bv: jandegraaf@gmail.com" name="email"  value="{{old('email')}}">
+                            <input type="email" class="form-control" id="email" placeholder="bv: jandegraaf@gmail.com"
+                                   name="email" value="{{old('email')}}">
                         </div>
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -91,7 +114,8 @@
                             <span class="requiredStar">*</span>Telefoonnummer
                         </label>
                         <div class="col-sm-8">
-                            <input type="tel" class="form-control" id="phonenumber" placeholder="bv: 0612345678" name="phonenumber"  value="{{old('phonenumber')}}">
+                            <input type="tel" class="form-control" id="phonenumber" placeholder="bv: 0612345678"
+                                   name="phonenumber" value="{{old('phonenumber')}}">
                         </div>
                         @error('phonenumber')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -102,7 +126,8 @@
                             <span class="requiredStar">*</span>Adres
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="address" placeholder="bv: Bakkerweg 12" name="address"  value="{{old('address')}}">
+                            <input type="text" class="form-control" id="address" placeholder="bv: Bakkerweg 12"
+                                   name="address" value="{{old('address')}}">
                         </div>
                         @error('address')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -113,7 +138,8 @@
                             <span class="requiredStar">*</span>Woonplaats
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="city" placeholder="bv: 's Hertogenbosch" name="city"  value="{{old('city')}}">
+                            <input type="text" class="form-control" id="city" placeholder="bv: 's Hertogenbosch"
+                                   name="city" value="{{old('city')}}">
                         </div>
                         @error('city')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -122,9 +148,9 @@
                 </div>
             </div>
 
-            <br />
+            <br/>
 
-            <input type="hidden" value="{{old('eventId',$eventId)}}" name="event_id" id="event_id" >
+            <input type="hidden" value="{{old('eventId',$eventId)}}" name="event_id" id="event_id">
 
             <button type="submit" id="aanmeldknop" name="aanmeldknop" class=" btn btn-primary">Verzend inschrijving
             </button>
