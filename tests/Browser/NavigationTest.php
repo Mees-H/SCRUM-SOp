@@ -140,7 +140,7 @@ class NavigationTest extends DuskTestCase
                         ->assertPathIs("/nieuwsbrief");
                 $browser->visit('/')
                         ->clickLink("Team")
-                        ->assertPathIs("/team");
+                        ->assertPathIs("/members");
                 $browser->visit('/')
                         ->clickLink("Partner")
                         ->assertPathIs("/partner");

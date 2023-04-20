@@ -12,8 +12,7 @@ class RemoveUserTest extends DuskTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->artisan('migrate:fresh');
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
     }
 
     /**
@@ -40,7 +39,7 @@ class RemoveUserTest extends DuskTestCase
             $browser->visit('/login')
                 ->type('email', $admin->email)
                 ->type('password', 'Ab12345!')
-                ->press('Log in')
+                ->press('Inloggen')
                 ->visit('/admin/gebruikers')
                 ->assertSee('gebruikers')
                 ->assertSee($user->email)

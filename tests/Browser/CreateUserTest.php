@@ -20,6 +20,8 @@ class CreateUserTest extends DuskTestCase
      */
     public function test_create_user(): void
     {
+        $this->artisan('db:seed');
+
         $this->browse(function (Browser $browser) {
             if (User::where('email', 'duskadmin@test.nl')->first() == null) {
                 $user = new User();
@@ -33,7 +35,7 @@ class CreateUserTest extends DuskTestCase
             $browser->visit('/login')
                 ->type('email', 'duskadmin@test.nl')
                 ->type('password', 'Ab12345!')
-                ->press('Log in')
+                ->press('Inloggen')
                 ->assertSee('Gebruikers')
                 ->visit('/admin/gebruikers')
                 ->clickLink('Voeg gebruiker toe')
@@ -44,18 +46,14 @@ class CreateUserTest extends DuskTestCase
                 ->type('password', 'Ab12345!')
                 ->type('password_confirmation', 'Ab12345!')
                 ->press('registreerknop')
-                ->assertSee('Gebruiker aangemaakt!')
-                ->click('#navbarDropdown')
-                ->clickLink('Log Out')
-                ->assertDontSee('Dusk')
+                ->assertSee('Gebruiker aangemaakt')
+                ->logout()
                 ->visit('/login')
                 ->type('email', 'duskuser@gmail.com')
                 ->type('password', 'Ab12345!')
-                ->press('Log in')
+                ->press('Inloggen')
                 ->assertSee('Gebruikers')
-                ->click('#navbarDropdown')
-                ->clickLink('Log Out')
-                ->assertDontSee('DuskUser');
+                ->logout();
         });
     }
 }

@@ -13,15 +13,22 @@ class TeamTest extends DuskTestCase
      * A Dusk test example.
      */
     use DatabaseTruncation;
-    
+
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->artisan('migrate:fresh');
+    }
+
     #region create validation
     public function testCreateMember(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -36,10 +43,11 @@ class TeamTest extends DuskTestCase
     public function testCreateMemberNoName(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('email', 'freek@vonk.nl')
                     ->click('input[id="1"]')
@@ -53,10 +61,11 @@ class TeamTest extends DuskTestCase
     public function testCreateMemberNoEmail(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->click('input[id="1"]')
@@ -70,10 +79,11 @@ class TeamTest extends DuskTestCase
     public function testCreateMemberPhonenumberIsNumber(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -89,10 +99,11 @@ class TeamTest extends DuskTestCase
     public function testCreateMemberPhonenumberMax10(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -108,10 +119,11 @@ class TeamTest extends DuskTestCase
     public function testCreateMemberPhonenumberMin10(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -127,10 +139,11 @@ class TeamTest extends DuskTestCase
     public function testCreateMemberLongName(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                     ->type('email', 'freek@vonk.nl')
@@ -145,10 +158,11 @@ class TeamTest extends DuskTestCase
     public function testCreateMemberLongEmail(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('email', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@a.nl')
                     ->type('name', 'Freek Vonk')
@@ -165,10 +179,11 @@ class TeamTest extends DuskTestCase
     public function testEditMember(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -184,10 +199,11 @@ class TeamTest extends DuskTestCase
     public function testEditMemberNoName(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Aanpassen')
                     ->type('name', '')
                     ->type('email', 'freek@vonk.nl')
@@ -203,10 +219,11 @@ class TeamTest extends DuskTestCase
     public function testEditMemberNoEmail(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', '')
@@ -222,10 +239,11 @@ class TeamTest extends DuskTestCase
     public function testEditMemberPhonenumberIsNumber(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -241,10 +259,11 @@ class TeamTest extends DuskTestCase
     public function testEditMemberPhonenumberMax10(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -260,10 +279,11 @@ class TeamTest extends DuskTestCase
     public function testEditMemberPhonenumberMin10(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -279,10 +299,11 @@ class TeamTest extends DuskTestCase
     public function testEditMemberLongName(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Aanpassen')
                     ->type('name', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                     ->type('email', 'freek@vonk.nl')
@@ -298,12 +319,13 @@ class TeamTest extends DuskTestCase
     public function testEditMemberLongEmail(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->clickLink('Aanpassen')
-                    ->type('email', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@a.nl')
+                    ->type('email', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaaaaaaaaaaaaa.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@a.nl')
                     ->type('name', 'Freek Vonk')
                     ->type('phonenumber', '')
                     ->click('input[id="1"]')
@@ -318,13 +340,14 @@ class TeamTest extends DuskTestCase
     public function testDeleteMember(): void
     {
         // Truncate the database
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/members')
+            $browser->loginAs(1)
+                    ->visit('/members')
                     ->press('Verwijderen')
                     ->assertPathIs('/members')
-                    ->assertSee('Lid verwijdert.');
+                    ->assertSee('Lid verwijderd');
         });
     }
 }
