@@ -6,7 +6,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        
+
         <!-- boostrap required voor slider -->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous" defer></script>
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
@@ -23,9 +23,8 @@
 
 @if (Auth::user() == null || Auth::user()->role != 'admin')
 <!-- Layout als je niet ingelogd bent -->
-    <body>
         <nav class="navbar navbar-expand-xl navbar-light bg-light">
-        <a class="navbar-brand text-dark" href="/"><img src="/img/specialgolflogodark.png" aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan" id="logo"></a>
+        <a class="navbar-brand text-dark" href="/"><img src="/img/specialgolflogodark.png" aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan" alt="logo Special Golf" id="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -101,7 +100,7 @@
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a href="route('logout')" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
+                                <a href="{{route('logout')}}" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
                                     Uitloggen
                                 </a>
                             </form>
@@ -110,7 +109,7 @@
                 </li>
                 @endif
                 <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#" >
-                    <input class="form-control mr-sm-2 search"id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+                    <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
                     <ul class="border border-dark rounded d-none" id="content">
                         <li><a class="dropdown-item text-center" href="/">
                             Hoofdpagina
@@ -161,7 +160,7 @@
 <!-- Layout als je wel ingelogd bent-->
     <body>
         <nav class="navbar navbar-expand-xl navbar-light bg-light">
-        <a class="navbar-brand text-dark" href="/"><img src="/img/specialgolflogodark.png" aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan" id="logo"></a>
+        <a class="navbar-brand text-dark" href="/"><img src="/img/specialgolflogodark.png" alt="Special Golf logo" aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan" id="logo"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -172,7 +171,7 @@
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'index') ? 'font-weight-bold' : '' }}" href="/">Startpagina</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'training') ? 'font-weight-bold' : '' }}" href="/training">Trainingen</a>
+                <a class="nav-link text-dark {{ (request()->segment(1) == 'training') ? 'font-weight-bold' : '' }}" href="/trainingsessions">Trainingen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}" href="/events">Evenementen</a>
@@ -220,17 +219,18 @@
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a href="route('logout')" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
+                                <a href="{{route('logout')}}" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
                                     Uitloggen
                                 </a>
                             </form>
                         </li>
                     </ul>
                 </li>
+                <li>
                 <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#" >
-                <input class="form-control mr-sm-2 search"id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+                <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
                 <ul class="border border-dark rounded d-none" id="content">
-                    <li><a class="dropdown-item text-center" href="/index">
+                    <li><a class="dropdown-item text-center" href="/">
                         Hoofdpagina
                     </a></li>
                     <li><a class="dropdown-item text-center" href="/training">
@@ -271,13 +271,16 @@
                     </a></li>
                 </ul>
             </form>
+                </li>
             </ul>
         </div>
         </nav>
-@endif
+         @endif
 
         <div class="container-fluid">
+            <div class="container">
             @yield('content')
+            </div>
         </div>
         <footer>
           <div class="footer-content bg-light">
