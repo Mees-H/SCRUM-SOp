@@ -46,11 +46,11 @@ Route::get('slider-delete/{slider}', [SliderController::class, 'delete'])->name(
 
 //Resource routes
 Route::resource('slider', SliderController::class);
-Route::resource('training', TrainingController::class);
 
 //Training routes
 
-//Route::resource('trainingsessions', TrainingController::class);
+Route::resource('trainingsessions', TrainingController::class);
+Route::get('training', [TrainingController::class, 'training']);
 Route::get('/training/signout', [TrainingController::class, 'signout']);
 Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail']);
 
@@ -78,10 +78,13 @@ Route::middleware(['role:admin'])->group(function () {
     //Event routes
     Route::resource('events', EventController::class);
 
+    //Team routes
     Route::resource('members', TeamController::class);
 
     //CRUD galerij, moeten voor de galerij routes anders override de route deze route
     Route::resource('galerij', GalleryController::class);
+    //Training routes
+    Route::resource('trainingsessions', TrainingController::class);
 
 });
 
