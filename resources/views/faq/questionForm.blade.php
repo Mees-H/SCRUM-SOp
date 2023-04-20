@@ -1,9 +1,13 @@
 @extends('layouts.layout')
- 
+
 @section('content')
     <div class="container">
+        <div class="d-flex justify-content-between">
         <h1>Stel een vraag</h1>
-
+            <div>
+                <button class="btn btn-secondary" onclick="window.location.href='/vragenantwoorden'">Ga terug</button>
+            </div>
+        </div>
         @if(session()->get('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
@@ -42,7 +46,7 @@
                             <span class="requiredStar">*</span>Vraag
                         </label>
                         <div class="col-sm-8">
-                            <textarea type="text" class="form-control" id="question" placeholder="Vul hier uw vraag in" 
+                            <textarea type="text" class="form-control" id="question" placeholder="Vul hier uw vraag in"
                                 name="question">{{old('question')}}</textarea>
                         </div>
                         @error('question')

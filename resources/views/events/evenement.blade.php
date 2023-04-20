@@ -30,7 +30,14 @@
 
 
             <div>
-                <p>Datum: {{$post->date}} om {{$post->time}}</p>
+                <label>Datum: {{$post->date}} om {{$post->time}}</label>
+                <br />
+                @if($post->price <= 0)
+                    <p>Prijs: Gratis</p>
+                @else
+                    <p>Prijs: €{{number_format($post->price, 2, ',', '')}}<p>
+                @endif
+                
                 <div class="d-flex justify-content-between">
                     <p class="col-sm-8">
                     {!!$post->body!!}
@@ -48,7 +55,7 @@
                             {{$group->name}}<br>
                             {{$group->street}} {{$group->housenumber}}<br>
                             {{$group->zipcode}} {{$group->city}}<br>
-                            <a href="https://{{$group->link}}">{{$group->link}}</a>
+                            <a id="link" href="https://{{$group->link}}">{{$group->link}}</a>
                         </div>
                     @endforeach
 

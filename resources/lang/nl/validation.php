@@ -16,7 +16,7 @@ return [
     'accepted'             => ':Attribute dient te worden geaccepteerd.',
     'accepted_if'          => ':Attribute dient te worden geaccepteerd wanneer :other :value is.',
     'active_url'           => ':Attribute is geen geldige URL.',
-    'after'                => ':Attribute moet een datum zijn na :date.',
+    'after'                => ':Attribute moet na :date zijn.',
     'after_or_equal'       => ':Attribute moet een datum zijn na of gelijk aan :date.',
     'alpha'                => ':Attribute mag alleen letters bevatten.',
     'alpha_dash'           => ':Attribute mag alleen letters, nummers, en strepen bevatten.',
@@ -173,7 +173,10 @@ return [
         'time' => 'tijd',
         'name' => 'naam',
         'image' => 'afbeelding',
-        'phonenumber' => 'telefoonnummer'
+        'phonenumber' => 'telefoonnummer',
+        'starttime' => 'begintijd',
+        'endtime' => 'eindtijd',
+        'group' => 'groep'
     ],
 
     'values' => [
