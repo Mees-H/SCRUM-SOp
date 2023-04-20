@@ -7,9 +7,9 @@
         <div class="p-6 text-gray-900 d-flex justify-content-between">
             <a href="/admin/create" class="btn btn-primary m-1">{{__('Voeg gebruiker toe')}}</a>
             @if(request()->path() == 'admin/gebruikers/all')
-                <a href="/admin/gebruikers">zie actieve gebruikers</a>
+                <a href="/admin/gebruikers" class="btn btn-secondary">zie actieve gebruikers</a>
                 @else
-                <a href="/admin/gebruikers/all">zie alle gebruikers</a>
+                <a href="/admin/gebruikers/all" class="btn btn-secondary">zie alle gebruikers</a>
             @endif
 
         </div>

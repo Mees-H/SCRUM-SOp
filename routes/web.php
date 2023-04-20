@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CreateUserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TeamController;
