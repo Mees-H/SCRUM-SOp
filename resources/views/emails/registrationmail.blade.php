@@ -78,10 +78,10 @@
         </tr>
         <tr>
             <td>
-                Beperking:
+                Golfhandicap:
             </td>
             <td>
-                {{$disability}}
+                {{$golfhandicap}}
             </td>
         </tr>
     </table>

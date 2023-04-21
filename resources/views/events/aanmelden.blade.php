@@ -75,15 +75,14 @@
                         @enderror
                     </div>
                     <div>
-                        <label for="disability" class="col-sm-2 col-form-label">
-                            <span class="requiredStar">*</span>Beperking
+                        <label for="golfhandicap" class="col-sm-2 col-form-label">
+                            Golfhandicap
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="disability"
-                                   placeholder="Vul hier uw verstandelijke beperking(en) in" name="disability"
-                                   value="{{old('disability')}}">
+                            <input type="text" class="form-control" id="golfhandicap"
+                            placeholder="Vul hier uw golfhandicap(s) in" name="golfhandicap" value="{{old('golfhandicap')}}">
                         </div>
-                        @error('disability')
+                        @error('golfhandicap')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>

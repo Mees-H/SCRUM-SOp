@@ -11,6 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use App\Models\Event;
 use App\Models\Group;
+use function PHPUnit\Framework\isEmpty;
 
 class EventController extends Controller
 {
@@ -51,8 +52,8 @@ class EventController extends Controller
         ]);
 
         $event->save();
-        if($request->get('groups') != null){
-            foreach($request->get('groups') as $groupId){
+        if ($request->get('groups') != null) {
+            foreach ($request->get('groups') as $groupId) {
                 $event->groups()->save(Group::find($groupId));
             }
         }
@@ -84,11 +85,25 @@ class EventController extends Controller
 
     public function submit(MailPostEventRequest $request)
     {
-        $validated = $request->validated();
-
+        $request->validate([
+            'name' => 'required|max:255',
+            'birthday' => 'required|date|before:today',
+            'golfhandicap' => 'max:255',
+            'email' => 'required|email',
+            'phonenumber' => 'required|numeric',
+            'address' => 'required|max:255',
+            'city' => 'required|max:255',
+            'event_id' => 'required|numeric'
+        ]);
         $mailFactory = new MailFactory();
-        $mail = $mailFactory->createMail('eventRegistration',
-            ['name' => $request['name'], 'birthday' => $request['birthday'], 'gender' => $request['gender'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $request['disability'], 'event_id' => $request['event_id']]);
+        $golfhandicap = "Niet ingevoerd";
+        if (isset($request['golfhandicap']) && !empty($request['golfhandicap'])) {
+            $golfhandicap = $request['golfhandicap'];
+        }
+        $mail = $mailFactory->createMail(
+            'eventRegistration',
+            ['name' => $request['name'], 'birthday' => $request['birthday'], 'gender' => $request['gender'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $request['disability'], 'event_id' => $request['event_id']]
+        );
         Mailer::Mail([], $mail, true);
         return redirect('evenement')->with('success', 'Uw aanmelding is verzonden!');
     }
@@ -124,8 +139,8 @@ class EventController extends Controller
         $event->groups()->detach();
         $event->save();
 
-        if($request->get('groups') != null){
-            foreach($request->get('groups') as $groupId){
+        if ($request->get('groups') != null) {
+            foreach ($request->get('groups') as $groupId) {
                 $event->groups()->save(Group::find($groupId));
             }
         }
