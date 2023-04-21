@@ -54,7 +54,6 @@ class MailFactory
             $arguments['address'] == null ||
             $arguments['city'] == null ||
             $arguments['gender'] == null ||
-            $arguments['golfhandicap'] == null ||
             $arguments['event_id'] == null
         ) {
             throw new InvalidArgumentException('niet alle argumenten waren gevonden');
@@ -67,7 +66,12 @@ class MailFactory
         $phonenumber = $arguments['phonenumber'];
         $address = $arguments['address'];
         $city = $arguments['city'];
-        $golfhandicap = $arguments['golfhandicap'];
+
+        $golfhandicap = "Niet ingevuld";
+        if(isset($arguments['golfhandicap'])&&!empty($arguments['golfhandicap'])) {
+            $golfhandicap = $arguments['golfhandicap'];
+        }
+
         $eventId = $arguments['event_id'];
         $event = Event::find($eventId) ?: throw new InvalidArgumentException('evenement is niet gevonden');
         $age = date_diff(date_create($birthday), date_create(date('Y-m-d')))->format('%y');
@@ -76,8 +80,7 @@ class MailFactory
             throw new InvalidArgumentException('geboortedatum ligt in de toekomst');
         }
 
-        $text = 'hallo ' . $name;
-        $mail = new Mail\RegisterMail($name, $age, $gender, $email, $phonenumber, $address, $city, $disability, $event->title, $event->date);
+        $mail = new Mail\RegisterMail($name, $age, $gender, $email, $phonenumber, $address, $city, $golfhandicap, $event->title, $event->date);
         return $mail;
     }
 

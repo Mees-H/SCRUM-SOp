@@ -26,7 +26,7 @@ class RegisterMail extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $age, $gender, $email, $phonenumber, $address, $city, $disability, $eventName, $date)
+    public function __construct($name, $age, $gender, $email, $phonenumber, $address, $city, $golfhandicap, $eventName, $date)
     {
         $this->name = $name;
         $this->age = $age;
