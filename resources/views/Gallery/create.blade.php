@@ -17,15 +17,15 @@
         <form action="{{route('galerij.store')}}" type="submit" method="post" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="title">Album titel</label>
+                <span class="requiredStar">*</span><label for="title">Album titel</label>
                 <input type="text" name="title" class="form-control" id="title" placeholder="Titel">
             </div>
             <div class="form-group">
-                <label for="description">Omschrijving van de album</label>
+                <span class="requiredStar">*</span><label for="description">Omschrijving van de album</label>
                 <textarea type="text" name="description" class="form-control" id="description" placeholder="Omschrijving"></textarea>
             </div>
             <div class="form-group">
-                <label for="date">Datum gemaakte foto's</label>
+                <span class="requiredStar">*</span><label for="date">Datum gemaakte foto's</label>
                 <input type="date" name="date" class="form-control" id="date" placeholder="Datum">
             </div>
             <button type="submit" class="btn btn-primary">Album toevoegen</button>

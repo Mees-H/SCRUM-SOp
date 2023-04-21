@@ -59,7 +59,7 @@ class GalleryController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'description' => 'required|max:999',
-            'date' => 'required'
+            'date' => 'required|before:today'
         ]);
 
         $album = new Album();
@@ -85,7 +85,7 @@ class GalleryController extends Controller
         $attributes = $request->validate([
             'title' => 'required|max:255',
             'description' => 'required|max:999',
-            'date' => 'required'
+            'date' => 'required|before:today'
         ]);
         
         Album::where('id', $id)->update(['title' => $attributes['title'], 'description' => $attributes['description'], 'date' => $attributes['date']]);
