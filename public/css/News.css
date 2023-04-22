@@ -1,0 +1,11 @@
+.wrapper{
+    width: 220px;
+    border: none;
+    border-radius: 0;
+    position: sticky;
+    top: 15%;
+}
+
+#sidebarHeader{
+    font-size: 20px;
+}
