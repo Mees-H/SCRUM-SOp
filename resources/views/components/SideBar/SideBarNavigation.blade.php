@@ -1,23 +1,23 @@
+<head>
+    <link rel="stylesheet" href="{{asset('css/News.css')}}"/>
+    <title>NavigationSideBar</title>
+</head>
 
-<!-- Sidebar -->
+<div class="wrapper flex-shrink-0 p-3 bg-white card shadow">
 <nav id="sidebar">
-    <div class="sidebar-header">
-        <h3>Bootstrap Sidebar</h3>
+    <div class="sidebar-header border-bottom">
+        <h3 id="sidebarHeader">Artikelen</h3>
     </div>
-
     <ul class="list-unstyled components">
-        <p>Dummy Heading</p>
+        @foreach($articles as $article)
         <li class="active">
-            <a href="#">Home 1</a>
+            <a class="btn" href="#{{$article->date}}id">
+                <h5>{{$article->title}}</h5>
+                {{$article->date}}
+            </a>
         </li>
-        <li>
-            <a href="#">About</a>
-        </li>
-        <li>
-            <a href="#">Portfolio</a>
-        </li>
-        <li>
-            <a href="#">Contact</a>
-        </li>
+
+        @endforeach
     </ul>
 </nav>
+</div>

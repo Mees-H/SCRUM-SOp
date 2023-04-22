@@ -1,10 +1,12 @@
 @extends('layouts.layout')
 @section('content')
+<head>
+    <link rel="stylesheet" href="{{asset('css/News.css')}}"/>
+    <title>Nieuwsbrief</title>
+</head>
 <div class="row">
-<div class="col-md-2">
-    <div class="col-md-3">
-        @include('Components.SideBar.SideBarNavigation')
-    </div>
+<div class="col-md-2" id="wrapper">
+        @include('Components.SideBar.SideBarNavigation', ['articles' => $articles])
 </div>
 <div class="col">
     <div class="container justify-content-between ">
@@ -30,7 +32,7 @@
                 <div class="card">
                     <h1 class="card-header">Nieuwsartikelen</h1>
                     @foreach($articles as $article)
-                        <div class="row card-body">
+                        <div id="{{$article->date}}id" class="row card-body">
                             <h1>{{$article->title}}</h1>
                             <small>Datum: {{$article->date}}</small>
                             @if($article->imgurl != null)
