@@ -4,20 +4,25 @@ namespace Tests\Browser;
 
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Foundation\Testing\DatabaseTruncation;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
 class AlbumTest extends DuskTestCase
 {
+    use DatabaseTruncation;
+
     public function testCreateAlbum(): void
     {
+        $this->artisan('db:seed');
+
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
                     ->visit('/galerij')
                     ->clickLink('Creeër nieuw album')
                     ->type('title', 'Test Titel')
                     ->type('description', 'Test Omschrijving')
-                    ->type('date', '06062023')
+                    ->type('date', '06062022')
                     ->press('Album toevoegen')
                     ->assertSee('Album is aangemaakt');
         });
@@ -25,6 +30,8 @@ class AlbumTest extends DuskTestCase
 
     public function testCreateAlbumFail(): void
     {
+        $this->artisan('db:seed');
+
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
                     ->clickLink('Creeër nieuw album')
@@ -35,18 +42,22 @@ class AlbumTest extends DuskTestCase
 
     public function testEditAlbum(): void
     {
+        $this->artisan('db:seed');
+
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
                     ->clickLink('Aanpassen')
                     ->type('title', 'Test Titel')
                     ->type('description', 'Test Omschrijving')
-                    ->type('date', '06062023')
+                    ->type('date', '06062022')
                     ->press('Update')
                     ->assertSee('Album geüpdatet.');
         });
     }
     public function testEditAlbumFail(): void
     {
+        $this->artisan('db:seed');
+
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
                     ->clickLink('Aanpassen')
@@ -60,6 +71,8 @@ class AlbumTest extends DuskTestCase
 
     public function testDeleteAlbum(): void
     {
+        $this->artisan('db:seed');
+        
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
                     ->press('Verwijderen')
