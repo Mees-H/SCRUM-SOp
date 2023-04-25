@@ -11,7 +11,7 @@ class GalleryController extends Controller
     {
         $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
 
-        return view('Gallery.galerijYear', [
+        return view('Albums.galerijYear', [
             'albums' => $albums,
             'year' => $year
         ]);
@@ -21,7 +21,7 @@ class GalleryController extends Controller
         $album = Album::with('picture')->where('title', $title)->first();
         $pictures = Picture::with('album')->where('album_id', $album->id)->get();
 
-        return view('Gallery.showAlbum', [
+        return view('Albums.showAlbum', [
             'album' => $album,
             'pictures' => $pictures,
             'year' => $year
