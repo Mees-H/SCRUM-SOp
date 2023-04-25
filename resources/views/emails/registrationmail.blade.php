@@ -70,6 +70,14 @@
         </tr>
         <tr>
             <td>
+                Gender:
+            </td>
+            <td>
+                {{$gender}}
+            </td>
+        </tr>
+        <tr>
+            <td>
                 Golfhandicap:
             </td>
             <td>
