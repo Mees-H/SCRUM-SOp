@@ -52,8 +52,8 @@ class EventController extends Controller
         ]);
 
         $event->save();
-        if($request->get('groups') != null){
-            foreach($request->get('groups') as $groupId){
+        if ($request->get('groups') != null) {
+            foreach ($request->get('groups') as $groupId) {
                 $event->groups()->save(Group::find($groupId));
             }
         }
@@ -97,11 +97,13 @@ class EventController extends Controller
         ]);
         $mailFactory = new MailFactory();
         $golfhandicap = "Niet ingevoerd";
-        if(isset($request['golfhandicap']) && !empty($request['golfhandicap'])){
+        if (isset($request['golfhandicap']) && !empty($request['golfhandicap'])) {
             $golfhandicap = $request['golfhandicap'];
         }
-        $mail = $mailFactory->createMail('eventRegistration',
-            ['name' => $request['name'], 'birthday' => $request['birthday'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'golfhandicap' => $golfhandicap, 'event_id' => $request['event_id']]);
+        $mail = $mailFactory->createMail(
+            'eventRegistration',
+            ['name' => $request['name'], 'birthday' => $request['birthday'], 'gender' => $request['gender'], 'email' => $request['email'], 'phonenumber' => $request['phonenumber'], 'address' => $request['address'], 'city' => $request['city'], 'disability' => $request['disability'], 'event_id' => $request['event_id']]
+        );
         Mailer::Mail([], $mail, true);
         return redirect('evenement')->with('success', 'Uw aanmelding is verzonden!');
     }
@@ -137,8 +139,8 @@ class EventController extends Controller
         $event->groups()->detach();
         $event->save();
 
-        if($request->get('groups') != null){
-            foreach($request->get('groups') as $groupId){
+        if ($request->get('groups') != null) {
+            foreach ($request->get('groups') as $groupId) {
                 $event->groups()->save(Group::find($groupId));
             }
         }
