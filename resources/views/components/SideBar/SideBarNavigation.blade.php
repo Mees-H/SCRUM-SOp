@@ -3,21 +3,40 @@
     <title>NavigationSideBar</title>
 </head>
 
-<div class="wrapper flex-shrink-0 p-3 bg-white card shadow">
+<div class="wrapper  p-3 bg-light card shadow">
 <nav id="sidebar">
     <div class="sidebar-header border-bottom">
         <h3 id="sidebarHeader">Artikelen</h3>
     </div>
     <ul class="list-unstyled components">
-        @foreach($articles as $article)
-        <li class="active">
-            <a class="btn" href="#{{$article->date}}id">
-                <h5>{{$article->title}}</h5>
-                {{$article->date}}
-            </a>
+
+        <li class="active border-bottom">
+            <div class="d-flex justify-content-between">
+
+            <button class="btn btn-toggle d-inline-flex align-items-center border-0" data-bs-toggle="collapse" data-bs-target="#articleOfYear" aria-expanded="true">
+                    2023
+                <i class="bi bi-arrow-down text-secondary"></i>
+            </button>
+
+            </div>
+            <div class="collapse show" id="articleOfYear">
+            <ul class="btn-toggle-nav list-unstyled  fw-normal pb-1 small">
+            @foreach($articles as $article)
+            <li>
+                <a id="articleNav" href="#{{$article->date}}id" class="btn border-0 mb-1 d-inline-flex text-decoration-none rounded text-black">
+                    <p>
+                    {{$article->title}}
+                         {{date('d-m', strtotime($article->date))}}
+                    </p>
+                </a>
+            </li>
+
+            @endforeach
+            </ul>
+            </div>
         </li>
 
-        @endforeach
+
     </ul>
 </nav>
 </div>
