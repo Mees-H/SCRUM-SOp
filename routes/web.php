@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CreateUserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\NewsArticleController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
@@ -76,6 +77,7 @@ Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('gal
 //News routes
 Route::resource('nieuws', NewsArticleController::class);
 
+
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
@@ -123,4 +125,6 @@ Route::middleware(['role:admin,coach,supervisor'])->group(function () {
 });
 
 require __DIR__ . '/auth.php';
+
+
 
