@@ -60,18 +60,19 @@
                                 @endforeach
                         </div>
                 </div>
-
                 <div class="col">
-                    <div class="card">
+                    <div class="card" >
                         <h1 class="card-header">Nieuwsbrieven</h1>
                         <div class="card-body">
+
                             <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
                             <ul class="list-unstyled">
                                 @foreach($articles as $article)
                                     @if($article->fileurl != null)
-                                        @foreach($article->fileurl as $file)
-                                            <li class="mb-3">
-                                                <a class="btn"><i class="bi bi-arrow-left-circle-fill"> {{$file}}</i></a>
+                                        @foreach($article->fileurl as $filename)
+                                            <li class="mb-3" >
+                                                @include('nieuws.pdf', ['filename' => $filename])
+                                                <a class="btn" type="button" href="nieuws/{{$filename}}"><i class="bi bi-arrow-left-circle-fill"> {{$filename}}</i></a>
                                             </li>
                                         @endforeach
                                     @endif

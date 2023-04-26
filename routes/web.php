@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\NewsArticleController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
@@ -70,6 +71,7 @@ Route::resource('links', SiteMapController::class);
 
 //News routes
 Route::resource('nieuws', NewsArticleController::class);
+
 
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');

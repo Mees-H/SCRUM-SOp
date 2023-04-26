@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 
-class NewsArticle extends Controller
+
+class NewsArticleController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -33,9 +33,9 @@ class NewsArticle extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(string $filename): \Symfony\Component\HttpFoundation\BinaryFileResponse
     {
-        //
+        return response()->file(public_path('storage/files/nieuws/' . $filename));
     }
 
     /**
