@@ -33,7 +33,6 @@ class NavigationController extends Controller
     }
     function nieuwsbrief()
     {
-
         return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
     }
     function team()

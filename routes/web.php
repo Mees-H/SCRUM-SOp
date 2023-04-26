@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\NewsArticleController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
