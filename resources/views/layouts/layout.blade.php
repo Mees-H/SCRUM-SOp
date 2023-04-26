@@ -62,7 +62,7 @@
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/vragenantwoorden">FAQ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}" href="/nieuwsbrief">Nieuws</a>
+                <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuws') ? 'font-weight-bold' : '' }}" href="/nieuws">Nieuws</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'team') ? 'font-weight-bold' : '' }}" href="/team">Team</a>
@@ -132,7 +132,7 @@
                         <li><a class="dropdown-item text-center" href="/faq">
                             FAQ
                         </a></li>
-                        <li><a class="dropdown-item text-center" href="/nieuwsbrief">
+                        <li><a class="dropdown-item text-center" href="/nieuws">
                             Nieuwsbrief
                         </a></li>
                         <li><a class="dropdown-item text-center" href="/team">
@@ -183,7 +183,7 @@
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/faq">FAQ</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}" href="/nieuwsbrief">Nieuws</a>
+                <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuws') ? 'font-weight-bold' : '' }}" href="/nieuws">Nieuws</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'team') ? 'font-weight-bold' : '' }}" href="/members">Team</a>
@@ -251,7 +251,7 @@
                     <li><a class="dropdown-item text-center" href="/faq">
                         FAQ
                     </a></li>
-                    <li><a class="dropdown-item text-center" href="/nieuwsbrief">
+                    <li><a class="dropdown-item text-center" href="/nieuws">
                         Nieuwsbrief
                     </a></li>
                     <li><a class="dropdown-item text-center" href="/team">

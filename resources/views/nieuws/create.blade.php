@@ -10,9 +10,7 @@
     <div class="container justify-content-between ">
         <div class="row align-items-center">
             <h1 class="col">Nieuwsoverzicht</h1>
-            @if (Auth::user()->role == 'admin')
-                <a href="{{ route('nieuws.create')}}" class="col-2 btn btn-primary">Creeër nieuw nieuwsartikel</a>
-            @endif
+            <a href="/nieuws" class="col-2 btn btn-secondary">Ga terug</a>
         </div>
     </div>
 
@@ -30,8 +28,43 @@
         @endif
         <div class="row">
             <div class="col-md-8">
+                @if ($errors->any())
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div><br />
+                @endif
                 <div class="card">
                     <h1 class="card-header">Nieuwsartikelen</h1>
+                    <!--Start form-->
+                    <form method="post" action="{{ route('nieuws.store') }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="row card-body">
+                            <div class="col-sm-7">
+                                <input class="form-control form-control-lg mb-2" type="text" placeholder="Titel" name="title">
+                                <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum" name="date">
+                                <textarea class="form-control mb-2" rows="3" placeholder="Beschrijving" name="body"></textarea>
+                            </div>
+                            <aside class="col-sm-5">
+                                <div class="mb-3">
+                                    <label for="img[]" class="form-label">Foto's</label>
+                                    <input class="form-control" type="file" name="img[]" id="img[]" multiple>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="file[]" class="form-label">Bestanden</label>
+                                    <input class="form-control" type="file" name="file[]" id="file[]" multiple>
+                                </div>
+                            </aside>
+                            <div class="col">
+                                <button class="btn btn-primary" type="submit">Voeg artikel toe</button>
+                            </div>
+                        </div>
+                        <hr>
+                    </form>
+                    <!--End form-->
                     @foreach($articles as $article)
                         <div class="row card-body">
                             <h1>{{$article->title}}</h1>
@@ -57,18 +90,6 @@
                                     </aside>
                                 @endif
                         </div>
-                        @if (Auth::user()->role == 'admin')
-                            <aside class="row card-body">
-                                <div class="col">
-                                    <form action="{{ route('nieuws.destroy', $article->id)}}" method="post">
-                                        <a href="{{ route('nieuws.edit', $article->id)}}" class="col btn btn-primary">Pas nieuwsartikel aan</a>
-                                        @csrf
-                                        @method('DELETE')
-                                        <button class="col btn btn-danger" type="submit">Verwijder nieuwsartikel</button>
-                                    </form>
-                                </div>
-                            </aside>
-                        @endif
                         <hr>
                     @endforeach
                 </div>
