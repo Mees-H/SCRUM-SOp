@@ -120,13 +120,13 @@
                         <li><a class="dropdown-item text-center" href="/evenement">
                             Evenementen
                         </a></li>
-                        <li><a class="dropdown-item text-center" href="/galerij/2023">
+                        <li><a class="dropdown-item text-center" href="/albums/2023">
                             2023
                         </a></li>
-                        <li><a class="dropdown-item text-center" href="/galerij/2022">
+                        <li><a class="dropdown-item text-center" href="/albums/2022">
                             2022
                         </a></li>
-                        <li> <a class="dropdown-item text-center" href="/galerij/2021">
+                        <li> <a class="dropdown-item text-center" href="/albums/2021">
                             2021
                         </a></li>
                         <li><a class="dropdown-item text-center" href="/faq">
@@ -177,7 +177,7 @@
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}" href="/events">Evenementen</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="/galerij/aanmakenAlbum">Galerij</a>
+                <a class="nav-link text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="/galerij">Galerij</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/faq">FAQ</a>
@@ -239,14 +239,8 @@
                     <li><a class="dropdown-item text-center" href="/evenement">
                         Evenementen
                     </a></li>
-                    <li><a class="dropdown-item text-center" href="/galerij/2023">
-                        2023
-                    </a></li>
-                    <li><a class="dropdown-item text-center" href="/galerij/2022">
-                        2022
-                    </a></li>
-                    <li> <a class="dropdown-item text-center" href="/galerij/2021">
-                        2021
+                    <li><a class="dropdown-item text-center" href="/galerij">
+                        Galerij
                     </a></li>
                     <li><a class="dropdown-item text-center" href="/faq">
                         FAQ
