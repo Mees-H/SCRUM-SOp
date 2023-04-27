@@ -33,9 +33,8 @@ class NewsArticleController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $filename): \Symfony\Component\HttpFoundation\BinaryFileResponse
+    public function show(string $filename)
     {
-        return response()->file(public_path('storage/files/nieuws/' . $filename));
     }
 
     /**

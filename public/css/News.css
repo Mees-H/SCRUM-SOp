@@ -2,21 +2,43 @@
     width: 220px;
     border: none;
     border-radius: 10px;
-    position: sticky;
-    top: 15%;
-    opacity: 60%;
+    position: absolute;
+    top: 7%;
+    box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
 .wrapper:hover{
     opacity: 100%;
-    transform: scale(1.01);
+}
+@media screen and (max-width: 768px) {
+    .wrapper{
+        display: none;
+    }
+    .card{
+        box-shadow: 0 0 3px rgba(0,0,0,0.2);
+        padding: 10px;
+    }
+    #filterButton {
+        display: flex;
+        border-radius: 20px;
+    }
+}
+@media screen and (min-width: 780px)
+    {
+    #filterButton {
+        display: none;
+    }
+}
+
+#articleTitle{
+    font-size:26px;
+}
+
+#articleNav:hover #navText
+{
+    color:#D64747;
     transition: 0.2s;
 }
 
-#articleNav:hover{
-    background-color: #F2F2F2;
-    border-radius: 10px;
-    transition: 0.2s;
-}
 
 #sidebarHeader{
     font-size: 20px;
