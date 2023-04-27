@@ -120,13 +120,13 @@
                         <li><a class="dropdown-item text-center" href="/evenement">
                             Evenementen
                         </a></li>
-                        <li><a class="dropdown-item text-center" href="/galerij/2023">
+                        <li><a class="dropdown-item text-center" href="/albums/2023">
                             2023
                         </a></li>
-                        <li><a class="dropdown-item text-center" href="/galerij/2022">
+                        <li><a class="dropdown-item text-center" href="/albums/2022">
                             2022
                         </a></li>
-                        <li> <a class="dropdown-item text-center" href="/galerij/2021">
+                        <li> <a class="dropdown-item text-center" href="/albums/2021">
                             2021
                         </a></li>
                         <li><a class="dropdown-item text-center" href="/faq">
@@ -239,14 +239,8 @@
                     <li><a class="dropdown-item text-center" href="/evenement">
                         Evenementen
                     </a></li>
-                    <li><a class="dropdown-item text-center" href="/galerij/2023">
-                        2023
-                    </a></li>
-                    <li><a class="dropdown-item text-center" href="/galerij/2022">
-                        2022
-                    </a></li>
-                    <li> <a class="dropdown-item text-center" href="/galerij/2021">
-                        2021
+                    <li><a class="dropdown-item text-center" href="/galerij">
+                        Galerij
                     </a></li>
                     <li><a class="dropdown-item text-center" href="/faq">
                         FAQ

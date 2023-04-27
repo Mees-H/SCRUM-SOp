@@ -46,7 +46,7 @@ class SitemapTest extends DuskTestCase
             foreach ($years as $year){
                 $browser->visit('/links')
                     ->clickLink($year)
-                    ->assertPathIs("/galerij/$year");
+                    ->assertPathIs("/albums/$year");
             }
         });
     }
