@@ -5,19 +5,12 @@
     <title>Nieuwsbrief</title>
 </head>
 <div class="row">
-<div class="col-md-2" id="wrapper">
+<div class="col-md-2 mx-3" id="wrapper">
         @include('Components.SideBar.SideBarNavigation', ['articles' => $articles])
 </div>
 <div class="col">
-    <div class="container justify-content-between ">
-        <div class="row align-items-center">
-            <h1 class="col">Nieuwsoverzicht</h1>
-        </div>
-    </div>
-
     <div class="container">
-        <hr>
-
+        <div class="row">
         @if(session()->get('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
@@ -29,11 +22,18 @@
         @endif
         <div class="row">
             <div class="col-md-8">
-                <div class="card">
-                    <h1 class="card-header">Nieuwsartikelen</h1>
+                <div class="border-0">
+                    <div class="d-flex justify-content-between container pb-2">
+                    <h1 class="text-black">Nieuwsartikelen</h1>
+                    <button class="btn btn-success" id="filterButton">
+                        Filter
+                        <i class="bi bi-filter-right"></i>
+                    </button>
+                    </div>
+                    <div class="card border-0">
                     @foreach($articles as $article)
                         <div id="{{$article->date}}id" class="row card-body">
-                            <h1>{{$article->title}}</h1>
+                            <h2 id="articleTitle">{{$article->title}}</h2>
                             <small>Datum: {{$article->date}}</small>
                             @if($article->imgurl != null)
                                 <div class="col-sm-7">
@@ -55,24 +55,41 @@
                                                 @endforeach
                                             </aside>
                                         @endif
-                                        <hr>
+
                                 </div>
+                                <hr/>
                                 @endforeach
                         </div>
+                        </div>
                 </div>
+{{--                TODO: User story--}}
                 <div class="col">
-                    <div class="card" >
-                        <h1 class="card-header">Nieuwsbrieven</h1>
-                        <div class="card-body">
-
+                    <div class="mt-2 pb-3">
+                        <form method="GET" class="d-flex">
+                            <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
+                            <div class="form-group">
+                                <select class="form-select" name="sort" id="sort">
+                                    <option value="date_desc">Datum Aflopend</option>
+                                    <option value="date_asc">Datum Oplopend</option>
+                                    <option value="title_desc">Titel Nieuw-Oud</option>
+                                    <option value="title_asc">Titel Oud-Nieuw</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="card border-0 p-3" >
+                        <h1 class="text-black">Nieuwsbrieven</h1>
+                        <div class="card-body" id="pdfInclude">
                             <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
                             <ul class="list-unstyled">
                                 @foreach($articles as $article)
                                     @if($article->fileurl != null)
                                         @foreach($article->fileurl as $filename)
                                             <li class="mb-3" >
-                                                @include('nieuws.pdf', ['filename' => $filename])
-                                                <a class="btn" type="button" href="nieuws/{{$filename}}"><i class="bi bi-arrow-left-circle-fill"> {{$filename}}</i></a>
+                                                <div hidden="hidden" id="showPdf">
+                                                    @include('nieuws/pdf', ['$filename' => $filename])
+                                                </div>
+                                               <a class="btn" type="button"><i class="bi bi-arrow-left-circle-fill"> {{$filename}}</i></a>
                                             </li>
                                         @endforeach
                                     @endif
