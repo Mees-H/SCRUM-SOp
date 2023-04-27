@@ -44,9 +44,9 @@
                         @csrf
                         <div class="row card-body">
                             <div class="col-sm-7">
-                                <input class="form-control form-control-lg mb-2" type="text" placeholder="Titel" name="title">
-                                <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum" name="date">
-                                <textarea class="form-control mb-2" rows="3" placeholder="Beschrijving" name="body"></textarea>
+                                <input class="form-control form-control-lg mb-2" type="text" placeholder="Titel *" name="title">
+                                <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date">
+                                <textarea class="form-control mb-2" rows="3" placeholder="Beschrijving *" name="body"></textarea>
                             </div>
                             <aside class="col-sm-5">
                                 <div class="mb-3">
