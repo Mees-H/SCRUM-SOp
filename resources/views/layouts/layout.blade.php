@@ -31,18 +31,23 @@
 
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'index') ? 'font-weight-bold' : '' }}" href="/">Startpagina</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'training') ? 'font-weight-bold' : '' }}" href="/training">Trainingen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}" href="/evenement">Evenementen</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                    Activiteiten
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'training') ? 'font-weight-bold' : '' }}" href="/training">Trainingen</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}" href="/evenement">Evenementen</a>
+                    </li>
+                </ul>
             </li>
             <li class="nav-item dropdown">
 
-            <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+            <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
 
                 Galerij
             </a>
@@ -59,25 +64,35 @@
                 </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/vragenantwoorden">FAQ</a>
+                <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/vragenantwoorden">Veelgestelde vragen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}" href="/nieuwsbrief">Nieuws</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'team') ? 'font-weight-bold' : '' }}" href="/team">Team</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}" href="/partner">Partners</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'overons') ? 'font-weight-bold' : '' }}" href="/overons">Over Ons</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'locatie') ? 'font-weight-bold' : '' }}" href="/locatie">Locatie</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}" href="/links">Links</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                    Organisatie
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'team') ? 'font-weight-bold' : '' }}" href="/team">Team</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'overons') ? 'font-weight-bold' : '' }}" href="/overons">Over Ons</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'locatie') ? 'font-weight-bold' : '' }}" href="/locatie">Locatie</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}" href="/links">Links</a>
+                    </li>
+                </ul>
             </li>
             </ul>
             <ul class="navbar-nav ms-auto">
@@ -167,41 +182,64 @@
 
         <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav me-auto">
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'index') ? 'font-weight-bold' : '' }}" href="/">Startpagina</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                    Activiteiten
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'training') ? 'font-weight-bold' : '' }}" href="/trainingsessions">Trainingen</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}" href="/events">Evenementen</a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownFotos" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                    Foto's
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownFotos">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="/galerij">Galerij</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'slider') ? 'font-weight-bold' : '' }}" href="/slider">Slider</a>
+                    </li>
+                </ul>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'training') ? 'font-weight-bold' : '' }}" href="/trainingsessions">Trainingen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}" href="/events">Evenementen</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}" href="/galerij">Galerij</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/faq">FAQ</a>
+                <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/faq">Veelgestelde vragen</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}" href="/nieuwsbrief">Nieuws</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'team') ? 'font-weight-bold' : '' }}" href="/members">Team</a>
-            </li>
-            <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}" href="/partner">Partners</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'overons') ? 'font-weight-bold' : '' }}" href="/overons">Over Ons</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'locatie') ? 'font-weight-bold' : '' }}" href="/locatie">Locatie</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}" href="/links">Links</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'slider') ? 'font-weight-bold' : '' }}" href="/slider">Slider</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false">
+                    Organisatie
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'team') ? 'font-weight-bold' : '' }}" href="/members">Team</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'overons') ? 'font-weight-bold' : '' }}" href="/overons">Over Ons</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'locatie') ? 'font-weight-bold' : '' }}" href="/locatie">Locatie</a>
+                    </li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}" href="/links">Links</a>
+                    </li>
+                </ul>
             </li>
             </ul>
             <ul class="navbar-nav ms-auto">
