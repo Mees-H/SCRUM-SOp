@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CreateUserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TeamController;
@@ -73,6 +74,13 @@ Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('g
 Route::get('/albums/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 
 Route::middleware(['role:admin'])->group(function () {
+    //User creation routes
+    Route::get('/admin/gebruikers', [CreateUserController::class, 'adminIndex']);
+    Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
+    Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
+    Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
+    Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
+
     //Resource routes
     Route::resource('slider', SliderController::class);
 
