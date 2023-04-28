@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "79ea6764e4d3af4217f234a80fe1dba5",
+    "content-hash": "dac516c36de01129f96212bb1af613b0",
     "packages": [
         {
             "name": "brick/math",
@@ -6138,16 +6138,16 @@
         },
         {
             "name": "laravel/dusk",
-            "version": "v7.7.0",
+            "version": "v7.7.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/dusk.git",
-                "reference": "c1d17269c317bc99fef3c2e885465d0bb6398434"
+                "reference": "836338ec355fc129b09f26f3cbc19de2daf065ad"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/dusk/zipball/c1d17269c317bc99fef3c2e885465d0bb6398434",
-                "reference": "c1d17269c317bc99fef3c2e885465d0bb6398434",
+                "url": "https://api.github.com/repos/laravel/dusk/zipball/836338ec355fc129b09f26f3cbc19de2daf065ad",
+                "reference": "836338ec355fc129b09f26f3cbc19de2daf065ad",
                 "shasum": ""
             },
             "require": {
@@ -6166,7 +6166,9 @@
             "require-dev": {
                 "mockery/mockery": "^1.4.2",
                 "orchestra/testbench": "^7.0|^8.0",
-                "phpunit/phpunit": "^9.5.10|^10.0.1"
+                "phpstan/phpstan": "^1.10",
+                "phpunit/phpunit": "^9.5.10|^10.0.1",
+                "psy/psysh": "^0.11.12"
             },
             "suggest": {
                 "ext-pcntl": "Used to gracefully terminate Dusk when tests are running."
@@ -6205,9 +6207,9 @@
             ],
             "support": {
                 "issues": "https://github.com/laravel/dusk/issues",
-                "source": "https://github.com/laravel/dusk/tree/v7.7.0"
+                "source": "https://github.com/laravel/dusk/tree/v7.7.1"
             },
-            "time": "2023-02-21T11:38:10+00:00"
+            "time": "2023-04-13T14:50:22+00:00"
         },
         {
             "name": "laravel/pint",
