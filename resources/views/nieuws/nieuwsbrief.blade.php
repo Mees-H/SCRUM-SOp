@@ -28,8 +28,7 @@
                                     <h1 class="text-black">Nieuwsartikelen</h1>
                                     @if (Auth::user() != null && Auth::user()->role == 'admin')
                                         <div>
-                                            <a href="{{ route('nieuws.create')}}" class="btn btn-primary">Nieuw
-                                                artikel</a>
+                                            <a href="{{ route('nieuws.create')}}" class="btn btn-primary">Nieuw artikel</a>
                                         </div>
                                     @endif
                                     <div>
@@ -42,7 +41,7 @@
 
                                 <div class="card border-0">
                                     @foreach($articles as $article)
-                                        <div id="{{$article->date}}id" class="row card-body">
+                                        <div id="{{$article->id}}" class="row card-body">
                                             <h2 id="articleTitle">{{$article->title}}</h2>
                                             <small>Datum: {{$article->date}}</small>
                                             @if($article->imgurl != null)
@@ -91,6 +90,7 @@
                             </div>
                             {{--                TODO: User story nieuwsberichten--}}
                             <div class="col">
+                                <!-- TODO: fix for user story nieuwsberichten
                                 <div class="mt-2 pb-3">
                                     <form method="GET" class="d-flex">
                                         <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
@@ -103,7 +103,7 @@
                                             </select>
                                         </div>
                                     </form>
-                                </div>
+                                </div>-->
                                 <div class="card border-0 p-3">
                                     <h1 class="text-black">Nieuwsbrieven</h1>
                                     <div class="card-body">

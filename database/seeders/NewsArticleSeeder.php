@@ -14,14 +14,6 @@ class NewsArticleSeeder extends Seeder
     public function run(): void
     {
         NewsArticle::create([
-            'title' => 'Nieuwsbrieven 2023',
-            'body' => 'De uitgave van onze nieuwsbrieven, verschaffen de lezer inzicht in activiteiten welke plaatsvinden binnen Special golf haverleij. Hierin komen o.a. ontwikkelingen over Special golf (G-Golf) aan de orde waarvan wij van mening zijn, dat deze interessant zijn voor onze partners, deelnemers, begeleiders, golfprofessional en belangstellende.
-            Door op een datum te klikken maakt u kennis met de inhoud van de nieuwsbrief.',
-            'date' => '2023-01-31',
-            'fileurl' => ['31-01-2023.pdf', '01-04-2023.pdf']
-        ]);
-
-        NewsArticle::create([
             'title' => 'Hall of Fame Special Golf',
             'body' => 'De Special Golf Birdie wordt tijdens een wedstrijd, onder auspiciën van Special Golf, uitgereikt aan een speler die één onder par speelt op een hole. De volgende spelers hebben deze ontvangen:
             Magriet Venrooy, Jan Hartsuiker, Wil Driesser, Henk Koper, Trudy Bakker, Hetty van Hilten, Josine Vos, Corry Verschuur en Josje van Stralendorff.
