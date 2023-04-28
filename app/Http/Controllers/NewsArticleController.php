@@ -39,7 +39,8 @@ class NewsArticleController extends Controller
             'body' => 'required|max:999',
             'img' => 'nullable|array',
             'img.*' => 'image',
-            'file' => 'nullable|array'
+            'file' => 'nullable|array',
+            'file.*' => 'file'
         ]);
 
         $article = NewsArticle::create([
@@ -113,7 +114,8 @@ class NewsArticleController extends Controller
             'body' => 'required|max:999',
             'img' => 'nullable|array',
             'img.*' => 'image',
-            'file' => 'nullable|array'
+            'file' => 'nullable|array',
+            'file.*' => 'file'
         ]);
 
         $article = NewsArticle::find($id);
