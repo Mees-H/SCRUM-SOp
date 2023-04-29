@@ -21,14 +21,14 @@
 
         <div class="row mt-3 text-center">
             <div class="col-md-4">
-                <form action="{{ url('/galerij/'.$year.'/'.$album->title.'/wijzigbeschrijving') }}" method="POST" id="updateDescription">
+                <form action="{{ route('galerij_wijzigbeschrijving', $album->id) }}" method="POST" id="updateDescription">
                     @csrf
                     <input type="hidden" name="id" value="{{ $album->id }}">
                     <button type="submit" class="btn btn-primary wide-button text-white">Beschrijving aanpassen</button>
                 </form>
             </div>
             <div class="col-md-4">
-                <form action="{{ url('/galerij/'.$year.'/'.$album->title.'/verwijderfotos') }}" method="POST" id="deleteForm">
+                <form action="{{ route('galerij_verwijderfotos', $album->id) }}" method="POST" id="deleteForm">
                     @csrf
                     <button type="submit" class="btn btn-danger wide-button text-white">Foto's verwijderen</button>
                 </form>

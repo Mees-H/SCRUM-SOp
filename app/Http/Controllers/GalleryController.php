@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Log;
 
 class GalleryController extends Controller
 {
-    public function editAlbum($id)
+    public function editAlbum(string $id)
     {
         $album = Album::find($id);
         $pictures = Picture::with('album')->where('album_id', $album->id)->get();
@@ -40,10 +40,11 @@ class GalleryController extends Controller
             'year' => $year
         ]);
     }
-    public function show($year, $title)
+    public function show($id)
     {
-        $album = Album::with('picture')->where('title', $title)->first();
-        $pictures = Picture::with('album')->where('album_id', $album->id)->get();
+        $album = Album::with('picture')->where('id', $id)->first();
+        $pictures = Picture::with('album')->where('album_id', $id)->get();
+        $year = Carbon::parse($album->date)->year;
 
         return view('Albums.showAlbum', [
             'album' => $album,
@@ -129,7 +130,6 @@ class GalleryController extends Controller
         $request->validate([
             'description' => 'required'
         ]);
-
         Album::where('id', $request->id)->update(['description' => $request->description]);
         return redirect('/galerij')->with('success', 'Album is aangepast');
     }
@@ -156,11 +156,11 @@ class GalleryController extends Controller
 
     public function deleteAlbumPictures(Request $request)
     {
-        foreach($request->images as $image){
-            $image->delete();
-            Picture::where('id', $request->id)->delete();
-        }
-        //Picture::destroy($request->images);
+        // foreach($request->images as $image){
+        //     $image->delete();
+        //     Picture::where('id', $request->id)->delete();
+        // }
+        Picture::destroy($request->images);
 
         if(count($request->images) > 1){
             return redirect('/galerij')->with('success', 'Afbeeldingen zijn verwijderd uit album');
