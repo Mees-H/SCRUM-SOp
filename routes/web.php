@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\CreateUserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\TeamController;
@@ -46,11 +47,11 @@ Route::get('slider-delete/{slider}', [SliderController::class, 'delete'])->name(
 
 //Resource routes
 Route::resource('slider', SliderController::class);
-Route::resource('training', TrainingController::class);
 
 //Training routes
 
-//Route::resource('trainingsessions', TrainingController::class);
+Route::resource('trainingsessions', TrainingController::class);
+Route::get('training', [TrainingController::class, 'training']);
 Route::get('/training/signout', [TrainingController::class, 'signout']);
 Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail']);
 
@@ -68,10 +69,18 @@ Route::post('events/submit/{id}', [EventController::class, 'submit']);
 //Team routes
 Route::resource('links', SiteMapController::class);
 
-//Galerij routes
-Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+//album routes
+Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
+Route::get('/albums/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+
 Route::middleware(['role:admin'])->group(function () {
+    //User creation routes
+    Route::get('/admin/gebruikers', [CreateUserController::class, 'adminIndex']);
+    Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
+    Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
+    Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
+    Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
+
     //Resource routes
     Route::resource('slider', SliderController::class);
 
@@ -89,12 +98,12 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/galerij/{year}/{title}/voegfotostoe', [GalleryController::class, 'addAlbumPictures']);
     Route::post('/galerij/{year}/{title}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
 
-    //TODO: voor een andere user story
-    Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
-    Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
-    Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
-
+    //Galerij routes
+    Route::resource('galerij', GalleryController::class);
+    //Training routes
+    Route::resource('trainingsessions', TrainingController::class);
 });
+
 
 Route::middleware(['role:admin,coach'])->group(function () {
 
