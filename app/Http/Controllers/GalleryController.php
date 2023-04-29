@@ -147,7 +147,7 @@ class GalleryController extends Controller
             $path = $imagefile->store('/images/resource', ['disk' => 'galerij_fotos']);
             Picture:create([
                 'album_id' => $request->album_id,
-                'imageUrl' => $path
+                'image' => $path
             ]);
             $image->save();
         }
@@ -157,10 +157,6 @@ class GalleryController extends Controller
 
     public function deleteAlbumPictures(Request $request)
     {
-        // foreach($request->images as $image){
-        //     $image->delete();
-        //     Picture::where('id', $request->id)->delete();
-        // }
         Picture::destroy($request->images);
 
         if(count($request->images) > 1){
