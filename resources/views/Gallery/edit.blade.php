@@ -21,7 +21,7 @@
                     </div>
                     <br />
                 @endif
-                <form method="post" action="{{ route('galerij.update', $album->id) }}">
+                <form method="post" id="updateAlbum" action="{{ route('galerij.update', $album->id) }}">
                     @method('PATCH')
                     @csrf
                     <div class="form-group">
@@ -39,8 +39,6 @@
                         <span class="requiredStar">*</span><label for="date">Datum:</label>
                         <input type="date" class="form-control" name="date" value="{{ $album->date }}" id="date"/>
                     </div>
-
-                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
         </div>
@@ -72,19 +70,23 @@
         </div>
 
         <div class="row mt-3 text-center mb-5">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <form action="{{ url('/galerij/'.$year.'/'.$album->title.'/verwijderfotos') }}" method="POST" id="deleteForm">
                     @csrf
-                    <button type="submit" class="btn btn-danger wide-button text-white">Foto's verwijderen</button>
+                    <button type="submit" class="btn btn-danger wide-button">Foto's verwijderen</button>
                 </form>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <form action="{{ url('/galerij/' . $album->id . '/addPhoto') }}" method="GET">
                     @csrf
                     <input type="hidden" name="album_id" value="{{ $album->id }}">
-                    <button type="submit" class="btn btn-primary wide-button text-white">Foto toevoegen</button>
+                    <button type="submit" class="btn btn-primary wide-button">Foto's toevoegen</button>
                 </form>
             </div>
+            <div class="col-md-4">
+                <button type="submit" form="updateAlbum" class="btn btn-primary wide-button">Update</button>
+            </div>
+
         </div>
 
     </div>

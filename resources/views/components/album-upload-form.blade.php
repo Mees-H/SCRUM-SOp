@@ -1,10 +1,13 @@
+@props(['action', 'label', 'albumId'])
+
 <form class="col-md-6 image-uplode d-inline-block border shadow-lg rounded p-2 mt-5" action="{{ $action }}" method="POST" enctype="multipart/form-data">
     @csrf
+    <input type="hidden" name="album_id" value="{{ $albumId }}">
     <div class="m-5">
         <h3 class="float-start mb-5">{{ $label }}</h3>
-        <input type="file" class="form-control form-control-lg" name="image" id="image">
+        <input type="file" class="form-control form-control-lg" name="images[]" id="image" multiple>
     </div>
     <div class="m-5">
-        <button class="btn btn-primary">Upload Afbeelding</button>
+        <button class="btn btn-primary">Upload Afbeeldingen</button>
     </div>
 </form>
