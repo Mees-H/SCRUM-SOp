@@ -13,22 +13,20 @@ use Illuminate\Support\Facades\Log;
 
 class GalleryController extends Controller
 {
-    public function editAlbum(string $id)
-    {
-        $album = Album::find($id);
-        $pictures = Picture::with('album')->where('album_id', $album->id)->get();
-        $year = Carbon::parse($album->date)->year;
-
-        return view('Gallery.wijzigenAlbum', [
-            'album' => $album,
-            'pictures' => $pictures,
-            'year' => $year
-        ]);
-    }
-
     public function addPhoto(Request $request)
     {
-        return view('Gallery.fotoToevoegen',);
+        $validated = $request->validate([
+            'album_id' => 'required|integer|exists:albums,id',
+        ]);
+
+        $album_id = $validated['album_id'];
+        $album = Album::find($album_id);
+
+        $year = Carbon::parse($album->date)->format('Y');
+
+        $title = $album->title;
+
+        return view('Gallery.fotoToevoegen', ['album' => $album, 'year' => $year, 'title' => $title]);
     }
 
     public function showGallery($year)
@@ -68,7 +66,7 @@ class GalleryController extends Controller
 
     /// Dit is voor een andere user story, deze wordt later gemaakt. Jira: S8S-32 en S8S-33///
 
-    public function index() 
+    public function index()
     {
         $albums = Album::all();
         return view('Gallery.index', compact('albums'));
@@ -99,7 +97,10 @@ class GalleryController extends Controller
     public function edit(string $id)
     {
         $album = Album::findOrFail($id);
-        return view('Gallery.edit', compact('album'));
+        $year = Carbon::parse($album->date)->year;
+        $pictures = Picture::with('album')->where('album_id', $album->id)->get();
+
+        return view('Gallery.edit', compact('album', 'year', 'pictures'));
     }
 
     /**
@@ -112,7 +113,7 @@ class GalleryController extends Controller
             'description' => 'required|max:999',
             'date' => 'required'
         ]);
-        
+
         Album::where('id', $id)->update(['title' => $attributes['title'], 'description' => $attributes['description'], 'date' => $attributes['date']]);
 
 
