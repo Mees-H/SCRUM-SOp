@@ -94,20 +94,16 @@ Route::middleware(['role:admin'])->group(function () {
     Route::resource('members', TeamController::class);
 
     //Gallery routes
-    Route::get('/galerij/{id}/wijzigen', [GalleryController::class, 'editAlbum']);
-    Route::post('/galerij/{year}/{title}/voegfototoe', [GalleryController::class, 'addPhoto']);
-    Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-    Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+
 
     Route::post('/galerij/{year}/{title}/wijzigbeschrijving', [GalleryController::class, 'updateAlbumDescription']);
     Route::post('/galerij/{year}/{title}/voegfotostoe', [GalleryController::class, 'addAlbumPictures']);
     Route::post('/galerij/{year}/{title}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
 
-
-    //TODO: voor een andere user story
-    Route::get('/galerij/aanmakenAlbum', [GalleryController::class, 'create']);
-    Route::post('/galerij/aanmakenAlbum', [GalleryController::class, 'store']);
-    Route::get('/galerij/verwijderenAlbum', [GalleryController::class, 'delete']);
+        // Route::get('/galerij/{id}/wijzigen', [GalleryController::class, 'editAlbum']);
+    // Route::post('/galerij/{year}/{title}/voegfototoe', [GalleryController::class, 'addPhoto']);
+    // Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
+    // Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 
     //Galerij routes
     Route::resource('galerij', GalleryController::class);
