@@ -9,10 +9,17 @@ use Tests\DuskTestCase;
 
 class CreateEventTest extends DuskTestCase
 {
+    protected function setUp(): void
+    {
+        parent::setUp();
+
+        $this->artisan('migrate:fresh --seed');
+    }
+
     public function testCreateEvent(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->loginAs(User::find(1))
+            $browser->loginAs(1)
                     ->visit('/events')
                     ->clickLink("Creeër nieuw evenement")
                     ->type("title", "DuskGolf")
