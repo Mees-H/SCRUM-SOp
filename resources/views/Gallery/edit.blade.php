@@ -79,7 +79,7 @@
                 </form>
             </div>
             <div class="col-md-6">
-                <form action="{{ url('/galerij/'.$year.'/'.$album->title.'/voegfototoe') }}" method="POST">
+                <form action="{{ url('/galerij/' . $album->id . '/addPhoto') }}" method="GET">
                     @csrf
                     <input type="hidden" name="album_id" value="{{ $album->id }}">
                     <button type="submit" class="btn btn-primary wide-button text-white">Foto toevoegen</button>

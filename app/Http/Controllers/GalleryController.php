@@ -16,7 +16,18 @@ class GalleryController extends Controller
 
     public function addPhoto(Request $request)
     {
-        return view('Gallery.fotoToevoegen',);
+        $validated = $request->validate([
+            'album_id' => 'required|integer|exists:albums,id',
+        ]);
+
+        $album_id = $validated['album_id'];
+        $album = Album::find($album_id);
+
+        $year = Carbon::parse($album->date)->format('Y');
+
+        $title = $album->title;
+
+        return view('Gallery.fotoToevoegen', ['album' => $album, 'year' => $year, 'title' => $title]);
     }
 
     public function showGallery($year)
