@@ -7,9 +7,30 @@ use App\Models\Picture;
 use Illuminate\Http\Request;
 use Image;
 use Storage;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\Log;
+
 
 class GalleryController extends Controller
 {
+    public function editAlbum($id)
+    {
+        $album = Album::find($id);
+        $pictures = Picture::with('album')->where('album_id', $album->id)->get();
+        $year = Carbon::parse($album->date)->year;
+
+        return view('Gallery.wijzigenAlbum', [
+            'album' => $album,
+            'pictures' => $pictures,
+            'year' => $year
+        ]);
+    }
+
+    public function addPhoto(Request $request)
+    {
+        return view('Gallery.fotoToevoegen',);
+    }
+
     public function showGallery($year)
     {
         $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
@@ -106,6 +127,7 @@ class GalleryController extends Controller
             $image->delete();
             Picture::where('id', $request->id)->delete();
         }
+        //Picture::destroy($request->images);
 
         if(count($request->images) > 1){
             return redirect('/galerij')->with('success', 'Afbeeldingen zijn verwijderd uit album');
