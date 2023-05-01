@@ -6,39 +6,48 @@
             "links": [
                 {
                     "name": "home",
-                    "link": "/"
+                    "link": "/",
+                    "alt": "Start pagina"
                 },
                 {
                     "name": "trainingen",
-                    "link": "/training"
+                    "link": "/training",
+                    "alt": "Training overzicht"
                 },
                 {
                     "name": "evenementen",
-                    "link": "/evenement"
+                    "link": "/evenement",
+                    "alt": "Evenementen overzicht"
                 },
                 {
                     "name": "faq",
-                    "link": "/faq"
+                    "link": "/faq",
+                    "alt": "Veel gestelde vragen"
                 },
                 {
                     "name": "nieuws",
-                    "link": "/nieuwsbrief"
+                    "link": "/nieuwsbrief",
+                    "alt": "Nieuws pagina"
                 },
                 {
                     "name": "team",
-                    "link": "/team"
+                    "link": "/team",
+                    "alt": "het Special golf team"
                 },
                 {
                     "name": "partners",
-                    "link": "/partner"
+                    "link": "/partner",
+                    "alt": "Partners van Special golf"
                 },
                 {
                     "name": "over ons",
-                    "link": "/overons"
+                    "link": "/overons",
+                    "alt": "Over special golf"
                 },
                 {
                     "name": "locatie",
-                    "link": "/locatie"
+                    "link": "/locatie",
+                    "alt": "Locatie van special golf"
                 }
             ]
         },
@@ -48,11 +57,13 @@
             "links": [
                 {
                     "name": "Evenementen aanpassen",
-                    "link": "/events"
+                    "link": "/events",
+                    "alt": "Pas evenementen aan"
                 },
                 {
                     "name": "Galerij aanpassen",
-                    "link": "/galerij/aanmakenAlbum"
+                    "link": "/galerij/aanmakenAlbum",
+                    "alt": "Pas gallerij aan"
                 }
             ]
         }
