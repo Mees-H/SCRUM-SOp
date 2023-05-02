@@ -123,50 +123,52 @@
                     </ul>
                 </li>
                 @endif
-                <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#" >
-                    <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
-                    <ul class="border border-dark rounded d-none" id="content">
-                        <li><a class="dropdown-item text-center" href="/">
-                            Hoofdpagina
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/training">
-                            Trainingen
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/evenement">
-                            Evenementen
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/albums/2023">
-                            2023
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/albums/2022">
-                            2022
-                        </a></li>
-                        <li> <a class="dropdown-item text-center" href="/albums/2021">
-                            2021
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/vragenantwoorden">
-                            FAQ
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/nieuwsbrief">
-                            Nieuwsbrief
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/team">
-                            Team
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/partner">
-                            Partner
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/overons">
-                            Over Ons
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/locatie">
-                            Locatie
-                        </a></li>
-                        <li><a class="dropdown-item text-center" href="/links">
-                            Links
-                        </a></li>
-                    </ul>
-                </form>
+                <li class="nav-item">
+                    <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#" >
+                        <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+                        <ul class="border border-dark rounded d-none" id="content">
+                            <li><a class="dropdown-item text-center" href="/">
+                                Hoofdpagina
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/training">
+                                Trainingen
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/evenement">
+                                Evenementen
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/albums/2023">
+                                2023
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/albums/2022">
+                                2022
+                            </a></li>
+                            <li> <a class="dropdown-item text-center" href="/albums/2021">
+                                2021
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/vragenantwoorden">
+                                FAQ
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/nieuwsbrief">
+                                Nieuwsbrief
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/team">
+                                Team
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/partner">
+                                Partner
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/overons">
+                                Over Ons
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/locatie">
+                                Locatie
+                            </a></li>
+                            <li><a class="dropdown-item text-center" href="/links">
+                                Links
+                            </a></li>
+                        </ul>
+                    </form>
+                </li>
             </ul>
         </div>
         </nav>
@@ -213,6 +215,7 @@
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/faq">Veelgestelde vragen</a>
             </li>
+            <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}" href="/nieuwsbrief">Nieuws</a>
             </li>
             <li class="nav-item">
