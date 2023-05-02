@@ -34,7 +34,7 @@ class TeamController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'email' => 'required|unique:team_members,email|max:255',
+            'email' => 'required|unique:team_members,email|max:255|email',
             'phonenumber' => 'nullable|numeric|digits_between:10,10',
             'groups' => 'required'],
             ['phonenumber.digits_between' => 'Telefoonnummer moet 10 cijfers zijn.']);
@@ -81,7 +81,7 @@ class TeamController extends Controller
      */
     public function edit(string $id)
     {
-        return view('members.edit', ['member' => TeamMember::findOrFail($id), 
+        return view('members.edit', ['member' => TeamMember::findOrFail($id),
                                     'groups' => MemberGroup::all()]);
     }
 
@@ -92,7 +92,7 @@ class TeamController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'email' => 'required|max:255',
+            'email' => 'required|max:255|email',
             'phonenumber' => 'nullable|numeric|digits_between:10,10'
         ], ['phonenumber.digits_between' => 'Telefoonnummer moet 10 cijfers zijn.']);
         $member = TeamMember::findOrFail($id);
@@ -104,7 +104,7 @@ class TeamController extends Controller
         $member->imgurl = $request->get('image');
         $member->groups()->detach();
 
-        
+
         //Updating image
         if($request->hasFile('image')){
             $destination_path = 'public/img/teammembers';
