@@ -213,9 +213,6 @@
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}" href="/faq">Veelgestelde vragen</a>
             </li>
-            <li class="nav-item">
-            <a class="nav-link text-dark {{ (request()->segment(1) == 'createuser') ? 'font-weight-bold' : '' }}" href="/admin/gebruikers">Gebruikers</a>
-            <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}" href="/nieuwsbrief">Nieuws</a>
             </li>
             <li class="nav-item">
@@ -226,6 +223,10 @@
                     Organisatie
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'createuser') ? 'font-weight-bold' : '' }}" href="/admin/gebruikers">Gebruikers</a>
+                    <li class="nav-item">
+                    <li><hr class="dropdown-divider"></li>
                     <li class="nav-item">
                         <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'team') ? 'font-weight-bold' : '' }}" href="/members">Team</a>
                     </li>
