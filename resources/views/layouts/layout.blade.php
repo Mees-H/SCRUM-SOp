@@ -144,7 +144,7 @@
                         <li> <a class="dropdown-item text-center" href="/albums/2021">
                             2021
                         </a></li>
-                        <li><a class="dropdown-item text-center" href="/faq">
+                        <li><a class="dropdown-item text-center" href="/vragenantwoorden">
                             FAQ
                         </a></li>
                         <li><a class="dropdown-item text-center" href="/nieuwsbrief">
