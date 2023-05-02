@@ -36,6 +36,7 @@ class CreateUserTest extends DuskTestCase
                 ->type('email', 'duskadmin@test.nl')
                 ->type('password', 'Ab12345!')
                 ->press('Inloggen')
+                ->click("#navbarDropdownOrganisatie")
                 ->assertSee('Gebruikers')
                 ->visit('/admin/gebruikers')
                 ->clickLink('Voeg gebruiker toe')
@@ -52,6 +53,7 @@ class CreateUserTest extends DuskTestCase
                 ->type('email', 'duskuser@gmail.com')
                 ->type('password', 'Ab12345!')
                 ->press('Inloggen')
+                ->click("#navbarDropdownOrganisatie")
                 ->assertSee('Gebruikers')
                 ->logout();
         });
