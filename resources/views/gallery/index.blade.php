@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="display-3">Albums aanpassen</h1>
     <div class="justify-content-between d-lg-flex mb-3">
-        <a href="{{ route('galerij.create')}}" class="btn btn-primary">Creeër nieuw album</a>
+        <a href="{{ route('galerij.create')}}" class="btn btn-primary" dusk="create">Creeër nieuw album</a>
     </div>
     @if(session()->get('success'))
         <div class="alert alert-success">
@@ -25,13 +25,13 @@
                     <td>{{$album->description}}</td>
                     <td>{{$album->date}}</td>
                     <td>
-                        <a href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary">Aanpassen</a>
+                        <a href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary" dusk="edit">Aanpassen</a>
                     </td>
                     <td>
                         <form action="{{ route('galerij.destroy', $album->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger" type="submit">Verwijderen</button>
+                        <button class="btn btn-danger" type="submit" dusk="delete">Verwijderen</button>
                         </form>
                     </td>
                 </tr>
