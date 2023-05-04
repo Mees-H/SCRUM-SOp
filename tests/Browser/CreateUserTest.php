@@ -38,6 +38,7 @@ class CreateUserTest extends DuskTestCase
                 ->press('Inloggen')
                 ->assertSee('Gebruikers')
                 ->visit('/admin/gebruikers')
+                ->waitUntilEnabled('@createUserButton')
                 ->clickLink('Voeg gebruiker toe')
                 ->assertSee('Gebruiker aanmaken')
                 ->select('role', 'admin')
