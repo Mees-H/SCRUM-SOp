@@ -17,16 +17,16 @@
         @foreach($group->members as $member)
             <div class="col-sm-6">
                 <div class="row">
-                    <p class="col">
-                        {{$member->name}}{{$member->function == '' ? '' : ' - '.$member->function}}<br>
-                        E-mail: {{$member->email}}<br>
-                        {{$member->phonenumber == '' ? '' : 'Mobiel: '.$member->phonenumber}}
-                    </p>
                     @if($member->imgurl != '')
                         <div class="memberimg-box">
                             <img src="{{ asset('storage/img/teammembers/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
                         </div>
                     @endif
+                    <p class="col">
+                        {{$member->name}}{{$member->function == '' ? '' : ' - '.$member->function}}<br>
+                        E-mail: {{$member->email}}<br>
+                        {{$member->phonenumber == '' ? '' : 'Mobiel: '.$member->phonenumber}}
+                    </p>
                 </div>
             </div>
         @endforeach
