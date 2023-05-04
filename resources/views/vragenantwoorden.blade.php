@@ -8,7 +8,7 @@
 @endif
 <div class="justify-content-between d-flex">
     <div>
-        <h1 class="display-3">FAQ</h1>
+        <h1>Veelgestelde Vragen</h1>
     </div>
     <div>
     <a href="/vragenantwoorden/vraagformulier" class="btn-primary btn mt-4">Stel een vraag</a>
