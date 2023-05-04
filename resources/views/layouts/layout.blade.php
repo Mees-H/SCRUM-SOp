@@ -55,7 +55,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @if(count($allYears) > 0)
                         @foreach($allYears as $year)
-                            <li><a class="dropdown-item" href="{{ route('galerij_jaar', $year) }}">{{$year}}</a></li>
+                            <li><a class="dropdown-item nav-link text-dark" href="{{ route('galerij_jaar', $year) }}">{{$year}}</a></li>
                             <li><hr class="dropdown-divider"></li>
                         @endforeach
                     @else
@@ -255,7 +255,7 @@
                     </a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <li>
-                            <a href="{{ route('profile.edit') }}" class="dropdown-item">
+                            <a href="{{ route('profile.edit') }}" class="dropdown-item nav-link text-dark">
                                 Profiel
                             </a>
                         </li>
@@ -263,7 +263,7 @@
                         <li>
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
-                                <a href="{{route('logout')}}" class="dropdown-item" onclick="event.preventDefault(); this.closest('form').submit();">
+                                <a href="{{route('logout')}}" class="dropdown-item nav-link text-dark" onclick="event.preventDefault(); this.closest('form').submit();">
                                     Uitloggen
                                 </a>
                             </form>
