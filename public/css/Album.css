@@ -27,7 +27,8 @@ article{
  }
 
  .wide-button {
-    width: 60%;
+    width: 10em;
+    margin-bottom: 10px;
 }
  .image-container {
     width: 100%;
