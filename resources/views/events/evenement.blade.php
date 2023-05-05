@@ -37,7 +37,7 @@
                 @else
                     <p>Prijs: €{{number_format($post->price, 2, ',', '')}}<p>
                 @endif
-                
+
                 <div class="d-flex justify-content-between">
                     <p class="col-sm-8">
                     {!!$post->body!!}
@@ -52,10 +52,10 @@
                     {{--                    TODO: Moet nog worden vervangen met 1 locatie--}}
                     @foreach($post->groups as $group)
                         <div class="m-3">
-                            {{$group->name}}<br>
-                            {{$group->street}} {{$group->housenumber}}<br>
-                            {{$group->zipcode}} {{$group->city}}<br>
-                            <a id="link" href="https://{{$group->link}}">{{$group->link}}</a>
+{{--                            {{$group->name}}<br>--}}
+{{--                            {{$group->street}} {{$group->housenumber}}<br>--}}
+{{--                            {{$group->zipcode}} {{$group->city}}<br>--}}
+                            <a id="link" href="https://{{$group->link}}"><img src="{{$group->imageurl}}"></a>
                         </div>
                     @endforeach
 
