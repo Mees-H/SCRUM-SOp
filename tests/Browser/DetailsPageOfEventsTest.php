@@ -20,11 +20,9 @@ class DetailsPageOfEventsTest extends DuskTestCase
             $browser->visit('/')
                     ->clickLink('Evenementen')
                     ->assertSee('Evenementen')
-                    ->waitUntilEnabled('@ButtonToDetailsEvent')
                     ->click('@ButtonToDetailsEvent')
                     ->assertSee('Indoor-Golf-Middag')
                     ->assertSee('12:00')
-                    ->waitUntilEnabled('@BackButton')
                     ->click('@BackButton')
                     ->assertPathIs('/evenement');
         });
@@ -33,7 +31,6 @@ class DetailsPageOfEventsTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/evenement/1/details')
-                    ->waitUntilEnabled('@WebsiteLink')
                     ->click('@WebsiteLink')
                     ->assertPathIsNot('/evenement/1/details');
         });
