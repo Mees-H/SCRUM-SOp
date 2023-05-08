@@ -25,13 +25,13 @@
                     <td>{{$album->description}}</td>
                     <td>{{$album->date}}</td>
                     <td>
-                        <a href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary" dusk="edit">Aanpassen</a>
+                        <a href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary" dusk="editAlbum">Aanpassen</a>
                     </td>
                     <td>
                         <form action="{{ route('galerij.destroy', $album->id)}}" method="post">
                         @csrf
                         @method('DELETE')
-                        <button class="btn btn-danger" type="submit" dusk="delete">Verwijderen</button>
+                        <button class="btn btn-danger" type="submit" dusk="deleteAlbum">Verwijderen</button>
                         </form>
                     </td>
                 </tr>

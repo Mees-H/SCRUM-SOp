@@ -48,7 +48,7 @@ class AlbumTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
-                    ->waitUntilEnabled('@edit')
+                    ->waitUntilEnabled('@editAlbum')
                     ->clickLink('Aanpassen')
                     ->type('title', 'Test Titel')
                     ->type('description', 'Test Omschrijving')
@@ -63,7 +63,7 @@ class AlbumTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
-                    ->waitUntilEnabled('@edit')
+                    ->waitUntilEnabled('@editAlbum')
                     ->clickLink('Aanpassen')
                     ->type('title', '')
                     ->type('description', '')
@@ -79,7 +79,7 @@ class AlbumTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
-                    ->waitUntilEnabled('@delete')
+                    ->waitUntilEnabled('@deleteAlbum')
                     ->press('Verwijderen')
                     ->assertSee('Album verwijderd.');
         });

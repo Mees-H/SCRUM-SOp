@@ -50,7 +50,7 @@ Route::resource('slider', SliderController::class);
 
 //Training routes
 
-Route::resource('trainingsessions', TrainingController::class);
+Route::resource('trainingSessions', TrainingController::class);
 Route::get('training', [TrainingController::class, 'training']);
 Route::get('/training/signout', [TrainingController::class, 'signout']);
 Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail']);
