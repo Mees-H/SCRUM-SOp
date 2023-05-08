@@ -20,7 +20,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
@@ -28,7 +28,7 @@ class EnrollForEventTest extends DuskTestCase
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen');
             $browser
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->press('#aanmeldknop')
                 ->assertSee('Uw aanmelding is verzonden!');
         });
@@ -51,14 +51,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', '')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
@@ -71,14 +71,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', $string)
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
@@ -96,14 +96,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
@@ -113,18 +113,18 @@ class EnrollForEventTest extends DuskTestCase
                 ->pause(1000);
             $browser->script('window.scrollTo(0, 1000);');
             $browser
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '01-01-2999')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
@@ -145,19 +145,19 @@ class EnrollForEventTest extends DuskTestCase
             $browser->script('window.scrollTo(0, 1000);');
 
             $browser
-                ->waitUntilEnabled('#aanmeldknop')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', '')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
@@ -167,18 +167,18 @@ class EnrollForEventTest extends DuskTestCase
                 ->pause(1000);
             $browser->script('window.scrollTo(0, 1000);');
             $browser
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'adsbfiobadsuygbfoulabfuygbdfvhybalxbvudsblyuierub')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
@@ -188,18 +188,18 @@ class EnrollForEventTest extends DuskTestCase
                 ->pause(1000);
             $browser->script('window.scrollTo(0, 1000);');
             $browser
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', $string)
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
@@ -222,14 +222,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '456as4df54fd65a4sdf65saf')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
@@ -242,14 +242,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', ';[]_=asdffda151256124-+()sdfsaf')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
@@ -262,14 +262,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '061234567')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
@@ -282,14 +282,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', $string)
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
@@ -312,14 +312,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', '')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
@@ -332,14 +332,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', $string)
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
@@ -362,14 +362,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 6')
                 ->type('city', '')
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
@@ -382,14 +382,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 6')
                 ->type('city', $string)
                 ->type('golfhandicap', 'Geen')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
@@ -407,14 +407,14 @@ class EnrollForEventTest extends DuskTestCase
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 6')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', '')
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertSee('Uw aanmelding is verzonden!');
         });
@@ -436,14 +436,14 @@ class EnrollForEventTest extends DuskTestCase
             $browser->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
-                ->waitUntilEnabled('#GenderMan')
+                ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 6')
                 ->type('city', 'Teststad')
                 ->type('golfhandicap', $string)
-                ->waitUntilEnabled('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
