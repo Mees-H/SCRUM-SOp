@@ -45,11 +45,11 @@ nav {
 }
 
 h1{
-    color: #A68D2B;
+    color: #65591A;
 }
 
 .specialBrown{
-    color: #8d7824;
+    color: #605824;
 }
 
 footer {
@@ -137,6 +137,10 @@ margin-top:auto;
     background-color: #8A048C;
     border-color: white;
     color:white;
+}
+
+.btn-danger {
+    background-color: #A51F12;
 }
 
 .darkTitle{

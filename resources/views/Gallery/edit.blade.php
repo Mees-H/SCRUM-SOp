@@ -60,7 +60,7 @@
             @foreach ($pictures as $picture)
                 <div class="col-md-4 mb-3">
                     <div class="image-container">
-                        <img src="{{ asset($picture->imageUrl) }}" alt="{{ $picture->id }}" class="img-fluid w-100 h-100">
+                        <img src="{{ asset($picture->imageUrl) }}" alt="Afbeelding {{$picture->id}} uit {{$album->title}}" class="img-fluid w-100 h-100">
                         <input type='hidden' name='images[]' form='deleteForm' value='{{ $picture->id }}' disabled/>
                         <button onclick="selectPicture(this)" class='delete-button'></button>
                     </div>
