@@ -137,20 +137,32 @@ class GalleryController extends Controller
 
     public function addAlbumPictures(Request $request)
     {
+//        ddd($request->images[0]->getClientOriginalName());
         $request->validate([
-            'images' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'images' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $request->image->move(public_path('images'), $imageName);
-
-        foreach ($request->file('images') as $imagefile) {
-            $path = $imagefile->store('/images/resource', ['disk' => 'galerij_fotos']);
-            Picture:create([
-                'album_id' => $request->album_id,
-                'image' => $path
-            ]);
-            $image->save();
+        foreach ($request->images as $image){
+            //if image is not a file, throw an 400 error
+            if(!is_file($image)){
+                return response()->json(['error' => 'The image is not a file'], 400);
+            }
+            else{
+                $image->move(public_path('images'), $image->getClientOriginalName());
+            }
         }
+
+
+
+//        foreach ($request->file('images') as $imagefile) {
+//            $path = $imagefile->store('/images/resource', ['disk' => 'galerij_fotos']);
+//            Picture:create([
+//                'album_id' => $request->album_id,
+//                'image' => $path
+//            ]);
+//            $image->save();
+//        }
 
         return redirect('/galerij')->with('success', 'Afbeelding is toegevoegd aan album');
     }
