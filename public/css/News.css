@@ -21,11 +21,25 @@
         display: flex;
         border-radius: 20px;
     }
+    #filter_mobile{
+        display:flex;
+    }
+    /*#filter_mobile{*/
+    /*    position: fixed;*/
+    /*    bottom: 2%;*/
+    /*    left: 50%;*/
+    /*    transform: translate(-50%, -50%);*/
+    /*    border-radius: 20px;*/
+    /*    z-index: 1;*/
+    /*}*/
 }
 @media screen and (min-width: 780px)
     {
     #filterButton {
         display: none;
+    }
+    #filter_mobile{
+        display:none;
     }
 }
 

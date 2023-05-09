@@ -31,13 +31,25 @@
                                             <a href="{{ route('nieuws.create')}}" class="btn btn-primary">Nieuw artikel</a>
                                         </div>
                                     @endif
-                                    <div>
-                                        <button class="btn btn-success" id="filterButton">
-                                            Filter
-                                            <i class="bi bi-filter-right"></i>
-                                        </button>
+                                    <div id="filter_mobile">
+{{--                                        <a class="btn btn-success" id="filterButton">--}}
+{{--                                            Filter--}}
+{{--                                            <i class="bi bi-filter-right"></i>--}}
+                                            <form method="GET" class="d-flex">
+                                                <div class="form-group">
+                                                    <select class="form-select" name="sort" id="sort">
+                                                        <option value="date_desc">Datum Aflopend</option>
+                                                        <option value="date_asc">Datum Oplopend</option>
+                                                        <option value="title_desc">Titel Nieuw-Oud</option>
+                                                        <option value="title_asc">Titel Oud-Nieuw</option>
+                                                    </select>
+                                                </div>
+                                            </form>
+{{--                                        </a>--}}
+
                                     </div>
                                 </div>
+
 
                                 <div class="card border-0">
                                     @foreach($articles as $article)

@@ -10,6 +10,8 @@ class NewsArticle extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    protected $sort = ['date', 'title'];
+
     protected $casts = [
         'imgurl' => 'array',
         'fileurl' => 'array'
@@ -17,12 +19,11 @@ class NewsArticle extends Model
 
     public function scopeFilter($query, array $filters)
     {
-        $query->when($filters['sort'] ?? false, function($query, $sort){
-            if($sort === 'date_desc'){
+        $query->when($filters['date_asc'] ?? false, function ($query, $sort) {
+                $query->orderBy('date', 'asc');
+        });
+        $query->when($filters['date_desc'] ?? false, function ($query, $sort) {
                 $query->orderBy('date', 'desc');
-            }elseif($sort === 'title_asc'){
-                $query->orderBy('title', 'asc');
-            }
         });
     }
 }
