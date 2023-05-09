@@ -20,6 +20,21 @@ class NewsArticleController extends Controller
         return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
     }
 
+    public function sort(Request $request)
+    {
+        $sort = $request->get('sort');
+        dd($sort);
+        if ($sort == 'date_desc') {
+            $articles = NewsArticle::all()->sortByDesc('date');
+        } else if ($sort == 'title_asc') {
+            $articles = NewsArticle::all()->sortBy('title');
+        } else {
+            $articles = NewsArticle::all()->sortByDesc('date');
+        }
+        return view('nieuws.nieuwsbrief', ['articles' => $articles]);
+    }
+
+
     /**
      * Show the form for creating a new resource.
      */
@@ -200,4 +215,23 @@ class NewsArticleController extends Controller
 
         return redirect('/nieuws')->with('success', 'Artikel verwijderd.');
     }
+
+    //filter on date descending
+    public function filterDateDesc(){
+        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
+    }
+    //filter on date ascending
+    public function filterDateAsc(){
+        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortBy('date')]);
+    }
+    //filter on title desc
+    public function filterTitleDesc(){
+        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('title')]);
+    }
+    //filter on title ascending
+    public function filterTitleAsc()
+    {
+        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortBy('title')]);
+    }
+
 }
