@@ -78,6 +78,7 @@ Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('gal
 Route::resource('nieuws', NewsArticleController::class);
 
 
+
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
