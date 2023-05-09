@@ -19,9 +19,7 @@ class NewsArticleController extends Controller
      */
     public function index()
     {
-        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->filter(request(['sort'])),
-            'sort' => request('sort') ?? 'date_desc',
-            'search' => request('search') ?? '']);
+        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
     }
 
 
@@ -205,6 +203,20 @@ class NewsArticleController extends Controller
         
         return redirect('/nieuws')->with('success', 'Artikel verwijderd.');
     }
+
+    public function showAllYearsOfNewsArticles(): array
+    {
+        //get years
+        $yearsOfNewsArticles = [];
+        foreach(NewsArticle::all() as $article){
+            $year = date('Y', strtotime($article->date));
+            if(!in_array($year, $yearsOfNewsArticles)){
+                $yearsOfNewsArticles[] = $year;
+            }
+        }
+        return array_unique($yearsOfNewsArticles);
+    }
+
 
     //filter on date descending
     public function filterDateDesc(){
