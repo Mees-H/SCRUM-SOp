@@ -18,9 +18,10 @@
             <div class="col-sm-6">
                 <div class="row">
                     <p class="col">
-                        {{$member->name}}{{$member->function == '' ? '' : ' - '.$member->function}}<br>
-                        E-mail: {{$member->email}}<br>
-                        {{$member->phonenumber == '' ? '' : 'Mobiel: '.$member->phonenumber}}
+                        <span>{{$member->name}}{{$member->function == '' ? '' : ' - '.$member->function}}</span><br>
+                        <span>Email:</span>
+                        <a href="mailto:{{$member->email}}" aria-labelledby="Dit is de email van {{$member->name}}">{{$member->email}}</a><br>
+                        <span>{{$member->phonenumber == '' ? '' : 'Mobiel: '.$member->phonenumber}}</span>
                     </p>
                     @if($member->imgurl != '')
                         <div class="memberimg-box">
