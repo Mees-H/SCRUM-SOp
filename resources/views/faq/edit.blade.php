@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-<h1 class="display-3">FAQ aanpassen
-    <a href="/faq" class="btn btn-primary">Ga terug</a></h1>
+<h1 class="display-3">Veelgestelde vragen aanpassen</h1>
+    <a href="/faq" class="btn btn-primary">Ga terug</a>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -27,6 +27,6 @@
             <input type="text" class="form-control" name="antwoord" value="{{ $FAQ->answer }}" id="antwoord" required/>
         </div>
 
-        <button type="submit" class="btn btn-primary">Update</button>
+        <button type="submit" class="btn btn-primary">Pas veelgestelde vraag aan</button>
     </form>
 @endsection
