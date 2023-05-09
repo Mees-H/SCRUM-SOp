@@ -21,6 +21,8 @@
                         <div class="memberimg-box">
                             <img src="{{ asset('storage/img/teammembers/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
                         </div>
+                    @else
+                    <div class="memberimg-box"></div>
                     @endif
                     <p class="col">
                         {{$member->name}}{{$member->function == '' ? '' : ' - '.$member->function}}<br>

@@ -53,7 +53,7 @@ class FAQController extends Controller
 
         FAQ::create(['question' => $attributes['vraag'], 'answer' => $attributes['antwoord']]);
 
-        return redirect('/faq')->with('success', 'Vraag & antwoord opgeslagen.');
+        return redirect('/faq')->with('success', 'Veelgestelde vraag opgeslagen.');
     }
 
     function edit(string $id) {
@@ -70,12 +70,12 @@ class FAQController extends Controller
 
         FAQ::where('id', $id)->update(['question' => $attributes['vraag'], 'answer' => $attributes['antwoord']]);
 
-        return redirect('/faq')->with('success', 'Vraag & antwoord geupdatet.');
+        return redirect('/faq')->with('success', 'Veelgestelde vraag geupdatet.');
     }
 
     function destroy(string $id)
     {
         FAQ::findOrFail($id)->delete();
-        return redirect('/faq')->with('success', 'Vraag & antwoord verwijderd.');
+        return redirect('/faq')->with('success', 'Veelgestelde vraag verwijderd.');
     }
 }

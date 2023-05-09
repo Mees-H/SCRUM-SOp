@@ -9,7 +9,15 @@ class GalleryController extends Controller
 {
     public function showGallery($year)
     {
-        $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
+        //withCount = tel het aantal foto's dat een album heeft en voeg het toe als variable
+        $albums = Album::withCount('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
+
+        foreach ($albums as $key => $album) {
+            if ($album->picture_count <= 0) {
+                //als een album geen foto's heeft, verwijder hem dan uit de $albums array
+                unset($albums[$key]);
+            } 
+        }
 
         return view('Albums.galerijYear', [
             'albums' => $albums,
