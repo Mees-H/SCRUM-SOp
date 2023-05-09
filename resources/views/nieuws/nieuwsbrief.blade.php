@@ -88,9 +88,7 @@
                                         </div>
                                 </div>
                             </div>
-                            {{--                TODO: User story nieuwsberichten--}}
                             <div class="col">
-                                <!-- TODO: fix for user story nieuwsberichten
                                 <div class="mt-2 pb-3">
                                     <form method="GET" class="d-flex">
                                         <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
@@ -103,7 +101,7 @@
                                             </select>
                                         </div>
                                     </form>
-                                </div>-->
+                                </div>
                                 <div class="card border-0 p-3">
                                     <h1 class="text-black">Nieuwsbrieven</h1>
                                     <div class="card-body">

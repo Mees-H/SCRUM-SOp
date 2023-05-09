@@ -14,4 +14,5 @@ class NewsArticle extends Model
         'imgurl' => 'array',
         'fileurl' => 'array'
     ];
+
 }

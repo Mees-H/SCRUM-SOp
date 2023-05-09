@@ -28,7 +28,7 @@
             <ul class="btn-toggle-nav list-unstyled fw-normal small">
             @foreach($articles as $article)
             <li>
-                <a id="articleNav" href="#{{$article->date}}id" class="border-0 text-decoration-none text-black ">
+                <a id="articleNav" href="#{{$article->id}}" class="border-0 text-decoration-none text-black ">
                     <p id="navText" class="border-top pt-2">
                     {{$article->title}}
                         <br/>
