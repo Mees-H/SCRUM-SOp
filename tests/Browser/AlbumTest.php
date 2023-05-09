@@ -19,6 +19,7 @@ class AlbumTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
                     ->visit('/galerij')
+                    ->waitUntilEnabled('@create')
                     ->clickLink('Creeër nieuw album')
                     ->type('title', 'Test Titel')
                     ->type('description', 'Test Omschrijving')
@@ -34,6 +35,7 @@ class AlbumTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
+                    ->waitUntilEnabled('@create')
                     ->clickLink('Creeër nieuw album')
                     ->press('Album toevoegen')
                     ->assertDontSee('Album is aangemaakt.');
@@ -46,6 +48,7 @@ class AlbumTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
+                    ->waitUntilEnabled('@editAlbum')
                     ->clickLink('Aanpassen')
                     ->type('title', 'Test Titel')
                     ->type('description', 'Test Omschrijving')
@@ -60,6 +63,7 @@ class AlbumTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
+                    ->waitUntilEnabled('@editAlbum')
                     ->clickLink('Aanpassen')
                     ->type('title', '')
                     ->type('description', '')
@@ -72,9 +76,10 @@ class AlbumTest extends DuskTestCase
     public function testDeleteAlbum(): void
     {
         $this->artisan('db:seed');
-        
+
         $this->browse(function (Browser $browser) {
             $browser->visit('/galerij')
+                    ->waitUntilEnabled('@deleteAlbum')
                     ->press('Verwijderen')
                     ->assertSee('Album verwijderd.');
         });
