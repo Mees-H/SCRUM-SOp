@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
+use Psr\Container\ContainerExceptionInterface;
+use Psr\Container\NotFoundExceptionInterface;
 
 class NewsArticleController extends Controller
 {
@@ -17,21 +19,9 @@ class NewsArticleController extends Controller
      */
     public function index()
     {
-        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
-    }
-
-    public function sort(Request $request)
-    {
-        $sort = $request->get('sort');
-        dd($sort);
-        if ($sort == 'date_desc') {
-            $articles = NewsArticle::all()->sortByDesc('date');
-        } else if ($sort == 'title_asc') {
-            $articles = NewsArticle::all()->sortBy('title');
-        } else {
-            $articles = NewsArticle::all()->sortByDesc('date');
-        }
-        return view('nieuws.nieuwsbrief', ['articles' => $articles]);
+        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->filter(request(['sort'])),
+            'sort' => request('sort') ?? 'date_desc',
+            'search' => request('search') ?? '']);
     }
 
 
