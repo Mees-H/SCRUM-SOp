@@ -218,6 +218,15 @@ class NewsArticleController extends Controller
     }
 
 
+    public function sorting(){
+        return match ($_GET['sort'] ?? null) {
+            'date_desc' => $this->filterDateDesc(),
+            'date_asc' => $this->filterDateAsc(),
+            'title_desc' => $this->filterTitleDesc(),
+            'title_asc' => $this->filterTitleAsc(),
+            default => view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]),
+        };
+    }
     //filter on date descending
     public function filterDateDesc(){
         return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
