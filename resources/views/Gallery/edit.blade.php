@@ -56,17 +56,17 @@
         <div class="row mt-3">
             @if ($pictures->isEmpty())
             <p>Geen foto's gevonden in fotoalbum.</p>
-        @else
-            @foreach ($pictures as $picture)
-                <div class="col-md-4 mb-3">
-                    <div class="image-container">
-                        <img src="{{ asset($picture->imageUrl) }}" alt="Afbeelding {{$picture->id}} uit {{$album->title}}" class="img-fluid w-100 h-100">
-                        <input type='hidden' name='images[]' form='deleteForm' value='{{ $picture->id }}' disabled/>
-                        <button onclick="selectPicture(this)" class='delete-button'></button>
+            @else
+                @foreach ($pictures as $picture)
+                    <div class="col-md-4 mb-3">
+                        <div class="image-container">
+                            <img src="{{ asset('images/' . $picture->image) }}" alt="Afbeelding {{$picture->id}} uit {{$album->title}}" class="img-fluid w-100 h-100">
+                            <input type='hidden' name='images[]' form='deleteForm' value='{{ $picture->id }}' disabled/>
+                            <button onclick="selectPicture(this)" class='delete-button'></button>
+                        </div>
                     </div>
-                </div>
-            @endforeach
-        @endif
+                @endforeach
+            @endif
         </div>
 
         <div class="row mt-3 text-center mb-5">

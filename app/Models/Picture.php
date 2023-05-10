@@ -13,6 +13,7 @@ class Picture extends Model
 
     protected $fillable = [
         'image',
+        'album_id'
     ];
 
     public function album()

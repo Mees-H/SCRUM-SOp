@@ -10,7 +10,6 @@ use Storage;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Log;
 
-
 class GalleryController extends Controller
 {
     public function addPhoto(Request $request)
@@ -38,8 +37,10 @@ class GalleryController extends Controller
             'year' => $year
         ]);
     }
-    public function show($id)
+
+    public function show(Request $request)
     {
+        ddd($request);
         $album = Album::with('picture')->where('id', $id)->first();
         $pictures = Picture::with('album')->where('album_id', $id)->get();
         $year = Carbon::parse($album->date)->year;
@@ -144,25 +145,24 @@ class GalleryController extends Controller
         ]);
 
         foreach ($request->images as $image){
-            //if image is not a file, throw an 400 error
+            //if image is not a file, throw an error (400)
             if(!is_file($image)){
                 return response()->json(['error' => 'The image is not a file'], 400);
             }
             else{
-                $image->move(public_path('images'), $image->getClientOriginalName());
+                $imageNameWithExt = $image->getClientOriginalName(); 
+                $imageName =pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+                $imageExt=$image->getClientOriginalExtension();
+                $storeImage=$imageName . time() . "." . $imageExt;
+
+                $image->move(public_path('images'), $storeImage);
+
+                Picture::create([
+                    'album_id' => $request->album_id,
+                    'image' => $storeImage
+                ]);
             }
         }
-
-
-
-//        foreach ($request->file('images') as $imagefile) {
-//            $path = $imagefile->store('/images/resource', ['disk' => 'galerij_fotos']);
-//            Picture:create([
-//                'album_id' => $request->album_id,
-//                'image' => $path
-//            ]);
-//            $image->save();
-//        }
 
         return redirect('/galerij')->with('success', 'Afbeelding is toegevoegd aan album');
     }
