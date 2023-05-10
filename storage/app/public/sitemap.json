@@ -5,9 +5,9 @@
             "name": "Algemene pagina's",
             "links": [
                 {
-                    "name": "home",
+                    "name": "Startpagina",
                     "link": "/",
-                    "alt": "Start pagina"
+                    "alt": "Startpagina"
                 },
                 {
                     "name": "trainingen",
@@ -20,9 +20,9 @@
                     "alt": "Evenementen overzicht"
                 },
                 {
-                    "name": "faq",
-                    "link": "/faq",
-                    "alt": "Veel gestelde vragen"
+                    "name": "Veelgestelde vragen",
+                    "link": "/vragenantwoorden",
+                    "alt": "Veelgestelde vragen"
                 },
                 {
                     "name": "nieuws",
