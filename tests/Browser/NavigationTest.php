@@ -13,37 +13,40 @@ class NavigationTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
                 $browser->visit('/')
-                        ->clickLink("Startpagina")
-                        ->assertPathIs("/");
-                $browser->visit('/')
+                        ->click("#navbarDropdownActiviteiten")
                         ->clickLink("Trainingen")
                         ->assertPathIs("/training");
                 $browser->visit('/')
+                        ->click("#navbarDropdownActiviteiten")
                         ->clickLink("Evenementen")
                         ->assertPathIs("/evenement");
                 $browser->visit('/')
-                        ->click("#navbarDropdown")
+                        ->click("#navbarDropdownGalerij")
                         ->clickLink("2021")
                         ->assertPathIs("/albums/2021");
                 $browser->visit('/')
-                        ->clickLink("FAQ")
+                        ->clickLink("Veelgestelde vragen")
                         ->assertPathIs("/vragenantwoorden");
                 $browser->visit('/')
                         ->clickLink("Nieuws")
                         ->assertPathIs("/nieuwsbrief");
                 $browser->visit('/')
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Team")
                         ->assertPathIs("/team");
                 $browser->visit('/')
-                        ->clickLink("Partner")
+                        ->clickLink("Partners")
                         ->assertPathIs("/partner");
                 $browser->visit('/')
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Over Ons")
                         ->assertPathIs("/overons");
                 $browser->visit('/')
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Locatie")
                         ->assertPathIs("/locatie");
                 $browser->visit('/')
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Links")
                         ->assertPathIs("/links");
         });
@@ -121,41 +124,51 @@ class NavigationTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
                 $browser->loginAs(User::find(1));
                 $browser->visit('/')
-                        ->clickLink("Startpagina")
-                        ->assertPathIs("/");
-                $browser->visit('/')
+                        ->click("#navbarDropdownActiviteiten")
                         ->clickLink("Trainingen")
                         ->assertPathIs("/trainingsessions");
                 $browser->visit('/')
+                        ->click("#navbarDropdownActiviteiten")
                         ->clickLink("Evenementen")
                         ->assertPathIs("/events");
                 $browser->visit('/')
+                        ->click("#navbarDropdownFotos")
                         ->clickLink("Galerij")
                         ->assertPathIs("/galerij");
                 $browser->visit('/')
-                        ->clickLink("FAQ")
+                        ->click("#navbarDropdownFotos")
+                        ->clickLink("Slider")
+                        ->assertPathIs("/slider");
+                $browser->visit('/')
+                        ->clickLink("Veelgestelde vragen")
                         ->assertPathIs("/faq");
                 $browser->visit('/')
                         ->clickLink("Nieuws")
                         ->assertPathIs("/nieuwsbrief");
                 $browser->visit('/')
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Team")
                         ->assertPathIs("/members");
                 $browser->visit('/')
-                        ->clickLink("Partner")
+                        ->clickLink("Partners")
                         ->assertPathIs("/partner");
                 $browser->visit('/')
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Over Ons")
                         ->assertPathIs("/overons");
                 $browser->visit('/')
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Locatie")
                         ->assertPathIs("/locatie");
                 $browser->visit('/')
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Links")
                         ->assertPathIs("/links");
                 $browser->visit('/')
-                        ->clickLink("Slider")
-                        ->assertPathIs("/slider");
+                        ->click("#navbarDropdownOrganisatie")
+                        ->clickLink("Gebruikers")
+                        ->assertPathIs("/admin/gebruikers");
+                
         });
     }
 }

@@ -17,8 +17,7 @@ class DetailsPageOfEventsTest extends DuskTestCase
     {
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/')
-                    ->clickLink('Evenementen')
+            $browser->visit('/evenement')
                     ->assertSee('Evenementen')
                     ->click('@ButtonToDetailsEvent')
                     ->assertSee('Indoor-Golf-Middag')
