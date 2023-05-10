@@ -19,7 +19,7 @@ class GalleryController extends Controller
             } 
         }
 
-        return view('Albums.galerijYear', [
+        return view('albums.galerijYear', [
             'albums' => $albums,
             'year' => $year
         ]);
@@ -29,7 +29,7 @@ class GalleryController extends Controller
         $album = Album::with('picture')->where('title', $title)->first();
         $pictures = Picture::with('album')->where('album_id', $album->id)->get();
 
-        return view('Albums.showAlbum', [
+        return view('albums.showAlbum', [
             'album' => $album,
             'pictures' => $pictures,
             'year' => $year
@@ -51,15 +51,15 @@ class GalleryController extends Controller
 
     /// Dit is voor een andere user story, deze wordt later gemaakt. Jira: S8S-32 en S8S-33///
 
-    public function index() 
+    public function index()
     {
         $albums = Album::all();
-        return view('Gallery.index', compact('albums'));
+        return view('gallery.index', compact('albums'));
     }
 
     public function create()
     {
-        return view('Gallery.create');
+        return view('gallery.create');
     }
 
     public function store(Request $request)
@@ -82,7 +82,7 @@ class GalleryController extends Controller
     public function edit(string $id)
     {
         $album = Album::findOrFail($id);
-        return view('Gallery.edit', compact('album'));
+        return view('gallery.edit', compact('album'));
     }
 
     /**
@@ -95,7 +95,7 @@ class GalleryController extends Controller
             'description' => 'required|max:999',
             'date' => 'required'
         ]);
-        
+
         Album::where('id', $id)->update(['title' => $attributes['title'], 'description' => $attributes['description'], 'date' => $attributes['date']]);
 
 
