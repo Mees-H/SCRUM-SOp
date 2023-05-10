@@ -17,13 +17,4 @@ class NewsArticle extends Model
         'fileurl' => 'array'
     ];
 
-    public function scopeFilter($query, array $filters)
-    {
-        $query->when($filters['date_asc'] ?? false, function ($query, $sort) {
-                $query->orderBy('date', 'asc');
-        });
-        $query->when($filters['date_desc'] ?? false, function ($query, $sort) {
-                $query->orderBy('date', 'desc');
-        });
-    }
 }

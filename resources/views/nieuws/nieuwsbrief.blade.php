@@ -35,7 +35,7 @@
 {{--                                        <a class="btn btn-success" id="filterButton">--}}
 {{--                                            Filter--}}
 {{--                                            <i class="bi bi-filter-right"></i>--}}
-                                            <form method="GET" class="d-flex">
+                                            <form method="GET"  class="d-flex">
                                                 <div class="form-group">
                                                     <select class="form-select" name="sort" id="sort">
                                                         <option value="date_desc">Datum Aflopend</option>
@@ -102,10 +102,10 @@
                             </div>
                             <div class="col">
                                 <div class="mt-2 pb-3">
-                                    <form method="GET" class="d-flex">
+                                    <form method="GET" action="{{route('sorting')}}" class="d-flex">
                                         <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
                                         <div class="form-group">
-                                            <select class="form-select" name="sort" id="sort">
+                                            <select class="form-select" name="sort" id="sort" onchange="this.form.submit()">
                                                 <option value="date_desc">Datum Aflopend</option>
                                                 <option value="date_asc">Datum Oplopend</option>
                                                 <option value="title_desc">Titel Nieuw-Oud</option>
