@@ -7,7 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\TrainingSessionGroup;
 use App\Models\TrainingSession;
-use App\Models\Participant;
+use App\Models\Member;
 use Illuminate\Support\Facades\DB;
 
 class OefensessieSeeder extends Seeder

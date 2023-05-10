@@ -30,9 +30,17 @@ class GalleryController extends Controller
 
     public function showGallery($year)
     {
-        $albums = Album::with('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
+        //withCount = tel het aantal foto's dat een album heeft en voeg het toe als variable
+        $albums = Album::withCount('picture')->where('date', 'LIKE', $year . '%')->get()->sortByDesc('date');
 
-        return view('Albums.galerijYear', [
+        foreach ($albums as $key => $album) {
+            if ($album->picture_count <= 0) {
+                //als een album geen foto's heeft, verwijder hem dan uit de $albums array
+                unset($albums[$key]);
+            } 
+        }
+
+        return view('albums.galerijYear', [
             'albums' => $albums,
             'year' => $year
         ]);
@@ -45,7 +53,7 @@ class GalleryController extends Controller
         $pictures = Picture::with('album')->where('album_id', $id)->get();
         $year = Carbon::parse($album->date)->year;
 
-        return view('Albums.showAlbum', [
+        return view('albums.showAlbum', [
             'album' => $album,
             'pictures' => $pictures,
             'year' => $year
@@ -70,12 +78,12 @@ class GalleryController extends Controller
     public function index()
     {
         $albums = Album::all();
-        return view('Gallery.index', compact('albums'));
+        return view('gallery.index', compact('albums'));
     }
 
     public function create()
     {
-        return view('Gallery.create');
+        return view('gallery.create');
     }
 
     public function store(Request $request)

@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<h1 class="display-3">Voeg evenement toe</h1>
+<h1 class="display-3">Veelgestelde vragen toevoegen</h1>
     <a href="/faq" class="btn btn-primary">Ga terug</a>
     <div>
         @if ($errors->any())
@@ -23,7 +23,7 @@
                 <label for="antwoord">Antwoord:</label>
                 <input type="text" class="form-control" name="antwoord" id="antwoord" required/>
             </div>
-            <button type="submit" class="btn btn-primary">Voeg vraag & antwoord toe</button>
+            <button type="submit" class="btn btn-primary">Voeg veelgestelde vraag toe</button>
         </form>
     </div>
 @endsection
