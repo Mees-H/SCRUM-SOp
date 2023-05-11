@@ -52,7 +52,7 @@
                     {{--                    TODO: Moet nog worden vervangen met 1 locatie--}}
                     @foreach($post->groups as $group)
                         <div class="m-3">
-                            <a id="link" href="https://{{$group->link}}" alt="link naar website van {{$group->name}}"><img alt="logo van {{$group->name}}" src="{{$group->imageurl}}"></a>
+                            <a id="link" href="https://{{$group->link}}" alt="link naar website van {{$group->name}}"><img style="max-height: 10vh" alt="logo van {{$group->name}}" src="{{$group->imageurl}}"></a>
                         </div>
                     @endforeach
 
