@@ -4,6 +4,12 @@
     <div class="container">
         <h1>Afmelden voor training</h1>
 
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
         <div class="align-items-center">
             <form method="POST" action="signout">
                 @csrf
@@ -33,7 +39,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <br />
 
                 <button type="submit" id="afmeldknop" name="afmeldknop" class="btn btn-primary">Afmelden

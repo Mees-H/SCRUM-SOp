@@ -5,7 +5,7 @@
     <div class="col-sm-12 container">
         <h1 class="display-3">Evenementen</h1>
         <div class="justify-content-between d-lg-flex mb-3">
-            <a href="{{ route('events.create')}}" class="btn btn-primary">Creeër nieuw evenement</a>
+            <a href="{{ route('events.create')}}" class="btn btn-primary" dusk="create-event-button">Creeër nieuw evenement</a>
             <a class="btn btn-secondary" href="/evenement">Terug</a>
         </div>
         @if(session()->get('success'))
@@ -20,6 +20,8 @@
                     <td>Titel</td>
                     <td>Datum</td>
                     <td>Tijd</td>
+                    <td>Prijs</td>
+                    <td>Rekeningnummer</td>
                     <td>Beschrijving</td>
                     <td>Groepen</td>
                     <td colspan = 2>Actions</td>
@@ -32,6 +34,8 @@
                         <td>{{$event->title}} </td>
                         <td>{{$event->date}}</td>
                         <td>{{$event->time}}</td>
+                        <td>€{{number_format($event->price, 2, ',', ' ')}}</td>
+                        <td>{{$event->bankaccount}}</td>
                         <td>{{$event->body}}</td>
                         <td>
                             @foreach($event->groups as $group)
@@ -39,13 +43,13 @@
                             @endforeach
                         </td>
                         <td>
-                            <a href="{{ route('events.edit',$event->id)}}" class="btn btn-primary">Aanpassen</a>
+                            <a href="{{ route('events.edit',$event->id)}}" class="btn btn-primary" dusk="edit-event-button">Aanpassen</a>
                         </td>
                         <td>
                             <form action="{{ route('events.destroy', $event->id)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Verwijderen</button>
+                            <button class="btn btn-danger" type="submit" dusk="remove-event-button">Verwijderen</button>
                             </form>
                         </td>
                     </tr>

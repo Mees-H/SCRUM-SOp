@@ -43,7 +43,7 @@ class TrainingController extends Controller
     }
 
     public function store(Request $request){
-        
+
         $request->validate([
             'date' => 'required|after:today',
             'starttime' => 'required',
@@ -61,7 +61,7 @@ class TrainingController extends Controller
             'IstrainingSession' => ($request->get('vacationweek') == 'true' ? '0' : '1')
         ]);
         $session->save();
-        return redirect('/trainingsessions')->with('success', 'Trainingsessie opgeslagen.');
+        return redirect('/trainingSessions')->with('success', 'Trainingsessie opgeslagen.');
 
     }
 
@@ -69,7 +69,7 @@ class TrainingController extends Controller
         try{
             $session = TrainingSession::findOrFail($id);
         } catch (Exception $e){
-            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen vinden.');
+            return redirect('/trainingSessions')->with('error', 'Trainingsessie niet kunnen vinden.');
         }
         return view('training.edit', ['session' => $session,
                                     'groups' => TrainingSessionGroup::all()]);
@@ -79,8 +79,8 @@ class TrainingController extends Controller
 
         $request->validate([
             'date' => 'required|after:today',
-            'starttime' => 'required|after:endtime',
-            'endtime' => 'required|before:starttime',
+            'starttime' => 'required|before:endtime',
+            'endtime' => 'required|after:starttime',
             'body' => 'required|max:999',
             'group' => 'required'
         ]);
@@ -88,7 +88,7 @@ class TrainingController extends Controller
         try{
             $session = TrainingSession::findOrFail($id);
         } catch (Exception $e){
-            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen updaten.');
+            return redirect('/trainingSessions')->with('error', 'Trainingsessie niet kunnen updaten.');
         }
         $session->Date = $request->get('date');
         $session->StartTime = $request->get('starttime');
@@ -97,20 +97,20 @@ class TrainingController extends Controller
         $session->GroupNumber = $request->get('group');
         $session->IstrainingSession = ($request->get('vacationweek') == 'true' ? '0' : '1');
         $session->save();
-        return redirect('/trainingsessions')->with('success', 'Trainingsessie opgeslagen.');
+        return redirect('/trainingSessions')->with('success', 'Trainingsessie opgeslagen.');
     }
 
     public function destroy(string $id){
         try{
             $result = TrainingSession::findOrFail($id);
         } catch (Exception $e){
-            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen verwijderen.');
+            return redirect('/trainingSessions')->with('error', 'Trainingsessie niet kunnen verwijderen.');
         }
         $result->delete();
-        return redirect('/trainingsessions')->with('success', 'Trainingsessie verwijderd.');
+        return redirect('/trainingSessions')->with('success', 'Trainingsessie verwijderd.');
     }
 
-    
+
     //Signout
     public function signout()
     {
@@ -127,7 +127,7 @@ class TrainingController extends Controller
         );
         Mailer::Mail([], $mail, true);
 
-        return redirect('training')->with('success', 'U heeft zich successvol afgemeld.');
+        return redirect()->back()->with('success', 'U heeft zich successvol afgemeld.');
     }
 
     //Private functions
