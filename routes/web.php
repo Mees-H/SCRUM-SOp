@@ -71,7 +71,7 @@ Route::resource('links', SiteMapController::class);
 
 //album routes
 Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-Route::get('/albums/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('galerij_album');
 
 Route::middleware(['role:admin'])->group(function () {
     //User creation routes

@@ -37,7 +37,7 @@ class GalleryController extends Controller
             if ($album->picture_count <= 0) {
                 //als een album geen foto's heeft, verwijder hem dan uit de $albums array
                 unset($albums[$key]);
-            } 
+            }
         }
 
         return view('albums.galerijYear', [
@@ -46,9 +46,8 @@ class GalleryController extends Controller
         ]);
     }
 
-    public function show(Request $request)
+    public function show(string $id, string $year)
     {
-        ddd($request);
         $album = Album::with('picture')->where('id', $id)->first();
         $pictures = Picture::with('album')->where('album_id', $id)->get();
         $year = Carbon::parse($album->date)->year;
@@ -158,7 +157,7 @@ class GalleryController extends Controller
                 return response()->json(['error' => 'The image is not a file'], 400);
             }
             else{
-                $imageNameWithExt = $image->getClientOriginalName(); 
+                $imageNameWithExt = $image->getClientOriginalName();
                 $imageName =pathinfo($imageNameWithExt, PATHINFO_FILENAME);
                 $imageExt=$image->getClientOriginalExtension();
                 $storeImage=$imageName . time() . "." . $imageExt;
