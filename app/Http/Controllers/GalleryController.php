@@ -4,11 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Models\Album;
 use App\Models\Picture;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Image;
 use Storage;
-use Carbon\Carbon;
-use Illuminate\Support\Facades\Log;
 
 class GalleryController extends Controller
 {
@@ -49,6 +48,9 @@ class GalleryController extends Controller
     public function show(string $id, string $year)
     {
         $album = Album::with('picture')->where('id', $id)->first();
+        if ($album === null) {
+            return redirect()->action([GalleryController::class, 'showGallery'], ['year' => $year]);
+        }
         $pictures = Picture::with('album')->where('album_id', $id)->get();
         $year = Carbon::parse($album->date)->year;
 
@@ -59,7 +61,8 @@ class GalleryController extends Controller
         ]);
     }
 
-    function ShowAllYearsOfGallerys(){
+    function ShowAllYearsOfGallerys()
+    {
 
         //jaar eruit filteren
         $allYears = array();
@@ -151,16 +154,15 @@ class GalleryController extends Controller
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        foreach ($request->images as $image){
+        foreach ($request->images as $image) {
             //if image is not a file, throw an error (400)
-            if(!is_file($image)){
+            if (!is_file($image)) {
                 return response()->json(['error' => 'The image is not a file'], 400);
-            }
-            else{
+            } else {
                 $imageNameWithExt = $image->getClientOriginalName();
-                $imageName =pathinfo($imageNameWithExt, PATHINFO_FILENAME);
-                $imageExt=$image->getClientOriginalExtension();
-                $storeImage=$imageName . time() . "." . $imageExt;
+                $imageName = pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+                $imageExt = $image->getClientOriginalExtension();
+                $storeImage = $imageName . time() . "." . $imageExt;
 
                 $image->move(public_path('images'), $storeImage);
 
@@ -178,10 +180,9 @@ class GalleryController extends Controller
     {
         Picture::destroy($request->images);
 
-        if(count($request->images) > 1){
+        if (count($request->images) > 1) {
             return redirect('/galerij')->with('success', 'Afbeeldingen zijn verwijderd uit album');
-        }
-        else{
+        } else {
             return redirect('/galerij')->with('success', 'Afbeelding is verwijderd uit album');
         }
     }
