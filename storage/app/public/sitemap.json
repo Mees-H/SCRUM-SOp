@@ -32,7 +32,7 @@
                 {
                     "name": "team",
                     "link": "/team",
-                    "alt": "het Special golf team"
+                    "alt": "Het Special golf team"
                 },
                 {
                     "name": "partners",
@@ -63,7 +63,7 @@
                 {
                     "name": "Galerij aanpassen",
                     "link": "/galerij/aanmakenAlbum",
-                    "alt": "Pas gallerij aan"
+                    "alt": "Pas galerij aan"
                 }
             ]
         }
