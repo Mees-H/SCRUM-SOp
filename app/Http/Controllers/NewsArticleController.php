@@ -19,7 +19,13 @@ class NewsArticleController extends Controller
      */
     public function index()
     {
-        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
+        return match ($_GET['sort'] ?? null) {
+            'date_desc' => $this->filterDateDesc(),
+            'date_asc' => $this->filterDateAsc(),
+            'title_desc' => $this->filterTitleDesc(),
+            'title_asc' => $this->filterTitleAsc(),
+            default => view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]),
+        };
     }
 
 
@@ -218,26 +224,18 @@ class NewsArticleController extends Controller
     }
 
 
-    public function sorting(){
-        return match ($_GET['sort'] ?? null) {
-            'date_desc' => $this->filterDateDesc(),
-            'date_asc' => $this->filterDateAsc(),
-            'title_desc' => $this->filterTitleDesc(),
-            'title_asc' => $this->filterTitleAsc(),
-            default => view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]),
-        };
-    }
     //filter on date descending
     public function filterDateDesc(){
-        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
+        return redirect('/nieuws')->with('articles', NewsArticle::all()->sortByDesc('date'));
     }
     //filter on date ascending
     public function filterDateAsc(){
-        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortBy('date')]);
+        return redirect('/nieuws')->with('articles', NewsArticle::all()->sortBy('date'));
     }
     //filter on title desc
     public function filterTitleDesc(){
         return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('title')]);
+
     }
     //filter on title ascending
     public function filterTitleAsc()

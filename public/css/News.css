@@ -38,9 +38,9 @@
     #filterButton {
         display: none;
     }
-    #filter_mobile{
-        display:none;
-    }
+    /*#filter_mobile{*/
+    /*    display:none;*/
+    /*}*/
 }
 
 #articleTitle{
