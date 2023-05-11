@@ -12,6 +12,7 @@ use Tests\TestCase;
 
 class GalleryControllerTest extends TestCase
 {
+
     /**
      * @test
      * @group authentication
@@ -22,15 +23,12 @@ class GalleryControllerTest extends TestCase
         $album = Album::factory()->create();
         $year = Carbon::parse($album->date)->format('Y');
         $title = $album->title;
-        $requestData = [
-            'album_id' => $album->id,
-        ];
         $admin = User::factory()->create([
             'role' => 'admin',
         ]);
 
         // Act
-        $response = $this->actingAs($admin)->post("galerij/'$album->id'/addPhoto", $requestData);
+        $response = $this->actingAs($admin)->get("/galerij/$album->id/addPhoto?album_id=$album->id");
 
         // Assert
         $response->assertOk();
@@ -68,17 +66,29 @@ class GalleryControllerTest extends TestCase
 
     /**
      * @test
+     */
+    public function it_redirects_to_gallery_when_album_is_not_found()
+    {
+        // Arrange
+        $year = '2021';
+        $id = '123';
+
+        // Act
+        $response = $this->get(route('galerij_album', ['year' => $year, 'id' => $id]));
+
+        // Assert
+        $response->assertRedirectToRoute('galerij_jaar', ['year' => $year]);
+    }
+
+    /**
+     * @test
      * @after tearDown
      */
     public function it_shows_the_album_and_its_pictures_when_album_is_found()
     {
         // Arrange
-        $album = Album::factory()->create([
-            'date' => Carbon::now()->toDateString(),
-            'title' => 'TestAlbum23467',
-            'description' => 'TestDescription2346',
-            'id' => 16333378,
-        ]);
+        $album = Album::factory()->create();
+  
         $picture1 = Picture::factory()->create(['album_id' => $album->id, 'image' => 'TestImageSpecialGolf.jpg']);
         $picture2 = Picture::factory()->create(['album_id' => $album->id, 'image' => 'TestImageSpecialGolf.jpg']);
         $year = Carbon::parse($album->date)->year;
@@ -99,21 +109,5 @@ class GalleryControllerTest extends TestCase
         $picture2->delete();
         $album->delete();
 
-    }
-
-    /**
-     * @test
-     */
-    public function it_redirects_to_gallery_when_album_is_not_found()
-    {
-        // Arrange
-        $year = '2021';
-        $id = '123';
-
-        // Act
-        $response = $this->get(route('galerij_album', ['year' => $year, 'id' => $id]));
-
-        // Assert
-        $response->assertRedirectToRoute('galerij_jaar', ['year' => $year]);
     }
 }
