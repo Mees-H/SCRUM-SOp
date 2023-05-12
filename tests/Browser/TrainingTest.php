@@ -100,7 +100,7 @@ class TrainingTest extends DuskTestCase
             $browser->loginAs(1)
                     ->visit('/trainingsessions')
                     ->press("Verwijderen")
-                    ->assertPathIs("/trainingsessions")
+                    ->assertPathIs("/trainingSessions")
                     ->assertSee("Trainingsessie verwijderd.");
         });
     }
