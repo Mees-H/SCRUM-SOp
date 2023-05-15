@@ -1,0 +1,71 @@
+{
+    "categories": [
+        {
+            "private": false,
+            "name": "Algemene pagina's",
+            "links": [
+                {
+                    "name": "Startpagina",
+                    "link": "/",
+                    "alt": "Startpagina"
+                },
+                {
+                    "name": "trainingen",
+                    "link": "/training",
+                    "alt": "Training overzicht"
+                },
+                {
+                    "name": "evenementen",
+                    "link": "/evenement",
+                    "alt": "Evenementen overzicht"
+                },
+                {
+                    "name": "Veelgestelde vragen",
+                    "link": "/vragenantwoorden",
+                    "alt": "Veelgestelde vragen"
+                },
+                {
+                    "name": "nieuws",
+                    "link": "/nieuwsbrief",
+                    "alt": "Nieuws pagina"
+                },
+                {
+                    "name": "team",
+                    "link": "/team",
+                    "alt": "Het Special golf team"
+                },
+                {
+                    "name": "partners",
+                    "link": "/partner",
+                    "alt": "Partners van Special golf"
+                },
+                {
+                    "name": "over ons",
+                    "link": "/overons",
+                    "alt": "Over special golf"
+                },
+                {
+                    "name": "locatie",
+                    "link": "/locatie",
+                    "alt": "Locatie van special golf"
+                }
+            ]
+        },
+        {
+            "private": true,
+            "name": "Onderwater pagina's",
+            "links": [
+                {
+                    "name": "Evenementen aanpassen",
+                    "link": "/events",
+                    "alt": "Pas evenementen aan"
+                },
+                {
+                    "name": "Galerij aanpassen",
+                    "link": "/galerij/aanmakenAlbum",
+                    "alt": "Pas galerij aan"
+                }
+            ]
+        }
+    ]
+}

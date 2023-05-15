@@ -28,7 +28,7 @@ return [
     | sending an e-mail. You will specify which one you are using for your
     | mailers below. You are free to add additional mailers as required.
     |
-    | Supported: "smtp", "sendmail", "mailgun", "ses",
+    | Supported: "smtp", "sendmail", "mailgun", "ses", "ses-v2"
     |            "postmark", "log", "array", "failover"
     |
     */
@@ -98,8 +98,13 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
+        'address' => env('MAIL_FROM_ADDRESS'),
+        'name' => env('MAIL_FROM_NAME'),
+    ],
+
+    'to' =>[
+        'address' => env('STANDARD_MAIL_TO_ADRESS'),
+        'name' => env('STANDARD_MAIL_TO_NAME')
     ],
 
     /*

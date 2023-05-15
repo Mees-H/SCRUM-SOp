@@ -1,0 +1,21 @@
+.marginright {
+    margin-right: 22px;
+    width: 210px;
+    justify-self: flex-end;
+}
+#content {
+    position: absolute;
+    padding: 0;
+    top:50%;
+    margin-top: 30px;
+    width: 150px;
+    list-style-type: none;
+    z-index: 1;
+    background-color: white;
+}
+
+#dropdown {
+    width: 150px;
+}
+
+
