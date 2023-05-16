@@ -104,17 +104,6 @@ class NewsArticleController extends Controller
         //
     }
 
-    public function sorting(Request $request){
-        //sort according to request
-
-        dd($request);
-        //go to index
-        return $this->index();
-
-
-    }
-
-
     /**
      * Show the form for editing the specified resource.
      */
