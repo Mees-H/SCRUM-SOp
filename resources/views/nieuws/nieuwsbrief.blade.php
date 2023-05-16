@@ -32,15 +32,17 @@
                                     <h1 class="text-black">Nieuwsartikelen</h1>
                                     <div id="filter_mobile">
                                         <div class="mt-2 pb-3">
-                                            <form method="GET" action="/nieuws" class="d-flex">
+                                            <form method="Get" action="{{route('sorting')}}" class="d-flex">
+                                                @csrf
                                                 <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
                                                 <div class="form-group">
-                                                    <select class="form-select" id="sort"  onchange="this.form.submit()">
+                                                    <select class="form-select" id="sort" name="sort" onchange="this.form.submit()">
                                                         <option value="date_desc" class="dropdown-item">Datum Aflopend</option>
                                                         <option value="date_asc" class="dropdown-item">Datum Oplopend</option>
                                                         <option value="title_desc" class="dropdown-item">Titel Aflopend</option>
                                                         <option value="title_asc" class="dropdown-item">Titel Oplopend</option>
                                                     </select>
+                                                    <noscript><input type="submit" value="sort"></noscript>
                                                 </div>
                                             </form>
                                         </div>

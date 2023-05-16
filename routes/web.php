@@ -71,7 +71,7 @@ Route::resource('links', SiteMapController::class);
 
 //News routes
 Route::resource('nieuws', NewsArticleController::class);
-//Route::get('/nieuws', [NewsArticleController::class, 'sorting'])->name('sorting');
+Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
 
 
 
