@@ -29,7 +29,7 @@
             </div>
             
             <div>
-                <label>Datum: {{ \Carbon\Carbon::parse($post->date)->format('d-m-Y')}} om {{$post->time}}</label>
+                <label>Datum: {{ \Carbon\Carbon::parse($post->date)->format('d-m-Y')}} om {{Date('H:i', strtotime($post->time))}}</label>
                 <br />
                 @if($post->price <= 0)
                     <p>Prijs: Gratis</p>

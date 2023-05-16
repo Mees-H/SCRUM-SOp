@@ -12,7 +12,7 @@
                     <th>Datum</th>
                     @foreach($group->sessions as $session)
                         <td class="p-1 verticalText text-center">
-                            <p class="m-0">{{ \Carbon\Carbon::parse($session->date)->format('d-m-Y')}}</p>
+                            <p class="m-0">{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</p>
                         </td>
                     @endforeach
                 </tr>

@@ -19,7 +19,7 @@
     </style>
 </head>
 <body>
-    <h1>{{$name}} heeft zich ingeschreven voor {{$eventName}} op {{ \Carbon\Carbon::parse($date)->format('d-m-Y')}}.</h1>
+    <h1>{{$name}} heeft zich ingeschreven voor {{$eventName}} op {{ \Carbon\Carbon::parse($Date)->format('d-m-Y')}}.</h1>
     <table>
         <tr>
             <th colspan="2">
@@ -107,7 +107,7 @@
                 Datum:
             </td>
             <td>
-                {{$date}}
+            {{ \Carbon\Carbon::parse($Date)->format('d-m-Y')}}
             </td>
         </tr>
     </table>
