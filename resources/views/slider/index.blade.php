@@ -8,7 +8,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-8 ps-3 mb-3 p-0">
-                                <h2>Foto toevoegen aan slider op Home pagina</h2>
+                                <h1 class="display-3">Foto toevoegen aan slider op home pagina</h1>
                             </div>
                             <div class="col-md-4 add-slider mb-3 p-0">
                                 <a href="{{ route('slider.create') }}" class="btn btn-lg btn-primary float-end me-4">Foto Toevoegen</a>
