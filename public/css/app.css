@@ -8,6 +8,10 @@ nav {
     margin-bottom: 20px;
 }
 
+#searchNavBar{
+    margin-right: 20px;
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -115,12 +119,13 @@ margin-top:auto;
 #logo {
     width: auto;
     height: 40px;
+    margin-left: 20px;
 }
 
 .btn-primary{
     background-color: #63AFC2;
     border-color: white;
-    color:black;
+    color:white;
 }
 .btn-primary:hover{
     background-color: #04ADBF;
@@ -129,9 +134,9 @@ margin-top:auto;
 }
 
 .btn-secondary{
-    background:none;
-    border-color: #8A048C;
-    color:#8A048C;
+    background:#8A048C;
+    border-color: white;
+    color:white;
 }
 .btn-secondary:hover{
     background-color: #8A048C;
