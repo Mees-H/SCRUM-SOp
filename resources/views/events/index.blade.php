@@ -33,7 +33,7 @@
                         <td>{{$event->id}}</td>
                         <td>{{$event->title}} </td>
                         <td>{{ \Carbon\Carbon::parse($event->date)->format('d-m-Y')}}</td>
-                        <td>{{$event->time}}</td>
+                        <td>{{date('H:i', strtotime($event->time))}}</td>
                         <td>€{{number_format($event->price, 2, ',', ' ')}}</td>
                         <td>{{$event->bankaccount}}</td>
                         <td>{{$event->body}}</td>
