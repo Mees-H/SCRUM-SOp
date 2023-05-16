@@ -32,7 +32,7 @@
                     <tr>
                         <td>{{$event->id}}</td>
                         <td>{{$event->title}} </td>
-                        <td>{{$event->date}}</td>
+                        <td>{{ \Carbon\Carbon::parse($event->date)->format('d-m-Y')}}</td>
                         <td>{{$event->time}}</td>
                         <td>€{{number_format($event->price, 2, ',', ' ')}}</td>
                         <td>{{$event->bankaccount}}</td>
