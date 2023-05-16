@@ -6,7 +6,7 @@
     </head>
     <div class="row">
         <div class="col-md-2 mx-3" id="wrapper">
-            @include('Components.SideBar.SideBarNavigation', ['articles' => $articles])
+            @include('Components.SideBar.SideBarNavigation', ['articles' => $articles], ['years' => $years])
         </div>
         <div class="col">
             <div class="container">
@@ -22,16 +22,14 @@
                     @endif
                     <div class="row">
                         <div class="col-md-8">
+                            @if (Auth::user() != null && Auth::user()->role == 'admin')
+                                <div class="d-flex justify-content-end p-3">
+                                    <a href="{{ route('nieuws.create')}}" class="btn btn-primary justify-content-end">Nieuw artikel</a>
+                                </div>
+                            @endif
                             <div class="border-0">
                                 <div class="d-flex justify-content-between container pb-2">
-
                                     <h1 class="text-black">Nieuwsartikelen</h1>
-                                    @if (Auth::user() != null && Auth::user()->role == 'admin')
-                                        <div>
-                                            <a href="{{ route('nieuws.create')}}" class="btn btn-primary">Nieuw artikel</a>
-                                        </div>
-                                    @endif
-
                                     <div id="filter_mobile">
                                         <div class="mt-2 pb-3">
                                             <form method="GET" action="/nieuws" class="d-flex">
@@ -46,11 +44,8 @@
                                                 </div>
                                             </form>
                                         </div>
-
                                     </div>
                                 </div>
-
-
                                 <div class="card border-0">
                                     @foreach($articles as $article)
                                         <div id="{{$article->id}}" class="row card-body">
