@@ -23,6 +23,9 @@ class AppServiceProvider extends ServiceProvider
         if(env('APP_DEBUG') !== true){
             \URL::forceScheme('https');
         }
+        else {
+            \URL::forceScheme('https');
+        }
 
         Schema::defaultStringLength(191);
 
