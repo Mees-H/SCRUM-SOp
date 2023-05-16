@@ -32,7 +32,7 @@
 
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="date">Datum:</label>
-                <input type="date" class="form-control" name="date" value="{{ $album->date }}" id="date"/>
+                <input type="date" class="form-control" name="date" placeholder="dd-mm-yyyy" value="{{ $album->date }}" id="date"/>
             </div>
  
             <button type="submit" class="btn btn-primary">Update</button>
