@@ -31,7 +31,7 @@
                                 <span class="requiredStar">*</span>Datum
                             </label>
                             <div class="col-sm-8">
-                                <input type="date" class="form-control" id="date" name="date" value="{{old('date')}}">
+                                <input type="date" placeholder="dd-mm-yyyy" class="form-control" id="date" name="date" value="{{old('date')}}">
                             </div>
                             @error('date')
                             <div class="alert alert-danger">{{ $message }}</div>
