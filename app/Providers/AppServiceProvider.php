@@ -20,11 +20,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if(env('APP_DEBUG') !== true){
+        if(env('APP_ENV') === 'local') {
+            \URL::forceScheme('http');
+        }
+        else if(env('APP_ENV') === 'production') {
             \URL::forceScheme('https');
         }
         else {
-            \URL::forceScheme('https');
+            error_log('Check of de APP_ENV op local of production staat. Run dan het volgende commando: "php artisan optimize:clear" -Mees');
         }
 
         Schema::defaultStringLength(191);

@@ -14,7 +14,7 @@
         <!-- Email Address -->
         <div>
         <label for="email" class="col-sm-2 col-form-label">
-                Email
+                <span class="requiredStar">*</span>Email
             </label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" id="email" name="email">

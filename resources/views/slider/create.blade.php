@@ -7,7 +7,7 @@
                 <form class="col-md-6 image-uplode d-inline-block border shadow-lg rounded p-2 mt-5" action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="m-5">
-                        <h3 class="float-start mb-5">Upload Afbeelding Voor Carousel Slide</h3>
+                        <h1 class="float-start mb-5 display-3">Upload afbeelding voor slider</h1>
                         <input type="file" class="form-control form-control-lg" name="image" id="image">
                     </div>
                     <div class="m-5">

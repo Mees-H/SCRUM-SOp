@@ -7,7 +7,7 @@
     <div id="bodyDetail">
         <div class="container">
             <div class=" justify-content-between d-flex pt-3">
-                <h1 class="darkTitle">
+                <h1>
                     {{$event->title}}
                 </h1>
                 <div class="col-sm-2">
@@ -56,9 +56,9 @@
         <div class="container d-lg-flex ">
             <div class="row mt-5 justify-content-between">
                 <div class="col-sm-6">
-                    <h4>
+                    <h2>
                         {{$event->title}} | {{$first_group->city}}
-                    </h4>
+                    </h2>
                     <div class="mb-4">
                         {{$event->body}}
                     </div>
