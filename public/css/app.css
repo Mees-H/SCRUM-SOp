@@ -11,9 +11,7 @@ nav {
 #searchNavBar{
     margin-right: 20px;
 }
-#mobile_nav{
-    display: flex;
-}
+
 #burger_menu_icon{
     width: fit-content;
     height: fit-content;
@@ -46,9 +44,6 @@ nav {
 @media only screen and (min-width: 992px) {
     .nav-link {
         font-size: 100%;
-    }
-    #mobile_nav{
-        display: none;
     }
 }
 
