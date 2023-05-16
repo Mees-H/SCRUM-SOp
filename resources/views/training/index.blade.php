@@ -35,8 +35,8 @@
                     <tr>
                         <td>{{$session->Id}}</td>
                         <td>{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</td>
-                        <td>{{$session->StartTime}}</td>
-                        <td>{{$session->EndTime}}</td>
+                        <td>{{date('H:i', strtotime($session->StartTime))}}</td>
+                        <td>{{date('H:i', strtotime($session->EndTime))}}</td>
                         <td>{{$session->Description}}</td>
                         <td>Groep {{$session->GroupNumber}}</td>
                         <td>{{$session->IstrainingSession == 1 ? 'X' : '✓'}}</td>

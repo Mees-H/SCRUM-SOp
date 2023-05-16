@@ -21,6 +21,10 @@
                     <i class="bi bi-calendar-check"></i>
                     {{ \Carbon\Carbon::parse($event->date)->format('d-m-Y')}}
                 </span>
+                <span>
+                <i class="bi bi-clock fs-2x"></i>
+                    {{date('H:i', strtotime($event->time))}}
+                </span>
                 @if($event->price > 0)
                 <span>
                     <i class="bi bi-wallet"></i>
