@@ -122,7 +122,7 @@
                     </ul>
                 </li>
                 @endif
-                <li class="nav-item">
+                <li class="nav-item" id="searchNavBar">
                     <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#" >
                         <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
                         <ul class="border border-dark rounded d-none" id="content">
@@ -247,7 +247,7 @@
                 </ul>
             </li>
             </ul>
-            <ul class="navbar-nav ms-auto">
+            <ul class="navbar-nav ms-auto" >
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" id="navbarDropdown" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" href="#">
                         {{ Auth::user()->name }}
@@ -269,7 +269,7 @@
                         </li>
                     </ul>
                 </li>
-                <li>
+                <li id="searchNavBar">
                 <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
                 <ul class="border border-dark rounded d-none" id="content">
                     <li><a class="dropdown-item text-center searchitem" href="/">
