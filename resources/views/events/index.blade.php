@@ -6,7 +6,6 @@
         <h1 class="display-3">Evenementen</h1>
         <div class="justify-content-between d-lg-flex mb-3">
             <a href="{{ route('events.create')}}" class="btn btn-primary" dusk="create-event-button">Creeër nieuw evenement</a>
-            <a class="btn btn-secondary" href="/evenement">Terug</a>
         </div>
         @if(session()->get('success'))
             <div class="alert alert-success">
@@ -32,8 +31,8 @@
                     <tr>
                         <td>{{$event->id}}</td>
                         <td>{{$event->title}} </td>
-                        <td>{{$event->date}}</td>
-                        <td>{{$event->time}}</td>
+                        <td>{{ \Carbon\Carbon::parse($event->date)->format('d-m-Y')}}</td>
+                        <td>{{date('H:i', strtotime($event->time))}}</td>
                         <td>€{{number_format($event->price, 2, ',', ' ')}}</td>
                         <td>{{$event->bankaccount}}</td>
                         <td>{{$event->body}}</td>

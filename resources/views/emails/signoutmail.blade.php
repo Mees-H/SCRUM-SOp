@@ -42,7 +42,7 @@
                 Datum:
             </td>
             <td>
-                {{$date}}
+            {{ \Carbon\Carbon::parse($Date)->format('d-m-Y')}}
             </td>
         </tr>
     </table>
