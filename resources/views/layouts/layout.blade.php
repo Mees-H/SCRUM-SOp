@@ -20,16 +20,16 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     </head>
-
+    <body>
+    <nav class="navbar navbar-expand-xl navbar-light bg-light">
+        <a class="navbar-brand text-dark" href="/"><img src="/img/specialgolflogodark.png" aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan" alt="logo Special Golf" id="logo"></a>
+        <a class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="img-fluid"><img id="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}" alt="burger menu icon"/></span>
+        </a>
+        <div class="collapse navbar-collapse" id="main-navbar">
 @if (Auth::user() == null || Auth::user()->role != 'admin')
 <!-- Layout als je niet ingelogd bent -->
-        <nav class="navbar navbar-expand-xl navbar-light bg-light">
-        <a class="navbar-brand text-dark" href="/"><img src="/img/specialgolflogodark.png" aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan" alt="logo Special Golf" id="logo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
             <ul class="navbar-nav me-auto nav-tabs">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" href="#">
@@ -170,18 +170,12 @@
                 </li>
             </ul>
         </div>
-        </nav>
+
 @else
 
 <!-- Layout als je wel ingelogd bent-->
-    <body>
-        <nav class="navbar navbar-expand-xl navbar-light bg-light">
-        <a class="navbar-brand text-dark" href="/"><img src="/img/specialgolflogodark.png" alt="Special Golf logo" aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan" id="logo"></a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-        </button>
 
-        <div class="collapse navbar-collapse" id="main-navbar">
+{{--        <div class="collapse navbar-collapse" id="main-navbar">--}}
             <ul class="navbar-nav me-auto nav-tabs">
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button" data-bs-toggle="dropdown"  aria-haspopup="true" aria-expanded="false" href="#">
@@ -269,6 +263,7 @@
                         </li>
                     </ul>
                 </li>
+
                 <li id="searchNavBar">
                 <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search" placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
                 <ul class="border border-dark rounded d-none" id="content">
@@ -309,10 +304,10 @@
 
                 </li>
             </ul>
-        </div>
-        </nav>
-         @endif
 
+
+         @endif
+    </nav>
         <div class="container-fluid">
             <div class="container">
             @yield('content')

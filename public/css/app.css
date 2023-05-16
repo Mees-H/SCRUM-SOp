@@ -11,6 +11,13 @@ nav {
 #searchNavBar{
     margin-right: 20px;
 }
+#mobile_nav{
+    display: flex;
+}
+#burger_menu_icon{
+    width: fit-content;
+    height: fit-content;
+}
 
 
 /* Extra small devices (phones, 600px and down) */
@@ -32,12 +39,16 @@ nav {
     .nav-link {
         font-size: 125%;
     }
+
 }
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
     .nav-link {
         font-size: 100%;
+    }
+    #mobile_nav{
+        display: none;
     }
 }
 
@@ -121,6 +132,7 @@ margin-top:auto;
     height: 40px;
     margin-left: 20px;
 }
+
 
 .btn-primary{
     background-color: #63AFC2;
