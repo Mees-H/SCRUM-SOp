@@ -21,13 +21,12 @@ class NewsArticleController extends Controller
      */
     public function index()
     {
-
-        return match ($_GET['sort'] ?? null) {
+         return match ($_GET['sort'] ?? null) {
             'date_desc' => $this->filterDateDesc(),
             'date_asc' => $this->filterDateAsc(),
             'title_desc' => $this->filterTitleDesc(),
             'title_asc' => $this->filterTitleAsc(),
-            default => view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], ['articles' => NewsArticle::all()->sortByDesc('date')]),
+            default => view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], ['articles' => NewsArticle::all()]),
         };
     }
 
@@ -35,7 +34,6 @@ class NewsArticleController extends Controller
         return NewsArticle::all()->sortByDesc('date')->groupBy(function($date) {
             return Carbon::parse($date->date)->format('Y'); // grouping by years
         });
-
     }
 
     /**
@@ -105,6 +103,17 @@ class NewsArticleController extends Controller
     {
         //
     }
+
+    public function sorting(Request $request){
+        //sort according to request
+
+        dd($request);
+        //go to index
+        return $this->index();
+
+
+    }
+
 
     /**
      * Show the form for editing the specified resource.
@@ -224,21 +233,21 @@ class NewsArticleController extends Controller
 
     //filter on date descending
     public function filterDateDesc(){
-        return redirect('/nieuws')->with('articles', NewsArticle::all()->sortByDesc('date'));
+        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], ['articles' => NewsArticle::all()->sortByDesc('date')]);
     }
     //filter on date ascending
     public function filterDateAsc(){
-        return redirect('/nieuws')->with('articles', NewsArticle::all()->sortBy('date'));
+        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], ['articles' => NewsArticle::all()->sortBy('date')]);
     }
     //filter on title desc
     public function filterTitleDesc(){
-        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('title')]);
+        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], ['articles' => NewsArticle::all()->sortByDesc('title')] );
 
     }
     //filter on title ascending
     public function filterTitleAsc()
     {
-        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortBy('title')]);
+        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], ['articles' => NewsArticle::all()->sortBy('title')] );
     }
 
 }
