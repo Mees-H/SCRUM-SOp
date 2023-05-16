@@ -9,7 +9,7 @@
                          alt="burger menu icon"/></span>
     </a>
     <a class="navbar-brand text-dark" href="/">
-        <img src="/img/specialgolflogodark.png"
+        <img src="{{asset("/img/specialgolflogodark.png")}}"
              aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan"
              alt="logo Special Golf" id="logo"></a>
     <div class="nav-item dropdown">
