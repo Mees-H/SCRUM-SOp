@@ -34,7 +34,7 @@
                 @foreach($sessions as $session)
                     <tr>
                         <td>{{$session->Id}}</td>
-                        <td>{{$session->Date}} </td>
+                        <td>{{ \Carbon\Carbon::parse($session->date)->format('d-m-Y')}}</td>
                         <td>{{$session->StartTime}}</td>
                         <td>{{$session->EndTime}}</td>
                         <td>{{$session->Description}}</td>

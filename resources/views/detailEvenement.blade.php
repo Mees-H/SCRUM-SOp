@@ -19,11 +19,7 @@
             <div class="justify-content-between mb-3 mt-3">
                 <span>
                     <i class="bi bi-calendar-check"></i>
-                    {{$event->date}}
-                </span>
-                <span>
-                    <i class="bi bi-calendar-check"></i>
-                    {{$event->date}}
+                    {{ \Carbon\Carbon::parse($event->date)->format('d-m-Y')}}
                 </span>
                 @if($event->price > 0)
                 <span>
@@ -85,7 +81,7 @@
                             <div>
                                 <span>
                                      <i class="bi bi-calendar-check fs-2x"></i>
-                                        {{$event->date}}
+                                     {{ \Carbon\Carbon::parse($event->date)->format('d-m-Y')}}
                                 </span>
                             </div>
 

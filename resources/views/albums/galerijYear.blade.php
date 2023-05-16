@@ -30,7 +30,7 @@
                                             {{$album->title}}
                                         </p>
                                         <p class="card-subtitle">
-                                            {{$album->date}}
+                                        {{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}}
                                         </p>
                                     </div>
                                 </div>
