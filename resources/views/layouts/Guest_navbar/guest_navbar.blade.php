@@ -2,7 +2,7 @@
 <!-- Layout als je niet ingelogd bent -->
 <nav class="navbar navbar-expand-xl navbar-light bg-light">
     <a class="navbar-brand text-dark" href="/">
-        <img src="/img/specialgolflogodark.png"
+        <img src="{{asset("/img/specialgolflogodark.png")}}"
              aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan"
              alt="logo Special Golf" id="logo"></a>
 
