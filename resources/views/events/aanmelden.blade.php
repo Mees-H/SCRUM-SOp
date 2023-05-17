@@ -44,6 +44,18 @@
                         @enderror
                     </div>
                     <div>
+                        <label for="golfhandicap" class="col-sm-2 col-form-label">
+                            Golfhandicap
+                        </label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" id="golfhandicap"
+                            placeholder="Vul hier uw golfhandicap(s) in" name="golfhandicap" value="{{old('golfhandicap')}}">
+                        </div>
+                        @error('golfhandicap')
+                        <div class="alert alert-danger">{{ $message }}</div>
+                        @enderror
+                    </div>
+                    <div>
                         <label for="gender" class="col-sm-2 col-form-label">
                             <span class="requiredStar">*</span>Gender
                         </label>
@@ -71,18 +83,6 @@
                             </div>
                         </div>
                         @error('gender')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                        @enderror
-                    </div>
-                    <div>
-                        <label for="golfhandicap" class="col-sm-2 col-form-label">
-                            Golfhandicap
-                        </label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="golfhandicap"
-                            placeholder="Vul hier uw golfhandicap(s) in" name="golfhandicap" value="{{old('golfhandicap')}}">
-                        </div>
-                        @error('golfhandicap')
                         <div class="alert alert-danger">{{ $message }}</div>
                         @enderror
                     </div>
