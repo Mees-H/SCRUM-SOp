@@ -1,7 +1,16 @@
 body {
- min-height: 100vh;
- display: flex;
- flex-direction: column;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.table-responsive{
+    max-width: 100%;
+    overflow: scroll;
+}
+
+td{
+    min-width: 100px;
 }
 
 nav {
@@ -16,15 +25,19 @@ nav {
     width: fit-content;
     height: fit-content;
 }
+
 #guest_navbar{
     display: none;
 }
+
 #admin_navbar{
     display: none;
 }
+
 #guest_mobile_navbar{
     display: none;
 }
+
 #admin_mobile_navbar{
     display: none;
 }
@@ -89,30 +102,33 @@ h1{
 }
 
 footer {
-margin-top:auto;
- bottom: 0;
- left: 0;
- right: 0;
- height: auto;
+    margin-top: auto;
+    position: static;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
 }
 
 .footer-content {
- display: flex;
- align-items: center;
- justify-content: center;
- flex-direction: row;
- text-align: center;
- padding-top: 10px;
- padding-bottom: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 5px;
 }
+
 .footer-info{
  flex-direction: column;
 }
+
 .footer-content p {
- max-width: 500px;
- margin: auto;
- line-height: 20px;
- font-size: 14px;
+    max-width: 500px;
+    margin: auto;
+    line-height: 20px;
+    font-size: 14px;
 }
 
 #link{
@@ -120,11 +136,11 @@ margin-top:auto;
 }
 
 .socials {
- list-style: none;
- display: flex;
- align-items: center;
- justify-content: center;
- margin: 1rem 0 1rem 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0 1rem 0;
 }
 
 .socials li {
@@ -132,16 +148,16 @@ margin-top:auto;
 }
 
 .socials a {
- text-decoration: none;
- border: 1.1px solid black;
- padding: 5px;
- border-radius: 50%;
+    text-decoration: none;
+    border: 1.1px solid black;
+    padding: 5px;
+    border-radius: 50%;
 }
 
 .socials a i {
- font-size: 1.1rem;
- width: 20px;
- transition: color .4s ease;
+    font-size: 1.1rem;
+    width: 20px;
+    transition: color .4s ease;
 }
 
 .socials a:hover i {
@@ -153,7 +169,6 @@ margin-top:auto;
     height: 40px;
     margin-left: 20px;
 }
-
 
 .btn-primary{
     background-color: #63AFC2;
