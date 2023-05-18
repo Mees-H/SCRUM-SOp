@@ -17,43 +17,45 @@
                 {{ session()->get('error') }}
             </div>
         @endif
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Datum</td>
-                    <td>Begintijd</td>
-                    <td>Eindtijd</td>
-                    <td>Beschrijving</td>
-                    <td>Groep</td>
-                    <td>Vakantieweek</td>
-                    <td colspan = 2>Actions</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($sessions as $session)
+        <div class="table-responsive">
+            <table class="table table-striped">
+                <thead>
                     <tr>
-                        <td>{{$session->Id}}</td>
-                        <td>{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</td>
-                        <td>{{date('H:i', strtotime($session->StartTime))}}</td>
-                        <td>{{date('H:i', strtotime($session->EndTime))}}</td>
-                        <td>{{$session->Description}}</td>
-                        <td>Groep {{$session->GroupNumber}}</td>
-                        <td>{{$session->IstrainingSession == 1 ? 'X' : '✓'}}</td>
-                        <td>
-                            <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>
-                        </td>
-                        <td>
-                            <form action="{{ route('trainingsessions.destroy', $session->Id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Verwijderen</button>
-                            </form>
-                        </td>
+                        <td>ID</td>
+                        <td>Datum</td>
+                        <td>Begintijd</td>
+                        <td>Eindtijd</td>
+                        <td>Beschrijving</td>
+                        <td>Groep</td>
+                        <td>Vakantieweek</td>
+                        <td colspan = 2>Actions</td>
                     </tr>
-                @endforeach
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    @foreach($sessions as $session)
+                        <tr>
+                            <td>{{$session->Id}}</td>
+                            <td>{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</td>
+                            <td>{{date('H:i', strtotime($session->StartTime))}}</td>
+                            <td>{{date('H:i', strtotime($session->EndTime))}}</td>
+                            <td>{{$session->Description}}</td>
+                            <td>Groep {{$session->GroupNumber}}</td>
+                            <td>{{$session->IstrainingSession == 1 ? 'X' : '✓'}}</td>
+                            <td>
+                                <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>
+                            </td>
+                            <td>
+                                <form action="{{ route('trainingsessions.destroy', $session->Id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Verwijderen</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
     <div>
 </div>
 @endsection
