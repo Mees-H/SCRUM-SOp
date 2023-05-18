@@ -4,6 +4,7 @@
     <div class="container justify-content-between ">
         <div class="row align-items-center">
             <h1 class="col">Evenementen</h1>
+            <a class="col-1 btn btn-primary" href="{{route('evenement.exportIcal')}}">iCal exporteren</a>
         </div>
     </div>
     <div class="container">
@@ -18,6 +19,7 @@
             {{ session()->get('error') }}
         </div>
     @endif
+
     <div>
     @foreach($posts as $post)
         <article>
