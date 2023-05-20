@@ -47,7 +47,7 @@ class SliderController extends Controller
             $imageName =pathinfo($imageNameWithExt, PATHINFO_FILENAME);
             $imageExt=$uploadImage->getClientOriginalExtension();
             $storeImage=$imageName . time() . "." . $imageExt;
-            $request->image->move(public_path('images'), $storeImage);
+            $request->image->move(public_path('img'), $storeImage);
             $carousel= slider::create([
                 'image' => $storeImage
             ]);

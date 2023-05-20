@@ -20,7 +20,7 @@
                             @foreach($sliders as $slider)
                                 <div class="carousel-item @if($loop->first) active @endif">
                                     <div class="slider-image text-center">
-                                        <img src="{{  asset('images/'.$slider->image) }}" class="d-inline-block border text-center rounded" alt="{{ $slider->image }}">
+                                        <img src="{{  asset('img/'.$slider->image) }}" class="d-inline-block border text-center rounded" alt="{{ $slider->image }}">
                                         <a href="{{ route('slider.delete', $slider) }}"><button type="button" class="btn btn-lg btn-danger" >Verwijder Foto</button></a>
                                     </div>
                                 </div>

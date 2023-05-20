@@ -10,7 +10,7 @@
                             @foreach($sliders as $slider)
                                 <div class="carousel-item @if($loop->first) active @endif">
                                     <div class="slider-image text-center">
-                                        <img src="{{  asset('images/'.$slider->image) }}" class="d-inline-block border text-center rounded" alt="Foto's van de vereniging">
+                                        <img src="{{  asset('img/'.$slider->image) }}" class="d-inline-block border text-center rounded" alt="Foto's van de vereniging">
                                     </div>
                                 </div>
                             @endforeach
