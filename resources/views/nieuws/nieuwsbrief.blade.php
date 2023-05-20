@@ -6,7 +6,7 @@
         @include('Components.SideBar.SideBarNavigation')
     </div>
 </div>
-<div class="col">
+<div class="col mb-2">
     <div class="container justify-content-between ">
         <div class="row align-items-center">
             <h1 class="col">Nieuwsoverzicht</h1>
@@ -27,7 +27,7 @@
         @endif
         <div class="row">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card mb-2">
                     <h1 class="card-header">Nieuwsartikelen</h1>
                     @foreach($articles as $article)
                         <div class="row card-body">
@@ -46,10 +46,10 @@
                                             @endif
                                         </div>
                                         @if($article->imgurl != null)
-                                            <aside class="col">
+                                            <aside class="col d-flex flex-column">
                                                 @foreach($article->imgurl as $imgurl)
                                                     <img src="{{ asset('storage/img/nieuws/'.$imgurl) }}"
-                                                         alt="{{$imgurl}}" class="memberimg"/>
+                                                         alt="{{$imgurl}}" class="memberimg mb-3 align-self-center"/>
                                                 @endforeach
                                             </aside>
                                         @endif
