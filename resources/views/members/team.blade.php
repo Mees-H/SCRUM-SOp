@@ -20,7 +20,7 @@
                 <div class="row">
                     @if($member->imgurl != '')
                         <div class="memberimg-box">
-                            <img src="{{ asset('storage/img/teammembers/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
+                            <img src="{{ asset('img/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
                         </div>
                     @else
                         <div class="memberimg-box"></div>
