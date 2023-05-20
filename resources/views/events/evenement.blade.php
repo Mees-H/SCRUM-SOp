@@ -42,7 +42,7 @@
 
                 <div class="d-flex justify-content-between">
                     <p class="col-sm-8">
-                    {!!$post->body!!}
+                    {!!str_split($post->body,strpos($post->body,"."))[0]!!}...
                     </p>
                     <div>
                         <a dusk="ButtonToDetailsEvent" href="{{route('eventsDetails', $post->id)}}" class="btn btn-secondary" rel="Knop naar de details pagina">
