@@ -71,6 +71,7 @@ Route::resource('links', SiteMapController::class);
 
 //News routes
 Route::resource('nieuws', NewsArticleController::class);
+Route::resource('nieuwsBrief', NewsLetterController::class);
 
 
 //Galerij routes
