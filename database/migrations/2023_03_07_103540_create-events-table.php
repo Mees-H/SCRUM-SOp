@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('title');
             $table->date('date');
+            $table->double('price')->nullable();
+            $table->string('bankaccount')->nullable();
             $table->time('time')->nullable();
             $table->string('slug')->unique()->nullable();
             $table->text('body');

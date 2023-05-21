@@ -32,14 +32,16 @@ class SiteMapController extends Controller
         $json['categories'][] = array(
             'private' => false,
             'name' => 'Galerij',
-            'links' => []
+            'links' => [],
+            'alt' => 'Galerij uit '
         );
         $json['categories'] = array_map(function($category) use ($years) {
             if($category['name'] === "Galerij"){
                 foreach ($years as $year){
                     $category['links'][] = [
                         'name' => $year,
-                        'link' => route('galerij_jaar', $year)
+                        'link' => route('galerij_jaar', $year),
+                        'alt' => 'Bekijk gallerij uit '. $year
                     ];
                 }
             }

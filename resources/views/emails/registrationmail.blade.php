@@ -70,10 +70,18 @@
         </tr>
         <tr>
             <td>
-                Beperking:
+                Gender:
             </td>
             <td>
-                {{$disability}}
+                {{$gender}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Golfhandicap:
+            </td>
+            <td>
+                {{$golfhandicap}}
             </td>
         </tr>
     </table>
