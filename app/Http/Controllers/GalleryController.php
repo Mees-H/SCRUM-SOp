@@ -148,7 +148,6 @@ class GalleryController extends Controller
 
     public function addAlbumPictures(Request $request)
     {
-//        ddd($request->images[0]->getClientOriginalName());
         $request->validate([
             'images' => 'required',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
@@ -179,7 +178,9 @@ class GalleryController extends Controller
     public function deleteAlbumPictures(Request $request)
     {
         Picture::destroy($request->images);
-
+        if (!isset($request->images)) {
+            return redirect()->back()->with('error', 'Er is geen afbeelding geselecteerd');
+        }
         if (count($request->images) > 1) {
             return redirect('/galerij')->with('success', 'Afbeeldingen zijn verwijderd uit album');
         } else {

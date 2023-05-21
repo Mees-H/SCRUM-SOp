@@ -1,16 +1,21 @@
 @extends('layouts.layout')
 
 @section('content')
-<head>
-    <link href="{{ asset('css/album.css') }}" rel="stylesheet">
-</head>
-<body>
+    <head>
+        <link href="{{ asset('css/album.css') }}" rel="stylesheet">
+    </head>
+    <body>
     <div class="container">
         <div class="row">
             <div class="col-sm-8 offset-sm-2">
                 <h1 class="display-3">Album aanpassen
-                <a href="/galerij" class="btn btn-primary">Ga terug</a></h1>
+                    <a href="/galerij" class="btn btn-primary">Ga terug</a></h1>
 
+                @if(session()->get('error'))
+                    <div class="alert alert-danger">
+                        {{ session()->get('error') }}
+                    </div>
+                @endif
                 @if ($errors->any())
                     <div class="alert alert-danger">
                         <ul>
@@ -19,7 +24,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    <br />
+                    <br/>
                 @endif
                 <form method="post" id="updateAlbum" action="{{ route('galerij.update', $album->id) }}">
                     @method('PATCH')
@@ -32,7 +37,8 @@
 
                     <div class="form-group">
                         <span class="requiredStar">*</span><label for="description">Omschrijving:</label>
-                        <textarea rows="5" class="form-control" name="description" id="description">{{ $album->description }}</textarea>
+                        <textarea rows="5" class="form-control" name="description"
+                                  id="description">{{ $album->description }}</textarea>
                     </div>
 
                     <div class="form-group">
@@ -55,12 +61,13 @@
 
         <div class="row mt-3">
             @if ($pictures->isEmpty())
-            <p>Geen foto's gevonden in fotoalbum.</p>
+                <p>Geen foto's gevonden in fotoalbum.</p>
             @else
                 @foreach ($pictures as $picture)
                     <div class="col-md-4 mb-3">
                         <div class="image-container">
-                            <img src="{{ asset('images/' . $picture->image) }}" alt="Afbeelding {{$picture->id}} uit {{$album->title}}" class="img-fluid w-100 h-100">
+                            <img src="{{ asset('images/' . $picture->image) }}"
+                                 alt="Afbeelding {{$picture->id}} uit {{$album->title}}" class="img-fluid w-100 h-100">
                             <input type='hidden' name='images[]' form='deleteForm' value='{{ $picture->id }}' disabled/>
                             <button onclick="selectPicture(this)" class='delete-button'></button>
                         </div>
@@ -71,7 +78,8 @@
 
         <div class="row mt-3 text-center mb-5">
             <div class="col-md-4">
-                <form action="{{ url('/galerij/'.$year.'/'.$album->title.'/verwijderfotos') }}" method="POST" id="deleteForm">
+                <form action="{{ url('/galerij/'.$year.'/'.$album->title.'/verwijderfotos') }}" method="POST"
+                      id="deleteForm">
                     @csrf
                     <button type="submit" class="btn btn-danger wide-button">Foto's verwijderen</button>
                 </form>
@@ -91,6 +99,6 @@
 
     </div>
     <script src="{{ asset('js/album.js') }}"></script>
-</body>
+    </body>
 
 @stop
