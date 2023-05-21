@@ -10,21 +10,6 @@
                     <h3>Data</h3>
                     <p>Evenementen per dag</p>
                 </div>
-
-                <ul class="list-unstyled">
-                    @isset($allPosts)
-                    <li>
-                        <a href="/evenement" class="btn btn-outline-dark mt-2">Bekijk alle evenementen</a>
-                    </li>
-                    @foreach($allPosts as $event)
-                    <li class="d-flex">
-                        <a href="{{route('eventsDetails', $event->id)}}" class="btn btn-outline-dark mt-2 flex-grow-1">
-                            <p>{{$event->title}}</p>
-                            <p>{{$event->date}}</p>
-                        </a>
-                    </li>
-                    @endforeach
-                    @else
                     @foreach($posts as $event)
                     <li class="d-flex">
                         <a href="{{route('eventsDetails', $event->id)}}" class="btn btn-outline-dark mt-2 flex-grow-1">
@@ -33,7 +18,6 @@
                         </a>
                     </li>
                     @endforeach
-                    @endisset
                 </ul>
             </nav>
         </div>
