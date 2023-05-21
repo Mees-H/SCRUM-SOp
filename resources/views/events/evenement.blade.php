@@ -1,38 +1,40 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="row">
-    <div class="col-md-2">
-        <div class="col-md">
-            <!-- Sidebar -->
-            <nav id="sidebar">
-                <div class="sidebar-header">
-                    <h3>Data</h3>
-                    <p>Evenementen per dag</p>
-                </div>
-                    @foreach($posts as $event)
-                    <li class="d-flex">
-                        <a href="{{route('eventsDetails', $event->id)}}" class="btn btn-outline-dark mt-2 flex-grow-1">
-                            <p>{{$event->title}}</p>
-                            <p>{{$event->date}}</p>
-                        </a>
-                    </li>
-                    @endforeach
-                </ul>
-            </nav>
+<div class="container justify-content-between ">
+    <div class="row align-items-center">
+        <h1 class="col">Evenementen</h1>
+        <div class="col d-flex justify-content-end">
+            <a class="btn btn-primary" href="evenement/export">iCal exporteren</a>
         </div>
     </div>
-    <div class="col mb-2">
-        <div class="container justify-content-between ">
-            <div class="row align-items-center">
-                <h1 class="col">Evenementen</h1>
-                <a class="col-2 btn btn-primary" href="evenement/export">iCal exporteren</a>
+</div>
+<div class="container">
+    <hr>
+    <div class="row">
+        <div class="col-md-2">
+            <div class="col-md">
+                <!-- Sidebar -->
+                <nav id="sidebar">
+                    <div class="sidebar-header">
+                        <h3>Data</h3>
+                        <p>Evenementen per dag</p>
+                    </div>
+                    <ul class="list-unstyled">
+                        @foreach($posts as $event)
+                        <li class="d-flex">
+                            <a href="{{route('eventsDetails', $event->id)}}" class="btn btn-outline-dark mt-2 flex-grow-1" rel="{{$event->title}} details knop">
+                                <p>{{$event->title}}</p>
+                                <p>{{$event->date}}</p>
+                            </a>
+                        </li>
+                        @endforeach
+                    </ul>
+                </nav>
             </div>
         </div>
-        <div class="container">
-        <hr>
-
-        @if(session()->get('success'))
+        <div class="col-md">
+            @if(session()->get('success'))
             <div class="alert alert-success">
                 {{ session()->get('success') }}
             </div>
@@ -40,14 +42,12 @@
             <div class="alert alert-danger">
                 {{ session()->get('error') }}
             </div>
-        @endif
-        <div>
-        @foreach($posts as $post)
+            @endif
+            <div>
+            @foreach($posts as $post)
             <article>
                 <div class="d-flex justify-content-between align-items-center">
-                <h2>
-                        {{$post->title}}
-                </h2>
+                    <h2>{{$post->title}}</h2>
                     <a href="/events/enroll/{{$post->id}}" class="btn-primary btn">Inschrijven</a>
                 </div>
 
@@ -64,20 +64,21 @@
                         </div>
                     </div>
                     <div class="d-flex">
-                        {{--                    TODO: Moet nog worden vervangen met 1 locatie--}}
+                        {{--TODO: Moet nog worden vervangen met 1 locatie--}}
                         @foreach($post->groups as $group)
-                            <div class="m-3">
-                                {{$group->name}}<br>
-                                {{$group->street}} {{$group->housenumber}}<br>
-                                {{$group->zipcode}} {{$group->city}}<br>
-                                <a id="link" href="https://{{$group->link}}">{{$group->link}}</a>
-                            </div>
+                        <div class="m-3">
+                            {{$group->name}}<br>
+                            {{$group->street}} {{$group->housenumber}}<br>
+                            {{$group->zipcode}} {{$group->city}}<br>
+                            <a id="link" href="https://{{$group->link}}">{{$group->link}}</a>
+                        </div>
                         @endforeach
                     </div>
                 </div>
             </article>
             <hr>
-        @endforeach
+            @endforeach
+            </div>
         </div>
     </div>
 </div>
