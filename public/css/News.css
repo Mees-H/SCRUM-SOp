@@ -66,3 +66,16 @@
     font-size: 20px;
 }
 
+
+
+.pdf-container {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.pdf-container embed {
+    display: block;
+    width: 200%;
+    height: 375px;
+}

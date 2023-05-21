@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CreateUserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NewsArticleController;
+use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
@@ -76,6 +77,8 @@ Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('gal
 
 //News routes
 Route::resource('nieuws', NewsArticleController::class);
+Route::resource('nieuwsbrief', NewsLetterController::class);
+//Route::get('/nieuws', [NewsArticleController::class, 'sorting'])->name('sorting');
 Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
 Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('nieuws.store');
 
