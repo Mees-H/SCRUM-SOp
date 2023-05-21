@@ -180,10 +180,4 @@ class EventController extends Controller
             'Content-Disposition' => 'attachment; filename="special-golf-evenementen.ics"',
          ]);
     }
-
-    public function sortByDate($date)
-    {
-        return view('events.evenement', ['posts' => Event::all()->where('date', $date)->sortBy('updated_at'),
-                                        'allPosts' => Event::all()->sortBy('updated_at')]);
-    }
 }

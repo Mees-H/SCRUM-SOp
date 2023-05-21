@@ -18,13 +18,19 @@
                     </li>
                     @foreach($allPosts as $event)
                     <li class="d-flex">
-                        <a href="{{route('evenement.sortByDate', $event->date)}}" class="btn btn-outline-dark mt-2 flex-grow-1">{{$event->date}}</a>
+                        <a href="{{route('eventsDetails', $event->id)}}" class="btn btn-outline-dark mt-2 flex-grow-1">
+                            <p>{{$event->title}}</p>
+                            <p>{{$event->date}}</p>
+                        </a>
                     </li>
                     @endforeach
                     @else
                     @foreach($posts as $event)
                     <li class="d-flex">
-                        <a href="{{route('evenement.sortByDate', $event->date)}}" class="btn btn-outline-dark mt-2 flex-grow-1">{{$event->date}}</a>
+                        <a href="{{route('eventsDetails', $event->id)}}" class="btn btn-outline-dark mt-2 flex-grow-1">
+                            <p>{{$event->title}}</p>
+                            <p>{{$event->date}}</p>
+                        </a>
                     </li>
                     @endforeach
                     @endisset
