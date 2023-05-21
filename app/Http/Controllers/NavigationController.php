@@ -23,7 +23,7 @@ class NavigationController extends Controller
     }
     function evenement()
     {
-        return view('events.evenement', ['posts' => Event::all()]);
+        return view('events.evenement', ['posts' => Event::all()->sortBy('updated_at')]);
     }
     function vragenantwoorden()
     {
