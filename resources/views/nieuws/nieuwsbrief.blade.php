@@ -31,13 +31,25 @@
                                             <a href="{{ route('nieuws.create')}}" class="btn btn-primary">Nieuw artikel</a>
                                         </div>
                                     @endif
-                                    <div>
-                                        <button class="btn btn-success" id="filterButton">
-                                            Filter
-                                            <i class="bi bi-filter-right"></i>
-                                        </button>
+
+                                    <div id="filter_mobile">
+                                        <div class="mt-2 pb-3">
+                                            <form method="GET" action="/nieuws" class="d-flex">
+                                                <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
+                                                <div class="form-group">
+                                                    <select class="form-select" id="sort"  onchange="this.form.submit()">
+                                                        <option value="date_desc" class="dropdown-item">Datum Aflopend</option>
+                                                        <option value="date_asc" class="dropdown-item">Datum Oplopend</option>
+                                                        <option value="title_desc" class="dropdown-item">Titel Aflopend</option>
+                                                        <option value="title_asc" class="dropdown-item">Titel Oplopend</option>
+                                                    </select>
+                                                </div>
+                                            </form>
+                                        </div>
+
                                     </div>
                                 </div>
+
 
                                 <div class="card border-0">
                                     @foreach($articles as $article)
@@ -88,22 +100,7 @@
                                         </div>
                                 </div>
                             </div>
-                            {{--                TODO: User story nieuwsberichten--}}
                             <div class="col">
-                                <!-- TODO: fix for user story nieuwsberichten
-                                <div class="mt-2 pb-3">
-                                    <form method="GET" class="d-flex">
-                                        <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
-                                        <div class="form-group">
-                                            <select class="form-select" name="sort" id="sort">
-                                                <option value="date_desc">Datum Aflopend</option>
-                                                <option value="date_asc">Datum Oplopend</option>
-                                                <option value="title_desc">Titel Nieuw-Oud</option>
-                                                <option value="title_asc">Titel Oud-Nieuw</option>
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div>-->
                                 <div class="card border-0 p-3">
                                     <h1 class="text-black">Nieuwsbrieven</h1>
                                     <div class="card-body">

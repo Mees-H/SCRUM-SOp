@@ -287,7 +287,7 @@
                     <li><a class="dropdown-item text-center searchitem" href="/faq">
                         FAQ
                     </a></li>
-                    <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
+                    <li><a class="dropdown-item text-center searchitem" href="/nieuws">
                         Nieuwsbrief
                     </a></li>
                     <li><a class="dropdown-item text-center searchitem" href="/team">

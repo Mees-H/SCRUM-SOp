@@ -50,7 +50,6 @@ Route::get('slider-delete/{slider}', [SliderController::class, 'delete'])->name(
 Route::resource('slider', SliderController::class);
 
 //Training routes
-
 Route::resource('trainingSessions', TrainingController::class);
 Route::get('training', [TrainingController::class, 'training']);
 Route::get('/training/signout', [TrainingController::class, 'signout']);
@@ -60,7 +59,6 @@ Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail'])
 Route::get('/vragenantwoorden/vraagformulier', [FAQController::class, 'questionform']);
 Route::post('/vragenantwoorden/submit', [FAQController::class, 'submit']);
 Route::get('/vragenantwoorden', [FAQController::class, 'viewquestions']);
-
 //Event routes
 Route::resource('events', EventController::class);
 Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name('eventsDetails');
@@ -70,6 +68,10 @@ Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
 //Team routes
 Route::resource('links', SiteMapController::class);
+
+//News routes
+Route::resource('nieuws', NewsArticleController::class);
+//Route::get('/nieuws', [NewsArticleController::class, 'sorting'])->name('sorting');
 
 //album routes
 Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
