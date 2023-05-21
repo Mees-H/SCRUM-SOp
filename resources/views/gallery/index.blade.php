@@ -16,6 +16,7 @@
                     <td>ID</td>
                     <td>Titel</td>
                     <td>Beschrijving</td>
+                    <td>Datum</td>
                 </tr>
             </thead>
             <tbody>
