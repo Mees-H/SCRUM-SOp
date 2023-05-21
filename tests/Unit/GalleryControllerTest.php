@@ -12,7 +12,6 @@ use Tests\TestCase;
 
 class GalleryControllerTest extends TestCase
 {
-
     /**
      * @test
      * @group authentication
@@ -88,26 +87,27 @@ class GalleryControllerTest extends TestCase
     {
         // Arrange
         $album = Album::factory()->create();
-  
-        $picture1 = Picture::factory()->create(['album_id' => $album->id, 'image' => 'TestImageSpecialGolf.jpg']);
+
+        $picture1 = Picture::factory()->create(['album_id' => $album->id, 'image' => 'album1foto1.jpg']);
         $picture2 = Picture::factory()->create(['album_id' => $album->id, 'image' => 'TestImageSpecialGolf.jpg']);
+        $pictures = Picture::with('album')->where('album_id', $album->id)->get();
+
         $year = Carbon::parse($album->date)->year;
-        $galleryController = new GalleryController();
 
         // Act
-        $response = $galleryController->show($album->id, $year);
+        $uri = route('galerij_album', ['year' => $year, 'id' => $album->id]);
+        $response = $this->get($uri);
 
         // Assert
         $response->assertOk();
         $response->assertViewIs('albums.showAlbum');
         $response->assertViewHas('album', $album);
-        $response->assertViewHas('pictures', [$picture1, $picture2]);
+        $response->assertViewHas('pictures', $pictures);
         $response->assertViewHas('year', $year);
 
         // Clean up
         $picture1->delete();
         $picture2->delete();
         $album->delete();
-
     }
 }

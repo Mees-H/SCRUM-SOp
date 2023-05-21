@@ -11,6 +11,8 @@ class Album extends Model
 
 
     public $timestamps = false;
+    protected $fillable = ['id', 'title', 'description', 'date'];
+
 
     public function picture()
     {
