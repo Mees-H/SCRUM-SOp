@@ -13,7 +13,7 @@
                         <div class="col">
                             @foreach($category['links'] as $link)
                                 <div class="row">
-                                    <a href="{{$link['link']}}">{{$link['name']}}</a>
+                                    <a href="{{$link['link']}}" alt="{{$link['alt']}}">{{$link['name']}}</a>
                                 </div>
                             @endforeach
                         </div>
