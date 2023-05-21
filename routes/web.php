@@ -79,6 +79,7 @@ Route::resource('nieuws', NewsArticleController::class);
 Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
 Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('nieuws.store');
 
+Route::resource('nieuwsBrief', NewsLetterController::class);
 
 
 //Galerij routes
