@@ -11,20 +11,32 @@ use Illuminate\Support\Facades\File;
 
 class NewsLetterController extends Controller
 {
+    public function create()
+    {
+        $newsLetters = NewsLetter::all()->sortByDesc('date');
+        return view('nieuwsbrief.create', ['newsLetters' => $newsLetters]);
+    }
+
+    public function edit($id)
+    {
+        $newsletter = NewsLetter::findOrFail($id);
+        return view('nieuwsbrief.edit', ['newsletter' => $newsletter]);
+    }
+
     public function store(Request $request)
     {
         $request->validate([
-            'pdf' => 'required|mimes:pdf',
+            'file' => 'required|mimes:pdf',
             'date' => 'required|date',
         ]);
 
-        $newsletter = Newsletter::create([
+        $newsletter = new Newsletter([
             'date' => $request->get('date')
         ]);
 
-        if ($request->hasFile('pdf')) {
+        if ($request->hasFile('file')) {
             $destination_path = 'storage/files/nieuws';
-            $pdf = $request->file('pdf');
+            $pdf = $request->file('file');
             $filename = time() . '.' . $pdf->getClientOriginalExtension();
             $pdf->move(public_path($destination_path), $filename);
             $newsletter['pdf'] = $filename;
@@ -32,24 +44,25 @@ class NewsLetterController extends Controller
 
         try {
             $newsletter->save();
-            return redirect('/nieuwsbrief')->with('success', 'Nieuwsbrief opgeslagen');
+            return redirect()->route('nieuws.index')->with('success', 'Nieuwsbrief opgeslagen');
         } catch (ModelNotFoundException $e) {
-            return redirect('/nieuwsbrief')->with('error', 'Nieuwsbrief niet kunnen opslaan');
+            return redirect()->route('nieuws.index')->with('error', 'Nieuwsbrief niet kunnen opslaan');
         }
     }
+
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'pdf' => 'required|mimes:pdf',
+            'file' => 'mimes:pdf',
             'date' => 'required|date',
         ]);
 
         $newsletter = Newsletter::find($id);
         $newsletter->date = $request->get('date');
 
-        if ($request->hasFile('pdf')) {
+        if ($request->hasFile('file')) {
             $destination_path = 'storage/files/nieuws';
-            $pdf = $request->file('pdf');
+            $pdf = $request->file('file');
             $filename = time() . '.' . $pdf->getClientOriginalExtension();
             $pdf->move(public_path($destination_path), $filename);
             $newsletter['pdf'] = $filename;
@@ -57,11 +70,12 @@ class NewsLetterController extends Controller
 
         try {
             $newsletter->save();
-            return redirect('/nieuwsbrief')->with('success', 'Nieuwsbrief opgeslagen');
+            return redirect()->route('nieuws.index')->with('success', 'Nieuwsbrief opgeslagen');
         } catch (ModelNotFoundException $e) {
-            return redirect('/nieuwsbrief')->with('error', 'Nieuwsbrief niet kunnen opslaan');
+            return redirect()->route('nieuws.index')->with('error', 'Nieuwsbrief niet kunnen opslaan');
         }
     }
+
     public function destroy(string $id): RedirectResponse
     {
         try{
@@ -79,6 +93,6 @@ class NewsLetterController extends Controller
 
         $newsletter->delete();
 
-        return redirect('/nieuwsbrief')->with('success', 'Nieuwsbrief verwijderd.');
+        return redirect()->route('nieuws.index')->with('success', 'Nieuwsbrief verwijderd.');
     }
 }

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\CreateUserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\NewsArticleController;
+use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
@@ -71,6 +72,7 @@ Route::resource('links', SiteMapController::class);
 
 //News routes
 Route::resource('nieuws', NewsArticleController::class);
+Route::resource('nieuwsbrief', NewsLetterController::class);
 //Route::get('/nieuws', [NewsArticleController::class, 'sorting'])->name('sorting');
 
 //album routes

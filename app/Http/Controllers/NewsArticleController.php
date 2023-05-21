@@ -11,6 +11,8 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\File;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
+use App\Models\NewsLetter;
+
 
 class NewsArticleController extends Controller
 {
@@ -24,7 +26,10 @@ class NewsArticleController extends Controller
             'date_asc' => $this->filterDateAsc(),
             'title_desc' => $this->filterTitleDesc(),
             'title_asc' => $this->filterTitleAsc(),
-            default => view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]),
+            default => view('nieuws.nieuwsbrief', [
+                'articles' => NewsArticle::all()->sortByDesc('date'),
+                'newsLetters' => NewsLetter::all()->sortByDesc('date')
+            ]),
         };
     }
 

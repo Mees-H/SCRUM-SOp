@@ -100,24 +100,39 @@
                                         </div>
                                 </div>
                             </div>
-                            <div class="col">
+                            <div class="col-md-5">
                                 <div class="card border-0 p-3">
                                     <h1 class="text-black">Nieuwsbrieven</h1>
+                                    @if (Auth::user() != null && Auth::user()->role == 'admin')
+                                        <div>
+                                            <a href="{{ route('nieuwsbrief.create')}}" class="btn btn-primary">Nieuwe nieuwsbrief</a>
+                                        </div>
+                                    @endif
                                     <div class="card-body">
                                         <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
                                         <ul class="list-unstyled">
-                                            @foreach($articles as $article)
-                                                @if($article->fileurl != null)
-                                                    @foreach($article->fileurl as $filename)
-                                                        <li class="mb-3">
-                                                            <div hidden="hidden" id="showPdf">
-                                                                @include('nieuws/pdf', ['$filename' => $filename])
+                                            @foreach($newsLetters as $newsLetter)
+                                                <li class="mb-3">
+                                                    <small>Datum: {{$newsLetter->date}}</small>
+                                                    <div class="pdf-container">
+                                                        <embed src="{{ asset('storage/files/nieuws/' . $newsLetter->pdf) }}" width="500" height="375" type="application/pdf">
+                                                    </div>
+                                                    @if (Auth::user() != null && Auth::user()->role == 'admin')
+                                                        <aside class="row card-body">
+                                                            <div class="col-md-6">
+                                                                <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}" class="btn btn-primary">Pas nieuwsbrief aan</a>
                                                             </div>
-                                                            <a class="btn" type="button"><i
-                                                                    class="bi bi-arrow-left-circle-fill"> {{$filename}}</i></a>
-                                                        </li>
-                                                    @endforeach
-                                                @endif
+                                                            <div class="col-md-6">
+                                                                <form action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}" method="post">
+                                                                    @csrf
+                                                                    @method('DELETE')
+                                                                    <button class="btn btn-danger" type="submit">Verwijder nieuwsbrief</button>
+                                                                </form>
+                                                            </div>
+                                                        </aside>
+                                                    @endif
+                                                </li>
+                                                <hr>
                                             @endforeach
                                         </ul>
                                     </div>
