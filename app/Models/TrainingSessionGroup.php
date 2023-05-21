@@ -17,7 +17,7 @@ class TrainingSessionGroup extends Model
 
     public function participants()
     {
-        return $this->hasMany(Participant::class, 'GroupNumber');
+        return $this->hasMany(Member::class, 'GroupNumber');
     }
 
     public function trainingsessions()

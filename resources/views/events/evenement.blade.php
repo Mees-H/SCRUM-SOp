@@ -1,5 +1,7 @@
 @extends('layouts.layout')
-
+<head>
+    <link rel="stylesheet" href="{{ asset('css/EventDetails.css') }}">
+</head>
 @section('content')
     <div class="container justify-content-between ">
         <div class="row align-items-center">
@@ -40,7 +42,7 @@
 
                 <div class="d-flex justify-content-between">
                     <p class="col-sm-8">
-                    {!!$post->body!!}
+                    {!!str_split($post->body,strpos($post->body,"."))[0]!!}...
                     </p>
                     <div>
                         <a dusk="ButtonToDetailsEvent" href="{{route('eventsDetails', $post->id)}}" class="btn btn-secondary" rel="Knop naar de details pagina">
@@ -51,8 +53,19 @@
                 <div class="d-flex">
                     {{--                    TODO: Moet nog worden vervangen met 1 locatie--}}
                     @foreach($post->groups as $group)
+                        <a href="https://{{$group->link}}">
+                        <div class="fullwrap m-3">
+                            <img style="height: 12vh;" alt="logo van {{$group->name}}" src="{{$group->imageurl}}">
+                            <div class="fullcap text-wrap">
+                                <div>{{$group->name}}</div>
+                                <div>{{$group->zipcode}}, {{$group->city}}</div>
+                            </div>
+                        </div>
                         <div class="m-3">
-                            <a id="link" href="https://{{$group->link}}" alt="link naar website van {{$group->name}}"><img style="max-height: 10vh" alt="logo van {{$group->name}}" src="{{$group->imageurl}}"></a>
+                            {{$group->name}}<br>
+                            {{$group->street}} {{$group->housenumber}}<br>
+                            {{$group->zipcode}} {{$group->city}}<br>
+                            <a id="link" href="https://{{$group->link}}">{{$group->link}}</a>
                         </div>
                     @endforeach
 
