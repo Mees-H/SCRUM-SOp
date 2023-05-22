@@ -25,12 +25,12 @@ class FAQTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
                     ->visit('/faq')
-                    ->clickLink("Creeër nieuwe vraag & antwoord")
+                    ->clickLink("Creeër nieuwe veelgestelde vraag")
                     ->type("vraag", "Hoe kan ik het nieuws zien?")
                     ->type("antwoord", "Klik op de 'Nieuws' knop in de menubalk.")
-                    ->press('Voeg vraag & antwoord toe')
+                    ->press('Voeg veelgestelde vraag toe')
                     ->assertPathIs("/faq")
-                    ->assertSee("Vraag & antwoord opgeslagen.");
+                    ->assertSee("Veelgestelde vraag opgeslagen.");
         });
     }
 
@@ -44,10 +44,10 @@ class FAQTest extends DuskTestCase
             }
 
             $browser->visit('/faq')
-                    ->clickLink("Creeër nieuwe vraag & antwoord")
+                    ->clickLink("Creeër nieuwe veelgestelde vraag")
                     ->type("vraag", $string)
                     ->type("antwoord", "Klik op de 'Nieuws' knop in de menubalk.")
-                    ->press('Voeg vraag & antwoord toe')
+                    ->press('Voeg veelgestelde vraag toe')
                     ->assertPathIsNot("/faq")
                     ->assertSee("Vraag mag niet groter zijn dan 255 karakters.");
         });
@@ -63,10 +63,10 @@ class FAQTest extends DuskTestCase
             }
 
             $browser->visit('/faq')
-                    ->clickLink("Creeër nieuwe vraag & antwoord")
+                    ->clickLink("Creeër nieuwe veelgestelde vraag")
                     ->type("vraag", "Hoe kan ik het nieuws zien?")
                     ->type("antwoord", $string)
-                    ->press('Voeg vraag & antwoord toe')
+                    ->press('Voeg veelgestelde vraag toe')
                     ->assertPathIsNot("/faq")
                     ->assertSee("Antwoord mag niet groter zijn dan 999 karakters.");
         });
@@ -76,8 +76,8 @@ class FAQTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/faq')
-                    ->clickLink("Creeër nieuwe vraag & antwoord")
-                    ->press('Voeg vraag & antwoord toe')
+                    ->clickLink("Creeër nieuwe veelgestelde vraag")
+                    ->press('Voeg veelgestelde vraag toe')
                     ->assertPathIsNot("/faq");
         });
     }
@@ -89,9 +89,9 @@ class FAQTest extends DuskTestCase
                     ->clickLink("Aanpassen")
                     ->type("vraag", "Hoe kan ik het nieuws zien?")
                     ->type("antwoord", "Klik op de 'Nieuws' knop in de menubalk.")
-                    ->press('Update')
+                    ->press('Pas veelgestelde vraag aan')
                     ->assertPathIs("/faq")
-                    ->assertSee("Vraag & antwoord geupdatet.");
+                    ->assertSee("Veelgestelde vraag geupdatet.");
         });
     }
 
@@ -109,7 +109,7 @@ class FAQTest extends DuskTestCase
                     ->clickLink("Aanpassen")
                     ->type("vraag", $string)
                     ->type("antwoord", "Klik op de 'Nieuws' knop in de menubalk.")
-                    ->press('Update')
+                    ->press('Pas veelgestelde vraag aan')
                     ->assertPathIsNot("/faq")
                     ->assertSee("Vraag mag niet groter zijn dan 255 karakters.");
         });
@@ -128,7 +128,7 @@ class FAQTest extends DuskTestCase
                     ->clickLink("Aanpassen")
                     ->type("vraag", "Hoe kan ik het nieuws zien?")
                     ->type("antwoord", $string)
-                    ->press('Update')
+                    ->press('Pas veelgestelde vraag aan')
                     ->assertPathIsNot("/faq")
                     ->assertSee("Antwoord mag niet groter zijn dan 999 karakters.");
         });
@@ -141,7 +141,7 @@ class FAQTest extends DuskTestCase
                     ->clickLink("Aanpassen")
                     ->type("vraag", "")
                     ->type("antwoord", "")
-                    ->press('Update')
+                    ->press('Pas veelgestelde vraag aan')
                     ->assertPathIsNot("/faq");
         });
     }
@@ -152,7 +152,7 @@ class FAQTest extends DuskTestCase
             $browser->visit('/faq')
                     ->press("Verwijderen")
                     ->assertPathIs("/faq")
-                    ->assertSee("Vraag & antwoord verwijderd.");
+                    ->assertSee("Veelgestelde vraag verwijderd.");
         });
     }
 
@@ -160,7 +160,7 @@ class FAQTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/faq')
-                    ->clickLink("Creeër nieuwe vraag & antwoord")
+                    ->clickLink("Creeër nieuwe veelgestelde vraag")
                     ->clickLink("Ga terug")
                     ->assertPathIs("/faq");
         });

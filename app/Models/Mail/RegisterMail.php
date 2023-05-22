@@ -18,22 +18,24 @@ class RegisterMail extends Mailable
     public $phonenumber;
     public $address;
     public $city;
-    public $disability;
+    public $golfhandicap;
     public $eventName;
     public $date;
+    public $gender;
 
     /**
      * Create a new message instance.
      */
-    public function __construct($name, $age, $email, $phonenumber, $address, $city, $disability, $eventName, $date)
+    public function __construct($name, $age, $gender, $email, $phonenumber, $address, $city, $golfhandicap, $eventName, $date)
     {
         $this->name = $name;
         $this->age = $age;
+        $this->gender = $gender;
         $this->email = $email;
         $this->phonenumber = $phonenumber;
         $this->address = $address;
         $this->city = $city;
-        $this->disability = $disability;
+        $this->golfhandicap = $golfhandicap;
         $this->eventName = $eventName;
         $this->date = $date;
     }
@@ -44,7 +46,7 @@ class RegisterMail extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Inschrijving evenement '.$this->eventName
+            subject: 'Inschrijving evenement ' . $this->eventName
         );
     }
 

@@ -12,15 +12,23 @@ class EnrollForEventTest extends DuskTestCase
     public function testFormSuccess(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
+                ->type('golfhandicap', 'Geen');
+            $browser
+                ->waitFor('#aanmeldknop')
                 ->press('#aanmeldknop')
                 ->assertSee('Uw aanmelding is verzonden!');
         });
@@ -35,29 +43,43 @@ class EnrollForEventTest extends DuskTestCase
             }
 
             //Test required field
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', '')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test max length
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', $string)
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -66,29 +88,44 @@ class EnrollForEventTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             //Test required field
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test before today
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
+                ->waitFor('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '01-01-2999')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -102,42 +139,68 @@ class EnrollForEventTest extends DuskTestCase
             }
 
             //Test required field
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+
+            $browser
+                ->waitFor('#aanmeldknop')
+                ->waitFor('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', '')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test e-mail validation
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
+                ->waitFor('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'adsbfiobadsuygbfoulabfuygbdfvhybalxbvudsblyuierub')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test max length
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
+                ->waitFor('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', $string)
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -151,55 +214,83 @@ class EnrollForEventTest extends DuskTestCase
             }
 
             //Test required field
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '456as4df54fd65a4sdf65saf')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test phonenumber regex
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', ';[]_=asdffda151256124-+()sdfsaf')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test minimal length
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '061234567')
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test max length
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', $string)
                 ->type('address', 'Teststraat 1')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -213,29 +304,43 @@ class EnrollForEventTest extends DuskTestCase
             }
 
             //Test required field
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', '')
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test max length
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', $string)
                 ->type('city', 'Teststad')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
@@ -249,34 +354,72 @@ class EnrollForEventTest extends DuskTestCase
             }
 
             //Test required field
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 6')
                 ->type('city', '')
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test max length
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 6')
                 ->type('city', $string)
-                ->type('disability', 'Geen')
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', 'Geen')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }
 
-    public function testForm_BadDisability_shouldFail(): void
+    public function testForm_emptyGolfhandicap_shouldSucceed(): void
+    {
+        $this->browse(function (Browser $browser) {
+
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser
+                ->assertSee('Inschrijven voor Evenement')
+                ->type('name', 'Test')
+                ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
+                ->type('email', 'test@gmail.com')
+                ->type('phonenumber', '0612345678')
+                ->type('address', 'Teststraat 6')
+                ->type('city', 'Teststad')
+                ->type('golfhandicap', '')
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
+                ->assertSee('Uw aanmelding is verzonden!');
+        });
+    }
+    public function testForm_BadGolfhandicap_shouldFail(): void
     {
         $this->browse(function (Browser $browser) {
             $string = '';
@@ -284,30 +427,24 @@ class EnrollForEventTest extends DuskTestCase
                 $string .= 'a';
             }
 
-            //Test required field
-            $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
-                ->assertSee('Inschrijven voor Evenement')
-                ->type('name', 'Test')
-                ->type('birthday', '2000-01-01')
-                ->type('email', 'test@gmail.com')
-                ->type('phonenumber', '0612345678')
-                ->type('address', 'Teststraat 6')
-                ->type('city', 'Teststad')
-                ->type('disability', '')
-                ->press('#aanmeldknop')
-                ->assertDontSee('Uw aanmelding is verzonden!');
 
             //Test max length
             $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
-                ->assertSee('Inschrijven voor Evenement')
+                ->maximize()
+                ->pause(1000);
+            $browser->script('window.scrollTo(0, 1000);');
+            $browser->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
                 ->type('birthday', '2000-01-01')
+                ->waitFor('#GenderMan')
+                ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
                 ->type('phonenumber', '0612345678')
                 ->type('address', 'Teststraat 6')
                 ->type('city', 'Teststad')
-                ->type('disability', $string)
-                ->press('#aanmeldknop')
+                ->type('golfhandicap', $string)
+                ->waitFor('#aanmeldknop')
+                ->click('#aanmeldknop')
                 ->assertDontSee('Uw aanmelding is verzonden!');
         });
     }

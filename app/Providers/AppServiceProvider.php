@@ -20,14 +20,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        if(env('APP_ENV') === 'local') {
-            \URL::forceScheme('http');
-        }
-        else if(env('APP_ENV') === 'production') {
-            \URL::forceScheme('http');
-        }
-        else {
-            error_log('Check of de APP_ENV op local of production staat. Run dan het volgende commando: "php artisan optimize:clear" -Mees');
+        if(env('APP_DEBUG') !== true){
+            \URL::forceScheme('https');
         }
 
         Schema::defaultStringLength(191);
@@ -36,5 +30,6 @@ class AppServiceProvider extends ServiceProvider
             $allYears = (new \App\Http\Controllers\GalleryController())->ShowAllYearsOfGallerys();
             view()->share('allYears', $allYears);
         }
+        Schema::defaultStringLength(191);
     }
 }
