@@ -7,7 +7,7 @@
 
 <div class="row">
     <div class="col-md-2 mx-3" id="wrapper">
-        @include('Components.SideBar.SideBarNavigation', ['articles' => $articles])
+        @include('Components.SideBar.SideBarNavigation', ['articles' => $articles], ['years' => $years])
     </div>
 <div class="col">
     <div class="container">
