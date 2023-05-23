@@ -1,8 +1,11 @@
 @extends('layouts.layout')
+@section('content')
+
 <head>
     <link rel="stylesheet" href="{{ asset('css/EventDetails.css') }}">
+    <title>Events</title>
 </head>
-@section('content')
+
     <div class="container justify-content-between ">
         <div class="row align-items-center">
             <h1 class="col">Evenementen</h1>
@@ -29,7 +32,7 @@
             </h2>
                 <a href="/events/enroll/{{$post->id}}" class="btn-primary btn">Inschrijven</a>
             </div>
-            
+
             <div>
                 <label>Datum: {{ \Carbon\Carbon::parse($post->date)->format('d-m-Y')}} om {{date('H:i', strtotime($post->time))}}</label>
                 <br />

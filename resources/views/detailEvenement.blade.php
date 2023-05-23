@@ -48,7 +48,7 @@
             </div>
             <div id="detailsImages" class=" d-lg-flex">
                 @foreach($groups as $group)
-                    <img src="{{$group->imageurl}}" class="shadow border-0" alt="Evenement afbeelding">
+                    <img src="{{$group->imageurl}}" class="shadow border-0" id="sponsor_img" alt="Evenement afbeelding">
                 @endforeach
             </div>
         </div>
