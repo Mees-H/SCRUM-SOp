@@ -74,6 +74,7 @@ Route::resource('links', SiteMapController::class);
 Route::resource('nieuws', NewsArticleController::class);
 Route::resource('nieuwsbrief', NewsLetterController::class);
 //Route::get('/nieuws', [NewsArticleController::class, 'sorting'])->name('sorting');
+Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
 
 //album routes
 Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');

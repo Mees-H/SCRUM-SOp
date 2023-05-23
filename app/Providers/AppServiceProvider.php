@@ -37,11 +37,5 @@ class AppServiceProvider extends ServiceProvider
             view()->share('allYears', $allYears);
         }
         Schema::defaultStringLength(191);
-
-        if (Schema::hasTable('news_articles')) {
-
-            $yearsOfNewsArticles = (new \App\Http\Controllers\NewsArticleController())->ShowAllYearsOfNewsArticles();
-            view()->share('yearsOfNewsArticles', $yearsOfNewsArticles);
-        }
     }
 }
