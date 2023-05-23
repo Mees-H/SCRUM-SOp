@@ -53,7 +53,6 @@
                     </div>
                 </div>
                 <div class="d-flex">
-                    {{--                    TODO: Moet nog worden vervangen met 1 locatie--}}
                     @foreach($post->groups as $group)
                         <a href="https://{{$group->link}}">
                         <div class="fullwrap m-3">
@@ -63,12 +62,7 @@
                                 <div>{{$group->zipcode}}, {{$group->city}}</div>
                             </div>
                         </div>
-                        <div class="m-3">
-                            {{$group->name}}<br>
-                            {{$group->street}} {{$group->housenumber}}<br>
-                            {{$group->zipcode}} {{$group->city}}<br>
-                            <a id="link" href="https://{{$group->link}}">{{$group->link}}</a>
-                        </div>
+                        </a>
                     @endforeach
 
                 </div>
