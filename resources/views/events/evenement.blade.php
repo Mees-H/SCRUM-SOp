@@ -4,9 +4,6 @@
 <div class="container justify-content-between ">
     <div class="row align-items-center">
         <h1 class="col">Evenementen</h1>
-        <div class="col d-flex justify-content-end">
-            <a class="btn btn-primary" href="evenement/export">iCal exporteren</a>
-        </div>
     </div>
 </div>
 <div class="container">
@@ -19,11 +16,14 @@
                     <div class="sidebar-header">
                         <h3>Data</h3>
                         <p>Evenementen per dag</p>
+                        <div class="col d-flex justify-content-center">
+                            <a class="btn btn-primary" href="evenement/export">Agenda exporteren</a>
+                        </div>
                     </div>
                     <ul class="list-unstyled">
                         @foreach($posts as $event)
                         <li class="d-flex">
-                            <a href="{{route('eventsDetails', $event->id)}}" class="btn btn-outline-dark mt-2 flex-grow-1" rel="{{$event->title}} details knop">
+                            <a href="{{route('eventsDetails', $event->id)}}" class="btn btn-secondary mt-2 flex-grow-1" rel="{{$event->title}} details knop">
                                 <p>{{$event->title}}</p>
                                 <p>{{$event->date}}</p>
                             </a>

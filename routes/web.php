@@ -63,7 +63,6 @@ Route::get('/vragenantwoorden', [FAQController::class, 'viewquestions']);
 Route::resource('events', EventController::class);
 Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name('eventsDetails');
 Route::get('evenement/export', [EventController::class, 'exportIcal']);
-Route::get('evenement/sortByDate/{date}', [EventController::class, 'sortByDate'])->name('evenement.sortByDate');
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
 

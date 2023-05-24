@@ -164,10 +164,19 @@ class EventController extends Controller
         $events = Event::all()->where('date', '>=', Carbon::now());
         $calendarEvents = [];
         foreach($events as $event){
+
+            //Formatting date
+            $dateSegments = explode("-", $event->date);
+            $timeSegments = explode(":", $event->time);
+            $date = new DateTime();
+            $date->setDate($dateSegments[0], $dateSegments[1], $dateSegments[2]);
+            $date->setTime($timeSegments[0], $timeSegments[1], $timeSegments[2], null);
+
+            //Creating iCal file
             array_push($calendarEvents, \Spatie\IcalendarGenerator\Components\Event::create()
             ->name($event->title)
-            ->startsAt(new DateTime($event->date))
-            ->endsAt(new DateTime($event->date))
+            ->startsAt($date)
+            ->endsAt($date)
             ->description($event->body)
             ->uniqueIdentifier($event->id)
             ->createdAt($event->created_at)); 
