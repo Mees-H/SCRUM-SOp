@@ -26,7 +26,7 @@
 
 - [ ] Zorg voor voldoende contrast. 
 
-- [ ] Contrast wordt getest met deze tool: https://webaim.org/resources/contrastchecker/  
+- [ ] Contrast is getest met deze tool: https://webaim.org/resources/contrastchecker/  
 
 - [ ] De WCAG AAA test moet pass teruggeven. 
 
@@ -54,13 +54,9 @@ Zoals: Lees meer over regulering.
 
 - [ ] Views zijn getest op responsiveness (mobiel, tablet, desktop) door middel van UI testen. 
 
-### Ontwikkelaar 
+### Ontwikkelaar  
 
-- [ ] Er is geen SQL injection mogelijk  
-
-- [ ] Alle invoervelden zijn voorzien van een regex. 
-
-- [ ] Deze regex zorgt ervoor dat alleen het noodzakelijke ingevoerd kan worden. 
+- [ ] Invoervelden zijn voorzien van een regex wanneer nodig. 
 
 - [ ] De coding guidlines zijn aangehouden. 
 
@@ -100,7 +96,7 @@ Zoals: Lees meer over regulering.
 
 - [ ] Test je syntax. 
 
-- [ ] Maak niet alleen gebruik van kleuren om iets duidelijk te maken of uit te leggen maar ook van vormen.  
+- [ ] Maak gebruik van kleuren en vormen om iets duidelijk te maken.   
 
 - [ ] Inlaad snelheid zo hoog mogelijk. 
 
@@ -131,3 +127,7 @@ Zoals: Lees meer over regulering.
 ## User Interface
 
 - (Image screenshot of UI with description here)
+- (Make sure to screenshot every addition you made)
+
+## DevTools
+- (Image screenshot of DevTools that shows that there are no problems)
