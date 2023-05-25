@@ -76,7 +76,7 @@ Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('gal
 
 //News routes
 Route::resource('nieuws', NewsArticleController::class);
-Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
+//Route::get('/nieuws', [NewsArticleController::class, 'sorting'])->name('sorting');
 
 
 
