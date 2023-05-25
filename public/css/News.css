@@ -6,8 +6,13 @@
     margin-top: 1%;
     box-shadow: 0 0 2px rgba(0,0,0,0.2);
 }
+
 .wrapper:hover{
     opacity: 100%;
+}
+
+.btn {
+    width: 100%;
 }
 @media screen and (max-width: 768px) {
     .wrapper{

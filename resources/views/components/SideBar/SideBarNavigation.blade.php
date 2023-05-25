@@ -1,16 +1,10 @@
-<head>
-    <link rel="stylesheet" href="{{asset('css/News.css')}}"/>
-    <title>NavigationSideBar</title>
-</head>
-
-<div class="wrapper p-3 bg-white card">
+<div class="px-3 mb-3 pt-3 bg-white card">
 <nav id="sidebar">
     <div class="sidebar-header border-bottom">
         <h3 id="sidebarHeader">Artikelen Datums</h3>
     </div>
 
-
-    <ul class="list-unstyled components">
+    <ul class="list-unstyled components mb-0">
 
         <li class="active border-bottom">
             @if($years)
