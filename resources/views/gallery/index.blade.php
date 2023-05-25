@@ -9,7 +9,40 @@
             {{ session()->get('success') }}
         </div>
     @endif
-    <div class="table-responsive">
+    @if ($agent->isMobile())
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>Titel</td>
+                    <td>Beschrijving</td>
+                    <td>Datum</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($albums as $album)
+                    <tr>
+                        <td>{{$album->title}} </td>
+                        <td>{{$album->description}}</td>
+                        <td>{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}}</td>
+                        <td>
+                            <a href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary" dusk="editAlbum">Aanpassen</a>
+                        
+                            <form action="{{ route('galerij.destroy', $album->id)}}" method="post">
+                            @csrf
+                            @method('DELETE')
+                            <button class="btn btn-danger" type="submit" dusk="deleteAlbum">Verwijderen</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            </tbody>
+        </table>
+    <div>
+    
+    @endif
+    @if (!$agent->isMobile())
+    <div>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -40,4 +73,5 @@
             </tbody>
         </table>
     <div>
+    @endif
 @endsection

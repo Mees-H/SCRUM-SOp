@@ -52,7 +52,7 @@
     </div>
 </div>
 </body>
-<footer>
+<footer class="footer">
     <div class="footer-content bg-light">
         <div class="footer-info">
             <p class="text-dark">Secretariaat Stichting Special Golf: specialgolfhaverleij@gmail.com</p>

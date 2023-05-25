@@ -4,18 +4,18 @@ body {
     flex-direction: column;
 }
 
-.table-responsive{
-    max-width: 100%;
-    overflow: scroll;
-}
-
 td{
-    min-width: 100px;
+    min-width: 50px;
 }
 
 nav {
     margin-bottom: 20px;
 }
+
+#page-container {
+    position: relative;
+    min-height: 100vh;
+  }
 
 #searchNavBar{
     margin-right: 20px;
@@ -104,10 +104,10 @@ h1{
     color: #8d7824;
 }
 
-footer {
+.footer {
     margin-top: auto;
     position: static;
-    bottom: 0;
+    bottom: 0px;
     left: 0;
     right: 0;
     height: auto;

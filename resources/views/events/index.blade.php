@@ -12,7 +12,42 @@
                 {{ session()->get('success') }}
             </div>
         @endif
-        <div class="table-responsive">
+        @if ($agent->isMobile())
+        <div>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <td>Titel</td>
+                        <td>Datum</td>
+                        <td>Tijd</td>
+                        <td colspan = 2>Actions</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($events as $event)
+                        <tr>
+                            <td>{{$event->title}} </td>
+                            <td>{{ \Carbon\Carbon::parse($event->date)->format('d-m-Y')}}</td>
+                            <td>{{date('H:i', strtotime($event->time))}}</td>
+                            
+                            <td>
+                                <a href="{{ route('events.edit',$event->id)}}" class="btn btn-primary" dusk="edit-event-button">Aanpassen</a>
+                            
+                                <form action="{{ route('events.destroy', $event->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit" dusk="remove-event-button">Verwijderen</button>
+                                </form>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        <div>
+        @endif
+
+        @if (!$agent->isMobile())
+        <div>
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -57,6 +92,9 @@
                 </tbody>
             </table>
         <div>
+        @endif
+
+        
     <div>
 </div>
 @endsection
