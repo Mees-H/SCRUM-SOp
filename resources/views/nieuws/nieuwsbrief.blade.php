@@ -10,7 +10,7 @@
         </div>
         <div class="col">
             <div class="container">
-                <div class="row">
+                <div>
                     @if(session()->get('success'))
                         <div class="alert alert-success">
                             {{ session()->get('success') }}
@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="border-0">
-                                <div class="d-flex justify-content-between container pb-2">
+                                <div class="container pb-2">
 
                                     <h1 class="text-black">Nieuwsartikelen</h1>
                                     @if (Auth::user() != null && Auth::user()->role == 'admin')
