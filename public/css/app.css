@@ -49,6 +49,9 @@ nav {
     #admin_mobile_navbar{
         display: block;
     }
+    #dropdown{
+        width: 200px;
+    }
 }
 
 /* Extra small devices (phones, 600px and down) */
@@ -191,6 +194,7 @@ footer {
     border-color: white;
     color:white;
 }
+
 
 .darkTitle{
     color: #0F0E0E;
