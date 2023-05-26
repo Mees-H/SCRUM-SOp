@@ -232,3 +232,7 @@ td{
     width: auto;
     border: 1px solid darkgray;
 }
+
+.table td {
+    padding: 5px; 
+}
