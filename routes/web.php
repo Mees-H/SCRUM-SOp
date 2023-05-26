@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CreateUserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
@@ -39,7 +40,7 @@ Route::get('/evenement', [NavigationController::class, 'evenement']);
 Route::get('/vragenantwoorden', [NavigationController::class, 'vragenantwoorden']);
 Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
-Route::get('/partner', [NavigationController::class, 'partner']);
+Route::get('/partners', [NavigationController::class, 'partners']);
 Route::get('/overons', [NavigationController::class, 'overons']);
 Route::get('/locatie', [NavigationController::class, 'locatie']);
 Route::get('/links', [NavigationController::class, 'links']);
@@ -81,7 +82,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
     Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
 
-    //Resource routes
+    //Slider routes
     Route::resource('slider', SliderController::class);
 
     //FAQ routes
@@ -93,8 +94,12 @@ Route::middleware(['role:admin'])->group(function () {
     //Team routes
     Route::resource('members', TeamController::class);
 
+    //Partner routes
+    Route::resource('groups', PartnerController::class);
+
     //Galerij routes
     Route::resource('galerij', GalleryController::class);
+
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
 
