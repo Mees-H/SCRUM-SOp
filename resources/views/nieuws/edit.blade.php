@@ -63,6 +63,7 @@
                                             </aside>
                                             <div class="col-sm-12">
                                                 <label class="form-label">Verwijder foto's</label>
+                                                @if(!\PHPUnit\Framework\isEmpty($editArticle->imgurl))
                                                 @foreach($editArticle->imgurl as $img)
                                                     <div class="form-check">
                                                         <input class="form-check-input" type="checkbox" value="{{$img}}"
@@ -73,9 +74,11 @@
                                                         </label>
                                                     </div>
                                                 @endforeach
+                                                @endif
                                             </div>
                                             <div class="col">
                                                 <button class="btn btn-primary" type="submit">Voeg artikel toe</button>
+                                                <a class="btn btn-danger" type="reset" href="/nieuws">annuleren</a>
                                             </div>
                                         </div>
                                     </form>
@@ -156,6 +159,12 @@
                 </div>
             </div>
         </div>
+        <script>
+            $(document).ready(function () {
+                let sort = "{{request()->get('sort')}}";
+                $("#sort").val(sort);
+            });
+        </script>
 @stop
 
 

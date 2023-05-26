@@ -148,4 +148,10 @@
             </div>
         </div>
     </div>
+    <script>
+    $(document).ready(function () {
+        let sort = "{{request()->get('sort')}}";
+        $("#sort").val(sort);
+    });
+    </script>
 @stop
