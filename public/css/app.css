@@ -4,10 +4,6 @@ body {
     flex-direction: column;
 }
 
-td{
-    min-width: 50px;
-}
-
 nav {
     margin-bottom: 20px;
 }
