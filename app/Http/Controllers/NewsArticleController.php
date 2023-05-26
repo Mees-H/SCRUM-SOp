@@ -8,6 +8,7 @@ use App\Models\NewsArticle;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\NotFoundExceptionInterface;
@@ -22,24 +23,25 @@ class NewsArticleController extends Controller
     public function index()
     {
         return match ($_GET['sort'] ?? null) {
-            'date_desc' => $this->filterDateDesc(),
             'date_asc' => $this->filterDateAsc(),
             'title_desc' => $this->filterTitleDesc(),
             'title_asc' => $this->filterTitleAsc(),
-            default => view('nieuws.nieuwsbrief', [
-                'articles' => NewsArticle::all()->sortByDesc('date'),
-                'newsLetters' => NewsLetter::all()->sortByDesc('date')
-            ]),
+            default => $this->filterDateDesc(),
         };
     }
 
+    public function getYears(){
+        return NewsArticle::all()->sortByDesc('date')->groupBy(function($date) {
+            return Carbon::parse($date->date)->format('Y'); // grouping by years
+        });
+    }
 
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('nieuws.create', ['articles' => NewsArticle::all()->sortByDesc('date')]);
+        return view('nieuws.create', ['articles' => NewsArticle::all()->sortByDesc('date')], ['years' => $this->getYears()->toArray()]);
     }
 
     /**
@@ -114,7 +116,7 @@ class NewsArticleController extends Controller
         }
         return view('nieuws.edit',
             ['articles' => NewsArticle::all()->sortByDesc('date'),
-            'editArticle' => $article]);
+            'editArticle' => $article], ['years' => $this->getYears()->toArray()]);
     }
 
     /**
@@ -215,37 +217,35 @@ class NewsArticleController extends Controller
         return redirect('/nieuws')->with('success', 'Artikel verwijderd.');
     }
 
-    public function showAllYearsOfNewsArticles(): array
-    {
-        //get years
-        $yearsOfNewsArticles = [];
-        foreach(NewsArticle::all() as $article){
-            $year = date('Y', strtotime($article->date));
-            if(!in_array($year, $yearsOfNewsArticles)){
-                $yearsOfNewsArticles[] = $year;
-            }
-        }
-        return array_unique($yearsOfNewsArticles);
-    }
-
-
     //filter on date descending
     public function filterDateDesc(){
-        return redirect('/nieuws')->with('articles', NewsArticle::all()->sortByDesc('date'));
+
+        $articles = NewsArticle::all()->sortByDesc('date');
+        $newsLetters = Newsletter::all()->sortByDesc('date');
+
+        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
     }
     //filter on date ascending
     public function filterDateAsc(){
-        return redirect('/nieuws')->with('articles', NewsArticle::all()->sortBy('date'));
+        $articles = NewsArticle::all()->sortBy('date');
+        $newsLetters = Newsletter::all()->sortBy('date');
+
+        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
     }
     //filter on title desc
     public function filterTitleDesc(){
-        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('title')]);
+        $articles = NewsArticle::all()->sortByDesc('title');
+        $newsLetters = Newsletter::all()->sortByDesc('title');
+        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
 
     }
     //filter on title ascending
     public function filterTitleAsc()
     {
-        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortBy('title')]);
+        $articles = NewsArticle::all()->sortBy('title');
+        $newsLetters = Newsletter::all()->sortBy('title');
+        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
     }
+
 
 }
