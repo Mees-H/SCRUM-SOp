@@ -70,7 +70,7 @@
                                                                 @foreach($article->imgurl as $imgurl)
                                                                     <img
                                                                         src="{{ asset('storage/img/nieuws/'.$imgurl) }}"
-                                                                        alt="{{$imgurl}}" class="memberimg"/>
+                                                                        alt="{{$imgurl}}" class="img-thumbnail art_image" />
                                                                 @endforeach
                                                             </aside>
                                                         @endif

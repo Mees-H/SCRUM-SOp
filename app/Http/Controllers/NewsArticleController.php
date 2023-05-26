@@ -115,7 +115,7 @@ class NewsArticleController extends Controller
         }
         return view('nieuws.edit',
             ['articles' => NewsArticle::all()->sortByDesc('date'),
-            'editArticle' => $article]);
+            'editArticle' => $article], ['years' => $this->getYears()->toArray()]);
     }
 
     /**
