@@ -125,9 +125,8 @@ Zoals: Lees meer over regulering.
 - (How did you solve it?)
 
 ## User Interface
-
-- (Image screenshot of UI with description here)
-- (Make sure to screenshot every addition you made)
+- (Afbeelding van de UI met een beschrijving)
+- (Zorg ervoor dat de screenshot alle verandering/toevoegingen bevat)
 
 ## DevTools
-- (Image screenshot of DevTools that shows that there are no problems)
+- (Afbeelding van DevTools die duidelijk aantoont dat er geen problemen zijn)
