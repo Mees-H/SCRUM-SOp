@@ -58,6 +58,7 @@
                                             </aside>
                                             <div class="col">
                                                 <button class="btn btn-primary" type="submit">Voeg artikel toe</button>
+                                                <a class="btn btn-danger" type="reset" href="/nieuws">annuleren</a>
                                             </div>
                                         </div>
                                         <hr>
@@ -100,7 +101,7 @@
                                     <form method="GET" class="d-flex">
                                         <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
                                         <div class="form-group">
-                                            <select class="form-select" name="sort" id="sort">
+                                            <select class="form-select" name="sort" disabled id="sort">
                                                 <option value="date_desc">Datum Aflopend</option>
                                                 <option value="date_asc">Datum Oplopend</option>
                                                 <option value="title_desc">Titel Nieuw-Oud</option>
@@ -109,22 +110,32 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card border-0 p-3">
-                                    <h1 class="text-black">Nieuwsbrieven</h1>
-                                    <div class="card-body">
-                                        <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
-                                        <ul class="list-unstyled">
-                                            @foreach($articles as $article)
-                                                @if($article->fileurl != null)
-                                                    @foreach($article->fileurl as $file)
-                                                        <li class="mb-3">
-                                                            <a class="btn"><i class="bi bi-arrow-left-circle-fill"> {{$file}}</i></a>
-                                                        </li>
-                                                    @endforeach
+                                <div class="card-body">
+                                    <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
+                                    <ul class="list-unstyled">
+                                        @foreach($newsLetters as $newsLetter)
+                                            <li class="mb-3">
+                                                <small>Datum: {{$newsLetter->date}}</small>
+                                                <div class="pdf-container">
+                                                    <embed src="{{ asset('storage/files/nieuws/' . $newsLetter->pdf) }}" width="500" height="375" type="application/pdf">
+                                                </div>
+                                                @if (Auth::user() != null && Auth::user()->role == 'admin')
+                                                    <aside class="row card-body">
+                                                        <div class="col-md-6">
+                                                            <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}" class="btn btn-primary">Pas nieuwsbrief aan</a>
+                                                        </div>
+                                                        <div class="col-md-6">
+                                                            <form action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}" method="post">
+                                                                @csrf
+                                                                @method('DELETE')
+                                                                <button class="btn btn-danger" type="submit">Verwijder nieuwsbrief</button>
+                                                            </form>
+                                                        </div>
+                                                    </aside>
                                                 @endif
-                                            @endforeach
-                                        </ul>
-                                    </div>
+                                            </li>
+                                        @endforeach
+                                    </ul>
                                 </div>
                             </div>
                         </div>

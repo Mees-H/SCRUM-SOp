@@ -12,9 +12,15 @@
 }
 
 .art_image{
-    object-fit: cover;
+    object-fit: scale-down;
        width: 100%;
     height: 100%;
+}
+h3{
+    font-size: 20px;
+    font-weight: lighter;
+    margin-bottom: 20px;
+    margin-top: 0;
 }
 
 @media screen and (max-width: 768px) {
@@ -31,6 +37,11 @@
     }
     #filter_mobile{
         display:flex;
+    }
+    .pdf-container{
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
     }
     /*#filter_mobile{*/
     /*    position: fixed;*/
@@ -59,6 +70,10 @@
 {
     color:#D64747;
     transition: 0.2s;
+}
+.btn-dark{
+    background-color: gray;
+    border-color: gray;
 }
 
 

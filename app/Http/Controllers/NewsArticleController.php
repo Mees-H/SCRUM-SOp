@@ -22,11 +22,12 @@ class NewsArticleController extends Controller
      */
     public function index()
     {
+        $view = 'nieuws.nieuwsbrief';
         return match ($_GET['sort'] ?? null) {
-            'date_asc' => $this->filterDateAsc(),
-            'title_desc' => $this->filterTitleDesc(),
-            'title_asc' => $this->filterTitleAsc(),
-            default => $this->filterDateDesc(),
+            'date_asc' => $this->filterDateAsc($view),
+            'title_desc' => $this->filterTitleDesc($view),
+            'title_asc' => $this->filterTitleAsc($view),
+            default => $this->filterDateDesc($view),
         };
     }
 
@@ -41,7 +42,8 @@ class NewsArticleController extends Controller
      */
     public function create()
     {
-        return view('nieuws.create', ['articles' => NewsArticle::all()->sortByDesc('date')], ['years' => $this->getYears()->toArray()]);
+        $view = 'nieuws.create';
+        return $this->filterDateDesc($view);
     }
 
     /**
@@ -110,13 +112,14 @@ class NewsArticleController extends Controller
     public function edit(string $id)
     {
         try{
-            $article = NewsArticle::findOrFail($id);
+            $editArticle = NewsArticle::findOrFail($id);
+            $articles = NewsArticle::all()->sortByDesc('date');
+            $newsLetters = Newsletter::all()->sortBy('title');
         } catch(ModelNotFoundException $e){
             return redirect('/nieuws')->with('error', 'Kon artikel niet ophalen');
         }
-        return view('nieuws.edit',
-            ['articles' => NewsArticle::all()->sortByDesc('date'),
-            'editArticle' => $article], ['years' => $this->getYears()->toArray()]);
+        return view('nieuws.edit', compact('editArticle', 'newsLetters', 'articles'),
+            ['years' => $this->getYears()->toArray()]);
     }
 
     /**
@@ -149,14 +152,8 @@ class NewsArticleController extends Controller
                 $imgArr[] = $image_name;
             }
         }
-        foreach($article['imgurl'] as $existingImage){
-            //Deleting images
-            if($request->deleteImages != null){
-                if(!in_array($existingImage, $request->deleteImages)){
-                    $imgArr[] = $existingImage;
-                }
-            }
-            else{
+        if ($request->hasFile('img') && $article['imgurl'] != null){
+            foreach($article['imgurl'] as $existingImage){
                 $imgArr[] = $existingImage;
             }
         }
@@ -218,33 +215,33 @@ class NewsArticleController extends Controller
     }
 
     //filter on date descending
-    public function filterDateDesc(){
+    public function filterDateDesc($view){
 
         $articles = NewsArticle::all()->sortByDesc('date');
         $newsLetters = Newsletter::all()->sortByDesc('date');
 
-        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
+        return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
     }
     //filter on date ascending
-    public function filterDateAsc(){
+    public function filterDateAsc($view){
         $articles = NewsArticle::all()->sortBy('date');
         $newsLetters = Newsletter::all()->sortBy('date');
 
-        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
+        return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
     }
     //filter on title desc
-    public function filterTitleDesc(){
+    public function filterTitleDesc($view){
         $articles = NewsArticle::all()->sortByDesc('title');
         $newsLetters = Newsletter::all()->sortByDesc('title');
-        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
+        return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
 
     }
     //filter on title ascending
-    public function filterTitleAsc()
+    public function filterTitleAsc($view)
     {
         $articles = NewsArticle::all()->sortBy('title');
         $newsLetters = Newsletter::all()->sortBy('title');
-        return view('nieuws.nieuwsbrief', ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
+        return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
     }
 
 
