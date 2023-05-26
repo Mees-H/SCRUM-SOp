@@ -406,7 +406,7 @@ class EnrollForEventTest extends DuskTestCase
             $browser
                 ->assertSee('Inschrijven voor Evenement')
                 ->type('name', 'Test')
-                ->type('birthday', '2000-01-01')
+                ->type('birthday', '01-01-2000')
                 ->waitFor('#GenderMan')
                 ->click('#GenderMan')
                 ->type('email', 'test@gmail.com')
