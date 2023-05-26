@@ -23,7 +23,7 @@
                     <div class="row">
                         <div class="col-md-8">
                             @if (Auth::user() != null && Auth::user()->role == 'admin')
-                                <div>
+                                <div class="d-flex justify-content-end p-3">
                                     <a href="{{ route('nieuws.create')}}" class="btn btn-primary">Nieuw artikel</a>
                                 </div>
                             @endif

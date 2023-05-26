@@ -40,7 +40,7 @@ class NewsArticleController extends Controller
      */
     public function create()
     {
-        return view('nieuws.create', ['articles' => NewsArticle::all()->sortByDesc('date')]);
+        return view('nieuws.create', ['articles' => NewsArticle::all()->sortByDesc('date')], ['years' => $this->getYears()->toArray()]);
     }
 
     /**
