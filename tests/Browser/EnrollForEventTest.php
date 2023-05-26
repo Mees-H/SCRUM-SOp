@@ -13,7 +13,6 @@ class EnrollForEventTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -40,7 +39,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test required field
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -57,7 +55,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test max length
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -79,7 +76,6 @@ class EnrollForEventTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             //Test required field
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -96,7 +92,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test before today
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -123,7 +118,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test required field
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -140,7 +134,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test e-mail validation
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -157,7 +150,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test max length
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -184,7 +176,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test required field
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->type('name', 'Test')
@@ -200,7 +191,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test phonenumber regex
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -217,7 +207,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test minimal length
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -234,7 +223,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test max length
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -261,7 +249,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test required field
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -278,7 +265,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test max length
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -305,7 +291,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test required field
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -322,7 +307,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test max length
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -344,7 +328,6 @@ class EnrollForEventTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
 
             $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
@@ -371,7 +354,6 @@ class EnrollForEventTest extends DuskTestCase
 
             //Test max length
             $browser->visit('/events/enroll/'.(DB::table('events')->max('id')))
-                ->maximize()
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
