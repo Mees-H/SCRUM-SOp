@@ -45,7 +45,9 @@ class ProfileTest extends TestCase
 
     public function test_email_verification_status_is_unchanged_when_the_email_address_is_unchanged(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->make();
+        $user->role = 'admin';
+        $user->save();
 
         $response = $this
             ->actingAs($user)
@@ -63,7 +65,9 @@ class ProfileTest extends TestCase
 
     public function test_user_can_delete_their_account(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->make();
+        $user->role = 'admin';
+        $user->save();
 
         $response = $this
             ->actingAs($user)
@@ -81,8 +85,10 @@ class ProfileTest extends TestCase
 
     public function test_correct_password_must_be_provided_to_delete_account(): void
     {
-        $user = User::factory()->create();
-
+        $user = User::factory()->make();
+        $user->role = 'admin';
+        $user->save();
+        
         $response = $this
             ->actingAs($user)
             ->from('/profile')
