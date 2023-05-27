@@ -178,8 +178,7 @@ class EventController extends Controller
             ->startsAt($date)
             ->endsAt($date)
             ->description($event->body)
-            ->uniqueIdentifier($event->id)
-            ->createdAt($event->created_at)); 
+            ->createdAt($event->created_at));
         }
         $calendar = Calendar::create('Special Golf Haverleij Evenementen')
             ->event($calendarEvents);
