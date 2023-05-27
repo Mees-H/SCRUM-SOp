@@ -136,21 +136,21 @@ class GalleryController extends Controller
     public function destroy(string $id)
     {
         $pictures = Picture::with('album')->where('album_id', $id)->get();
-        
+
         foreach($pictures as $picture){
-            $imageurl = Picture::find($picture)->first()->image;
+            $imageurl = $picture->fresh()->image;
             if (File::exists(public_path('images\\'.$imageurl))) {
                 File::delete(public_path('images\\'.$imageurl));
             }
             Picture::findOrFail($picture->id)->delete();
         }
-        
+
         Album::findOrFail($id)->delete();
         return redirect('/galerij')->with('success', 'Album verwijderd.');
     }
 
     public function addAlbumPictures(UploadImageRequest $request)
-    {       
+    {
         foreach ($request->images as $image) {
             $imageNameWithExt = $image->getClientOriginalName();
             $imageName = pathinfo($imageNameWithExt, PATHINFO_FILENAME);
@@ -163,9 +163,9 @@ class GalleryController extends Controller
                 'album_id' => $request->album_id,
                 'image' => $storeImage
             ]);
-            
+
         }
-        
+
         return redirect('/galerij')->with('success', 'Afbeelding is toegevoegd aan album');
     }
 
