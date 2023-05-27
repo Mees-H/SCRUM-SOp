@@ -12,7 +12,9 @@ class ProfileTest extends TestCase
 
     public function test_profile_page_is_displayed(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->make();
+        $user->role = 'admin';
+        $user->save();
 
         $response = $this
             ->actingAs($user)
@@ -23,7 +25,9 @@ class ProfileTest extends TestCase
 
     public function test_profile_information_can_be_updated(): void
     {
-        $user = User::factory()->create();
+        $user = User::factory()->make();
+        $user->role = 'admin';
+        $user->save();
 
         $response = $this
             ->actingAs($user)
@@ -88,7 +92,7 @@ class ProfileTest extends TestCase
         $user = User::factory()->make();
         $user->role = 'admin';
         $user->save();
-        
+
         $response = $this
             ->actingAs($user)
             ->from('/profile')
