@@ -30,6 +30,13 @@
                             <a href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary">Aanpassen</a>
                         </td>
                         <td>
+                            <form action="{{ url('/galerij/' . $album->id . '/addPhoto') }}" method="GET">
+                                @csrf
+                                <input type="hidden" name="album_id" value="{{ $album->id }}">
+                                <button type="submit" class="btn btn-primary wide-button">Foto's toevoegen</button>
+                            </form>
+                        </td>
+                        <td>
                             <form action="{{ route('galerij.destroy', $album->id)}}" method="post">
                             @csrf
                             @method('DELETE')

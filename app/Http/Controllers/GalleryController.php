@@ -6,6 +6,8 @@ use App\Models\Album;
 use App\Models\Picture;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use App\Http\Requests\UploadImageRequest;
+use Illuminate\Support\Facades\File;
 use Image;
 use Storage;
 
@@ -128,63 +130,61 @@ class GalleryController extends Controller
         Album::where('id', $id)->update(['title' => $attributes['title'], 'description' => $attributes['description'], 'date' => $attributes['date']]);
 
 
-        return redirect('/galerij')->with('success', 'Album geüpdatet.');
+        return back()->with('success', 'Album geüpdatet.');
     }
 
     public function destroy(string $id)
     {
+        $pictures = Picture::with('album')->where('album_id', $id)->get();
+        
+        foreach($pictures as $picture){
+            $imageurl = Picture::find($picture)->first()->image;
+            if (File::exists(public_path('images\\'.$imageurl))) {
+                File::delete(public_path('images\\'.$imageurl));
+            }
+            Picture::findOrFail($picture->id)->delete();
+        }
+        
         Album::findOrFail($id)->delete();
         return redirect('/galerij')->with('success', 'Album verwijderd.');
     }
 
-    public function updateAlbumDescription(Request $request)
-    {
-        $request->validate([
-            'description' => 'required'
-        ]);
-        Album::where('id', $request->id)->update(['description' => $request->description]);
-        return redirect('/galerij')->with('success', 'Album is aangepast');
-    }
-
-    public function addAlbumPictures(Request $request)
-    {
-        $request->validate([
-            'images' => 'required',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
-
+    public function addAlbumPictures(UploadImageRequest $request)
+    {       
         foreach ($request->images as $image) {
-            //if image is not a file, throw an error (400)
-            if (!is_file($image)) {
-                return response()->json(['error' => 'The image is not a file'], 400);
-            } else {
-                $imageNameWithExt = $image->getClientOriginalName();
-                $imageName = pathinfo($imageNameWithExt, PATHINFO_FILENAME);
-                $imageExt = $image->getClientOriginalExtension();
-                $storeImage = $imageName . time() . "." . $imageExt;
+            $imageNameWithExt = $image->getClientOriginalName();
+            $imageName = pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+            $imageExt = $image->getClientOriginalExtension();
+            $storeImage = $imageName . time() . "." . $imageExt;
 
-                $image->move(public_path('images'), $storeImage);
+            $image->move(public_path('images'), $storeImage);
 
-                Picture::create([
-                    'album_id' => $request->album_id,
-                    'image' => $storeImage
-                ]);
-            }
+            Picture::create([
+                'album_id' => $request->album_id,
+                'image' => $storeImage
+            ]);
+            
         }
-
+        
         return redirect('/galerij')->with('success', 'Afbeelding is toegevoegd aan album');
     }
 
     public function deleteAlbumPictures(Request $request)
     {
+        foreach($request->images as $image){
+            $imageurl = Picture::find($image)->image;
+            if (File::exists(public_path('images\\'.$imageurl))) {
+                File::delete(public_path('images\\'.$imageurl));
+            }
+        }
         Picture::destroy($request->images);
         if (!isset($request->images)) {
-            return redirect()->back()->with('error', 'Er is geen afbeelding geselecteerd');
+            return back()->with('error', 'Er is geen afbeelding geselecteerd');
         }
         if (count($request->images) > 1) {
-            return redirect('/galerij')->with('success', 'Afbeeldingen zijn verwijderd uit album');
+            return back()->with('success', 'Afbeeldingen zijn verwijderd uit album');
         } else {
-            return redirect('/galerij')->with('success', 'Afbeelding is verwijderd uit album');
+            return back()->with('success', 'Afbeelding is verwijderd uit album');
         }
     }
 }

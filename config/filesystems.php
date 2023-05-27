@@ -56,10 +56,6 @@ return [
             'throw' => false,
         ],
         
-        'galerij_fotos' => [
-            'driver' => 'local',
-            'root'   => public_path() . '/'
-         ]
     ],
 
     /*

@@ -1,10 +1,9 @@
 @extends('layouts.layout')
 
 @section('content')
-    <head>
-        <link href="{{ asset('css/album.css') }}" rel="stylesheet">
-    </head>
-    <body>
+    <link href="{{ asset('css/album.css') }}" rel="stylesheet">
+    <script src="{{ asset('js/album.js') }}" defer></script>
+    
     <div class="container">
         <div class="row">
             <div class="col-sm-8 offset-sm-2">
@@ -49,6 +48,12 @@
             </div>
         </div>
 
+        <div class="row mt-3 text-center mb-5">
+            <div class="col-md-12">
+                <button type="submit" form="updateAlbum" class="btn btn-primary wide-button">Pas album aan</button>
+            </div>
+        </div>
+
         <div class="row mt-3 text-center">
             <div class="col-md-12">
                 @if (session('success'))
@@ -77,28 +82,22 @@
         </div>
 
         <div class="row mt-3 text-center mb-5">
-            <div class="col-md-4">
-                <form action="{{ url('/galerij/'.$year.'/'.$album->title.'/verwijderfotos') }}" method="POST"
-                      id="deleteForm">
-                    @csrf
-                    <button type="submit" class="btn btn-danger wide-button">Foto's verwijderen</button>
-                </form>
-            </div>
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <form action="{{ url('/galerij/' . $album->id . '/addPhoto') }}" method="GET">
                     @csrf
                     <input type="hidden" name="album_id" value="{{ $album->id }}">
                     <button type="submit" class="btn btn-primary wide-button">Foto's toevoegen</button>
                 </form>
             </div>
-            <div class="col-md-4">
-                <button type="submit" form="updateAlbum" class="btn btn-primary wide-button">Update</button>
+            <div class="col-md-6">
+                <form action="{{ url('/galerij/'.$year.'/'.$album->title.'/verwijderfotos') }}" method="POST"
+                      id="deleteForm">
+                    @csrf
+                    <button type="submit" class="btn btn-danger wide-button">Geselecteerde foto's verwijderen</button>
+                </form>
             </div>
-
         </div>
 
     </div>
-    <script src="{{ asset('js/album.js') }}"></script>
-    </body>
 
 @stop
