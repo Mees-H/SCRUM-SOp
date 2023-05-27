@@ -13,7 +13,7 @@
 
 .art_image{
     object-fit: scale-down;
-       width: 100%;
+    width: 100%;
     height: 100%;
 }
 h3{
@@ -23,43 +23,18 @@ h3{
     margin-top: 0;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
     .wrapper{
         display: none;
     }
     .card{
         box-shadow: 0 0 3px rgba(0,0,0,0.2);
-        padding: 10px;
-    }
-    #filterButton {
-        display: flex;
-        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 10px;
     }
     #filter_mobile{
         display:flex;
     }
-    .pdf-container{
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    /*#filter_mobile{*/
-    /*    position: fixed;*/
-    /*    bottom: 2%;*/
-    /*    left: 50%;*/
-    /*    transform: translate(-50%, -50%);*/
-    /*    border-radius: 20px;*/
-    /*    z-index: 1;*/
-    /*}*/
-}
-@media screen and (min-width: 780px)
-    {
-    #filterButton {
-        display: none;
-    }
-    /*#filter_mobile{*/
-    /*    display:none;*/
-    /*}*/
 }
 
 #articleTitle{
@@ -75,22 +50,13 @@ h3{
     background-color: gray;
     border-color: gray;
 }
+.pdf_layout{
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 5%;
+}
 
 
 #sidebarHeader{
     font-size: 20px;
-}
-
-
-
-.pdf-container {
-    width: 100%;
-    max-width: 500px;
-    margin: 0 auto;
-}
-
-.pdf-container embed {
-    display: block;
-    width: 200%;
-    height: 375px;
 }

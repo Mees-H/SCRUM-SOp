@@ -79,7 +79,7 @@
                                                 @endif
                                             </div>
                                             <div class="col">
-                                                <button class="btn btn-primary" type="submit">Voeg artikel toe</button>
+                                                <button class="btn btn-primary" type="submit">Pas artikel aan</button>
                                                 <a class="btn btn-danger" type="reset" href="/nieuws">annuleren</a>
                                             </div>
                                         </div>
@@ -134,7 +134,7 @@
                                         </div>
                                     </form>
                                 </div>
-                                <div class="card-body">
+                                <div class="col-sm-6">
                                     <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
                                     <ul class="list-unstyled">
                                         @foreach($newsLetters as $newsLetter)
@@ -144,11 +144,11 @@
                                                     <embed src="{{ asset('storage/files/nieuws/' . $newsLetter->pdf) }}" width="500" height="375" type="application/pdf">
                                                 </div>
                                                 @if (Auth::user() != null && Auth::user()->role == 'admin')
-                                                    <aside class="row card-body">
-                                                        <div class="col-md-6">
+                                                    <aside class="d-flex justify-content-between card-body">
+                                                        <div >
                                                             <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}" class="btn btn-primary">Pas nieuwsbrief aan</a>
                                                         </div>
-                                                        <div class="col-md-6">
+                                                        <div >
                                                             <form action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}" method="post">
                                                                 @csrf
                                                                 @method('DELETE')

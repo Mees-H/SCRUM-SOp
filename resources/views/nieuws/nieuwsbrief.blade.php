@@ -5,16 +5,14 @@
         <title>Nieuwsbrief</title>
     </head>
     <div class="row d-flex">
-
         {{--        The first col--}}
         <div class="col-sm-2 mx-3" id="wrapper">
             @include('Components.SideBar.SideBarNavigation', ['articles' => $articles], ['years' => $years])
         </div>
 
         {{--                    The second col--}}
-        <div class="col-md-6">
-            <div class="container">
-
+        <div class="col-sm-6">
+            <div>
                 @if(session()->get('success'))
                     <div class="alert alert-success">
                         {{ session()->get('success') }}
@@ -26,7 +24,7 @@
                 @endif
             </div>
             @if (Auth::user() != null && Auth::user()->role == 'admin')
-                <div class="d-flex justify-content-end p-3">
+                <div class="d-flex justify-content-end">
                     <a href="{{ route('nieuws.create')}}" class="btn btn-primary">Nieuw artikel</a>
                 </div>
             @endif
@@ -37,15 +35,14 @@
                         <div class="mt-2 pb-3">
                             <form method="Get" action="{{route('sorting')}}" class="d-flex">
                                 @csrf
-                                <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
                                 <div class="form-group">
+                                    <label for="sort" class="overflow-x-auto m-1">Sorteren op:</label>
                                     <select class="form-select" id="sort" name="sort" onchange="this.form.submit()">
                                         <option value="date_desc" class="dropdown-item">Datum Aflopend</option>
                                         <option value="date_asc" class="dropdown-item">Datum Oplopend</option>
                                         <option value="title_desc" class="dropdown-item">Titel Aflopend</option>
                                         <option value="title_asc" class="dropdown-item">Titel Oplopend</option>
                                     </select>
-                                    <noscript><input type="submit" value="sort"></noscript>
                                 </div>
                             </form>
                         </div>
@@ -92,6 +89,7 @@
                                                 <button class="col btn btn-danger" type="submit">
                                                     Verwijder nieuwsartikel
                                                 </button>
+
                                             </form>
                                         </div>
                                     </aside>
@@ -104,12 +102,13 @@
 {{--            third col--}}
         <div class="col-sm container">
             <div class="card border-0">
-                <h1 class="text-black">Nieuwsbrieven</h1>
+
                 @if (Auth::user() != null && Auth::user()->role == 'admin')
-                    <div>
+                    <div class="justify-content-end d-flex">
                         <a href="{{ route('nieuwsbrief.create')}}" class="btn btn-primary">Nieuwe nieuwsbrief</a>
                     </div>
                 @endif
+                    <h1 class="text-black">Nieuwsbrieven</h1>
                 <div class="">
                     <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
                     <ul class="list-unstyled">
@@ -122,17 +121,17 @@
                                             <button class="btn btn-dark" onclick="fullscreenPdf({{$newsLetter->id}})" id="btnPdfFullscreen{{$newsLetter->id}}"><i class="bi bi-arrows-fullscreen"></i></button>
                                         </span>
                                 </div>
-                                <div class="pdf-container d-flex">
+                                <div class="d-flex pdf_layout">
                                     <embed id="framePdf{{$newsLetter->id}}" src="{{ asset('storage/files/nieuws/' . $newsLetter->pdf) }}" class="embed-responsive" type="application/pdf">
                                 </div>
 
                                 @if (Auth::user() != null && Auth::user()->role == 'admin')
-                                    <aside class="row card-body">
-                                        <div class="col-md-6">
+                                    <aside class="d-flex justify-content-between card-body">
+                                        <div class="">
                                             <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}"
                                                class="btn btn-primary">Pas nieuwsbrief aan</a>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="">
                                             <form action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}"
                                                   method="post">
                                                 @csrf
@@ -150,8 +149,8 @@
             </div>
         </div>
 
-    </div>
-    </div>
+        </div>
+
     <script>
         $(document).ready(function () {
             let sort = "{{request()->get('sort')}}";
