@@ -320,6 +320,12 @@
         </div>
         <footer>
           <div class="footer-content bg-light">
+            <div class="footer-info m-3">
+                <a class="text-dark" href="{{route('privacy')}}">
+                    <p>privacy verklaring <i class="fa-solid fa-link"></i></p>
+
+                </a>
+            </div>
            <div class="footer-info">
           <p class="text-dark">Secretariaat Stichting Special Golf: specialgolfhaverleij@gmail.com</p>
           <p class="text-dark">Rekeningnummer Rabobank: NL 38 RABO 0118102206 o.v.v. Special Golf</p>

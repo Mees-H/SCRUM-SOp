@@ -12,7 +12,7 @@ class PrivacyController extends Controller
 {
     public function index()
     {
-        if(!File::exists('./public/files/avg.pdf')){
+        if(!File::exists('./files/avg.pdf')){
             //return view with errors
             return view('privacy.index',['beschikbaar' => 'Er is geen privacyverklaring beschikbaar']);
         }else{
