@@ -82,6 +82,7 @@ Route::resource('nieuwsbrief', NewsLetterController::class);
 Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
 Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('nieuws.store');
 
+
 Route::resource('nieuwsBrief', NewsLetterController::class);
 
 
@@ -96,6 +97,12 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
     Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
     Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
+
+    //News routes
+    Route::resource('nieuws', NewsArticleController::class);
+    Route::resource('nieuwsbrief', NewsLetterController::class);
+    Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('nieuws.store');
+
 
     //Resource routes
     Route::resource('slider', SliderController::class);
@@ -122,6 +129,9 @@ Route::middleware(['role:admin'])->group(function () {
     Route::resource('trainingsessions', TrainingController::class);
 });
 
+//News routes
+Route::get('/nieuws', [NewsArticleController::class, 'index'])->name('nieuws.index');
+Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
 
 Route::middleware(['role:admin,coach'])->group(function () {
 

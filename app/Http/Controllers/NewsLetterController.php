@@ -28,6 +28,8 @@ class NewsLetterController extends Controller
         $request->validate([
             'file' => 'required|mimes:pdf',
             'date' => 'required|date',
+        ], [
+            'file.required' => 'PDF bestand is verplicht.'
         ]);
 
         $newsletter = new Newsletter([
@@ -53,8 +55,10 @@ class NewsLetterController extends Controller
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'file' => 'mimes:pdf',
+            'file' => 'required|mimes:pdf',
             'date' => 'required|date',
+        ], [
+            'file.required' => 'PDF bestand is verplicht.'
         ]);
 
         $newsletter = Newsletter::find($id);
