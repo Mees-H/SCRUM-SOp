@@ -12,12 +12,22 @@ class PrivacyController extends Controller
 {
     public function index()
     {
-        return view('privacy.index');
+        if(!File::exists('./public/files/avg.pdf')){
+            //return view with errors
+            return view('privacy.index',['beschikbaar' => 'Er is geen privacyverklaring beschikbaar']);
+        }else{
+            return view('privacy.index');
+        }
+
     }
 
     public function download()
     {
-        return Storage::disk('public')->download('avg.pdf');
+        if(File::exists('./public/files/avg.pdf')){
+            return Storage::disk('public')->download('avg.pdf');
+        }else{
+            return Redirect::back()->withErrors("Er is geen privacyverklaring beschikbaar");
+        }
     }
 
     public function edit()
