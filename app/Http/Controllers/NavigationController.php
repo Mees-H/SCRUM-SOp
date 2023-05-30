@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Event;
 use App\Models\MemberGroup;
+use Carbon\Carbon;
 
 class NavigationController extends Controller
 {
@@ -46,7 +47,8 @@ class NavigationController extends Controller
 
     function partners()
     {
-        return view('partners', ['groups' => Group::all()]);
+        return view('partners.partners', ['groups' => Group::all(),
+                                        'year' => Carbon::now()->year]);
     }
 
     function overons()

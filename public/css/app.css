@@ -188,3 +188,9 @@ td {
     width: auto;
     border: 1px solid darkgray;
 }
+
+.partnerimg {
+    padding: 2px;
+    height: auto;
+    width: auto;
+}
