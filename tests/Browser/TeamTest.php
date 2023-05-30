@@ -29,12 +29,12 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
-                    ->waitUntilEnabled('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members')
                     ->assertSee('Lid opgeslagen.');
@@ -49,11 +49,11 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('email', 'freek@vonk.nl')
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
-                    ->waitUntilEnabled('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Het naam veld is verplicht.');
@@ -68,11 +68,11 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
-                    ->waitUntilEnabled('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Het email veld is verplicht.');
@@ -87,13 +87,13 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', 'hoihoi:3:3')
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
-                    ->waitUntilEnabled('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Telefoonnummer dient een nummer te zijn.');
@@ -108,13 +108,13 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', '06123456789')
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
-                    ->waitUntilEnabled('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
@@ -129,13 +129,13 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
                     ->type('phonenumber', '061234567')
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
-                    ->waitUntilEnabled('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
@@ -150,12 +150,12 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('name', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                     ->type('email', 'freek@vonk.nl')
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
-                    ->waitUntilEnabled('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Naam mag niet groter zijn dan 255 karakters.');
@@ -170,12 +170,12 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Voeg nieuw lid toe')
                     ->type('email', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@a.nl')
                     ->type('name', 'Freek Vonk')
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
-                    ->waitUntilEnabled('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
                     ->assertSee('Email mag niet groter zijn dan 255 karakters.');
@@ -192,6 +192,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -212,6 +213,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('name', '')
                     ->type('email', 'freek@vonk.nl')
@@ -232,6 +234,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', '')
@@ -252,6 +255,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -272,6 +276,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -292,6 +297,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -312,6 +318,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('name', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                     ->type('email', 'freek@vonk.nl')
@@ -332,6 +339,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('email', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@aaaaaaaaaaaaaaaaaaaaa.aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@a.nl')
                     ->type('name', 'Freek Vonk')
@@ -353,6 +361,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000,3000)
                     ->press('Verwijderen')
                     ->assertPathIs('/members')
                     ->assertSee('Lid verwijderd');

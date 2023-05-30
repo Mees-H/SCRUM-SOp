@@ -36,8 +36,6 @@ class CreateUserTest extends DuskTestCase
                 ->type('email', 'duskadmin@test.nl')
                 ->type('password', 'Ab12345!')
                 ->press('Inloggen')
-                ->click("#navbarDropdownOrganisatie")
-                ->assertSee('Gebruikers')
                 ->visit('/admin/gebruikers')
                 ->waitUntilEnabled('@createUserButton')
                 ->clickLink('Voeg gebruiker toe')

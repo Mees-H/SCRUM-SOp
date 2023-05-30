@@ -26,6 +26,7 @@ class TrainingTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/trainingsessions')
+                    ->resize(3000,3000)
                     ->clickLink("Creeër nieuwe training")
                     ->type('date', '12122023')
                     ->type('starttime', '1200P')
@@ -44,6 +45,7 @@ class TrainingTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/trainingsessions')
+                    ->resize(3000,3000)
                     ->clickLink('Creeër nieuwe training')
                     ->press('Voeg training toe')
                     ->assertPathIs('/trainingsessions/create')
@@ -61,6 +63,7 @@ class TrainingTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/trainingsessions')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('date', '12122023')
                     ->type('starttime', '1200P')
@@ -79,6 +82,7 @@ class TrainingTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/trainingsessions')
+                    ->resize(3000,3000)
                     ->clickLink('Aanpassen')
                     ->type('date', '')
                     ->type('starttime', '')
@@ -99,6 +103,7 @@ class TrainingTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/trainingsessions')
+                    ->resize(3000,3000)
                     ->press("Verwijderen")
                     ->assertPathIs("/trainingSessions")
                     ->assertSee("Trainingsessie verwijderd.");

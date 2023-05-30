@@ -40,20 +40,17 @@ class GalleryTest extends DuskTestCase
             $this->browse(function (Browser $browser) use ($album) {
                 $year = date('Y', strtotime($album->date));
                 $browser
+                    ->resize(3000,3000)
                     ->visitRoute('galerij_jaar', ['year' => $year])
                     ->assertPathIs("/albums/" . $year)
-                    ->assertSee($album->title);
-                $browser
+                    ->assertSee($album->title)
                     ->visitRoute('galerij_album', ['year' => $year, 'title' => $album->title])
-                    ->assertPathIs("/albums/" . $year . "/" . "Test%20album");
-                $browser->
-                    visit('/albums/' . $year . '/' . "Test%20album")
+                    ->assertPathIs("/albums/" . $year . "/" . "Test%20album")
+                    ->visit('/albums/' . $year . '/' . "Test%20album")
                     ->press("Terug")
-                    ->assertPathIs("/albums/" . $year);
-                $browser
+                    ->assertPathIs("/albums/" . $year)
                     ->click('@AlbumTest')
-                    ->assertPathIs("/albums/" . $year . "/" . "Test%20album");
-                $browser
+                    ->assertPathIs("/albums/" . $year . "/" . "Test%20album")
                     ->click('@PictureTest')
                     ->assertAttribute('@PictureTest', 'src', '/TestImage/TestImageSpecialGolf.jpg');
             });
