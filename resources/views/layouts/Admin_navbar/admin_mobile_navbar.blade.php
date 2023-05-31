@@ -14,8 +14,7 @@
              aria-label="Logo van Special Golf Haverlij, een kleurrijke zwaan"
              alt="logo Special Golf" id="logo"></a>
     <div class="nav-item dropdown">
-        <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown"
-           aria-expanded="false">
+        <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown">
             <span class="img-fluid">
                         <img id="burger_menu_icon" src="{{asset("/img/user.png")}}"
                              alt="user image"/>

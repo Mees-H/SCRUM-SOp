@@ -38,8 +38,7 @@
     <li class="nav-item dropdown">
 
         <a dusk="galerij" class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
-           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-           aria-expanded="false" href="#">
+           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true"href="#">
             Galerij
         </a>
 
@@ -113,8 +112,7 @@
     @else
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}"
-               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-               aria-expanded="false">
+               id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-haspopup="true">
                 {{ Auth::user()->name }}
             </a>
             <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

@@ -107,8 +107,7 @@
 </ul>
 <ul class="navbar-nav ms-auto">
     <li class="nav-item dropdown">
-        <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown"
-           aria-expanded="false">
+        <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown">
             {{ Auth::user()->name }}
             <span class="img-fluid">
                         <img id="burger_menu_icon" src="{{asset("/img/user.png")}}"

@@ -14,8 +14,7 @@
              alt="logo Special Golf" id="logo"></a>
     <div class="nav-item dropdown">
 
-        <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown"
-           aria-expanded="false">
+        <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown">
             <span class="img-fluid">
                         <img id="burger_menu_icon" src="{{asset('/img/enter.png')}}" alt="Inloggen"/>
                    </span>
@@ -102,8 +101,7 @@
     <li class="nav-item dropdown">
 
         <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
-           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
-           aria-expanded="false" href="#">
+           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true" href="#">
             Galerij
         </a>
 
