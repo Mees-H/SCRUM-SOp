@@ -26,7 +26,7 @@ class GalleryController extends Controller
 
         $title = $album->title;
 
-        return view('Gallery.fotoToevoegen', ['album' => $album, 'year' => $year, 'title' => $title]);
+        return view('gallery.fotoToevoegen', ['album' => $album, 'year' => $year, 'title' => $title]);
     }
 
     public function showGallery($year)

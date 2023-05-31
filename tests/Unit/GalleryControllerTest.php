@@ -81,7 +81,7 @@ class GalleryControllerTest extends TestCase
 
         // Assert
         $response->assertOk();
-        $response->assertViewIs('Gallery.fotoToevoegen');
+        $response->assertViewIs('gallery.fotoToevoegen');
         $response->assertViewHasAll([
             'album' => $album,
             'year' => $year,
