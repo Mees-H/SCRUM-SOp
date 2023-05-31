@@ -37,6 +37,7 @@ class RemoveUserTest extends DuskTestCase
 
             //login as admin
             $browser->visit('/login')
+                ->resize(3000,3000)
                 ->type('email', $admin->email)
                 ->type('password', 'Ab12345!')
                 ->press('Inloggen')

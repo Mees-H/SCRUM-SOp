@@ -113,7 +113,7 @@ class GalleryController extends Controller
         $year = Carbon::parse($album->date)->year;
         $pictures = Picture::with('album')->where('album_id', $album->id)->get();
 
-        return view('Gallery.edit', compact('album', 'year', 'pictures'));
+        return view('gallery.edit', compact('album', 'year', 'pictures'));
     }
 
     /**
@@ -183,7 +183,7 @@ class GalleryController extends Controller
         }
 
         Picture::destroy($request->images);
-        
+
         if (count($request->images) > 1) {
             return back()->with('success', 'Afbeeldingen zijn verwijderd uit album');
         } else {
