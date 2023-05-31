@@ -33,7 +33,7 @@ class GalleryTest extends DuskTestCase
         Picture::factory()->create([
             'id' => 1,
             'album_id' => $album->id,
-            'imageUrl' => '/TestImage/TestImageSpecialGolf.jpg'
+            'image' => '/TestImage/TestImageSpecialGolf.jpg'
         ]);
 
 
