@@ -20,7 +20,7 @@ class AlbumFactory extends Factory
         return [
             'id' => $this->faker->unique()->numberBetween(1, 1000), // 'id' => 1,
             'title' => $this->faker->sentence,
-            'description' => $this->faker->text(255),
+            'description' => $this->faker->text(100),
             'date' => $this->faker->date,
         ];
     }

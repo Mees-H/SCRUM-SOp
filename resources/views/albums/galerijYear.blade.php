@@ -14,12 +14,14 @@
                         <div class="card mb-4 shadow-sm border-0">
 
                             @if(count($album->picture) > 0)
-                                <a href="{{route('galerij_album',[$year, $album->title])}}">
-                                    <img src="{{$album->picture[0]->imageUrl}}" dusk="AlbumTest" class="card-img-top" alt="Knop album {{$album->title}}">
+                                <a href="{{route('galerij_album',[$album->id, $year])}}">
+                                    <img src="{{ asset('images/' . $album->picture[0]->image) }}" dusk="AlbumTest"
+                                         class="card-img-top" alt="Knop album {{$album->title}}">
                                 </a>
                             @else
                                 <a type="button">
-                                    <img src="/img/dummy_500x375_ffffff_cccccc_voeg-fotos-toe.png" class="card-img-top" alt="Knop album {{$album->title}}">
+                                    <img src="/img/dummy_500x375_ffffff_cccccc_voeg-fotos-toe.png" class="card-img-top"
+                                         alt="Knop album {{$album->title}}">
                                 </a>
                             @endif
 
@@ -38,6 +40,8 @@
                         </div>
                     </div>
                 @endforeach
+            @else
+                <p>Er zijn geen albums gevonden.</p>
             @endif
         </div>
 

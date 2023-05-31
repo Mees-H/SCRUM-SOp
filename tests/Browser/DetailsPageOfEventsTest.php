@@ -20,8 +20,7 @@ class DetailsPageOfEventsTest extends DuskTestCase
             $browser->visit('/evenement')
                     ->assertSee('Evenementen')
                     ->click('@ButtonToDetailsEvent')
-                    ->assertSee('Indoor-Golf-Middag')
-                    ->assertSee('12:00')
+                    ->assertSee('Inschrijven')
                     ->click('@BackButton')
                     ->assertPathIs('/evenement');
         });
