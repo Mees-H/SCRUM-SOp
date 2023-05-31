@@ -27,7 +27,7 @@
 
                                 @foreach($articles_year as $article)
                                     <li>
-                                        <a id="articleNav" href="#{{$article['id']}}" class="border-0 text-decoration-none text-black ">
+                                        <a id="articleNav" href="#{{$article['id']}}" dusk="click_article" class="border-0 text-decoration-none text-black ">
                                             <p id="navText" class="border-top pt-2">
                                                 {{$article['title']}}
                                                 <br/>

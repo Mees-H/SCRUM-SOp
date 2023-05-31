@@ -13,6 +13,23 @@ class NewsTest extends DuskTestCase
 {
     use DatabaseTruncation;
 
+    public function testNieuwsArtikelPage(): void
+    {
+        $this->artisan('db:seed');
+        $this->browse(function (Browser $browser)
+        {
+            $browser->visit('/')
+                ->clickLink('Nieuws')
+                ->assertSee('Nieuws')
+                ->press("2023")
+                ->waitUntilEnabled('@click_article')
+                ->assertSee('Activiteiten 2023')
+                ->click('@fullscreen')
+                ->assertPathIs('/nieuws');
+        });
+    }
+
+
     public function testCreateArticle(): void
     {
         $this->artisan('db:seed');
