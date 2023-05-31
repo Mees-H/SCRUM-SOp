@@ -21,6 +21,6 @@ class MailFactoryTest extends TestCase
     {
         $factory = new MailFactory();
         $this->expectException(InvalidArgumentException::class);
-        $mail = $factory->createMail('eventRegistration', []);
+        $mail = $factory->createMail('eventRegistration', ['name' => null]);
     }
 }
