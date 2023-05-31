@@ -171,16 +171,19 @@ class GalleryController extends Controller
 
     public function deleteAlbumPictures(Request $request)
     {
+        if (!isset($request->images)) {
+            return back()->with('error', 'Er is geen afbeelding geselecteerd');
+        }
+
         foreach($request->images as $image){
             $imageurl = Picture::find($image)->image;
             if (File::exists(public_path('images\\'.$imageurl))) {
                 File::delete(public_path('images\\'.$imageurl));
             }
         }
+
         Picture::destroy($request->images);
-        if (!isset($request->images)) {
-            return back()->with('error', 'Er is geen afbeelding geselecteerd');
-        }
+        
         if (count($request->images) > 1) {
             return back()->with('success', 'Afbeeldingen zijn verwijderd uit album');
         } else {

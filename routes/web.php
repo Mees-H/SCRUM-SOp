@@ -93,12 +93,6 @@ Route::middleware(['role:admin'])->group(function () {
     //Team routes
     Route::resource('members', TeamController::class);
 
-    //Gallery routes
-        // Route::get('/galerij/{id}/wijzigen', [GalleryController::class, 'editAlbum']);
-    // Route::post('/galerij/{year}/{title}/voegfototoe', [GalleryController::class, 'addPhoto']);
-    // Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-    // Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
-
     //Galerij routes
     Route::get('galerij/{id}/addPhoto', [GalleryController::class, 'addPhoto']);
     Route::post('/galerij/{year}/{title}/wijzigbeschrijving', [GalleryController::class, 'updateAlbumDescription']);
