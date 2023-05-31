@@ -12,6 +12,7 @@ class SignoutTrainingTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/training/signout')
+                ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', 'Piet Piraat')
                 ->type('date', '06062023')
@@ -30,6 +31,7 @@ class SignoutTrainingTest extends DuskTestCase
 
             //Test required field
             $browser->visit('/training/signout')
+                ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('date', '06062023')
                 ->press('Afmelden')
@@ -37,6 +39,7 @@ class SignoutTrainingTest extends DuskTestCase
 
             //Test max length
             $browser->visit('/training/signout')
+                ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', $string)
                 ->press('Afmelden')
@@ -54,6 +57,7 @@ class SignoutTrainingTest extends DuskTestCase
 
             //Test required field
             $browser->visit('/training/signout')
+                ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', 'Piet Piraat')
                 ->press('Afmelden')
@@ -61,6 +65,7 @@ class SignoutTrainingTest extends DuskTestCase
 
             //Test before today
             $browser->visit('/training/signout')
+                ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', 'Piet Piraat')
                 ->type('date', '06062002')
