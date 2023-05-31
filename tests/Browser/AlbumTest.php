@@ -53,7 +53,7 @@ class AlbumTest extends DuskTestCase
                     ->type('title', 'Test Titel')
                     ->type('description', 'Test Omschrijving')
                     ->type('date', '06062022')
-                    ->press('Update')
+                    ->press('Pas album aan')
                     ->assertSee('Album geüpdatet.');
         });
     }
@@ -68,7 +68,7 @@ class AlbumTest extends DuskTestCase
                     ->type('title', '')
                     ->type('description', '')
                     ->type('date', '')
-                    ->press('Update')
+                    ->press('Pas album aan')
                     ->assertDontSee('Album geüpdatet.');
         });
     }

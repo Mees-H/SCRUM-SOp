@@ -26,12 +26,22 @@
                         <td>{{$album->description}}</td>
                         <td>{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}}</td>
                         <td>
+                            <a dusk="editAlbum" href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary">Aanpassen</a>
+                        </td>
+                        <td>
+                            <form action="{{ url('/galerij/' . $album->id . '/addPhoto') }}" method="GET">
+                                @csrf
+                                <input type="hidden" name="album_id" value="{{ $album->id }}">
+                                <button type="submit" class="btn btn-primary wide-button">Foto's toevoegen</button>
+                            </form>
+                        </td>
+                        <td>
                             <a href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary" dusk="editAlbum">Aanpassen</a>
                         
                             <form action="{{ route('galerij.destroy', $album->id)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button class="btn btn-danger" type="submit" dusk="deleteAlbum">Verwijderen</button>
+                            <button dusk="deleteAlbum"class="btn btn-danger" type="submit">Verwijderen</button>
                             </form>
                         </td>
                     </tr>
