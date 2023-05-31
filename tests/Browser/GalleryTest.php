@@ -30,32 +30,29 @@ class GalleryTest extends DuskTestCase
             'date' => '2021-01-01'
         ]);
 
-        Picture::factory()->create([
+        $pic1 = Picture::factory()->create([
             'id' => 1,
             'album_id' => $album->id,
-            'image' => '/TestImage/TestImageSpecialGolf.jpg'
+            'image' => 'TestImage/TestImageSpecialGolf.jpg'
         ]);
 
 
-            $this->browse(function (Browser $browser) use ($album) {
+            $this->browse(function (Browser $browser) use ($album, $pic1) {
                 $year = date('Y', strtotime($album->date));
                 $browser
                     ->visitRoute('galerij_jaar', ['year' => $year])
                     ->assertPathIs("/albums/" . $year)
                     ->assertSee($album->title);
-                $browser
-                    ->visitRoute('galerij_album', ['year' => $year, 'title' => $album->title])
-                    ->assertPathIs("/albums/" . $year . "/" . "Test%20album");
                 $browser->
-                    visit('/albums/' . $year . '/' . "Test%20album")
+                    visit("/albums/". $album->id . "/" . $year)
                     ->press("Terug")
                     ->assertPathIs("/albums/" . $year);
                 $browser
                     ->click('@AlbumTest')
-                    ->assertPathIs("/albums/" . $year . "/" . "Test%20album");
+                    ->assertPathIs("/albums/". $album->id . "/" . $year);
                 $browser
                     ->click('@PictureTest')
-                    ->assertAttribute('@PictureTest', 'src', '/TestImage/TestImageSpecialGolf.jpg');
+                    ->assertAttribute('@PictureTest', 'src', '/images/'.$pic1->image);
             });
 
     }
