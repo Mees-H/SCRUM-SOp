@@ -272,6 +272,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000, 3000)
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -292,6 +293,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000, 3000)
                     ->clickLink('Aanpassen')
                     ->type('name', 'Freek Vonk')
                     ->type('email', 'freek@vonk.nl')
@@ -312,6 +314,7 @@ class TeamTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(1)
                     ->visit('/members')
+                    ->resize(3000, 3000)
                     ->clickLink('Aanpassen')
                     ->type('name', 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
                     ->type('email', 'freek@vonk.nl')

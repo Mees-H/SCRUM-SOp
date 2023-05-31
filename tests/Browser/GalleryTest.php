@@ -44,7 +44,7 @@ class GalleryTest extends DuskTestCase
                     ->assertPathIs("/albums/" . $year)
                     ->assertSee($album->title);
                 $browser
-                    ->visitRoute('galerij_album', ['year' => $year, 'title' => $album->title])
+                    ->visitRoute('galerij_album', ['year' => $year, 'title' => $album->id])
                     ->assertPathIs("/albums/" . $year . "/" . "Test%20album");
                 $browser->
                     visit('/albums/' . $year . '/' . "Test%20album")
