@@ -52,7 +52,7 @@ class GalleryTest extends DuskTestCase
                     ->assertPathIs("/albums/". $album->id . "/" . $year);
                 $browser
                     ->click('@PictureTest')
-                    ->assertAttribute('@PictureTest', 'src', '/images/'.$pic1->image);
+                    ->assertAttribute('@PictureTest', 'src', '/img/'.$pic1->image);
             });
 
     }

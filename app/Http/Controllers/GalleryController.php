@@ -139,8 +139,8 @@ class GalleryController extends Controller
 
         foreach($pictures as $picture){
             $imageurl = $picture->fresh()->image;
-            if (File::exists(public_path('images\\'.$imageurl))) {
-                File::delete(public_path('images\\'.$imageurl));
+            if (File::exists(public_path('img\\'.$imageurl))) {
+                File::delete(public_path('img\\'.$imageurl));
             }
             Picture::findOrFail($picture->id)->delete();
         }
@@ -157,7 +157,7 @@ class GalleryController extends Controller
             $imageExt = $image->getClientOriginalExtension();
             $storeImage = $imageName . time() . "." . $imageExt;
 
-            $image->move(public_path('images'), $storeImage);
+            $image->move(public_path('img'), $storeImage);
 
             Picture::create([
                 'album_id' => $request->album_id,
@@ -177,8 +177,8 @@ class GalleryController extends Controller
 
         foreach($request->images as $image){
             $imageurl = Picture::find($image)->image;
-            if (File::exists(public_path('images\\'.$imageurl))) {
-                File::delete(public_path('images\\'.$imageurl));
+            if (File::exists(public_path('img\\'.$imageurl))) {
+                File::delete(public_path('img\\'.$imageurl));
             }
         }
 
