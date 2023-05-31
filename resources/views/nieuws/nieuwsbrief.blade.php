@@ -5,12 +5,9 @@
         <title>Nieuwsbrief</title>
     </head>
     <div class="row d-flex">
-        {{--        The first col--}}
         <div class="col-sm-2 mx-3" id="wrapper">
             @include('Components.SideBar.SideBarNavigation', ['articles' => $articles], ['years' => $years])
         </div>
-
-        {{--                    The second col--}}
         <div class="col-sm-6">
             <div>
                 @if(session()->get('success'))
@@ -99,71 +96,74 @@
                         </div>
                 </div>
             </div>
-{{--            third col--}}
-        <div class="col-sm container">
-            <div class="card border-0">
+            <div class="col-sm container">
+                <div class="card border-0">
 
-                @if (Auth::user() != null && Auth::user()->role == 'admin')
-                    <div class="justify-content-end d-flex">
-                        <a href="{{ route('nieuwsbrief.create')}}" class="btn btn-primary">Nieuwe nieuwsbrief</a>
-                    </div>
-                @endif
+                    @if (Auth::user() != null && Auth::user()->role == 'admin')
+                        <div class="justify-content-end d-flex">
+                            <a href="{{ route('nieuwsbrief.create')}}" class="btn btn-primary">Nieuwe nieuwsbrief</a>
+                        </div>
+                    @endif
                     <h1 class="text-black">Nieuwsbrieven</h1>
-                <div class="">
-                    <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
-                    <ul class="list-unstyled">
-                        @foreach($newsLetters as $newsLetter)
-                            <li class="pb-3 border-top">
-                                <div class="d-flex justify-content-between mt-3">
-                                <h3>Datum: {{$newsLetter->date}}</h3>
-                                    <span>
+                    <div class="">
+                        <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
+                        <ul class="list-unstyled">
+                            @foreach($newsLetters as $newsLetter)
+                                <li class="pb-3 border-top">
+                                    <div class="d-flex justify-content-between mt-3">
+                                        <h3>Datum: {{$newsLetter->date}}</h3>
+                                        <span>
                                         Full Screen
-                                            <button class="btn btn-dark" onclick="fullscreenPdf({{$newsLetter->id}})" id="btnPdfFullscreen{{$newsLetter->id}}"><i class="bi bi-arrows-fullscreen"></i></button>
+                                            <button class="btn btn-dark" dusk="fullscreen" onclick="fullscreenPdf({{$newsLetter->id}})"
+                                                    id="btnPdfFullscreen{{$newsLetter->id}}"><i
+                                                    class="bi bi-arrows-fullscreen"></i></button>
                                         </span>
-                                </div>
-                                <div class="d-flex pdf_layout">
-                                    <embed id="framePdf{{$newsLetter->id}}" src="{{ asset('storage/files/nieuws/' . $newsLetter->pdf) }}" class="embed-responsive" type="application/pdf">
-                                </div>
+                                    </div>
+                                    <div class="d-flex pdf_layout">
+                                        <embed id="framePdf{{$newsLetter->id}}"
+                                               src="{{ asset('storage/files/nieuws/' . $newsLetter->pdf) }}"
+                                               class="embed-responsive" type="application/pdf">
+                                    </div>
 
-                                @if (Auth::user() != null && Auth::user()->role == 'admin')
-                                    <aside class="d-flex justify-content-between card-body">
-                                        <div class="">
-                                            <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}"
-                                               class="btn btn-primary">Pas nieuwsbrief aan</a>
-                                        </div>
-                                        <div class="">
-                                            <form action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}"
-                                                  method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger" type="submit">Verwijder nieuwsbrief
-                                                </button>
-                                            </form>
-                                        </div>
-                                    </aside>
-                                @endif
-                            </li>
-                        @endforeach
-                    </ul>
+                                    @if (Auth::user() != null && Auth::user()->role == 'admin')
+                                        <aside class="d-flex justify-content-between card-body">
+                                            <div class="">
+                                                <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}"
+                                                   class="btn btn-primary">Pas nieuwsbrief aan</a>
+                                            </div>
+                                            <div class="">
+                                                <form action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger" type="submit">Verwijder nieuwsbrief
+                                                    </button>
+                                                </form>
+                                            </div>
+                                        </aside>
+                                    @endif
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
-        </div>
 
-    <script>
-        $(document).ready(function () {
-            let sort = "{{request()->get('sort')}}";
-            $("#sort").val(sort);
-        });
+        <script>
+            $(document).ready(function () {
+                let sort = "{{request()->get('sort')}}";
+                $("#sort").val(sort);
+            });
 
-        function fullscreenPdf(id) {
-            const framePdf = document.getElementById("framePdf" + id);
-            if (document.fullscreenElement) {
-                document.exitFullscreen()
-            } else {
-                framePdf.requestFullscreen()
+            function fullscreenPdf(id) {
+                const framePdf = document.getElementById("framePdf" + id);
+                if (document.fullscreenElement) {
+                    document.exitFullscreen()
+                } else {
+                    framePdf.requestFullscreen()
+                }
             }
-        }
-    </script>
+        </script>
 @stop
