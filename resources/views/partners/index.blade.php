@@ -17,6 +17,11 @@
                     {{ session()->get('success') }}
                 </div>
             @endif
+            @if(session()->get('danger'))
+                <div class="alert alert-danger">
+                    {{ session()->get('danger') }}
+                </div>
+            @endif
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -71,6 +76,6 @@
                 @endforeach
                 </tbody>
             </table>
-            <div>
-            </div>
+        </div>
+    </div>
 @endsection

@@ -116,8 +116,12 @@ class PartnerController extends Controller
      */
     public function destroy(string $id)
     {
-        Group::findOrFail($id)->events()->detach();
-        Group::findOrFail($id)->delete();
+        try{
+            Group::find($id)->events()->detach();
+            Group::findOrFail($id)->delete();
+        } catch(\Exception $e){
+            return redirect('/groups')->with('danger', 'Partner niet kunnen verwijderen');
+        }
         return redirect('/groups')->with('success', 'Partner verwijderd.');
     }
 }

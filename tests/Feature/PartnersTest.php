@@ -16,7 +16,6 @@ class PartnersTest extends TestCase
      */
     public function test_can_create_partner(): void
     {
-        $this->seed();
         //Arrange
         $user = new User([
             'role' => 'admin'
@@ -51,7 +50,6 @@ class PartnersTest extends TestCase
 
     public function test_cannot_create_partner(): void
     {
-        $this->seed();
         //Arrange
         $user = new User([
             'role' => 'admin'
@@ -86,7 +84,6 @@ class PartnersTest extends TestCase
 
     public function test_can_update_partner(): void
     {
-        $this->seed();
         //Arrange
         $user = new User([
             'role' => 'admin'
@@ -121,7 +118,6 @@ class PartnersTest extends TestCase
 
     public function test_cannot_update_partner(): void
     {
-        $this->seed();
         //Arrange
         $user = new User([
             'role' => 'admin'
@@ -156,7 +152,6 @@ class PartnersTest extends TestCase
 
     public function test_can_delete_partner(): void
     {
-        $this->seed();
         //Arrange
         $user = new User([
             'role' => 'admin'

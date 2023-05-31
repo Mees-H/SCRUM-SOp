@@ -17,9 +17,9 @@
                         <a href="https://{{$groups[$i]->link}}" aria-label="Link naar de site van {{$groups[$i]->name}}">
                             <i class="fa-regular fa-building"></i> {{$groups[$i]->name}}
                         </a>
-                        <p>
+                        <div>
                             <i class="fa-solid fa-mobile-screen"></i> {{$groups[$i]->contact_person}}
-                        </p>
+                        </div>
                     </p>
                 </div>
             </div>
