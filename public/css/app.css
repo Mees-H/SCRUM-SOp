@@ -38,7 +38,7 @@ nav {
     display: none;
 }
 
-@media only screen and (min-width: 0px) and (max-width: 1200px) {
+
     #guest_mobile_navbar{
         display: block;
     }
@@ -48,7 +48,7 @@ nav {
     #dropdown{
         width: 200px;
     }
-}
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -70,7 +70,7 @@ nav {
         font-size: 125%;
     }
 
-}
+}   
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
@@ -80,7 +80,7 @@ nav {
 }
 
 /* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
+
     .nav-link {
         font-size: 100%;
     }
@@ -90,7 +90,7 @@ nav {
     #admin_navbar{
         display: block;
     }
-}
+
 
 h1{
     color: #A68D2B;

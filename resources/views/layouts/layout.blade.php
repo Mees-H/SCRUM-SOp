@@ -30,19 +30,25 @@
 
 
         @if (auth()->guest() || Auth::user()->role != 'admin')
-            <div id="guest_mobile_navbar">
-                @include('layouts.Guest_navbar.guest_mobile_navbar')
-            </div>
-            <div id="admin_navbar">
-                @include('layouts.Guest_navbar.guest_navbar')
-            </div>
+            @if($agent->isMobile())
+                <div id="guest_mobile_navbar">
+                    @include('layouts.Guest_navbar.guest_mobile_navbar')
+                </div>
+            @else
+                <div id="guest_navbar">
+                    @include('layouts.Guest_navbar.guest_navbar')
+                </div>
+            @endif
         @else
-            <div id="admin_mobile_navbar">
-            @include('layouts.Admin_navbar.admin_mobile_navbar')
-            </div>
-            <div id="admin_navbar">
-            @include('layouts.Admin_navbar.admin_navbar')
-            </div>
+            @if($agent->isMobile())
+                <div id="admin_mobile_navbar">
+                @include('layouts.Admin_navbar.admin_mobile_navbar')
+                </div>
+            @else
+                <div id="admin_navbar">
+                @include('layouts.Admin_navbar.admin_navbar')
+                </div>
+            @endif
        @endif
 
 <body>
