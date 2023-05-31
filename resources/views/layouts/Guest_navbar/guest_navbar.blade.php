@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="main-navbar">
 <ul class="navbar-nav me-auto nav-tabs">
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
+        <a dusk="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Activiteiten
         </a>
@@ -37,7 +37,7 @@
     </li>
     <li class="nav-item dropdown">
 
-        <a class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
+        <a dusk="galerij" class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
            id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true"
            aria-expanded="false" href="#">
             Galerij
@@ -70,7 +70,7 @@
            href="/partner">Partners</a>
     </li>
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
+        <a dusk="organisatie" class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Organisatie
         </a>
@@ -140,7 +140,7 @@
     @endif
     <li class="nav-item" id="searchNavBar">
         <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#">
-            <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search"
+            <input dusk="search" class="form-control mr-sm-2 search" id="dropdown" type="search" name="search"
                    placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
             <ul class="border border-dark rounded d-none" id="content">
                 <li><a class="dropdown-item text-center" href="/">
