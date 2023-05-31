@@ -35,7 +35,6 @@
                                 @endif
                                 <h1 class="text-black">Nieuwsartikelen</h1>
                                 <div class="card border-0">
-                                    <!--Start form-->
                                     <form method="post" action="{{ route('nieuws.update', $editArticle->id) }}"
                                           enctype="multipart/form-data">
                                         @method('PATCH')
@@ -43,12 +42,15 @@
                                         <div class="row card-body">
                                             <div class="col-sm-7">
                                                 <label>
-                                                <input class="form-control form-control-lg mb-2" type="text"
-                                                       placeholder="Titel *" name="title" value="{{$editArticle->title}}">
-                                                <input class="form-control form-control-sm mb-2" type="date"
-                                                       placeholder="Datum *" name="date" value="{{$editArticle->date}}">
-                                                <textarea class="form-control mb-2" rows="3" placeholder="Beschrijving *"
-                                                          name="body">{{$editArticle->body}}</textarea>
+                                                    <input class="form-control form-control-lg mb-2" type="text"
+                                                           placeholder="Titel *" name="title"
+                                                           value="{{$editArticle->title}}">
+                                                    <input class="form-control form-control-sm mb-2" type="date"
+                                                           placeholder="Datum *" name="date"
+                                                           value="{{$editArticle->date}}">
+                                                    <textarea class="form-control mb-2" rows="3"
+                                                              placeholder="Beschrijving *"
+                                                              name="body">{{$editArticle->body}}</textarea>
                                                 </label>
                                             </div>
                                             <aside class="col-sm-5">
@@ -66,16 +68,17 @@
                                             <div class="col-sm-12">
                                                 <label class="form-label">Verwijder foto's</label>
                                                 @if(!\PHPUnit\Framework\isEmpty($editArticle->imgurl))
-                                                @foreach($editArticle->imgurl as $img)
-                                                    <div class="form-check">
-                                                        <input class="form-check-input" type="checkbox" value="{{$img}}"
-                                                               id="{{$img}}" name="deleteImages[]">
-                                                        <label for="{{$img}}" class="form-check-label">
-                                                            <img class="memberimg" alt="artikel afbeelding"
-                                                                 src="{{ asset('storage/img/nieuws/'.$img)}}"/>
-                                                        </label>
-                                                    </div>
-                                                @endforeach
+                                                    @foreach($editArticle->imgurl as $img)
+                                                        <div class="form-check">
+                                                            <input class="form-check-input" type="checkbox"
+                                                                   value="{{$img}}"
+                                                                   id="{{$img}}" name="deleteImages[]">
+                                                            <label for="{{$img}}" class="form-check-label">
+                                                                <img class="memberimg" alt="artikel afbeelding"
+                                                                     src="{{ asset('storage/img/nieuws/'.$img)}}"/>
+                                                            </label>
+                                                        </div>
+                                                    @endforeach
                                                 @endif
                                             </div>
                                             <div class="col">
@@ -84,7 +87,6 @@
                                             </div>
                                         </div>
                                     </form>
-                                    <!--End form-->
                                     @foreach($articles as $article)
                                         @if($article->id != $editArticle->id)
                                             <div class="row card-body">
@@ -107,7 +109,8 @@
                                                                     @foreach($article->imgurl as $imgurl)
                                                                         <img
                                                                             src="{{ asset('storage/img/nieuws/'.$imgurl) }}"
-                                                                            alt="{{$imgurl}}" class="img-thumbnail art_image"/>
+                                                                            alt="{{$imgurl}}"
+                                                                            class="img-thumbnail art_image"/>
                                                                     @endforeach
                                                                 </aside>
                                                             @endif
@@ -141,18 +144,24 @@
                                             <li class="mb-3">
                                                 <small>Datum: {{$newsLetter->date}}</small>
                                                 <div class="pdf-container">
-                                                    <embed src="{{ asset('storage/files/nieuws/' . $newsLetter->pdf) }}" width="500" height="375" type="application/pdf">
+                                                    <embed src="{{ asset('storage/files/nieuws/' . $newsLetter->pdf) }}"
+                                                           width="500" height="375" type="application/pdf">
                                                 </div>
                                                 @if (Auth::user() != null && Auth::user()->role == 'admin')
                                                     <aside class="d-flex justify-content-between card-body">
-                                                        <div >
-                                                            <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}" class="btn btn-primary">Pas nieuwsbrief aan</a>
+                                                        <div>
+                                                            <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}"
+                                                               class="btn btn-primary">Pas nieuwsbrief aan</a>
                                                         </div>
-                                                        <div >
-                                                            <form action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}" method="post">
+                                                        <div>
+                                                            <form
+                                                                action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}"
+                                                                method="post">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button class="btn btn-danger" type="submit">Verwijder nieuwsbrief</button>
+                                                                <button class="btn btn-danger" type="submit">Verwijder
+                                                                    nieuwsbrief
+                                                                </button>
                                                             </form>
                                                         </div>
                                                     </aside>
