@@ -49,7 +49,6 @@ Route::get('slider-delete/{slider}', [SliderController::class, 'delete'])->name(
 Route::resource('slider', SliderController::class);
 
 //Training routes
-
 Route::resource('trainingSessions', TrainingController::class);
 Route::get('training', [TrainingController::class, 'training']);
 Route::get('/training/signout', [TrainingController::class, 'signout']);
@@ -59,10 +58,11 @@ Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail'])
 Route::get('/vragenantwoorden/vraagformulier', [FAQController::class, 'questionform']);
 Route::post('/vragenantwoorden/submit', [FAQController::class, 'submit']);
 Route::get('/vragenantwoorden', [FAQController::class, 'viewquestions']);
+
 //Event routes
 Route::resource('events', EventController::class);
 Route::get('/evenement/{event}/details', [EventController::class, 'show'])->name('eventsDetails');
-
+Route::get('evenement/export', [EventController::class, 'exportIcal']);
 Route::get('events/enroll/{id}', [EventController::class, 'enroll']);
 Route::post('events/submit/{id}', [EventController::class, 'submit']);
 
@@ -71,7 +71,7 @@ Route::resource('links', SiteMapController::class);
 
 //album routes
 Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-Route::get('/albums/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('galerij_album');
 
 Route::middleware(['role:admin'])->group(function () {
     //User creation routes
@@ -94,10 +94,16 @@ Route::middleware(['role:admin'])->group(function () {
     Route::resource('members', TeamController::class);
 
     //Galerij routes
+    Route::get('galerij/{id}/addPhoto', [GalleryController::class, 'addPhoto']);
+    Route::post('/galerij/{year}/{title}/wijzigbeschrijving', [GalleryController::class, 'updateAlbumDescription']);
+    Route::post('/galerij/{year}/{title}/voegfotostoe', [GalleryController::class, 'addAlbumPictures'])->name('addAlbumPictures');
+    Route::post('/galerij/{year}/{title}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
+
     Route::resource('galerij', GalleryController::class);
+
+
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
-
 });
 
 
