@@ -71,7 +71,7 @@ Route::resource('links', SiteMapController::class);
 
 //album routes
 Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-Route::get('/albums/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('galerij_album');
 
 Route::middleware(['role:admin'])->group(function () {
     //User creation routes
@@ -94,10 +94,16 @@ Route::middleware(['role:admin'])->group(function () {
     Route::resource('members', TeamController::class);
 
     //Galerij routes
+    Route::get('galerij/{id}/addPhoto', [GalleryController::class, 'addPhoto']);
+    Route::post('/galerij/{year}/{title}/wijzigbeschrijving', [GalleryController::class, 'updateAlbumDescription']);
+    Route::post('/galerij/{year}/{title}/voegfotostoe', [GalleryController::class, 'addAlbumPictures'])->name('addAlbumPictures');
+    Route::post('/galerij/{year}/{title}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
+
     Route::resource('galerij', GalleryController::class);
+
+
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
-
 });
 
 
