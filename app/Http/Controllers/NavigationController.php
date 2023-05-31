@@ -27,7 +27,7 @@ class NavigationController extends Controller
 
     function evenement()
     {
-        return view('events.evenement', ['posts' => Event::all()]);
+        return view('events.evenement', ['posts' => Event::all()->where('date', '>=', Carbon::now())->sortBy('updated_at')]);
     }
 
     function vragenantwoorden()
