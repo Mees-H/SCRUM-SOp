@@ -40,7 +40,7 @@
                                         @csrf
                                         <div class="row card-body">
                                             <div class="col-sm-7">
-                                                <label>
+                                                <label alt="maak een nieuw artikel aan">
                                                     <input class="form-control form-control-lg mb-2" type="text"
                                                            placeholder="Titel *" name="title">
                                                     <input class="form-control form-control-sm mb-2" type="date"
@@ -62,8 +62,8 @@
                                                 </div>
                                             </aside>
                                             <div class="col">
-                                                <button class="btn btn-primary" type="submit">Voeg artikel toe</button>
-                                                <a class="btn btn-danger" type="reset" href="/nieuws">annuleren</a>
+                                                <button class="btn btn-primary" alt="bevestig nieuwsbrief aanmaken" type="submit">Voeg artikel toe</button>
+                                                <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
                                             </div>
                                         </div>
                                         <hr>
@@ -80,7 +80,7 @@
                                                             <p>{{$article->body}}</p>
                                                             @if($article->fileurl != null)
                                                                 @foreach($article->fileurl as $file)
-                                                                    <a href="{{asset('storage/files/nieuws/'.$file)}}">{{$file}}</a>
+                                                                    <a href="{{asset('storage/files/nieuws/'.$file)}}" alt="link naar het bestand {{$file}}">{{$file}}</a>
                                                                 @endforeach
                                                             @endif
                                                         </div>
@@ -130,7 +130,7 @@
                                                     <aside class="row card-body">
                                                         <div class="col-md-6">
                                                             <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}"
-                                                               class="btn btn-primary">Pas nieuwsbrief aan</a>
+                                                               class="btn btn-primary" alt="nieuwsbrief aanpassen">Pas nieuwsbrief aan</a>
                                                         </div>
                                                         <div class="col-md-6">
                                                             <form
@@ -138,7 +138,7 @@
                                                                 method="post">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button class="btn btn-danger" type="submit">Verwijder
+                                                                <button class="btn btn-danger" alt="nieuwsbrief verwijderen" type="submit">Verwijder
                                                                     nieuwsbrief
                                                                 </button>
                                                             </form>

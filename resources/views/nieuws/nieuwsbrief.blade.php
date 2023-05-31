@@ -83,7 +83,7 @@
 
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="col btn btn-danger" type="submit">
+                                                <button class="col btn btn-danger" type="submit" alt="verwijder artikel">
                                                     Verwijder nieuwsartikel
                                                 </button>
 
@@ -101,7 +101,7 @@
 
                     @if (Auth::user() != null && Auth::user()->role == 'admin')
                         <div class="justify-content-end d-flex">
-                            <a href="{{ route('nieuwsbrief.create')}}" class="btn btn-primary">Nieuwe nieuwsbrief</a>
+                            <a href="{{ route('nieuwsbrief.create')}}" class="btn btn-primary" alt="maak een nieuwe nieuwsbrief">Nieuwe nieuwsbrief</a>
                         </div>
                     @endif
                     <h1 class="text-black">Nieuwsbrieven</h1>
@@ -114,7 +114,7 @@
                                         <h3>Datum: {{$newsLetter->date}}</h3>
                                         <span>
                                         Full Screen
-                                            <button class="btn btn-dark" dusk="fullscreen" onclick="fullscreenPdf({{$newsLetter->id}})"
+                                            <button class="btn btn-dark" dusk="fullscreen" alt="maak pdf {{$newsLetter->pdf}} volledige grootte" onclick="fullscreenPdf({{$newsLetter->id}})"
                                                     id="btnPdfFullscreen{{$newsLetter->id}}"><i
                                                     class="bi bi-arrows-fullscreen"></i></button>
                                         </span>
@@ -129,14 +129,14 @@
                                         <aside class="d-flex justify-content-between card-body">
                                             <div class="">
                                                 <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}"
-                                                   class="btn btn-primary">Pas nieuwsbrief aan</a>
+                                                   class="btn btn-primary" alt="pas nieuwsbrief aan">Pas nieuwsbrief aan</a>
                                             </div>
-                                            <div class="">
+                                            <div>
                                                 <form action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}"
                                                       method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit">Verwijder nieuwsbrief
+                                                    <button class="btn btn-danger" type="submit" alt="verwijder nieuwsbrief">Verwijder nieuwsbrief
                                                     </button>
                                                 </form>
                                             </div>

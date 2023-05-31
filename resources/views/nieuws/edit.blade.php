@@ -82,8 +82,8 @@
                                                 @endif
                                             </div>
                                             <div class="col">
-                                                <button class="btn btn-primary" type="submit">Pas artikel aan</button>
-                                                <a class="btn btn-danger" type="reset" href="/nieuws">annuleren</a>
+                                                <button class="btn btn-primary" type="submit" alt="bevestig artikel aanpassen">Pas artikel aan</button>
+                                                <a class="btn btn-danger" type="reset" href="/nieuws" alt="annuleer bewerken">annuleren</a>
                                             </div>
                                         </div>
                                     </form>
@@ -100,7 +100,7 @@
                                                                 <p>{{$article->body}}</p>
                                                                 @if($article->fileurl != null)
                                                                     @foreach($article->fileurl as $file)
-                                                                        <a href="{{asset('storage/files/nieuws/'.$file)}}">{{$file}}</a>
+                                                                        <a href="{{asset('storage/files/nieuws/'.$file)}}" alt="nieuwsartikel bestand {{$file}}">{{$file}}</a>
                                                                     @endforeach
                                                                 @endif
                                                             </div>
@@ -151,7 +151,7 @@
                                                     <aside class="d-flex justify-content-between card-body">
                                                         <div>
                                                             <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}"
-                                                               class="btn btn-primary">Pas nieuwsbrief aan</a>
+                                                               class="btn btn-primary" alt="nieuwsbrief aanpassen">Pas nieuwsbrief aan</a>
                                                         </div>
                                                         <div>
                                                             <form
@@ -159,7 +159,7 @@
                                                                 method="post">
                                                                 @csrf
                                                                 @method('DELETE')
-                                                                <button class="btn btn-danger" type="submit">Verwijder
+                                                                <button class="btn btn-danger" alt="nieuwsbrief verwijderen" type="submit">Verwijder
                                                                     nieuwsbrief
                                                                 </button>
                                                             </form>
