@@ -8,34 +8,6 @@
 
 - [ ] Het programma wordt getest en werkt op 2 verschillende browsers (Google Chrome & Edge). 
 
-### Toegankelijkheid 
-
-- [ ] De website moet voor iedereen te navigeren zijn. 
-
-- [ ] Inclusief mensen met een beperking. 
-
-- [ ] De website dient volledig navigeerbaar te zijn zonder gebruik te maken van een muis. 
-
-- [ ] Dit betekent navigeren via de tab en enter toets met behulp van spraak. 
-
-- [ ] De knoppen zijn voorzien van duidelijke beschrijvingen. 
-
-- [ ] De knoppen zijn groot genoeg om de tekst te bevatten. 
-
-- [ ] De teksten op de website bevatten geen spelfouten en zijn duidelijk geformuleerd. 
-
-- [ ] Zorg voor voldoende contrast. 
-
-- [ ] Contrast is getest met deze tool: https://webaim.org/resources/contrastchecker/  
-
-- [ ] De WCAG AAA test moet pass teruggeven. 
-
-- [ ] Maak geen gebruik van hyperlinks met een klik hier maar gebruik een betekenisvolle beschrijving.  
-
-Zoals: Lees meer over regulering. 
-
-- [ ] Maak korte en inhoudelijke pagina’s. 
-
 ## Technische definities 
 
 ### Reviewers 
@@ -74,6 +46,32 @@ Zoals: Lees meer over regulering.
 
 ### Toegankelijkheid 
 
+- [ ] De website moet voor iedereen te navigeren zijn. 
+
+- [ ] Inclusief mensen met een beperking. 
+
+- [ ] De website dient volledig navigeerbaar te zijn zonder gebruik te maken van een muis. 
+
+- [ ] Dit betekent navigeren via de tab en enter toets met behulp van spraak. 
+
+- [ ] De knoppen zijn voorzien van duidelijke beschrijvingen. 
+
+- [ ] De knoppen zijn groot genoeg om de tekst te bevatten. 
+
+- [ ] De teksten op de website bevatten geen spelfouten en zijn duidelijk geformuleerd. 
+
+- [ ] Zorg voor voldoende contrast. 
+
+- [ ] Contrast is getest met deze tool: https://webaim.org/resources/contrastchecker/  
+
+- [ ] De WCAG AAA test moet pass teruggeven. 
+
+- [ ] Maak geen gebruik van hyperlinks met een klik hier maar gebruik een betekenisvolle beschrijving.  
+
+Zoals: Lees meer over regulering. 
+
+- [ ] Maak korte en inhoudelijke pagina’s. 
+
 - [ ] Houd je aan de standaarden voor het web. 
 
 - [ ] De website moet door gebruik van tab te navigeren zijn. 
@@ -100,29 +98,29 @@ Zoals: Lees meer over regulering.
 
 - [ ] Inlaad snelheid zo hoog mogelijk. 
 
-## Summary
+## Samenvatting
 
-### Description
+### Beschrijving
 
-- (Description of the functionality)
+- (Beschrijving van de functionaliteit)
 
 ### User story 
 
-- (What user story did you complete?)
+- (Welke user story heb je gemaakt?)
 
-### List of acceptation criteria
+### Lijst van acceptatie criteria
 
-- (All acceptation criteria of the user story)
+- (Alle acceptatie criteria van de user story)
 
-## Challenges and Solutions
+## Uitdagingen and Oplossingen
 
-### Challenge 1
+### Uitdaging 1
 
-- (What was difficult?)
+- (Wat was moeilijk?)
 
-### Solution 1
+### Oplossing 1
 
-- (How did you solve it?)
+- (Hoe heb je het opgelost?)
 
 ## User Interface
 - (Afbeelding van de UI met een beschrijving)
