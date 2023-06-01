@@ -36,7 +36,7 @@ class NavigationTest extends DuskTestCase
                         ->assertPathIs("/team");
                 $browser->visit('/')->resize(3000,3000)
                         ->clickLink("Partners")
-                        ->assertPathIs("/partner");
+                        ->assertPathIs("/partners");
                 $browser->visit('/')->resize(3000,3000)
                         ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Over Ons")
@@ -99,7 +99,7 @@ class NavigationTest extends DuskTestCase
                 $browser->visit('/')->resize(3000,3000)
                         ->click(".search")
                         ->clickLink("Partner")
-                        ->assertPathIs("/partner");
+                        ->assertPathIs("/partners");
                 $browser->visit('/')->resize(3000,3000)
                         ->click(".search")
                         ->clickLink("Over Ons")
@@ -151,7 +151,7 @@ class NavigationTest extends DuskTestCase
                         ->assertPathIs("/members");
                 $browser->visit('/')->resize(3000,3000)
                         ->clickLink("Partners")
-                        ->assertPathIs("/partner");
+                        ->assertPathIs("/groups");
                 $browser->visit('/')->resize(3000,3000)
                         ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Over Ons")
