@@ -6,8 +6,6 @@
     </head>
 
     <div class="row">
-        <div class="col-md-2 mx-3" id="wrapper">
-        </div>
         <div class="col">
             <div class="container">
                 <div class="row">
@@ -39,7 +37,9 @@
                                         <div class="row card-body">
                                             <div class="col-sm-7">
                                                 <label for="date" class="form-label">Datum</label>
-                                                <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date">
+                                                <label>
+                                                    <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date">
+                                                </label>
                                                 <label for="file" class="form-label">PDF bestand</label>
                                                 <input class="form-control" type="file" name="file" id="file">
                                             </div>
@@ -47,6 +47,7 @@
                                         </div>
                                         <div class="col">
                                             <button class="btn btn-primary" type="submit">Voeg nieuwsbrief toe</button>
+                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
                                         </div>
                                         <hr>
                                     </form>

@@ -5,13 +5,8 @@
         <title>Nieuwsbrief</title>
     </head>
 
-    <div class="row">
-        <div class="col-md-2 mx-3" id="wrapper">
-            @include('Components.SideBar.SideBarNavigation', ['articles' => $articles], ['years' => $years])
-        </div>
-        <div class="col">
             <div class="container">
-                <div class="row">
+                <div class="d-flex justify-content-center">
                     @if(session()->get('success'))
                         <div class="alert alert-success">
                             {{ session()->get('success') }}
@@ -21,8 +16,6 @@
                             {{ session()->get('error') }}
                         </div>
                     @endif
-                    <div class="row">
-                        <div class="col-md-8">
                             <div class="border-0">
                                 @if ($errors->any())
                                     <div class="alert alert-danger">
@@ -33,13 +26,13 @@
                                         </ul>
                                     </div><br/>
                                 @endif
-                                <h1 class="text-black">Nieuwsartikelen</h1>
+                                <h1 class="text-black border-bottom">Nieuwsartikelen Toevoegen</h1>
                                 <div class="card border-0">
                                     <form method="post" action="{{ route('nieuws.store') }}"
                                           enctype="multipart/form-data">
                                         @csrf
                                         <div class="row card-body">
-                                            <div class="col-sm-7">
+                                            <div class="col">
                                                 <label alt="maak een nieuw artikel aan">
                                                     <input class="form-control form-control-lg mb-2" type="text"
                                                            placeholder="Titel *" name="title">
@@ -49,7 +42,7 @@
                                                               placeholder="Beschrijving *" name="body"></textarea>
                                                 </label>
                                             </div>
-                                            <aside class="col-sm-5">
+                                            <aside class="col">
                                                 <div class="mb-3">
                                                     <label for="img[]" class="form-label">Foto's</label>
                                                     <input class="form-control" type="file" name="img[]" id="img[]"
@@ -61,98 +54,15 @@
                                                            multiple>
                                                 </div>
                                             </aside>
-                                            <div class="col">
+                                            <div class="">
                                                 <button class="btn btn-primary" alt="bevestig nieuwsbrief aanmaken" type="submit">Voeg artikel toe</button>
                                                 <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
                                             </div>
                                         </div>
-                                        <hr>
-                                    </form>
-                                    @foreach($articles as $article)
-                                        <div class="row card-body">
-                                            <h2 id="articleTitle">{{$article->title}}</h2>
-                                            <small>Datum: {{$article->date}}</small>
-                                            @if($article->imgurl != null)
-                                                <div class="col-sm-7">
-                                                    @else
-                                                        <div class="col">
-                                                            @endif
-                                                            <p>{{$article->body}}</p>
-                                                            @if($article->fileurl != null)
-                                                                @foreach($article->fileurl as $file)
-                                                                    <a href="{{asset('storage/files/nieuws/'.$file)}}" alt="link naar het bestand {{$file}}">{{$file}}</a>
-                                                                @endforeach
-                                                            @endif
-                                                        </div>
-                                                        @if($article->imgurl != null)
-                                                            <aside class="col">
-                                                                @foreach($article->imgurl as $imgurl)
-                                                                    <img
-                                                                        src="{{ asset('img/'.$imgurl) }}"
-                                                                        alt="{{$imgurl}}"
-                                                                        class="img-thumbnail art_image"/>
-                                                                @endforeach
-                                                            </aside>
-                                                        @endif
-                                                </div>
-                                                <hr>
+                                        </form>
 
-                                                @endforeach
-                                        </div>
-                                </div>
                             </div>
-
-                            <div class="col">
-                                <div class="mt-2 pb-3">
-                                    <form method="GET" class="d-flex">
-                                        <label for="sort" class="overflow-auto m-1">Sorteren op:</label>
-                                        <div class="form-group">
-                                            <select class="form-select" name="sort" disabled id="sort">
-                                                <option value="date_desc">Datum Aflopend</option>
-                                                <option value="date_asc">Datum Oplopend</option>
-                                                <option value="title_desc">Titel Nieuw-Oud</option>
-                                                <option value="title_asc">Titel Oud-Nieuw</option>
-                                            </select>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="card-body">
-                                    <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
-                                    <ul class="list-unstyled">
-                                        @foreach($newsLetters as $newsLetter)
-                                            <li class="mb-3">
-                                                <small>Datum: {{$newsLetter->date}}</small>
-                                                <div class="pdf-container">
-                                                    <embed src="{{ asset('storage/files/nieuws/' . $newsLetter->pdf) }}"
-                                                           width="500" height="375" type="application/pdf">
-                                                </div>
-                                                @if (Auth::user() != null && Auth::user()->role == 'admin')
-                                                    <aside class="row card-body">
-                                                        <div class="col-md-6">
-                                                            <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}"
-                                                               class="btn btn-primary" alt="nieuwsbrief aanpassen">Pas nieuwsbrief aan</a>
-                                                        </div>
-                                                        <div class="col-md-6">
-                                                            <form
-                                                                action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}"
-                                                                method="post">
-                                                                @csrf
-                                                                @method('DELETE')
-                                                                <button class="btn btn-danger" alt="nieuwsbrief verwijderen" type="submit">Verwijder
-                                                                    nieuwsbrief
-                                                                </button>
-                                                            </form>
-                                                        </div>
-                                                    </aside>
-                                                @endif
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
         <script>

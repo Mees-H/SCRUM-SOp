@@ -6,10 +6,7 @@
     </head>
 
     <div class="row">
-        <div class="col-md-2 mx-3" id="wrapper">
-        </div>
-        <div class="col">
-            <div class="container">
+            <div class="container justify-content-center d-flex">
                 <div class="row">
                     @if(session()->get('success'))
                         <div class="alert alert-success">
@@ -40,7 +37,9 @@
                                         <div class="row card-body">
                                             <div class="col-sm-7">
                                                 <label for="date" class="form-label">Datum</label>
-                                                <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}">
+                                                <label>
+                                                    <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}">
+                                                </label>
                                                 <label for="file" class="form-label">PDF bestand</label>
                                                 <div class="pdf-container mb-2">
                                                     <embed src="{{ asset('storage/files/nieuws/' . $newsletter->pdf) }}" width="500" height="375" type="application/pdf">
@@ -52,6 +51,7 @@
                                         </div>
                                         <div class="col">
                                             <button class="btn btn-primary" type="submit">Wijzig nieuwsbrief</button>
+                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
                                         </div>
                                         <hr>
                                     </form>
@@ -59,7 +59,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
