@@ -49,9 +49,7 @@ class PrivacyController extends Controller
             }
 
             $request->file->move('files', $storeFile);
-            $carousel= slider::create([
-                'image' => $storeFile
-            ]);
+            
             return redirect('privacy/edit')->with('success', 'Privacyverklaring is succesvol geupload');
         }
         catch (\Exception $e){
