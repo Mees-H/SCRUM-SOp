@@ -6,9 +6,6 @@
     </head>
 
     <div class="row">
-        <div class="col-md-2 mx-3" id="wrapper">
-            {{-- @include('Components.SideBar.SideBarNavigation', ['newsLetters' => $newsLetters]) --}}
-        </div>
         <div class="col">
             <div class="container">
                 <div class="row">
@@ -48,6 +45,7 @@
                                         </div>
                                         <div class="col">
                                             <button class="btn btn-primary" type="submit">Voeg nieuwsbrief toe</button>
+                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
                                         </div>
                                         <hr>
                                     </form>

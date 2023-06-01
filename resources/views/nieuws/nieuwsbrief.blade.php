@@ -6,9 +6,20 @@
     </head>
     <div class="row d-flex">
         <div class="col-sm-2 mx-3" id="wrapper">
+            @if (Auth::user() != null && Auth::user()->role == 'admin')
+                <div class="justify-content-start p-2">
+                <div class="row pb-2">
+                    <a href="{{ route('nieuws.create')}}" class="btn btn-primary">Nieuw artikel</a>
+                </div>
+
+                    <div class="row">
+                        <a href="{{ route('nieuwsbrief.create')}}" class="btn btn-primary" alt="maak een nieuwe nieuwsbrief">Nieuwe nieuwsbrief</a>
+                    </div>
+                </div>
+                @endif
             @include('Components.SideBar.SideBarNavigation', ['articles' => $articles], ['years' => $years])
         </div>
-        <div class="col-sm-6">
+        <div class="col-md-6">
             <div>
                 @if(session()->get('success'))
                     <div class="alert alert-success">
@@ -20,11 +31,7 @@
                     </div>
                 @endif
             </div>
-            @if (Auth::user() != null && Auth::user()->role == 'admin')
-                <div class="d-flex justify-content-end">
-                    <a href="{{ route('nieuws.create')}}" class="btn btn-primary">Nieuw artikel</a>
-                </div>
-            @endif
+
             <div class="border-0">
                 <div class="d-flex justify-content-between container pb-2">
                     <h1 class="text-black">Nieuwsartikelen</h1>
@@ -52,7 +59,7 @@
                             <h2 id="articleTitle">{{$article->title}}</h2>
                             <small>Datum: {{$article->date}}</small>
                             @if($article->imgurl != null)
-                                <div class="col-sm-7">
+                                <div class="col">
                                     @else
                                         <div class="col">
                                             @endif
@@ -64,13 +71,16 @@
                                             @endif
                                         </div>
                                         @if($article->imgurl != null)
-                                            <aside class="col">
+                                            <div class="col-md-5">
                                                 @foreach($article->imgurl as $imgurl)
+                                                    <div>
                                                     <img
                                                         src="{{ asset('storage/img/nieuws/'.$imgurl) }}"
-                                                        alt="{{$imgurl}}" class="img-fluid art_image"/>
+                                                        alt="{{$imgurl}}" class=" art_image"/>
+
+                                                    </div>
                                                 @endforeach
-                                            </aside>
+                                            </div>
                                         @endif
                                 </div>
                                 @if (Auth::user() != null && Auth::user()->role == 'admin')
@@ -79,7 +89,7 @@
                                             <form action="{{ route('nieuws.destroy', $article->id)}}"
                                                   method="post">
                                                 <a href="{{ route('nieuws.edit', $article->id)}}"
-                                                   class="col btn btn-primary">Pas nieuwsartikel aan</a>
+                                                   class="col btn btn-dark">Pas nieuwsartikel aan</a>
 
                                                 @csrf
                                                 @method('DELETE')
@@ -99,11 +109,7 @@
             <div class="col-sm container">
                 <div class="card border-0">
 
-                    @if (Auth::user() != null && Auth::user()->role == 'admin')
-                        <div class="justify-content-end d-flex">
-                            <a href="{{ route('nieuwsbrief.create')}}" class="btn btn-primary" alt="maak een nieuwe nieuwsbrief">Nieuwe nieuwsbrief</a>
-                        </div>
-                    @endif
+
                     <h1 class="text-black">Nieuwsbrieven</h1>
                     <div class="">
                         <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
@@ -129,7 +135,7 @@
                                         <aside class="d-flex justify-content-between card-body">
                                             <div class="">
                                                 <a href="{{ route('nieuwsbrief.edit', $newsLetter->id)}}"
-                                                   class="btn btn-primary" alt="pas nieuwsbrief aan">Pas nieuwsbrief aan</a>
+                                                   class="btn btn-dark" alt="pas nieuwsbrief aan">Pas nieuwsbrief aan</a>
                                             </div>
                                             <div>
                                                 <form action="{{ route('nieuwsbrief.destroy', $newsLetter->id)}}"

@@ -6,11 +6,7 @@
     </head>
 
     <div class="row">
-        <div class="col-md-2 mx-3" id="wrapper">
-            {{-- @include('Components.SideBar.SideBarNavigation', ['newsLetters' => $newsLetters]) --}}
-        </div>
-        <div class="col">
-            <div class="container">
+            <div class="container justify-content-center d-flex">
                 <div class="row">
                     @if(session()->get('success'))
                         <div class="alert alert-success">
@@ -53,6 +49,7 @@
                                         </div>
                                         <div class="col">
                                             <button class="btn btn-primary" type="submit">Wijzig nieuwsbrief</button>
+                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
                                         </div>
                                         <hr>
                                     </form>
@@ -60,7 +57,6 @@
                             </div>
                         </div>
                     </div>
-                </div>
             </div>
         </div>
     </div>
