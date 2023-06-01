@@ -39,7 +39,6 @@ Route::get('/', [NavigationController::class, 'index'])->name('mainmenu');
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
 Route::get('/vragenantwoorden', [NavigationController::class, 'vragenantwoorden']);
-Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
 Route::get('/partner', [NavigationController::class, 'partner']);
 Route::get('/overons', [NavigationController::class, 'overons']);

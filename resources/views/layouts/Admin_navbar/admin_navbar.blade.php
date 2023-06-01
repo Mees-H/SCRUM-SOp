@@ -58,7 +58,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-           href="/nieuwsbrief">Nieuws</a>
+           href="/nieuws">Nieuws</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}"
@@ -147,8 +147,8 @@
             <li><a class="dropdown-item text-center searchitem" href="/faq">
                     FAQ
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
-                    Nieuwsbrief
+            <li><a class="dropdown-item text-center searchitem" href="/nieuws">
+                    Nieuws
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/team">
                     Team
