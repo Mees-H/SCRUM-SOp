@@ -2,7 +2,7 @@
 @section('content')
     <head>
         <link rel="stylesheet" href="{{asset('css/News.css')}}"/>
-        <title>Nieuwsbrief aanpassen</title>
+        <title>Nieuwsbrief Aanpassen</title>
     </head>
 
     <div class="row">
@@ -29,7 +29,7 @@
                                         </ul>
                                     </div><br/>
                                 @endif
-                                <h1 class="text-black">Nieuwsbrieven</h1>
+                                <h1 class="text-black">Nieuwsbrief Aanpassen</h1>
                                 <div class="card border-0">
                                     <form method="post" action="{{ route('nieuwsbrief.update', $newsletter->id) }}" enctype="multipart/form-data">
                                         @method('PATCH')

@@ -26,7 +26,7 @@
                         </ul>
                     </div><br/>
                 @endif
-                    <h1 class="text-black border-bottom">Nieuwsartikelen Aanpassen</h1>
+                    <h1 class="text-black border-bottom">Nieuwsartikel Aanpassen</h1>
                     <div class="card border-0">
                         <form method="post" action="{{ route('nieuws.update', $editArticle->id) }}"
                               enctype="multipart/form-data">
