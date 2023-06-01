@@ -10,20 +10,6 @@ use Tests\DuskTestCase;
 
 class SitemapTest extends DuskTestCase
 {
-    public function testSitemap(): void
-    {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/links')
-                ->resize(3000,3000)
-                ->clickLink("trainingen")
-                ->assertPathIs("/training")
-                ->visit('/links')
-                ->clickLink("team")
-                ->assertPathIs("/team");
-        });
-    }
-
-
     public function testAllLinks() : void
     {
         $this->browse(function (Browser $browser) {

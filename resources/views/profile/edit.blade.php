@@ -2,9 +2,9 @@
 
 @section('content')
     <div name="header">
-        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <h1 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
             Profiel
-        </h2>
+        </h1>
     </div>
 
     <div class="py-12">
