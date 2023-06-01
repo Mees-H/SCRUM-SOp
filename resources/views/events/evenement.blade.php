@@ -10,7 +10,6 @@
         <h1 class="col">Evenementen</h1>
     </div>
 </div>
-</div>
 <div class="container">
     <hr>
     <div class="row">
