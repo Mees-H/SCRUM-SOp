@@ -61,8 +61,8 @@
            href="/nieuwsbrief">Nieuws</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark {{ (request()->segment(1) == 'partners') ? 'font-weight-bold' : '' }}"
-           href="/partners">Partners</a>
+        <a class="nav-link text-dark {{ (request()->segment(1) == 'groups') ? 'font-weight-bold' : '' }}"
+           href="/groups">Partners</a>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
