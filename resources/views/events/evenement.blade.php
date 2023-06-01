@@ -1,12 +1,15 @@
 @extends('layouts.layout')
+@section('content')
+
 <head>
     <link rel="stylesheet" href="{{ asset('css/EventDetails.css') }}">
+    <title>Events</title>
 </head>
-@section('content')
 <div class="container justify-content-between ">
     <div class="row align-items-center">
         <h1 class="col">Evenementen</h1>
     </div>
+</div>
 </div>
 <div class="container">
     <hr>
@@ -53,7 +56,7 @@
                     <a href="/events/enroll/{{$post->id}}" class="btn-primary btn">Inschrijven</a>
                 </div>
             <div>
-                <label>Datum: {{$post->date}} om {{$post->time}}</label>
+                <label>Datum: {{ \Carbon\Carbon::parse($post->date)->format('d-m-Y')}} om {{date('H:i', strtotime($post->time))}}</label>
                 <br />
                 @if($post->price <= 0)
                     <p>Prijs: Gratis</p>
@@ -72,7 +75,6 @@
                     </div>
                 </div>
                 <div class="d-flex">
-                    {{--                    TODO: Moet nog worden vervangen met 1 locatie--}}
                     @foreach($post->groups as $group)
                     <a href="https://{{$group->link}}">
                         <div class="fullwrap m-3">

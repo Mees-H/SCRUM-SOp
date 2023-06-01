@@ -24,7 +24,7 @@
 
                 <div class="form-group">
                     <label for="date">Datum:</label>
-                    <input type="date" class="form-control" name="date" id="date"/>
+                    <input type="date" class="form-control" name="date" id="date"  placeholder="dd-mm-yyyy"/>
                 </div>
 
                 <div class="form-group">
