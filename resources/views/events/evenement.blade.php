@@ -63,7 +63,7 @@
                 @else
                     <p>Prijs: €{{number_format($post->price, 2, ',', '')}}<p>
                 @endif
-                
+
                 <div class="d-flex justify-content-between">
                     <p class="col-sm-8">
                     {!!str_split($post->body,strpos($post->body,"."))[0]!!}...
@@ -83,12 +83,6 @@
                                 <div>{{$group->name}}</div>
                                 <div>{{$group->zipcode}}, {{$group->city}}</div>
                             </div>
-                        </div>
-                        <div class="m-3">
-                            {{$group->name}}<br>
-                            {{$group->street}} {{$group->housenumber}}<br>
-                            {{$group->zipcode}} {{$group->city}}<br>
-                            <a id="link" href="https://{{$group->link}}">{{$group->link}}</a>
                         </div>
                         @endforeach
                     </div>
