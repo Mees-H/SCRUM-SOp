@@ -75,7 +75,7 @@
                                                                    id="{{$img}}" name="deleteImages[]">
                                                             <label for="{{$img}}" class="form-check-label">
                                                                 <img class="memberimg" alt="artikel afbeelding"
-                                                                     src="{{ asset('storage/img/nieuws/'.$img)}}"/>
+                                                                     src="{{ asset('img/'.$img)}}"/>
                                                             </label>
                                                         </div>
                                                     @endforeach
@@ -108,7 +108,7 @@
                                                                 <aside class="col">
                                                                     @foreach($article->imgurl as $imgurl)
                                                                         <img
-                                                                            src="{{ asset('storage/img/nieuws/'.$imgurl) }}"
+                                                                            src="{{ asset('img/'.$imgurl) }}"
                                                                             alt="{{$imgurl}}"
                                                                             class="img-thumbnail art_image"/>
                                                                     @endforeach

@@ -69,7 +69,7 @@ class NewsArticleController extends Controller
 
         //Saving image
         if($request->hasFile('img')){
-            $destination_path = 'storage/img/nieuws';
+            $destination_path = 'img';
             $imgArr = [];
             foreach($request->img as $img){
                 $image_name = $img->getClientOriginalName();
@@ -96,14 +96,6 @@ class NewsArticleController extends Controller
         } catch(ModelNotFoundException $e){
             return redirect('/nieuws')->with('error', 'Artikel niet kunnen opslaan');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
     }
 
     /**
@@ -145,7 +137,7 @@ class NewsArticleController extends Controller
         //Saving image
         $imgArr = [];
         if($request->hasFile('img')){
-            $destination_path = 'storage\img\nieuws';
+            $destination_path = 'img';
             foreach($request->img as $img){
                 $image_name = $img->getClientOriginalName();
                 $img->move(public_path($destination_path), $image_name);
@@ -192,7 +184,7 @@ class NewsArticleController extends Controller
 
         if($article->imgurl != null){
             foreach($article->imgurl as $img){
-                $path = 'storage/img/nieuws/'.$img;
+                $path = 'img/'.$img;
                 if(File::exists($path)){
                     File::delete($path);
                 }
@@ -232,7 +224,7 @@ class NewsArticleController extends Controller
     //filter on title desc
     public function filterTitleDesc($view){
         $articles = NewsArticle::all()->sortByDesc('title');
-        $newsLetters = Newsletter::all()->sortByDesc('title');
+        $newsLetters = Newsletter::all();
         return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
 
     }
@@ -240,7 +232,7 @@ class NewsArticleController extends Controller
     public function filterTitleAsc($view)
     {
         $articles = NewsArticle::all()->sortBy('title');
-        $newsLetters = Newsletter::all()->sortBy('title');
+        $newsLetters = Newsletter::all();
         return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
     }
 

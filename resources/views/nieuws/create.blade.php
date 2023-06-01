@@ -88,7 +88,7 @@
                                                             <aside class="col">
                                                                 @foreach($article->imgurl as $imgurl)
                                                                     <img
-                                                                        src="{{ asset('storage/img/nieuws/'.$imgurl) }}"
+                                                                        src="{{ asset('img/'.$imgurl) }}"
                                                                         alt="{{$imgurl}}"
                                                                         class="img-thumbnail art_image"/>
                                                                 @endforeach

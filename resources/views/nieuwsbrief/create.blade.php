@@ -7,7 +7,6 @@
 
     <div class="row">
         <div class="col-md-2 mx-3" id="wrapper">
-            {{-- @include('Components.SideBar.SideBarNavigation', ['newsLetters' => $newsLetters]) --}}
         </div>
         <div class="col">
             <div class="container">
