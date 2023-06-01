@@ -86,6 +86,9 @@ Route::resource('nieuwsBrief', NewsLetterController::class);
 //Galerij routes
 Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+//privacyverklaring routes
+Route::get('/privacy', [App\Http\Controllers\PrivacyController::class, 'index'])->name('privacy');
+Route::get('/privacy/download', [App\Http\Controllers\PrivacyController::class, 'download'])->name('privacy.download');
 
 Route::middleware(['role:admin'])->group(function () {
     //User creation routes
@@ -124,6 +127,11 @@ Route::middleware(['role:admin'])->group(function () {
 
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
+
+    //privacyverklaring routes
+    Route::get('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'edit'])->name('privacy.edit');
+    Route::post('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'store'])->name('privacy.store');
+
 });
 
 //News routes
