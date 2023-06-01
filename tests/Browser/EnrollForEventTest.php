@@ -12,7 +12,7 @@ class EnrollForEventTest extends DuskTestCase
     public function testFormSuccess(): void
     {
         $this->browse(function (Browser $browser) {
-            $browser->visit('/events/enroll/1' . (DB::table('events')->max('id')))
+            $browser->visit('/events/enroll/' . (DB::table('events')->max('id')))
                 ->resize(3000,3000)
                 ->scrollIntoView('#aanmeldknop')
                 ->assertSee('Inschrijven voor Evenement')
