@@ -37,7 +37,9 @@
                                         <div class="row card-body">
                                             <div class="col-sm-7">
                                                 <label for="date" class="form-label">Datum</label>
-                                                <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}">
+                                                <label>
+                                                    <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}">
+                                                </label>
                                                 <label for="file" class="form-label">PDF bestand</label>
                                                 <div class="pdf-container mb-2">
                                                     <embed src="{{ asset('storage/files/nieuws/' . $newsletter->pdf) }}" width="500" height="375" type="application/pdf">

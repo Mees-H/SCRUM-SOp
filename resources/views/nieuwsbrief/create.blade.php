@@ -37,7 +37,9 @@
                                         <div class="row card-body">
                                             <div class="col-sm-7">
                                                 <label for="date" class="form-label">Datum</label>
-                                                <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date">
+                                                <label>
+                                                    <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date">
+                                                </label>
                                                 <label for="file" class="form-label">PDF bestand</label>
                                                 <input class="form-control" type="file" name="file" id="file">
                                             </div>
