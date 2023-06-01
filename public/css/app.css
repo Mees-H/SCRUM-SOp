@@ -97,6 +97,7 @@ h1{
 .specialBrown{
     color: #8d7824;
 }
+
 .footer {
     margin-top: auto;
     position: static;
@@ -173,7 +174,7 @@ h1{
 
 #logo {
     width: auto;
-    height: 40px !important;
+    height: 40px;
     margin-left: 20px;
 }
 
@@ -195,6 +196,11 @@ h1{
 
 .btn-secondary{
     background:#8A048C;
+    border-color: white;
+    color:white;
+}
+.btn-secondary:hover{
+    background-color: #8A048C;
     border-color: white;
     color:white;
 }

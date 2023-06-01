@@ -168,7 +168,7 @@
                 <li><a class="dropdown-item text-center" href="/team">
                         Team
                     </a></li>
-                <li><a class="dropdown-item text-center" href="/partner">
+                <li><a class="dropdown-item text-center" href="/partners">
                         Partner
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/overons">
