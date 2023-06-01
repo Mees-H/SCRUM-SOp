@@ -10,7 +10,7 @@
         </div>
             <div class="col text-center">
 
-            <h1>{{$album->date }} | {{$album->title}}</h1>
+            <h1>{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}} | {{$album->title}}</h1>
             <article>
                 {{$album->description}}
             </article>
@@ -20,7 +20,7 @@
                 @foreach($pictures as $picture)
                     <div class="col-md-4">
                         <div class="card mb-4 shadow-sm">
-                            <img type="button" class="card-img-top" src="{{ asset('images/' . $picture->image) }}" dusk="PictureTest" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
+                            <img type="button" class="card-img-top" src="{{ asset('img/' . $picture->image) }}" dusk="PictureTest" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
                         </div>
                     </div>
                 @endforeach

@@ -8,7 +8,7 @@
                     <div class="col-md-12">
                         <div class="row">
                             <div class="col-md-8 ps-3 mb-3 p-0">
-                                <h2>Foto toevoegen aan slider op Home pagina</h2>
+                                <h1 class="display-3">Foto toevoegen aan slider op home pagina</h1>
                             </div>
                             <div class="col-md-4 add-slider mb-3 p-0">
                                 <a href="{{ route('slider.create') }}" class="btn btn-lg btn-primary float-end me-4">Foto Toevoegen</a>
@@ -20,7 +20,7 @@
                             @foreach($sliders as $slider)
                                 <div class="carousel-item @if($loop->first) active @endif">
                                     <div class="slider-image text-center">
-                                        <img src="{{  asset('images/'.$slider->image) }}" class="d-inline-block border text-center rounded" alt="{{ $slider->image }}">
+                                        <img src="{{  asset('img/'.$slider->image) }}" class="d-inline-block border text-center rounded" alt="{{ $slider->image }}">
                                         <a href="{{ route('slider.delete', $slider) }}"><button type="button" class="btn btn-lg btn-danger" >Verwijder Foto</button></a>
                                     </div>
                                 </div>

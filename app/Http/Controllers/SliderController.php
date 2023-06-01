@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\File;
 
 class SliderController extends Controller
 {
@@ -47,7 +48,7 @@ class SliderController extends Controller
             $imageName =pathinfo($imageNameWithExt, PATHINFO_FILENAME);
             $imageExt=$uploadImage->getClientOriginalExtension();
             $storeImage=$imageName . time() . "." . $imageExt;
-            $request->image->move(public_path('images'), $storeImage);
+            $request->image->move(public_path('img'), $storeImage);
             $carousel= slider::create([
                 'image' => $storeImage
             ]);
@@ -60,8 +61,13 @@ class SliderController extends Controller
     }
 
     public function delete(Request $request){
-        $slider = $request->slider;
-        slider::where('id', $slider)->delete();
+        $sliderid = $request->slider;
+        $imageurl = slider::find($sliderid)->image;
+        if (File::exists(public_path('img\\'.$imageurl))) {
+            File::delete(public_path('img\\'.$imageurl));
+        }
+
+        slider::where('id', $sliderid)->delete();
 
         return redirect('slider');
       }
