@@ -3,6 +3,7 @@
 namespace Tests\Browser;
 
 use App\Models\NewsArticle;
+use App\Models\NewsLetter;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
@@ -16,9 +17,11 @@ class NewsTest extends DuskTestCase
     public function testNieuwsArtikelPage(): void
     {
         $this->artisan('db:seed');
+
         $this->browse(function (Browser $browser)
         {
             $browser->visit('/')
+                ->resize(3000, 3000)
                 ->clickLink('Nieuws')
                 ->assertSee('Nieuws')
                 ->press("2023")
@@ -33,15 +36,17 @@ class NewsTest extends DuskTestCase
     public function testCreateArticle(): void
     {
         $this->artisan('db:seed');
+
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuws')
+                ->resize(3000, 3000)
                 ->clickLink("Nieuw artikel")
                 ->type('title', 'test')
                 ->type('date', '552023')
                 ->type('body', 'test')
-                ->attach('img[]', public_path('img/wim.jpeg'))
-                ->attach('file[]', public_path('storage/files/nieuws/31-01-2023.pdf'))
+                ->attach('img[]', base_path('tests/Browser/TestImage/GolfTest.jpg'))
+                ->attach('file[]', base_path('tests/Browser/TestFile/TestNewsLetter.pdf'))
                 ->press('Voeg artikel toe')
                 ->assertPathIs('/nieuws')
                 ->assertSee('Artikel opgeslagen');
@@ -55,6 +60,7 @@ class NewsTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuws')
+                ->resize(3000, 3000)
                 ->clickLink("Nieuw artikel")
                 ->press('Voeg artikel toe')
                 ->assertPathIs('/nieuws/create')
@@ -71,12 +77,13 @@ class NewsTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuws')
+                ->resize(3000, 3000)
                 ->clickLink("Pas nieuwsartikel aan")
                 ->type('title', 'test')
                 ->type('date', '552023')
                 ->type('body', 'test')
-                ->attach('img[]', public_path('img/wim.jpeg'))
-                ->attach('file[]', public_path('storage/files/nieuws/31-01-2023.pdf'))
+                ->attach('img[]', base_path('tests/Browser/TestImage/GolfTest.jpg'))
+                ->attach('file[]', base_path('tests/Browser/TestFile/TestNewsLetter.pdf'))
                 ->press('Pas artikel aan')
                 ->assertPathIs('/nieuws')
                 ->assertSee('Artikel opgeslagen');
@@ -108,6 +115,7 @@ class NewsTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuws')
+                ->resize(3000, 3000)
                 ->press("Verwijder nieuwsartikel")
                 ->assertPathIs('/nieuws')
                 ->assertSee('Artikel verwijderd.');
@@ -120,12 +128,15 @@ class NewsTest extends DuskTestCase
     public function testCreateNewsletter(): void
     {
         $this->artisan('db:seed');
-        $this->browse(function (Browser $browser) {
+        $newsletter = NewsLetter::factory()->create();
+
+        $this->browse(function (Browser $browser) use ($newsletter) {
             $browser->loginAs(User::find(1))
                 ->visit('/nieuws')
+                ->resize(3000, 3000)
                 ->clickLink('Nieuwe nieuwsbrief')
                 ->type('date', '552023')
-                ->attach('file', public_path('storage/files/nieuws/31-01-2023.pdf'))
+                ->attach('file', $newsletter->pdf)
                 ->press('Voeg nieuwsbrief toe')
                 ->assertPathIs('/nieuws')
                 ->assertSee('Nieuwsbrief opgeslagen');
@@ -138,6 +149,7 @@ class NewsTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuws')
+                ->resize(3000, 3000)
                 ->clickLink('Nieuwe nieuwsbrief')
                 ->press('Voeg nieuwsbrief toe')
                 ->assertPathIs('/nieuwsbrief/create')
@@ -149,12 +161,15 @@ class NewsTest extends DuskTestCase
     public function testEditNewsLetter(): void
     {
         $this->artisan('db:seed');
-        $this->browse(function (Browser $browser) {
+        $newsletter = NewsLetter::factory()->create();
+
+        $this->browse(function (Browser $browser) use ($newsletter) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuws')
+                ->resize(3000, 3000)
                 ->clickLink("Pas nieuwsbrief aan")
-                ->type('date', '552023')
-                ->attach('file', public_path('storage/files/nieuws/31-01-2023.pdf'))
+                ->type('date', $newsletter->date)
+                ->attach('file', $newsletter->pdf)
                 ->press('Wijzig nieuwsbrief')
                 ->assertPathIs('/nieuws')
                 ->assertSee('Nieuwsbrief opgeslagen');
@@ -168,6 +183,7 @@ class NewsTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuws')
+                ->resize(3000, 3000)
                 ->clickLink("Pas nieuwsbrief aan")
                 ->type('date', '')
                 ->press('Wijzig nieuwsbrief')
@@ -179,12 +195,17 @@ class NewsTest extends DuskTestCase
     public function testDeleteNewsLetter(): void
     {
         $this->artisan('db:seed');
-        $this->browse(function (Browser $browser) {
+        $newsletter = NewsLetter::factory()->create();
+
+        $this->browse(function (Browser $browser) use ($newsletter) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuws')
-                ->press("Verwijder nieuwsbrief")
+                ->resize(3000, 3000)
+                ->click('@eventNieuwsbrief'. $newsletter->id . '_verwijder')
+                ->press( "Verwijder nieuwsbrief")
                 ->assertPathIs('/nieuws')
                 ->assertSee('Nieuwsbrief verwijderd.');
-        });
+
+            });
     }
 }

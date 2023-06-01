@@ -65,7 +65,7 @@
                                             @endif
                                             <p>{{$article->body}}</p>
                                             @if($article->fileurl != null)
-                                                @foreach($article->fileurl as $file)
+                                            @foreach($article->fileurl as $file)
                                                     <a href="{{asset('storage/files/nieuws/'.$file)}}">{{$file}}</a>
                                                 @endforeach
                                             @endif
@@ -142,7 +142,7 @@
                                                       method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit" alt="verwijder nieuwsbrief">Verwijder nieuwsbrief
+                                                    <button class="btn btn-danger" type="submit" alt="verwijder nieuwsbrief" dusk="eventNieuwsbrief{{$newsLetter->id}}_verwijder">Verwijder nieuwsbrief
                                                     </button>
                                                 </form>
                                             </div>
