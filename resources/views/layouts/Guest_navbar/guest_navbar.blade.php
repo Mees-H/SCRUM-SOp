@@ -38,7 +38,7 @@
     <li class="nav-item dropdown">
 
         <a dusk="galerij" class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
-           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true"href="#">
+           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true" href="#">
             Galerij
         </a>
 
@@ -62,7 +62,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-           href="/nieuwsbrief">Nieuws</a>
+           href="/nieuws">Nieuws</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}"
@@ -162,8 +162,8 @@
                 <li><a class="dropdown-item text-center" href="/vragenantwoorden">
                         FAQ
                     </a></li>
-                <li><a class="dropdown-item text-center" href="/nieuwsbrief">
-                        Nieuwsbrief
+                <li><a class="dropdown-item text-center" href="/nieuws">
+                        Nieuws
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/team">
                         Team
