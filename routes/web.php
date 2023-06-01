@@ -14,7 +14,6 @@ use App\Http\Controllers\SiteMapController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EnrollController;
 use App\Http\Controllers\SliderController;
 
 

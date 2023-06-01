@@ -38,7 +38,7 @@
     <li class="nav-item dropdown">
 
         <a dusk="galerij" class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
-           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true"href="#">
+           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true" href="#">
             Galerij
         </a>
 
