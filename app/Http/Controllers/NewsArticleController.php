@@ -105,13 +105,10 @@ class NewsArticleController extends Controller
     {
         try{
             $editArticle = NewsArticle::findOrFail($id);
-            $articles = NewsArticle::all()->sortByDesc('date');
-            $newsLetters = Newsletter::all()->sortBy('title');
         } catch(ModelNotFoundException $e){
             return redirect('/nieuws')->with('error', 'Kon artikel niet ophalen');
         }
-        return view('nieuws.edit', compact('editArticle', 'newsLetters', 'articles'),
-            ['years' => $this->getYears()->toArray()]);
+        return view('nieuws.edit', compact('editArticle'));
     }
 
     /**
@@ -184,20 +181,13 @@ class NewsArticleController extends Controller
 
         if($article->imgurl != null){
             foreach($article->imgurl as $img){
-                $path = 'img/'.$img;
-                if(File::exists($path)){
-                    File::delete($path);
-                }
+                $article['imgurl'] = [];
             }
         }
 
         if($article->fileurl != null){
             foreach($article->fileurl as $file){
-                $path = 'storage/files/nieuws/'.$file;
-
-                if(File::exists($path)){
-                    File::delete($file);
-                }
+                $article['fileurl'] = [];
             }
         }
 
