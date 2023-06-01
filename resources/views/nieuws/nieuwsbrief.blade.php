@@ -57,7 +57,7 @@
                     @foreach($articles as $article)
                         <div id="{{$article->id}}" class="row card-body">
                             <h2 id="articleTitle">{{$article->title}}</h2>
-                            <small>Datum: {{$article->date}}</small>
+                            <small>Datum: {{ \Carbon\Carbon::parse($article->date)->format('d-m-Y')}}</small>
                             @if($article->imgurl != null)
                                 <div class="col">
                                     @else
@@ -117,7 +117,7 @@
                             @foreach($newsLetters as $newsLetter)
                                 <li class="pb-3 border-top">
                                     <div class="d-flex justify-content-between mt-3">
-                                        <h3>Datum: {{$newsLetter->date}}</h3>
+                                        <h3>Datum: {{ \Carbon\Carbon::parse($newsLetter->date)->format('d-m-Y')}}</h3>
                                         <span>
                                         Full Screen
                                             <button class="btn btn-dark" dusk="fullscreen" alt="maak pdf {{$newsLetter->pdf}} volledige grootte" onclick="fullscreenPdf({{$newsLetter->id}})"
