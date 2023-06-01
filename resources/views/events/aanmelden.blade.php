@@ -36,7 +36,7 @@
                             <span class="requiredStar">*</span>Geboortedatum
                         </label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" id="birthday" name="birthday"
+                            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="dd-mm-yyyy"
                                    value="{{old('birthday')}}">
                         </div>
                         @error('birthday')
