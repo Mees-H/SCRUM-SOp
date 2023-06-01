@@ -168,12 +168,12 @@ class NewsTest extends DuskTestCase
             $browser->visit('/nieuws')
                 ->resize(3000, 3000)
                 ->clickLink("Pas nieuwsbrief aan")
-                ->type('date', $newsletter->date)
+                ->type('date', '552023')
+                ->screenshot('nieuwsscreenshot')
                 ->attach('file', $newsletter->pdf)
                 ->press('Wijzig nieuwsbrief')
                 ->assertPathIs('/nieuws')
                 ->assertSee('Nieuwsbrief opgeslagen');
-
         });
     }
 
