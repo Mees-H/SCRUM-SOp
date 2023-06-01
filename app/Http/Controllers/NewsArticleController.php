@@ -131,7 +131,6 @@ class NewsArticleController extends Controller
         $article->body = $request->get('body');
         $article->date = $request->get('date');
 
-        //Saving image
         $imgArr = [];
         if($request->hasFile('img')){
             $destination_path = 'img';
@@ -140,12 +139,23 @@ class NewsArticleController extends Controller
                 $img->move(public_path($destination_path), $image_name);
                 $imgArr[] = $image_name;
             }
-        }
-        if ($request->hasFile('img') && $article['imgurl'] != null){
-            foreach($article['imgurl'] as $existingImage){
-                $imgArr[] = $existingImage;
+            if ($article['imgurl'] != null) {
+                foreach($article['imgurl'] as $existingImage){
+                    if (!in_array($existingImage, $request->input('deleteImages', []))) {
+                        $imgArr[] = $existingImage;
+                    }
+                }
+            }
+        } else {
+            if ($article['imgurl'] != null) {
+                foreach($article['imgurl'] as $existingImage){
+                    if (!in_array($existingImage, $request->input('deleteImages', []))) {
+                        $imgArr[] = $existingImage;
+                    }
+                }
             }
         }
+
         $article['imgurl'] = $imgArr;
 
         //Saving files
@@ -167,6 +177,7 @@ class NewsArticleController extends Controller
             return redirect('/nieuws')->with('error', 'Artikel niet kunnen opslaan');
         }
     }
+
 
     /**
      * Remove the specified resource from storage.

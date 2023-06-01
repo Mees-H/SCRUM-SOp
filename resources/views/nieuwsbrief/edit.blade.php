@@ -2,7 +2,7 @@
 @section('content')
     <head>
         <link rel="stylesheet" href="{{asset('css/News.css')}}"/>
-        <title>Nieuwsbrief</title>
+        <title>Nieuwsbrief aanpassen</title>
     </head>
 
     <div class="row">
@@ -35,7 +35,7 @@
                                         @method('PATCH')
                                         @csrf
                                         <div class="row card-body">
-                                            <div class="col-sm-7">
+                                            <div class="col-sm-9">
                                                 <label for="date" class="form-label">Datum</label>
                                                 <label>
                                                     <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}">
@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="col">
                                             <button class="btn btn-primary" type="submit">Wijzig nieuwsbrief</button>
-                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
+                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">Annuleren</a>
                                         </div>
                                         <hr>
                                     </form>

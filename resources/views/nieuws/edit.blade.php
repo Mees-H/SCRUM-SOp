@@ -2,7 +2,7 @@
 @section('content')
     <head>
         <link rel="stylesheet" href="{{asset('css/News.css')}}"/>
-        <title>Nieuwsbrief</title>
+        <title>Nieuwsartikel aanpassen</title>
     </head>
 
     <div class="container">
@@ -34,18 +34,19 @@
                             @csrf
                             <div class="row card-body">
                                 <div class="col-sm-7">
-                                    <label>
-                                        <input class="form-control form-control-lg mb-2" type="text"
-                                               placeholder="Titel *" name="title"
-                                               value="{{$editArticle->title}}">
-                                        <input class="form-control form-control-sm mb-2" type="date"
-                                               placeholder="Datum *" name="date"
-                                               value="{{$editArticle->date}}">
-                                        <textarea class="form-control mb-2" rows="3"
-                                                  placeholder="Beschrijving *"
-                                                  name="body">{{$editArticle->body}}</textarea>
-                                    </label>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input class="form-control form-control-lg mb-2" type="text" placeholder="Titel *" name="title" value="{{$editArticle->title}}">
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{$editArticle->date}}">
+                                        </div>
+                                    </div>
+                                    <textarea class="form-control mb-2" rows="7" placeholder="Beschrijving *" name="body">{{$editArticle->body}}</textarea>
                                 </div>
+
                                 <aside class="col-sm-5">
                                     <div class="mb-3">
                                         <label for="img[]" class="form-label">Foto's</label>
@@ -59,16 +60,16 @@
                                     </div>
                                 </aside>
                                 <div class="col-sm-12">
+                                    @if(!empty($editArticle->imgurl))
                                     <label class="form-label">Verwijder foto's</label>
-                                    @if(!\PHPUnit\Framework\isEmpty($editArticle->imgurl))
                                         @foreach($editArticle->imgurl as $img)
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox"
                                                        value="{{$img}}"
                                                        id="{{$img}}" name="deleteImages[]">
                                                 <label for="{{$img}}" class="form-check-label">
-                                                    <img class="memberimg" alt="artikel afbeelding"
-                                                         src="{{ asset('storage/img/nieuws/'.$img)}}"/>
+                                                    <img class="memberimg w-25 m-1" alt="artikel afbeelding"
+                                                         src="{{ asset('img/'.$img)}}"/>
                                                 </label>
                                             </div>
                                         @endforeach
@@ -76,7 +77,7 @@
                                 </div>
                                 <div class="col">
                                     <button class="btn btn-primary" type="submit" alt="bevestig artikel aanpassen">Pas artikel aan</button>
-                                    <a class="btn btn-danger" type="reset" href="/nieuws" alt="annuleer bewerken">annuleren</a>
+                                    <a class="btn btn-danger" type="reset" href="/nieuws" alt="annuleer bewerken">Annuleren</a>
                                 </div>
                             </div>
                         </form>
