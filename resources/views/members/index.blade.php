@@ -38,7 +38,7 @@
                             @if($member->imgurl != '')
                             <td>
                                 <div class="memberimg-box">
-                                    <img src="{{ asset('storage/img/teammembers/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
+                                    <img src="{{ asset('img/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
                                 </div>
                             </td>
                             @else
@@ -54,9 +54,9 @@
                             </td>
                             <td>
                                 <form action="{{ route('members.destroy', $member->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Verwijderen</button>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">Verwijderen</button>
                                 </form>
                             </td>
                         </tr>

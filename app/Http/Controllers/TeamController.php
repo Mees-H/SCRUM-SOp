@@ -49,10 +49,10 @@ class TeamController extends Controller
 
         //Saving image
         if($request->hasFile('image')){
-            $destination_path = 'public/img/teammembers';
+            $destination_path = 'public/img';
             $image = $request->file('image');
             $image_name = $image->getClientOriginalName();
-            $path = $request->file('image')->storeAs($destination_path, $image_name);
+            $path = $image->storeAs($destination_path, $image_name);
 
             $member['imgurl'] = $image_name;
         }
@@ -107,7 +107,7 @@ class TeamController extends Controller
 
         //Updating image
         if($request->hasFile('image')){
-            $destination_path = 'public/img/teammembers';
+            $destination_path = 'public/img';
             $image = $request->file('image');
             $image_name = $image->getClientOriginalName();
             $path = $request->file('image')->storeAs($destination_path, $image_name);

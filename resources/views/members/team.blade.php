@@ -11,7 +11,7 @@
 @foreach($groups as $group)
 <article>
     <div class="container">
-        <h1 class="text-center">{{$group->name}}</h1>
+        <h2 class="text-center">{{$group->name}}</h1>
         <br>
         <div class="row justify-content-md-left">
         @foreach($group->members as $member)
@@ -20,7 +20,7 @@
                 <div class="row">
                     @if($member->imgurl != '')
                         <div class="memberimg-box">
-                            <img src="{{ asset('storage/img/teammembers/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
+                            <img src="{{ asset('img/'.$member->imgurl) }}" alt="foto van {{$member->name}}" class="memberimg"/>
                         </div>
                     @else
                         <div class="memberimg-box"></div>

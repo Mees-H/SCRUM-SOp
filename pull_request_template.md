@@ -8,34 +8,6 @@
 
 - [ ] Het programma wordt getest en werkt op 2 verschillende browsers (Google Chrome & Edge). 
 
-### Toegankelijkheid 
-
-- [ ] De website moet voor iedereen te navigeren zijn. 
-
-- [ ] Inclusief mensen met een beperking. 
-
-- [ ] De website dient volledig navigeerbaar te zijn zonder gebruik te maken van een muis. 
-
-- [ ] Dit betekent navigeren via de tab en enter toets met behulp van spraak. 
-
-- [ ] De knoppen zijn voorzien van duidelijke beschrijvingen. 
-
-- [ ] De knoppen zijn groot genoeg om de tekst te bevatten. 
-
-- [ ] De teksten op de website bevatten geen spelfouten en zijn duidelijk geformuleerd. 
-
-- [ ] Zorg voor voldoende contrast. 
-
-- [ ] Contrast wordt getest met deze tool: https://webaim.org/resources/contrastchecker/  
-
-- [ ] De WCAG AAA test moet pass teruggeven. 
-
-- [ ] Maak geen gebruik van hyperlinks met een klik hier maar gebruik een betekenisvolle beschrijving.  
-
-Zoals: Lees meer over regulering. 
-
-- [ ] Maak korte en inhoudelijke pagina’s. 
-
 ## Technische definities 
 
 ### Reviewers 
@@ -54,13 +26,9 @@ Zoals: Lees meer over regulering.
 
 - [ ] Views zijn getest op responsiveness (mobiel, tablet, desktop) door middel van UI testen. 
 
-### Ontwikkelaar 
+### Ontwikkelaar  
 
-- [ ] Er is geen SQL injection mogelijk  
-
-- [ ] Alle invoervelden zijn voorzien van een regex. 
-
-- [ ] Deze regex zorgt ervoor dat alleen het noodzakelijke ingevoerd kan worden. 
+- [ ] Invoervelden zijn voorzien van een regex wanneer nodig. 
 
 - [ ] De coding guidlines zijn aangehouden. 
 
@@ -77,6 +45,32 @@ Zoals: Lees meer over regulering.
 - [ ] De siteMap en navigatiebalk zijn geüpdatet op basis van de aanpassingen. 
 
 ### Toegankelijkheid 
+
+- [ ] De website moet voor iedereen te navigeren zijn. 
+
+- [ ] Inclusief mensen met een beperking. 
+
+- [ ] De website dient volledig navigeerbaar te zijn zonder gebruik te maken van een muis. 
+
+- [ ] Dit betekent navigeren via de tab en enter toets met behulp van spraak. 
+
+- [ ] De knoppen zijn voorzien van duidelijke beschrijvingen. 
+
+- [ ] De knoppen zijn groot genoeg om de tekst te bevatten. 
+
+- [ ] De teksten op de website bevatten geen spelfouten en zijn duidelijk geformuleerd. 
+
+- [ ] Zorg voor voldoende contrast. 
+
+- [ ] Contrast is getest met deze tool: https://webaim.org/resources/contrastchecker/  
+
+- [ ] De WCAG AAA test moet pass teruggeven. 
+
+- [ ] Maak geen gebruik van hyperlinks met een klik hier maar gebruik een betekenisvolle beschrijving.  
+
+Zoals: Lees meer over regulering. 
+
+- [ ] Maak korte en inhoudelijke pagina’s. 
 
 - [ ] Houd je aan de standaarden voor het web. 
 
@@ -100,34 +94,37 @@ Zoals: Lees meer over regulering.
 
 - [ ] Test je syntax. 
 
-- [ ] Maak niet alleen gebruik van kleuren om iets duidelijk te maken of uit te leggen maar ook van vormen.  
+- [ ] Maak gebruik van kleuren en vormen om iets duidelijk te maken.   
 
 - [ ] Inlaad snelheid zo hoog mogelijk. 
 
-## Summary
+## Samenvatting
 
-### Description
+### Beschrijving
 
-- (Description of the functionality)
+- (Beschrijving van de functionaliteit)
 
 ### User story 
 
-- (What user story did you complete?)
+- (Welke user story heb je gemaakt?)
 
-### List of acceptation criteria
+### Lijst van acceptatie criteria
 
-- (All acceptation criteria of the user story)
+- (Alle acceptatie criteria van de user story)
 
-## Challenges and Solutions
+## Uitdagingen and Oplossingen
 
-### Challenge 1
+### Uitdaging 1
 
-- (What was difficult?)
+- (Wat was moeilijk?)
 
-### Solution 1
+### Oplossing 1
 
-- (How did you solve it?)
+- (Hoe heb je het opgelost?)
 
 ## User Interface
+- (Afbeelding van de UI met een beschrijving)
+- (Zorg ervoor dat de screenshot alle verandering/toevoegingen bevat)
 
-- (Image screenshot of UI with description here)
+## DevTools
+- (Afbeelding van DevTools die duidelijk aantoont dat er geen problemen zijn)

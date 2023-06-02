@@ -10,12 +10,12 @@
                     "alt": "Startpagina"
                 },
                 {
-                    "name": "trainingen",
+                    "name": "Trainingen",
                     "link": "/training",
                     "alt": "Training overzicht"
                 },
                 {
-                    "name": "evenementen",
+                    "name": "Evenementen",
                     "link": "/evenement",
                     "alt": "Evenementen overzicht"
                 },
@@ -25,29 +25,34 @@
                     "alt": "Veelgestelde vragen"
                 },
                 {
-                    "name": "nieuws",
-                    "link": "/nieuwsbrief",
+                    "name": "Nieuws",
+                    "link": "/nieuws",
                     "alt": "Nieuws pagina"
                 },
                 {
-                    "name": "team",
+                    "name": "Team",
                     "link": "/team",
                     "alt": "Het Special golf team"
                 },
                 {
-                    "name": "partners",
+                    "name": "Partners",
                     "link": "/partner",
                     "alt": "Partners van Special golf"
                 },
                 {
-                    "name": "over ons",
+                    "name": "Over ons",
                     "link": "/overons",
                     "alt": "Over special golf"
                 },
                 {
-                    "name": "locatie",
+                    "name": "Locatie",
                     "link": "/locatie",
                     "alt": "Locatie van special golf"
+                },
+                {
+                    "name": "privacy verklaring",
+                    "link": "/privacy",
+                    "alt": "privacy verklaring"
                 }
             ]
         },
@@ -62,8 +67,13 @@
                 },
                 {
                     "name": "Galerij aanpassen",
-                    "link": "/galerij/aanmakenAlbum",
+                    "link": "/galerij",
                     "alt": "Pas galerij aan"
+                },
+                {
+                    "name": "privacy verklaring aanpassen",
+                    "link": "/privacy/edit",
+                    "alt": "privacy verklaring"
                 }
             ]
         }
