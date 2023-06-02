@@ -25,7 +25,7 @@
                         <td>{{$album->id}}</td>
                         <td>{{$album->title}} </td>
                         <td>{{$album->description}}</td>
-                        <td>{{$album->date}}</td>
+                        <td>{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}}</td>
                         <td>
                             <a dusk="editAlbum" href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary">Aanpassen</a>
                         </td>
