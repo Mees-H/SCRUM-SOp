@@ -99,6 +99,13 @@
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}"
                    href="/links">Links</a>
             </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
+                   href="/privacy">Privacy</a>
+            </li>
         </ul>
     </li>
 </ul>
@@ -179,6 +186,9 @@
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/links">
                         Links
+                    </a></li>
+                <li><a class="dropdown-item text-center" href="/privacy">
+                        Privacy
                     </a></li>
             </ul>
         </form>

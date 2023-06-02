@@ -9,11 +9,11 @@
             {{ session()->get('success') }}
         </div>
     @endif
-    @if ($agent->isMobile())
-    <div>
+    <div class="table-responsive">
         <table class="table table-striped">
             <thead>
                 <tr>
+                    <td>ID</td>
                     <td>Titel</td>
                     <td>Beschrijving</td>
                     <td>Datum</td>
@@ -22,6 +22,7 @@
             <tbody>
                 @foreach($albums as $album)
                     <tr>
+                        <td>{{$album->id}}</td>
                         <td>{{$album->title}} </td>
                         <td>{{$album->description}}</td>
                         <td>{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}}</td>
@@ -36,52 +37,15 @@
                             </form>
                         </td>
                         <td>
-                            <a href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary" dusk="editAlbum">Aanpassen</a>
-                        
                             <form action="{{ route('galerij.destroy', $album->id)}}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button dusk="deleteAlbum"class="btn btn-danger" type="submit">Verwijderen</button>
+                            <button dusk="deleteAlbum" class="btn btn-danger" type="submit">Verwijderen</button>
                             </form>
                         </td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-    <div>
-    
-    @endif
-    @if (!$agent->isMobile())
-    <div>
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <td>ID</td>
-                    <td>Titel</td>
-                    <td>Beschrijving</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($albums as $album)
-                    <tr>
-                        <td>{{$album->id}}</td>
-                        <td>{{$album->title}} </td>
-                        <td>{{$album->description}}</td>
-                        <td>{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}}</td>
-                        <td>
-                            <a href="{{ route('galerij.edit',$album->id)}}" class="btn btn-primary" dusk="editAlbum">Aanpassen</a>
-                        </td>
-                        <td>
-                            <form action="{{ route('galerij.destroy', $album->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit" dusk="deleteAlbum">Verwijderen</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    <div>
-    @endif
+    </div>
 @endsection
