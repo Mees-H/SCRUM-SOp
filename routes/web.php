@@ -83,9 +83,6 @@ Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('ni
 Route::resource('nieuwsBrief', NewsLetterController::class);
 
 
-//Galerij routes
-Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 //privacyverklaring routes
 Route::get('/privacy', [App\Http\Controllers\PrivacyController::class, 'index'])->name('privacy');
 Route::get('/privacy/download', [App\Http\Controllers\PrivacyController::class, 'download'])->name('privacy.download');

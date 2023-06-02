@@ -26,7 +26,7 @@
             </div>
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="date">Datum gemaakte foto's</label>
-                <input type="date" name="date" class="form-control" id="date" placeholder="dd-mm-yyyy">
+                <input type="date" name="date" class="form-control" id="date" placeholder="Datum">
             </div>
             <button type="submit" class="btn btn-primary">Album toevoegen</button>
         </form>
