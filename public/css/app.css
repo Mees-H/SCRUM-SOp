@@ -69,7 +69,7 @@ nav {
         font-size: 125%;
     }
 
-}   
+}
 
 /* Large devices (laptops/desktops, 992px and up) */
 @media only screen and (min-width: 992px) {
@@ -213,7 +213,6 @@ td{
 .verticalText{
     writing-mode: vertical-rl;
     text-orientation: sideways;
-    transform: rotate(180deg);
 }
 
 .table-container{
@@ -235,5 +234,5 @@ td{
 }
 
 .table td {
-    padding: 5px; 
+    padding: 5px;
 }
