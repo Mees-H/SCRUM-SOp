@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 @endif
-            @include('Components.SideBar.SideBarNavigation', ['articles' => $articles], ['years' => $years])
+            @include('components.SideBar.SideBarNavigation', ['articles' => $articles], ['years' => $years])
         </div>
         <div class="col-md-6">
             <div>
