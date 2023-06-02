@@ -14,7 +14,7 @@ class AlbumTest extends DuskTestCase
 
     public function testCreateAlbum(): void
     {
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
@@ -31,10 +31,11 @@ class AlbumTest extends DuskTestCase
 
     public function testCreateAlbumFail(): void
     {
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/galerij')
+            $browser->loginAs(User::find(1))
+                    ->visit('/galerij')
                     ->waitUntilEnabled('@create')
                     ->clickLink('Creeër nieuw album')
                     ->press('Album toevoegen')
@@ -44,10 +45,11 @@ class AlbumTest extends DuskTestCase
 
     public function testEditAlbum(): void
     {
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/galerij')
+            $browser->loginAs(User::find(1))
+                    ->visit('/galerij')
                     ->waitUntilEnabled('@editAlbum')
                     ->clickLink('Aanpassen')
                     ->type('title', 'Test Titel')
@@ -59,10 +61,11 @@ class AlbumTest extends DuskTestCase
     }
     public function testEditAlbumFail(): void
     {
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/galerij')
+            $browser->loginAs(User::find(1))
+                    ->visit('/galerij')
                     ->waitUntilEnabled('@editAlbum')
                     ->clickLink('Aanpassen')
                     ->type('title', '')
@@ -75,10 +78,11 @@ class AlbumTest extends DuskTestCase
 
     public function testDeleteAlbum(): void
     {
-        $this->artisan('db:seed');
+        $this->artisan('migrate:fresh --seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->visit('/galerij')
+            $browser->loginAs(User::find(1))
+                    ->visit('/galerij')
                     ->waitUntilEnabled('@deleteAlbum')
                     ->press('Verwijderen')
                     ->assertSee('Album verwijderd.');
