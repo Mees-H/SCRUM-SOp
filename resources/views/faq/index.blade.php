@@ -11,35 +11,33 @@
             {{ session()->get('success') }}
         </div>
     @endif
-    <div style="overflow-x:auto;">
-        <table class="table table-striped">
-            <thead>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Vraag</td>
+                <td>Antwoord</td>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach($FAQ as $faq)
                 <tr>
-                    <td>ID</td>
-                    <td>Vraag</td>
-                    <td>Antwoord</td>
+                    <td>{{$faq->id}}</td>
+                    <td>{{$faq->question}} </td>
+                    <td>{{$faq->answer}}</td>
+                    <td>
+                        <a href="{{ route('faq.edit',$faq->id)}}" class="btn btn-primary">Aanpassen</a>
+                    </td>
+                    <td>
+                        <form action="{{ route('faq.destroy', $faq->id)}}" method="post">
+                        @csrf
+                        @method('DELETE')
+                        <button class="btn btn-danger" type="submit">Verwijderen</button>
+                        </form>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach($FAQ as $faq)
-                    <tr>
-                        <td>{{$faq->id}}</td>
-                        <td>{{$faq->question}} </td>
-                        <td>{{$faq->answer}}</td>
-                        <td>
-                            <a href="{{ route('faq.edit',$faq->id)}}" class="btn btn-primary">Aanpassen</a>
-                        </td>
-                        <td>
-                            <form action="{{ route('faq.destroy', $faq->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Verwijderen</button>
-                            </form>
-                        </td>
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
-    </div>
+            @endforeach
+        </tbody>
+    </table>
 </div>
 @stop

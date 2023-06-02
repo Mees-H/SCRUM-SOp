@@ -26,7 +26,7 @@ class GalleryController extends Controller
 
         $title = $album->title;
 
-        return view('gallery.fotoToevoegen', ['album' => $album, 'year' => $year, 'title' => $title]);
+        return view('Gallery.fotoToevoegen', ['album' => $album, 'year' => $year, 'title' => $title]);
     }
 
     public function showGallery($year)
@@ -113,7 +113,7 @@ class GalleryController extends Controller
         $year = Carbon::parse($album->date)->year;
         $pictures = Picture::with('album')->where('album_id', $album->id)->get();
 
-        return view('gallery.edit', compact('album', 'year', 'pictures'));
+        return view('Gallery.edit', compact('album', 'year', 'pictures'));
     }
 
     /**
@@ -139,8 +139,8 @@ class GalleryController extends Controller
 
         foreach($pictures as $picture){
             $imageurl = $picture->fresh()->image;
-            if (File::exists(public_path('img\\'.$imageurl))) {
-                File::delete(public_path('img\\'.$imageurl));
+            if (File::exists(public_path('images\\'.$imageurl))) {
+                File::delete(public_path('images\\'.$imageurl));
             }
             Picture::findOrFail($picture->id)->delete();
         }
@@ -157,7 +157,7 @@ class GalleryController extends Controller
             $imageExt = $image->getClientOriginalExtension();
             $storeImage = $imageName . time() . "." . $imageExt;
 
-            $image->move(public_path('img'), $storeImage);
+            $image->move(public_path('images'), $storeImage);
 
             Picture::create([
                 'album_id' => $request->album_id,
@@ -177,13 +177,13 @@ class GalleryController extends Controller
 
         foreach($request->images as $image){
             $imageurl = Picture::find($image)->image;
-            if (File::exists(public_path('img\\'.$imageurl))) {
-                File::delete(public_path('img\\'.$imageurl));
+            if (File::exists(public_path('images\\'.$imageurl))) {
+                File::delete(public_path('images\\'.$imageurl));
             }
         }
 
         Picture::destroy($request->images);
-
+        
         if (count($request->images) > 1) {
             return back()->with('success', 'Afbeeldingen zijn verwijderd uit album');
         } else {

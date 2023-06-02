@@ -10,6 +10,19 @@ use Tests\DuskTestCase;
 
 class SitemapTest extends DuskTestCase
 {
+    public function testSitemap(): void
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/links')
+                ->clickLink("trainingen")
+                ->assertPathIs("/training");
+            $browser->visit('/links')
+                ->clickLink("team")
+                ->assertPathIs("/team");
+        });
+    }
+
+
     public function testAllLinks() : void
     {
         $this->browse(function (Browser $browser) {
@@ -24,7 +37,6 @@ class SitemapTest extends DuskTestCase
             foreach ($links as $category){
                 foreach ($category['links'] as $link){
                     $browser->visit('/links')
-                        ->resize(3000,3000)
                         ->assertSee($category['name'])
                         ->clickLink($link['name'])
                         ->assertPathIs($link['link']);
@@ -33,7 +45,6 @@ class SitemapTest extends DuskTestCase
 
             foreach ($years as $year){
                 $browser->visit('/links')
-                    ->resize(3000,3000)
                     ->clickLink($year)
                     ->assertPathIs("/albums/$year");
             }

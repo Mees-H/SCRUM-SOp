@@ -4,16 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\MailPostEventRequest;
-use App\Models\Event;
 use App\Models\Mail\Mailer;
 use App\Models\Mail\MailFactory;
-use Carbon\Carbon;
-use DateTime;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use App\Models\Event;
 use App\Models\Group;
-use Spatie\IcalendarGenerator\Components\Calendar;
 use function PHPUnit\Framework\isEmpty;
 
 class EventController extends Controller
@@ -60,6 +57,7 @@ class EventController extends Controller
                 $event->groups()->save(Group::find($groupId));
             }
         }
+        $event->slug = 'event_' . $event->id;
         $event->save();
 
         return redirect('/events')->with('success', 'Evenement opgeslagen.');
@@ -157,35 +155,5 @@ class EventController extends Controller
     {
         Event::findOrFail($id)->delete();
         return redirect('/events')->with('success', 'Evenement verwijderd.');
-    }
-
-    public function exportIcal()
-    {
-        $events = Event::all()->where('date', '>=', Carbon::now());
-        $calendarEvents = [];
-        foreach($events as $event){
-
-            //Formatting date
-            $dateSegments = explode("-", $event->date);
-            $timeSegments = explode(":", $event->time);
-            $date = new DateTime();
-            $date->setDate($dateSegments[0], $dateSegments[1], $dateSegments[2]);
-            $date->setTime($timeSegments[0], $timeSegments[1], $timeSegments[2], null);
-
-            //Creating iCal file
-            array_push($calendarEvents, \Spatie\IcalendarGenerator\Components\Event::create()
-            ->name($event->title)
-            ->startsAt($date)
-            ->endsAt($date)
-            ->description($event->body)
-            ->createdAt($event->created_at));
-        }
-        $calendar = Calendar::create('Special Golf Haverleij Evenementen')
-            ->event($calendarEvents);
-
-        return response($calendar->get(), 200, [
-            'Content-Type' => 'text/calendar; charset=utf-8',
-            'Content-Disposition' => 'attachment; filename="special-golf-evenementen.ics"',
-         ]);
     }
 }

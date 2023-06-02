@@ -12,14 +12,14 @@
                     <th>Datum</th>
                     @foreach($group->sessions as $session)
                         <td class="p-1 verticalText text-center">
-                            <p class="m-0">{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</p>
+                            <p class="m-0">{{$session->Date}}</p>
                         </td>
                     @endforeach
                 </tr>
                 <tr>
                 <th>Tijd</th>
                 @foreach($group->sessions as $session)
-                    <td class="p-1 small verticalText">{{date('H:i', strtotime($session->StartTime))}}-{{date('H:i', strtotime($session->EndTime))}}</td>
+                    <td class="p-1 small verticalText">{{$session->StartTime}}-{{$session->EndTime}}</td>
                 @endforeach
                 </tr>
                 <tr>

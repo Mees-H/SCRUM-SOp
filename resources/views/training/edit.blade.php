@@ -21,7 +21,7 @@
 
             <div class="form-group">
                 <label for="date">Datum:</label>
-                <input type="date" class="form-control" name="date" id="date" placeholder="dd-mm-yyyy" value="{{$session->Date}}"/>
+                <input type="date" class="form-control" name="date" id="date" value="{{$session->Date}}"/>
             </div><br>
             
             <div class="form-group">

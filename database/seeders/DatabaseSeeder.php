@@ -18,8 +18,8 @@ class DatabaseSeeder extends Seeder
                 $this->call(OefensessieSeeder::class);
                 $this->call(RoleSeeder::class);
                 $this->call(UserSeeder::class);
-                $this->call(NewsArticleSeeder::class);
-                $this->call(NewsLetterSeeder::class);
         }
+
+
 
 }

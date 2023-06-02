@@ -7,7 +7,7 @@
     <div id="bodyDetail">
         <div class="container">
             <div class=" justify-content-between d-flex pt-3">
-                <h1>
+                <h1 class="darkTitle">
                     {{$event->title}}
                 </h1>
                 <div class="col-sm-2">
@@ -19,11 +19,11 @@
             <div class="justify-content-between mb-3 mt-3">
                 <span>
                     <i class="bi bi-calendar-check"></i>
-                    {{ \Carbon\Carbon::parse($event->date)->format('d-m-Y')}}
+                    {{$event->date}}
                 </span>
                 <span>
-                <i class="bi bi-clock fs-2x"></i>
-                    {{date('H:i', strtotime($event->time))}}
+                    <i class="bi bi-calendar-check"></i>
+                    {{$event->date}}
                 </span>
                 @if($event->price > 0)
                 <span>
@@ -48,7 +48,7 @@
             </div>
             <div id="detailsImages" class=" d-lg-flex">
                 @foreach($groups as $group)
-                    <img src="{{$group->imageurl}}" class="shadow border-0" id="sponsor_img" alt="Evenement afbeelding">
+                    <img src="{{$group->imageurl}}" class="shadow border-0" alt="Evenement afbeelding">
                 @endforeach
             </div>
         </div>
@@ -56,9 +56,9 @@
         <div class="container d-lg-flex ">
             <div class="row mt-5 justify-content-between">
                 <div class="col-sm-6">
-                    <h2>
+                    <h4>
                         {{$event->title}} | {{$first_group->city}}
-                    </h2>
+                    </h4>
                     <div class="mb-4">
                         {{$event->body}}
                     </div>
@@ -85,7 +85,7 @@
                             <div>
                                 <span>
                                      <i class="bi bi-calendar-check fs-2x"></i>
-                                     {{ \Carbon\Carbon::parse($event->date)->format('d-m-Y')}}
+                                        {{$event->date}}
                                 </span>
                             </div>
 

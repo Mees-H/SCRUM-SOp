@@ -28,7 +28,7 @@
                     </div>
                 @endif
                     @if ($title != null)
-                        <h1 class="text-center display-3">
+                        <h1 class="text-center">
                             {{ $title }}
                         </h1>
                     @endif

@@ -8,6 +8,7 @@ let activeIndex = -1;
 dropdown.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();
+    
     // Remove the "active" class from the previously active item
     if (activeIndex >= 0) {
       listItems[activeIndex].classList.remove("active");

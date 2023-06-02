@@ -81,7 +81,7 @@ class GalleryControllerTest extends TestCase
 
         // Assert
         $response->assertOk();
-        $response->assertViewIs('gallery.fotoToevoegen');
+        $response->assertViewIs('Gallery.fotoToevoegen');
         $response->assertViewHasAll([
             'album' => $album,
             'year' => $year,
@@ -112,7 +112,7 @@ class GalleryControllerTest extends TestCase
         $this->assertDatabaseMissing('pictures', ['id' => $pic2->id]);
 
         // Assert the redirect and success message
-        $response->assertRedirect('');
+        $response->assertRedirect('/galerij');
         $response->assertSessionHas('success');
         $response->assertSessionHas('success', 'Afbeeldingen zijn verwijderd uit album');
 

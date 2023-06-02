@@ -8,42 +8,6 @@
 
 - [ ] Het programma wordt getest en werkt op 2 verschillende browsers (Google Chrome & Edge). 
 
-## Technische definities 
-
-### Reviewers 
-
-- [ ] Elke pull request is door minimaal 2 personen nagekeken. 
-
-- [ ] Een taak wordt pas als af beschouwd zodra hij is goedgekeurd door de 2 reviewers en samengevoegd is op de juiste branch. 
-
-- [ ] De reviewer doorloopt de happy flow. 
-
-- [ ] Hierbij maakt de reviewer gebruik van de juiste werkwijze van de website. 
-
-- [ ] De reviewer probeert d.m.v. onjuist gebruik van de website de website te breken. 
-
-- [ ] Dit kan hij/zij doen door verkeerde invoer van velden. 
-
-- [ ] Views zijn getest op responsiveness (mobiel, tablet, desktop) door middel van UI testen. 
-
-### Ontwikkelaar  
-
-- [ ] Invoervelden zijn voorzien van een regex wanneer nodig. 
-
-- [ ] De coding guidlines zijn aangehouden. 
-
-- [ ] De geschreven code compileert. 
-
-- [ ] De geschreven code veroorzaakt geen crashes. 
-
-- [ ] Code levert geen complicaties op met de AVG-wetgeving. 
-
-- [ ] Dusk tests worden geschreven voor de happy flow en minimaal 1 bad flow. 
-
-- [ ] Views zijn getest op responsiveness (mobiel, tablet, desktop) door middel van UI testen. 
-
-- [ ] De siteMap en navigatiebalk zijn geüpdatet op basis van de aanpassingen. 
-
 ### Toegankelijkheid 
 
 - [ ] De website moet voor iedereen te navigeren zijn. 
@@ -62,7 +26,7 @@
 
 - [ ] Zorg voor voldoende contrast. 
 
-- [ ] Contrast is getest met deze tool: https://webaim.org/resources/contrastchecker/  
+- [ ] Contrast wordt getest met deze tool: https://webaim.org/resources/contrastchecker/  
 
 - [ ] De WCAG AAA test moet pass teruggeven. 
 
@@ -71,6 +35,48 @@
 Zoals: Lees meer over regulering. 
 
 - [ ] Maak korte en inhoudelijke pagina’s. 
+
+## Technische definities 
+
+### Reviewers 
+
+- [ ] Elke pull request is door minimaal 2 personen nagekeken. 
+
+- [ ] Een taak wordt pas als af beschouwd zodra hij is goedgekeurd door de 2 reviewers en samengevoegd is op de juiste branch. 
+
+- [ ] De reviewer doorloopt de happy flow. 
+
+- [ ] Hierbij maakt de reviewer gebruik van de juiste werkwijze van de website. 
+
+- [ ] De reviewer probeert d.m.v. onjuist gebruik van de website de website te breken. 
+
+- [ ] Dit kan hij/zij doen door verkeerde invoer van velden. 
+
+- [ ] Views zijn getest op responsiveness (mobiel, tablet, desktop) door middel van UI testen. 
+
+### Ontwikkelaar 
+
+- [ ] Er is geen SQL injection mogelijk  
+
+- [ ] Alle invoervelden zijn voorzien van een regex. 
+
+- [ ] Deze regex zorgt ervoor dat alleen het noodzakelijke ingevoerd kan worden. 
+
+- [ ] De coding guidlines zijn aangehouden. 
+
+- [ ] De geschreven code compileert. 
+
+- [ ] De geschreven code veroorzaakt geen crashes. 
+
+- [ ] Code levert geen complicaties op met de AVG-wetgeving. 
+
+- [ ] Dusk tests worden geschreven voor de happy flow en minimaal 1 bad flow. 
+
+- [ ] Views zijn getest op responsiveness (mobiel, tablet, desktop) door middel van UI testen. 
+
+- [ ] De siteMap en navigatiebalk zijn geüpdatet op basis van de aanpassingen. 
+
+### Toegankelijkheid 
 
 - [ ] Houd je aan de standaarden voor het web. 
 
@@ -94,37 +100,34 @@ Zoals: Lees meer over regulering.
 
 - [ ] Test je syntax. 
 
-- [ ] Maak gebruik van kleuren en vormen om iets duidelijk te maken.   
+- [ ] Maak niet alleen gebruik van kleuren om iets duidelijk te maken of uit te leggen maar ook van vormen.  
 
 - [ ] Inlaad snelheid zo hoog mogelijk. 
 
-## Samenvatting
+## Summary
 
-### Beschrijving
+### Description
 
-- (Beschrijving van de functionaliteit)
+- (Description of the functionality)
 
 ### User story 
 
-- (Welke user story heb je gemaakt?)
+- (What user story did you complete?)
 
-### Lijst van acceptatie criteria
+### List of acceptation criteria
 
-- (Alle acceptatie criteria van de user story)
+- (All acceptation criteria of the user story)
 
-## Uitdagingen and Oplossingen
+## Challenges and Solutions
 
-### Uitdaging 1
+### Challenge 1
 
-- (Wat was moeilijk?)
+- (What was difficult?)
 
-### Oplossing 1
+### Solution 1
 
-- (Hoe heb je het opgelost?)
+- (How did you solve it?)
 
 ## User Interface
-- (Afbeelding van de UI met een beschrijving)
-- (Zorg ervoor dat de screenshot alle verandering/toevoegingen bevat)
 
-## DevTools
-- (Afbeelding van DevTools die duidelijk aantoont dat er geen problemen zijn)
+- (Image screenshot of UI with description here)

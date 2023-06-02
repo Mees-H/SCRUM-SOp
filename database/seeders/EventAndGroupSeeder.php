@@ -14,36 +14,41 @@ class EventAndGroupSeeder extends Seeder
      */
     public function run(): void
     {
+        $indoorGolf = Event::create([
+            'title' => 'Indoor-Golf-Middag',
+            'date' => '2023-01-21',
+            'price' => 15,
+            'time' => '12:00:00',
+            'slug' => 'event_1',
+            'bankaccount' => 'NL41 RABO 1234 5678 90',
+            'body' => 'Tijdens de winterstop organiseert Special Golf een Indoor-Golf-Middag voor de deelnemers van Special Golf. Begeleiders gaan bij Cello op De Binckhorst in Rosmalen een put & chip parcours uitzetten waar de deelnemers hun golfvaardigheid kunnen oefenen op verschillende onderdelen. We sluiten de middag af met een drankje.'
+        ]);
+
+        $pros = Event::create([
+            'title' => 'Pro\'s en Begeleiders meeting',
+            'date' => '2023-01-28',
+            'time' => '12:00:00',
+            'slug' => 'event_2',
+            'body' => 'Golfleraren en begeleiders die betrokken zijn bij Special Golf, kijken o deze dag terug op 2022 en focussen zich op het programma voor het seizoen 2023. Er wordt afgestemd over onderwerpen gerelateerd aan de oefensessies die op de zaterdagmiddag plaatsvinden op BurgGolf Haverleij, en de organisatie daar omheen. De beschikbaarheid van alle betrokkenen, de aanwezigheid bij wedstrijden en opleiding begeleiders komen eveneens aan de orde.'
+        ]);
+
+        $prise = Event::create([
+            'title' => 'Special Golf - Prise d\'Eau',
+            'date' => '2023-04-08',
+            'price' => 12,
+            'time' => '12:00:00',
+            'slug' => 'event_3',
+            'body' => 'Special Golf organiseert op deze dag een ontmoet met G-Golf Prise d\'Eau op de banen van BurgGolf Haverleij. Deelnemers en begeleiders (unified) spelen een ronde op de Par-3 baan en gaan aan de slag met skills. Deze ontmoeting is het tegenbezoek voor het spelen op Prise d’Eau in mei 2022. Na ontvangst in het clubgebouw van BurgGolf Haverleij waar de flights bekend worden gemaakt wordt er gestart op de  Par-3 baan. We sluiten af met een lunch in het clubgebouw.'
+        ]);
+
         $superG = Event::create([
             'title' => 'Super-G \'s-Hertogenbosch',
             'date' => '2023-06-04',
             'time' => '12:00:00',
             'price'=> 12.50,
+            'slug' => 'event_4',
             'body' => 'In navolging van 2022 gaat Super-G weer plaatsvinden. Aan dit evenement nemen deel veel verenigingen en stichtingen o.a. tennis, paardrijden, basketbal, voetbal, wielrennen, wandelen, judo, hockey, darten en petanque uit de gemeente ’s-Hertogenbosch.
             Ook Special Golf (G-Golf) is op deze dag gastheer op BurgGolf Haverleij, waar mensen met een verstandelijke beperking kunnen kennismaken met het Golfen. Een parcours bestaande uit golfvaardigheid skills kan door de deelnemers worden afgelegd, waarbij begeleiders van Special Golf hun de eerste beginselen zullen aanreiken. Deze dag staat dan ook in het teken van verbinden waar we iedereen een leuke ervaring willen meegeven. Voor het programma op 4 juni 2023 komen wij tijdig met nadere  informatie over de locatie en tijden, bezoek daarvoor de website: www.super-g.nl  of www.specialgolfhaverleij2021.com.'
-        ]);
-
-        $golfclinic = Event::create([
-            'title' => 'Golfclinic',
-            'date' => '2023-06-12',
-            'time' => '12:00:00',
-            'price' => '12',
-            'body' => 'Op uitnodiging van Special Golf gaan de medewerkers van S’PORT ’s-Hertogenbosch deelnemen aan een Golfclinic op BurgGolf Haverleij. De middag vindt plaats onder begeleiding van een golfprofessional die de deelnemers meeneemt op de driving range en de oefengreen om hun kennis te laten maken met het golfen in een ontspannen sfeer. De clinic wordt afgesloten met een drankje in het clubhuis.'
-        ]);
-
-        $celloClinic = Event::create([
-            'title' => 'Cello Clinic BurgGolf Haverleij',
-            'date' => '2023-08-12',
-            'time' => '12:00:00',
-            'price' => '15',
-            'body' => 'In het kader van \'n zomer vol​, een initiatief van Cello-zorg, organiseert Special Golf \'s-Hertogenbosch een clinic voor mensen met een beperking, waaraan 8 deelnemers gaan meedoen. Het programma voor deze clinic is aangepast aan de doelgroep waar met name de skills in spelvorm worden doorlopen. We starten op deze dag met een ontvangst in het clubhuis van BurgGolf Haverleij \'s-Hertogenbosch om 14.00 uur. Het programma richt zich op golfvaardigheden door aan de slag te gaan met de skills. We  sluiten de middag af om 15.30 uur met een drankje in het clubhuis. De clinic wordt verzorgt door een golfprofessional van Special Golf met ondersteuning van twee begeleiders.'
-        ]);
-
-        $partnerdag = Event::create([
-            'title' => 'Partnerdag Special Golf',
-            'date' => '2023-08-27',
-            'time' => '12:00:00',
-            'body' => 'Special Golf organiseert voor haar sponsoren en begeleiders een golfdag op BurgGolf Haverleij als waardering voor hun bijdrage en ondersteuning. Zonder deze bijdrage en ondersteuning zou het niet mogelijk zijn om deelnemers aan Special Golf, op de zaterdagmiddag deel te laten nemen aan de golfsport. De golfdag wordt gespeeld op de 18 holes baan van BurgGolf Haverleij met een drankje en een hapje.'
         ]);
 
         $burgGolf = Group::create([
@@ -76,10 +81,10 @@ class EventAndGroupSeeder extends Seeder
             'imageurl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/published/specialgolflogodark.png?1679827834',
         ]);
 
+        $indoorGolf->groups()->attach($cello->id);
+        $indoorGolf->groups()->attach($specialGolf->id);
+        $pros->groups()->attach($burgGolf->id);
+        $prise->groups()->attach($burgGolf->id);
         $superG->groups()->attach($specialGolf->id);
-        $golfclinic->groups()->attach($specialGolf->id);
-        $celloClinic->groups()->attach($specialGolf->id);
-        $celloClinic->groups()->attach($cello->id);
-        $partnerdag->groups()->attach($specialGolf->id);
     }
 }

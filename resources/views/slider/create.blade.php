@@ -4,16 +4,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center image-form">
-                <form class="col-md-6 image-uplode d-inline-block border shadow-lg rounded p-2 mt-5" action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-                    <div class="m-5">
-                        <h1 class="float-start mb-5 display-3">Upload afbeelding voor slider</h1>
-                        <input type="file" class="form-control form-control-lg" name="image" id="image">
-                    </div>
-                    <div class="m-5">
-                        <button class="btn btn-primary">Upload Afbeelding</button>
-                    </div>
-                </form>
+                <x-image-upload-form action="{{ route('slider.store') }}" label="Upload Afbeelding Voor Carousel Slide" />
             </div>
         </div>
     </div>
