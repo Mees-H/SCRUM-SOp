@@ -2,6 +2,7 @@
 
 namespace Tests\Unit;
 
+use Illuminate\Http\UploadedFile;
 use Tests\TestCase;
 use App\Models\User;
 use App\Models\Group;
@@ -11,6 +12,7 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class PartnersTest extends TestCase
 {
     use RefreshDatabase;
+
     /**
      * A basic unit test example.
      */
@@ -21,6 +23,7 @@ class PartnersTest extends TestCase
             'role' => 'admin'
         ]);
 
+        $file = UploadedFile::fake()->create('image.jpg', 200);
         $request = [
             'name' => 'Partner',
             'housenumber' => '8',
@@ -29,18 +32,18 @@ class PartnersTest extends TestCase
             'city' => 'Dimsdale',
             'link' => 'kanikeenkortebroekaan.nl',
             'contact_person' => 'Dinkleberg',
-            'imageurl' => 'https://preview.redd.it/silly-seal-v0-taovvyqnjjz91.jpg?width=640&crop=smart&auto=webp&s=c4762b7818dd7790415437b6bbf48f9d90bec72d'
+            'image' => $file,
         ];
 
-        try{
+        try {
             //Act
             $this->actingAs($user);
             $response = $this->post('groups', $request);
 
-        } catch(\Exception $e){
-            echo "<script>console.log(".$e.");</script>";
+        } catch (\Exception $e) {
+            echo "<script>console.log(" . $e . ");</script>";
         }
-        
+
         //Assert
         $response->assertRedirect('/groups');
         $this->assertDatabaseHas('groups', [
@@ -57,25 +60,22 @@ class PartnersTest extends TestCase
 
         $request = [];
 
-        try{
-            //Act
-            $this->actingAs($user);
-            $response = $this->post('groups', $request);
+        //Act
+        $this->actingAs($user);
+        $response = $this->post('groups', $request);
 
-        } catch(\Exception $e){
-            echo "<script>console.log(".$e.");</script>";
-        }
-        
+
         //Assert
         $response->assertSessionHasErrors(
             $keys = ['name',
-            'housenumber',
-            'street',
-            'zipcode',
-            'city',
-            'link',
-            'contact_person',
-            'imageurl']
+                'housenumber',
+                'street',
+                'zipcode',
+                'city',
+                'link',
+                'contact_person',
+                'image',
+            ]
         );
         $this->assertDatabaseMissing('groups', [
             'name' => 'Partner',
@@ -89,6 +89,7 @@ class PartnersTest extends TestCase
             'role' => 'admin'
         ]);
 
+
         $request = [
             'name' => 'Partner',
             'housenumber' => '8',
@@ -97,18 +98,17 @@ class PartnersTest extends TestCase
             'city' => 'Dimsdale',
             'link' => 'kanikeenkortebroekaan.nl',
             'contact_person' => 'Dinkleberg',
-            'imageurl' => 'https://preview.redd.it/silly-seal-v0-taovvyqnjjz91.jpg?width=640&crop=smart&auto=webp&s=c4762b7818dd7790415437b6bbf48f9d90bec72d'
         ];
 
-        try{
+        try {
             //Act
             $this->actingAs($user);
-            $response = $this->patch('groups/'.Group::all()->first()->id.'/', $request);
+            $response = $this->patch('groups/' . Group::all()->first()->id . '/', $request);
 
-        } catch(\Exception $e){
-            echo "<script>console.log(".$e.");</script>";
+        } catch (\Exception $e) {
+            echo "<script>console.log(" . $e . ");</script>";
         }
-        
+
         //Assert
         $response->assertRedirect('/groups');
         $this->assertDatabaseHas('groups', [
@@ -125,25 +125,20 @@ class PartnersTest extends TestCase
 
         $request = [];
 
-        try{
-            //Act
-            $this->actingAs($user);
-            $response = $this->patch('groups/'.Group::all()->first()->id.'/', $request);
+        $this->actingAs($user);
+        $response = $this->patch('groups/' . Group::all()->first()->id . '/', $request);
 
-        } catch(\Exception $e){
-            echo "<script>console.log(".$e.");</script>";
-        }
-        
+
         //Assert
         $response->assertSessionHasErrors(
             $keys = ['name',
-            'housenumber',
-            'street',
-            'zipcode',
-            'city',
-            'link',
-            'contact_person',
-            'imageurl']
+                'housenumber',
+                'street',
+                'zipcode',
+                'city',
+                'link',
+                'contact_person',
+            ]
         );
         $this->assertDatabaseMissing('groups', [
             'name' => 'Partner',
@@ -161,15 +156,15 @@ class PartnersTest extends TestCase
 
         $id = Group::all()->first()->id;
 
-        try{
+        try {
             //Act
             $this->actingAs($user);
-            $response = $this->delete('groups/'.$id.'/', $request);
+            $response = $this->delete('groups/' . $id . '/', $request);
 
-        } catch(\Exception $e){
-            echo "<script>console.log(".$e.");</script>";
+        } catch (\Exception $e) {
+            echo "<script>console.log(" . $e . ");</script>";
         }
-        
+
         //Assert
         $response->assertRedirect('/groups');
         $this->assertDatabaseMissing('groups', [
