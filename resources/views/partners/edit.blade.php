@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-8 offset-sm-2">
             <h1 class="display-3">Partner aanpassen</h1>
-            <a href="/partners" class="btn btn-primary">Ga terug</a>
+            <a href="/groups" class="btn btn-primary">Ga terug</a>
 
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -15,7 +15,7 @@
                 </div>
                 <br/>
             @endif
-            <form method="post" action="{{ route('groups.update', $group->id) }}">
+            <form method="post" action="{{ route('groups.update', $group->id) }}" enctype="multipart/form-data">
                 @method('PATCH')
                 @csrf
                 <div class="form-group mt-2">
@@ -49,11 +49,16 @@
                     <input type="text" class="form-control" name="contact_person" id="contact_person"
                            value="{{$group->contact_person}}"/>
                 </div>
-                <div class="form-group mt-2">
-                    <label for="imageurl"><span class="requiredStar">*</span>Logo url:</label>
-                    <input type="text" class="form-control" name="imageurl" id="imageurl"
-                           placeholder="bv https://pr78-specialgolf.azurewebsites.net/img/specialgolflogodark.png"
-                           value="{{$group->imageurl}}"/>
+                <div class="form-group mt-2 row">
+                    <div class="col-auto">
+                        <p>Huidig logo:</p>
+                        <img src="{{asset('img/'.$group->imageurl)}}" alt="Foto van het huidige logo"
+                             class="partner-logo-big">
+                    </div>
+                    <div class="col-8">
+                        <label for="imageurl">Nieuw logo uploaden (niks invullen betekend oude behouden):</label>
+                        <input type="file" class="form-control form-control-lg" name="image" id="image">
+                    </div>
                 </div>
                 <div class="form-group mt-2 mb-1">
                     <p class="mb-0 text-secondary">Huidige partners zijn te zien op de Partners pagina voor website

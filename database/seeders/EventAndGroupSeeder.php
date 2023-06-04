@@ -55,7 +55,7 @@ class EventAndGroupSeeder extends Seeder
             'link' => 'www.burggolf.nl',
             'contact_person' => 'Danny Hulscher',
             'currently_a_partner' => true,
-            'imageurl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/06e9dae4-b46c-4e7f-b2d4-18a1bffd3e2c-1-201-a-orig-orig_orig.jpeg',
+            'imageurl' => 'burggolf-logo.jpeg',
         ]);
 
         $cello = Group::create([
@@ -67,7 +67,7 @@ class EventAndGroupSeeder extends Seeder
             'link' => '​www.cello-zorg.nl',
             'contact_person' => 'Peter Janssen',
             'currently_a_partner' => true,
-            'imageurl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/img-5066_orig.jpeg',
+            'imageurl' => 'cello-logo.jpeg',
         ]);
 
         $specialGolf = Group::create([
@@ -79,7 +79,7 @@ class EventAndGroupSeeder extends Seeder
             'link' => '​www.specialgolfhaverleij2021.com',
             'contact_person' => 'Dhr. Wim Jansen',
             'currently_a_partner' => true,
-            'imageurl' => 'https://www.specialgolfhaverleij2021.com/uploads/1/4/0/3/140360495/published/specialgolflogodark.png?1679827834',
+            'imageurl' => 'specialgolf-logo.png',
         ]);
 
         $superG->groups()->attach($specialGolf->id);

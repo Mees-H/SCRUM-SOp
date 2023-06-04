@@ -51,7 +51,8 @@
                             {{$group->contact_person}}
                         </td>
                         <td>
-                            <img class="logo-picture" src="{{$group->imageurl}}" alt="Logo van {{$group->name}}">
+                            <img class="partner-logo" src="{{asset('img/'.$group->imageurl)}}"
+                                 alt="Logo van {{$group->name}}">
                         </td>
                         <td>
                             @if($group->currently_a_partner === 1)

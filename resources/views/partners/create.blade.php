@@ -16,7 +16,7 @@
                     </div>
                 @endif
                 <p><span class="requiredStar">*</span>Verplicht</p>
-                <form method="post" action="{{ route('groups.store') }}">
+                <form method="POST" action="{{ route('groups.store') }}" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group mt-2">
                         <label for="name"><span class="requiredStar">*</span>Naam van de partner:</label>
@@ -50,10 +50,8 @@
                                value="{{old('contact_person')}}"/>
                     </div>
                     <div class="form-group mt-2">
-                        <label for="imageurl"><span class="requiredStar">*</span>Logo url:</label>
-                        <input type="text" class="form-control" name="imageurl" id="imageurl"
-                               placeholder="bv https://pr78-specialgolf.azurewebsites.net/img/specialgolflogodark.png"
-                               value="{{old('imageurl')}}"/>
+                        <label for="image"><span class="requiredStar">*</span>Upload logo:</label>
+                        <input type="file" class="form-control form-control-lg" name="image" id="image">
                     </div>
                     <div class="form-group mt-2 mb-1">
                         <p class="mb-0 text-secondary">Huidige partners zijn te zien op de Partners pagina voor website

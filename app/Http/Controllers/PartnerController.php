@@ -7,7 +7,9 @@ use App\Models\Event;
 use App\Models\Group;
 use App\Models\Mail\Mailer;
 use App\Models\Mail\MailFactory;
+use App\Models\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PartnerController extends Controller
 {
@@ -42,13 +44,20 @@ class PartnerController extends Controller
             'city' => 'required|max:255',
             'link' => 'required|max:255',
             'contact_person' => 'required|max:255',
-            'imageurl' => 'required|max:255',
+            'image' => 'required|mimes:jpeg,jpg,png,bmp,gif|max: 2000',
         ]);
 
         $currently_a_partner = false;
         if ($request->has('currently_a_partner')) {
             $currently_a_partner = true;
         }
+
+        $uploadImage = $request->image;
+        $imageNameWithExt = $uploadImage->getClientOriginalName();
+        $imageName = pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+        $imageExt = $uploadImage->getClientOriginalExtension();
+        $storeImage = $imageName . time() . "." . $imageExt;
+        $request->image->move(public_path('img'), $storeImage);
 
         $group = new Group([
             'name' => $request->get('name'),
@@ -58,8 +67,8 @@ class PartnerController extends Controller
             'city' => $request->get('city'),
             'link' => $request->get('link'),
             'contact_person' => $request->get('contact_person'),
-            'imageurl' => $request->get('imageurl'),
-            'currently_a_partner' => $currently_a_partner
+            'imageurl' => $storeImage,
+            'currently_a_partner' => $currently_a_partner,
         ]);
 
         $group->save();
@@ -89,9 +98,24 @@ class PartnerController extends Controller
             'city' => 'required|max:255',
             'link' => 'required|max:255',
             'contact_person' => 'required|max:255',
-            'imageurl' => 'required|max:255',
+            'image' => 'nullable|mimes:jpeg,jpg,png,bmp,gif|max: 2000',
         ]);
-        
+
+        $storeImage = Group::find($id)->imageurl;
+        if (isset($request->image)) {
+            $oldImage = Group::find($id)->imageurl;
+            if (File::exists(public_path('img/' . $oldImage))) {
+                File::delete(public_path('img/' . $oldImage));
+            }
+
+            $uploadImage = $request->file('image');
+            $imageNameWithExt = $uploadImage->getClientOriginalName();
+            $imageName = pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+            $imageExt = $uploadImage->getClientOriginalExtension();
+            $storeImage = $imageName . time() . "." . $imageExt;
+            $request->image->move(public_path('img'), $storeImage);
+        }
+
         $isPartner = false;
         if ($request->has('currently_a_partner')) {
             $isPartner = true;
@@ -104,7 +128,7 @@ class PartnerController extends Controller
         $group->city = $request->get('city');
         $group->link = $request->get('link');
         $group->contact_person = $request->get('contact_person');
-        $group->imageurl = $request->get('imageurl');
+        $group->imageurl = $storeImage;
         $group->currently_a_partner = $isPartner;
         $group->save();
 
@@ -116,10 +140,10 @@ class PartnerController extends Controller
      */
     public function destroy(string $id)
     {
-        try{
+        try {
             Group::find($id)->events()->detach();
             Group::findOrFail($id)->delete();
-        } catch(\Exception $e){
+        } catch (\Exception $e) {
             return redirect('/groups')->with('danger', 'Partner niet kunnen verwijderen');
         }
         return redirect('/groups')->with('success', 'Partner verwijderd.');
