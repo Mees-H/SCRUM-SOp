@@ -4,6 +4,8 @@ use App\Http\Controllers\Admin\CreateUserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\PartnerController;
+use App\Http\Controllers\NewsArticleController;
+use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
@@ -13,7 +15,6 @@ use App\Http\Controllers\SiteMapController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\EnrollController;
 use App\Http\Controllers\SliderController;
 
 
@@ -38,7 +39,6 @@ Route::get('/', [NavigationController::class, 'index'])->name('mainmenu');
 Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
 Route::get('/vragenantwoorden', [NavigationController::class, 'vragenantwoorden']);
-Route::get('/nieuwsbrief', [NavigationController::class, 'nieuwsbrief']);
 Route::get('/team', [NavigationController::class, 'team']);
 Route::get('/partners', [NavigationController::class, 'partners']);
 Route::get('/overons', [NavigationController::class, 'overons']);
@@ -74,6 +74,23 @@ Route::resource('links', SiteMapController::class);
 Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('galerij_album');
 
+//News routes
+Route::resource('nieuws', NewsArticleController::class);
+Route::resource('nieuwsbrief', NewsLetterController::class);
+Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
+Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('nieuws.store');
+
+
+Route::resource('nieuwsBrief', NewsLetterController::class);
+
+
+//Galerij routes
+//Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
+//Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
+//privacyverklaring routes
+Route::get('/privacy', [App\Http\Controllers\PrivacyController::class, 'index'])->name('privacy');
+Route::get('/privacy/download', [App\Http\Controllers\PrivacyController::class, 'download'])->name('privacy.download');
+
 Route::middleware(['role:admin'])->group(function () {
     //User creation routes
     Route::get('/admin/gebruikers', [CreateUserController::class, 'adminIndex']);
@@ -81,6 +98,12 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
     Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
     Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
+
+    //News routes
+    Route::resource('nieuws', NewsArticleController::class);
+    Route::resource('nieuwsbrief', NewsLetterController::class);
+    Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('nieuws.store');
+
 
     //Slider routes
     Route::resource('slider', SliderController::class);
@@ -107,8 +130,16 @@ Route::middleware(['role:admin'])->group(function () {
 
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
+
+    //privacyverklaring routes
+    Route::get('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'edit'])->name('privacy.edit');
+    Route::post('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'store'])->name('privacy.store');
+
 });
 
+//News routes
+Route::get('/nieuws', [NewsArticleController::class, 'index'])->name('nieuws.index');
+Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
 
 Route::middleware(['role:admin,coach'])->group(function () {
 

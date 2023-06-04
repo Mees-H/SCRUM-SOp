@@ -52,7 +52,7 @@ class TeamController extends Controller
             $destination_path = 'public/img';
             $image = $request->file('image');
             $image_name = $image->getClientOriginalName();
-            $path = $request->file('image')->storeAs($destination_path, $image_name);
+            $path = $image->storeAs($destination_path, $image_name);
 
             $member['imgurl'] = $image_name;
         }

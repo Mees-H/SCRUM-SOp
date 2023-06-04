@@ -38,7 +38,7 @@
     <li class="nav-item dropdown">
 
         <a dusk="galerij" class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
-           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true"href="#">
+           id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true" href="#">
             Galerij
         </a>
 
@@ -62,7 +62,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-           href="/nieuwsbrief">Nieuws</a>
+           href="/nieuws">Nieuws</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'partners') ? 'font-weight-bold' : '' }}"
@@ -98,6 +98,13 @@
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}"
                    href="/links">Links</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
+                   href="/privacy">Privacy</a>
             </li>
         </ul>
     </li>
@@ -162,8 +169,8 @@
                 <li><a class="dropdown-item text-center" href="/vragenantwoorden">
                         FAQ
                     </a></li>
-                <li><a class="dropdown-item text-center" href="/nieuwsbrief">
-                        Nieuwsbrief
+                <li><a class="dropdown-item text-center" href="/nieuws">
+                        Nieuws
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/team">
                         Team
@@ -179,6 +186,9 @@
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/links">
                         Links
+                    </a></li>
+                <li><a class="dropdown-item text-center" href="/privacy">
+                        Privacy
                     </a></li>
             </ul>
         </form>

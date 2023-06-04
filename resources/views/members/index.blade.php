@@ -54,9 +54,9 @@
                             </td>
                             <td>
                                 <form action="{{ route('members.destroy', $member->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Verwijderen</button>
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="btn btn-danger" type="submit">Verwijderen</button>
                                 </form>
                             </td>
                         </tr>

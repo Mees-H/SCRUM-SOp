@@ -58,7 +58,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-           href="/nieuwsbrief">Nieuws</a>
+           href="/nieuws">Nieuws</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'groups') ? 'font-weight-bold' : '' }}"
@@ -101,6 +101,13 @@
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}"
                    href="/links">Links</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
+                   href="/privacy/edit">Privacy</a>
             </li>
         </ul>
     </li>
@@ -147,8 +154,8 @@
             <li><a class="dropdown-item text-center searchitem" href="/faq">
                     FAQ
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
-                    Nieuwsbrief
+            <li><a class="dropdown-item text-center searchitem" href="/nieuws">
+                    Nieuws
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/team">
                     Team
@@ -156,7 +163,13 @@
             <li><a class="dropdown-item text-center searchitem" href="/partner">
                     Partner
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/overons">
+            <li><a class="dropdown-it<li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
+                   href="/privacy">Privacy</a>
+            </li>em text-center searchitem" href="/overons">
                     Over Ons
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/locatie">
@@ -165,6 +178,7 @@
             <li><a class="dropdown-item text-center searchitem" href="/links">
                     Links
                 </a></li>
+
         </ul>
     </li>
 </ul>

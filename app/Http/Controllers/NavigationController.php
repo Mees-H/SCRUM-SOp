@@ -11,6 +11,7 @@ use App\Models\Slider;
 use App\Models\Event;
 use App\Models\MemberGroup;
 use Carbon\Carbon;
+use App\Models\NewsArticle;
 
 class NavigationController extends Controller
 {
@@ -37,7 +38,7 @@ class NavigationController extends Controller
 
     function nieuwsbrief()
     {
-        return view('news.nieuwsbrief');
+        return view('nieuws.nieuwsbrief', ['articles' => NewsArticle::all()->sortByDesc('date')]);
     }
 
     function team()
@@ -47,8 +48,10 @@ class NavigationController extends Controller
 
     function partners()
     {
-        return view('partners.partners', ['groups' => Group::all(),
-                                        'year' => Carbon::now()->year]);
+        return view('partners.partners', [
+            'groups' => Group::all(),
+            'year' => Carbon::now()->year
+        ]);
     }
 
     function overons()

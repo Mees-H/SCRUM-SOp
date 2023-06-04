@@ -56,7 +56,7 @@
                     <li><a class="dropdown-item text-center" href="/vragenantwoorden">
                             FAQ
                         </a></li>
-                    <li><a class="dropdown-item text-center" href="/nieuwsbrief">
+                    <li><a class="dropdown-item text-center" href="/nieuws">
                             Nieuwsbrief
                         </a></li>
                     <li><a class="dropdown-item text-center" href="/team">
@@ -124,8 +124,8 @@
            href="/vragenantwoorden">Veelgestelde vragen</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-           href="/nieuwsbrief">Nieuws</a>
+        <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuws') ? 'font-weight-bold' : '' }}"
+           href="/nieuws">Nieuws</a>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}"
@@ -161,6 +161,13 @@
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}"
                    href="/links">Links</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
+                   href="/privacy">Privacy</a>
             </li>
         </ul>
     </li>
