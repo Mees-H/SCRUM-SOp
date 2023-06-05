@@ -24,7 +24,7 @@
                     </div>
                     <div class="form-group mt-2">
                         <label for="housenumber"><span class="requiredStar">*</span>Huisnummer:</label>
-                        <input type="number" class="form-control" name="housenumber" id="housenumber"
+                        <input type="text" class="form-control" name="housenumber" id="housenumber"
                                value="{{old('housenumber')}}"/>
                     </div>
                     <div class="form-group mt-2">

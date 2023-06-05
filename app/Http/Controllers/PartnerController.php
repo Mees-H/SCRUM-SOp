@@ -38,13 +38,13 @@ class PartnerController extends Controller
     {
         $request->validate([
             'name' => 'required|max:255',
-            'housenumber' => 'integer|required',
+            'housenumber' => 'required',
             'street' => 'required|max:255',
             'zipcode' => 'required|max:255',
             'city' => 'required|max:255',
             'link' => 'required|max:255',
             'contact_person' => 'required|max:255',
-            'image' => 'required|mimes:jpeg,jpg,png,bmp,gif|max: 2000',
+            'image' => 'required|mimes:jpeg,jpg,png,bmp,gif,webp|max: 2000',
         ]);
 
         $currently_a_partner = false;
@@ -141,8 +141,13 @@ class PartnerController extends Controller
     public function destroy(string $id)
     {
         try {
-            Group::find($id)->events()->detach();
-            Group::findOrFail($id)->delete();
+            $group = Group::findOrFail($id);
+            if (File::exists(public_path('img\\'.$group->imageurl))) {
+                File::delete(public_path('img\\'.$group->imageurl));
+            }
+            $group->events()->detach();
+            $group->delete();
+            
         } catch (\Exception $e) {
             return redirect('/groups')->with('danger', 'Partner niet kunnen verwijderen');
         }
