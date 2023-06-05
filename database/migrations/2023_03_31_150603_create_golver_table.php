@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('participant', function (Blueprint $table) {
             $table->increments('Id');
             $table->string('Name');
-            $table->unsignedBigInteger('GroupNumber');
+            $table->unsignedBigInteger('GroupNumber')->nullable();
             $table->foreign('GroupNumber')->references('GroupNumber')->on('training_session_group');
         });
     }
