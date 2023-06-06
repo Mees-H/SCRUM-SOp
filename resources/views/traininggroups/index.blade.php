@@ -33,7 +33,7 @@
                                     <form action="/traininggroups/{{$group->id}}" method="post">
                                         @csrf
                                         @method('DELETE')
-                                        <button class="btn btn-danger" type="submit" dusk="remove-event-button">Verwijderen</button>
+                                        <button class="btn btn-danger" type="submit" dusk="remove-event-button" alt="Verwijder knop voor {{$group->Name}}">Verwijderen</button>
                                     </form>
                                 </div>
                             </th>
@@ -45,7 +45,10 @@
                                             <form action="/traininggroups/participants/{{$group->participants[$i]->id}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button class="btn btn-danger" type="submit" dusk="remove-event-button">Verwijderen</button>
+                                                <button class="btn btn-danger" type="submit" dusk="remove-event-button" 
+                                                alt="Verwijder knop voor {{$group->participants[$i]->Name}}">
+                                                    Verwijderen
+                                                </button>
                                             </form>
                                         </div>
                                         @if($i % 2 == 1)
