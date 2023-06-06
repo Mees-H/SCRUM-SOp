@@ -142,12 +142,10 @@ class PartnerController extends Controller
     {
         try {
             $group = Group::findOrFail($id);
-            if (File::exists(public_path('img\\'.$group->imageurl))) {
-                File::delete(public_path('img\\'.$group->imageurl));
-            }
+            File::delete(public_path('img/'.$group->imageurl));
             $group->events()->detach();
             $group->delete();
-            
+
         } catch (\Exception $e) {
             return redirect('/groups')->with('danger', 'Partner niet kunnen verwijderen');
         }
