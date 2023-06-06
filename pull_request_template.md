@@ -91,7 +91,7 @@
 
 - [ ] De teksten op de website bevatten geen spelfouten en zijn duidelijk geformuleerd. 
 
-- [ ] Zorg voor voldoende contrast. 
+- Zorg voor voldoende contrast. 
 
 - [ ] Contrast is getest met deze tool: https://webaim.org/resources/contrastchecker/  
 
