@@ -12,10 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('participant', function (Blueprint $table) {
-            $table->increments('Id');
+            $table->id();
             $table->string('Name');
-            $table->unsignedBigInteger('GroupNumber')->nullable();
-            $table->foreign('GroupNumber')->references('GroupNumber')->on('training_session_group');
+            $table->unsignedBigInteger('group_id');
+            $table->foreign('group_id')->references('id')->on('training_session_group')->onDelete('cascade');
+            $table->timestamps();
         });
     }
 

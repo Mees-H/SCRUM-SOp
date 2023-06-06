@@ -12,7 +12,7 @@ class TrainingSession extends Model
     public $timestamps = false;
     protected $fillable = [
         'Id',
-        'GroupNumber',
+        'group_id',
         'Date',
         'StartTime',
         'EndTime',
@@ -22,6 +22,6 @@ class TrainingSession extends Model
 
     public function training_session_group()
     {
-        return $this->belongsTo(TrainingSessionGroup::class, 'GroupNumber');
+        return $this->belongsTo(TrainingSessionGroup::class, 'id');
     }
 }

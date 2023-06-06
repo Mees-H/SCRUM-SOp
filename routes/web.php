@@ -129,6 +129,9 @@ Route::middleware(['role:admin'])->group(function () {
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
     Route::resource('traininggroups', TrainingGroupController::class);
+    Route::get('/traininggroups/participants/create', [TrainingGroupController::class, 'createParticipant']);
+    Route::post('/traininggroups/participants', [TrainingGroupController::class, 'storeParticipant']);
+    Route::delete('/traininggroups/participants/{participant}', [TrainingGroupController::class, 'destroyParticipant']);
 
     //privacyverklaring routes
     Route::get('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'edit'])->name('privacy.edit');
