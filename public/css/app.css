@@ -17,9 +17,10 @@ nav {
     margin-right: 20px;
 }
 
-#burger_menu_icon {
+.burger_menu_icon {
     width: fit-content;
     height: fit-content;
+
 }
 
 #guest_navbar {
@@ -204,40 +205,30 @@ h1 {
 }
 
 .btn-primary {
-    background-color: #63AFC2;
-    border-color: white;
+    background-color: #2F4E87;
+    border-color: #2F4E87;
     color: white;
 }
 
 .btn-primary:hover {
-    background-color: #04ADBF;
-    border-color: white;
-    color: white;
+    background-color:white;
+    border-color:  #2F4E87;
+    color:  #2F4E87;
 }
 
 .btn-secondary {
-    background: #8A048C;
+    background: #863B6E;
     border-color: white;
     color: white;
 }
+
 
 .btn-secondary:hover {
-    background-color: #8A048C;
-    border-color: white;
-    color: white;
+    background: white;
+    border-color: #863B6E;
+    color: #863B6E;
 }
 
-.btn-secondary {
-    background: none;
-    border-color: #8A048C;
-    color: #8A048C;
-}
-
-.btn-secondary:hover {
-    background-color: #8A048C;
-    border-color: white;
-    color: white;
-}
 
 .btn-danger {
     background-color: #A51F12;
