@@ -49,11 +49,10 @@ class TeamController extends Controller
 
         //Saving image
         if($request->hasFile('image')){
-            $destination_path = 'public/img';
+            $destination_path = 'img';
             $image = $request->file('image');
             $image_name = $image->getClientOriginalName();
-            $path = $image->storeAs($destination_path, $image_name);
-
+            $image->move($destination_path, $image_name);
             $member['imgurl'] = $image_name;
         }
 
@@ -68,13 +67,6 @@ class TeamController extends Controller
         return redirect('members')->with('success', 'Lid opgeslagen.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id): Response
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -107,11 +99,10 @@ class TeamController extends Controller
 
         //Updating image
         if($request->hasFile('image')){
-            $destination_path = 'public/img';
+            $destination_path = 'img';
             $image = $request->file('image');
             $image_name = $image->getClientOriginalName();
-            $path = $request->file('image')->storeAs($destination_path, $image_name);
-
+            $image->move($destination_path, $image_name);
             $member['imgurl'] = $image_name;
         }
 
