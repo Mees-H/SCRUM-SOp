@@ -33,11 +33,11 @@
                         <tr>
                             <td>{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</td>
                             <td>{{$session->Description}}</td>
-                            <td>Groep {{$session->GroupNumber}}</td>
+                            <td>Groep {{$session->group_id}}</td>
                             <td>
-                                <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>
+                                <a href="{{ route('trainingsessions.edit',$session->id)}}" class="btn btn-primary">Aanpassen</a>
                             
-                                <form action="{{ route('trainingsessions.destroy', $session->Id)}}" method="post">
+                                <form action="{{ route('trainingsessions.destroy', $session->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Verwijderen</button>
@@ -74,13 +74,13 @@
                             <td>{{date('H:i', strtotime($session->StartTime))}}</td>
                             <td>{{date('H:i', strtotime($session->EndTime))}}</td>
                             <td>{{$session->Description}}</td>
-                            <td>Groep {{$session->GroupNumber}}</td>
+                            <td>Groep {{$session->group_id}}</td>
                             <td>{{$session->IstrainingSession == 1 ? 'X' : '✓'}}</td>
                             <td>
-                                <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>
+                                <a href="{{ route('trainingsessions.edit',$session->id)}}" class="btn btn-primary">Aanpassen</a>
                             </td>
                             <td>
-                                <form action="{{ route('trainingsessions.destroy', $session->Id)}}" method="post">
+                                <form action="{{ route('trainingsessions.destroy', $session->id)}}" method="post">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Verwijderen</button>

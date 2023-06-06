@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class TrainingSession extends Model
 {
     protected $table = 'training_session';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'Id',
+        'id',
         'group_id',
         'Date',
         'StartTime',
