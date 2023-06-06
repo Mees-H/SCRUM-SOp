@@ -9,7 +9,7 @@
        aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation"
        id="navbar_toggle">
                 <span class="img-fluid">
-                    <img id="img_ad_3" class="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
+                    <img id="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
                          alt="burger menu icon"/></span>
     </a>
     <div class="collapse navbar-collapse" id="main-navbar">
