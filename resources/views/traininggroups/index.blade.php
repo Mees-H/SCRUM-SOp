@@ -38,10 +38,10 @@
                                 </div>
                             </th>
                             <td>
-                                <div class="row mb-2">
+                                <div class="row">
                                     @for($i = 0; $i < $group->participants->count(); $i++)
-                                        <div class="col">{{$group->participants[$i]->Name}}</div>
-                                        <div class="col">
+                                        <div class="col mb-1 mt-1">{{$group->participants[$i]->Name}}</div>
+                                        <div class="col mb-1 mt-1">
                                             <form action="/traininggroups/participants/{{$group->participants[$i]->id}}" method="post">
                                                 @csrf
                                                 @method('DELETE')
@@ -53,7 +53,8 @@
                                         </div>
                                         @if($i % 2 == 1)
                                 </div>
-                                <div class="row mb-2">
+                                <hr>
+                                <div class="row">
                                         @endif
                                     @endfor
                                 </div>
