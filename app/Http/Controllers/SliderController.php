@@ -7,24 +7,25 @@ use App\Models\Slider;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Redirect;
 
 class SliderController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
      */
     public function index()
     {
-        $sliders = Slider::all();
+        $sliders = Slider::all()->sortByDesc('id');
         return view('slider.index', compact('sliders'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|\Illuminate\Foundation\Application
      */
     public function create()
     {
@@ -35,7 +36,7 @@ class SliderController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function store(Request $request)
     {
@@ -44,32 +45,36 @@ class SliderController extends Controller
             'image' => 'required|mimes:jpeg,jpg,png,bmp,gif|max: 2000'
             ]);
             $uploadImage = $request->file('image');
-            $imageNameWithExt = $uploadImage->getClientOriginalName(); 
+            $imageNameWithExt = $uploadImage->getClientOriginalName();
             $imageName =pathinfo($imageNameWithExt, PATHINFO_FILENAME);
             $imageExt=$uploadImage->getClientOriginalExtension();
             $storeImage=$imageName . time() . "." . $imageExt;
             $request->image->move(public_path('img'), $storeImage);
-            $carousel= slider::create([
+            slider::create([
                 'image' => $storeImage
             ]);
-            return redirect('slider');
+            return redirect('slider')->with('success', 'Afbeelding is succesvol geüpload');
         }
         catch (\Exception $e){
-            return Redirect::back()->withErrors("Geen geldige afbeelding extensie");
+            return redirect('slider/create')->with('error', $e->getMessage());
         }
-            
+
     }
 
     public function delete(Request $request){
-        $sliderid = $request->slider;
-        $imageurl = slider::find($sliderid)->image;
-        if (File::exists(public_path('img\\'.$imageurl))) {
-            File::delete(public_path('img\\'.$imageurl));
+        try {
+            $sliderid = $request->slider;
+            $imageurl = slider::find($sliderid)->image;
+            if (File::exists(public_path('img\\'.$imageurl))) {
+                File::delete(public_path('img\\'.$imageurl));
+            }
+
+            slider::where('id', $sliderid)->delete();
+
+            return redirect('slider')->with('success', 'Afbeelding is succesvol verwijderd');
+        } catch (\Exception $e) {
+            return redirect('slider')->with('error', $e->getMessage());
         }
-
-        slider::where('id', $sliderid)->delete();
-
-        return redirect('slider');
       }
 
     /**

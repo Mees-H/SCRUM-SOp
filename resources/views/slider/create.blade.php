@@ -4,6 +4,13 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center image-form">
+                <div class="d-flex justify-content-center">
+                    @if(session()->has('error'))
+                        <div class="alert alert-danger col-md-8 text-center" role="alert">
+                            {{ session('error')}}
+                        </div>
+                    @endif
+                </div>
                 <form class="col-md-6 image-uplode d-inline-block border shadow-lg rounded p-2 mt-5" action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="m-5">
@@ -17,4 +24,5 @@
             </div>
         </div>
     </div>
+
 @endsection
