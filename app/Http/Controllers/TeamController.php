@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\TeamMember;
 use App\Models\MemberGroup;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -37,6 +38,7 @@ class TeamController extends Controller
             'email' => 'required|unique:team_members,email|max:255|email',
             'phonenumber' => 'nullable|numeric|digits_between:10,10',
             'groups' => 'required'],
+            ['groups.required' => 'Selecteer minimaal 1 groep.'],
             ['phonenumber.digits_between' => 'Telefoonnummer moet 10 cijfers zijn.']);
         $member = TeamMember::create([
             'name' => $request->get('name'),
@@ -85,7 +87,9 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255|email',
-            'phonenumber' => 'nullable|numeric|digits_between:10,10'
+            'groups' => 'required',
+            'phonenumber' => 'nullable|numeric|digits_between:10,10',
+        ], ['groups.required' => 'Selecteer minimaal 1 groep.'
         ], ['phonenumber.digits_between' => 'Telefoonnummer moet 10 cijfers zijn.']);
         $member = TeamMember::findOrFail($id);
         $member->name = $request->get('name');
@@ -122,7 +126,13 @@ class TeamController extends Controller
      */
     public function destroy(string $id): RedirectResponse
     {
-        TeamMember::findOrFail($id)->delete();
-        return redirect('/members')->with('success', 'Lid verwijderd.');
+        try {
+            $teammember = TeamMember::findOrFail($id);
+            $teammember->groups()->detach();
+            $teammember->delete();
+            return redirect('/members')->with('success', 'Lid verwijderd.');
+        } catch (Exception $e) {
+            return redirect('/members')->with('error', 'Lid niet gevonden.');
+        }
     }
 }
