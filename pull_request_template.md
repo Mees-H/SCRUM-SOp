@@ -1,3 +1,34 @@
+### User story 
+
+- (Welke user story heb je gemaakt?)
+
+## Samenvatting
+
+### Beschrijving
+
+- (Beschrijving van de functionaliteit)
+
+### Lijst van acceptatie criteria
+
+- (Alle acceptatie criteria van de user story)
+
+## Uitdagingen and Oplossingen
+
+### Uitdaging 1
+
+- (Wat was moeilijk?)
+
+### Oplossing 1
+
+- (Hoe heb je het opgelost?)
+
+## User Interface
+- (Afbeelding van de UI met een beschrijving)
+- (Zorg ervoor dat de screenshot alle verandering/toevoegingen bevat)
+
+## DevTools
+- (Afbeelding van DevTools die duidelijk aantoont dat er geen problemen zijn)
+
 # Definition of Done
 
 ## Functionele definities 
@@ -28,7 +59,7 @@
 
 ### Ontwikkelaar  
 
-- [ ] Invoervelden zijn voorzien van een regex wanneer nodig. 
+- [ ] Alle invoervelden zijn voorzien van validatie.
 
 - [ ] De coding guidlines zijn aangehouden. 
 
@@ -38,7 +69,7 @@
 
 - [ ] Code levert geen complicaties op met de AVG-wetgeving. 
 
-- [ ] Dusk tests worden geschreven voor de happy flow en minimaal 1 bad flow. 
+- [ ] Tests worden geschreven voor de happy flow en minimaal 1 bad flow. 
 
 - [ ] Views zijn getest op responsiveness (mobiel, tablet, desktop) door middel van UI testen. 
 
@@ -98,33 +129,4 @@ Zoals: Lees meer over regulering.
 
 - [ ] Inlaad snelheid zo hoog mogelijk. 
 
-## Samenvatting
 
-### Beschrijving
-
-- (Beschrijving van de functionaliteit)
-
-### User story 
-
-- (Welke user story heb je gemaakt?)
-
-### Lijst van acceptatie criteria
-
-- (Alle acceptatie criteria van de user story)
-
-## Uitdagingen and Oplossingen
-
-### Uitdaging 1
-
-- (Wat was moeilijk?)
-
-### Oplossing 1
-
-- (Hoe heb je het opgelost?)
-
-## User Interface
-- (Afbeelding van de UI met een beschrijving)
-- (Zorg ervoor dat de screenshot alle verandering/toevoegingen bevat)
-
-## DevTools
-- (Afbeelding van DevTools die duidelijk aantoont dat er geen problemen zijn)
