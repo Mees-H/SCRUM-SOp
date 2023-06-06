@@ -28,7 +28,6 @@
             crossorigin="anonymous"></script>
 </head>
 
-
         @if (auth()->guest() || Auth::user()->role != 'admin')
             @if($agent->isMobile())
                 <div id="guest_mobile_navbar">
@@ -75,5 +74,4 @@
 
     </div>
 </footer>
-
 </html>

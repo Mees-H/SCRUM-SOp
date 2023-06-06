@@ -65,8 +65,8 @@
            href="/nieuws">Nieuws</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}"
-           href="/partner">Partners</a>
+        <a class="nav-link text-dark {{ (request()->segment(1) == 'partners') ? 'font-weight-bold' : '' }}"
+           href="/partners">Partners</a>
     </li>
     <li class="nav-item dropdown">
         <a dusk="organisatie" class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
@@ -175,7 +175,7 @@
                 <li><a class="dropdown-item text-center" href="/team">
                         Team
                     </a></li>
-                <li><a class="dropdown-item text-center" href="/partner">
+                <li><a class="dropdown-item text-center" href="/partners">
                         Partner
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/overons">
