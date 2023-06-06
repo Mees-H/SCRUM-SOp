@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Page;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -12,29 +13,54 @@ class PageSeeder extends Seeder
      */
     public function run(): void
     {
-        Page::factory()->create([
+        Page::create([
             'id' => 1,
-            'title' => 'Evenementen'
+            'title' => 'Trainingen',
         ]);
 
-        Page::factory()->create([
+        Page::create([
             'id' => 2,
-            'title' => 'Trainingen'
+            'title' => 'Evenementen',
         ]);
 
-        Page::factory()->create([
+        Page::create([
             'id' => 3,
-            'title' => 'Veelgestelde vragen'
+            'title' => 'Galerij',
         ]);
 
-        Page::factory()->create([
+        Page::create([
             'id' => 4,
-            'title' => 'Partners'
+            'title' => 'Veelgestelde_Vragen',
         ]);
 
-        Page::factory()->create([
+        Page::create([
             'id' => 5,
-            'title' => 'Nieuws'
+            'title' => 'Nieuws',
+        ]);
+
+        Page::create([
+            'id' => 6,
+            'title' => 'Partners',
+        ]);
+
+        Page::create([
+            'id' => 7,
+            'title' => 'Team',
+        ]);
+
+        Page::create([
+            'id' => 8,
+            'title' => 'Over_Ons',
+        ]);
+
+        Page::create([
+            'id' => 9,
+            'title' => 'Locatie',
+        ]);
+
+        Page::create([
+            'id' => 10,
+            'title' => 'Links',
         ]);
     }
 }

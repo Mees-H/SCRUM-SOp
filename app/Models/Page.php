@@ -10,6 +10,6 @@ class Page extends Model
     use HasFactory;
 
     protected $fillable = [
-        'banner'
+        'banner_image'
     ];
 }

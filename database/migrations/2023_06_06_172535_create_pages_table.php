@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('pages', function (Blueprint $table) {
             $table->id();
             $table->string("title");
-            $table->string("banner");
+            $table->string("banner_image")->nullable();
             $table->timestamps();
         });
     }
