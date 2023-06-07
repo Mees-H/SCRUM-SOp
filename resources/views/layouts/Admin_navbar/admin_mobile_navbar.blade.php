@@ -97,7 +97,7 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
-                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                   data-bs-toggle="dropdown" aria-haspopup="true" href="#">
                     Activiteiten
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -116,7 +116,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownFotos" role="button"
-                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                   data-bs-toggle="dropdown" aria-haspopup="true" href="#">
                     Foto's
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownFotos">
@@ -147,7 +147,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
-                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                   data-bs-toggle="dropdown" aria-haspopup="true" href="#">
                     Organisatie
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

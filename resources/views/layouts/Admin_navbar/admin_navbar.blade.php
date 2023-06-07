@@ -6,7 +6,7 @@
              alt="logo Special Golf" id="logo"></a>
 
     <a class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"
-       aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation"
+       aria-controls="main-navbar" aria-label="Toggle navigation"
        id="navbar_toggle">
                 <span class="img-fluid">
                     <img id="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
