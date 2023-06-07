@@ -73,11 +73,5 @@ class PageSeeder extends Seeder
             'url' => 'links',
             'title' => 'Links'
         ]);
-
-        Page::create([
-            'id' => 11,
-            'url' => '',
-            'title' => 'Special Golf Haverleij'
-        ]);
     }
 }
