@@ -4,10 +4,6 @@ body {
     flex-direction: column;
 }
 
-nav {
-    margin-bottom: 20px;
-}
-
 #page-container {
     position: relative;
     min-height: 100vh;
@@ -91,7 +87,8 @@ nav {
 }
 
 h1{
-    color: #65591A;
+    color: rgb(255, 255, 255);
+    text-shadow: 1px 1px 1px black;
 }
 
 .specialBrown{

@@ -15,52 +15,69 @@ class PageSeeder extends Seeder
     {
         Page::create([
             'id' => 1,
-            'title' => 'training',
+            'url' => 'training',
+            'title' => 'Trainingen',
+            'banner_image' => 'training.jpg'
         ]);
 
         Page::create([
             'id' => 2,
-            'title' => 'evenement',
+            'url' => 'evenement',
+            'title' => 'Evenementen'
         ]);
 
         Page::create([
             'id' => 3,
-            'title' => 'albums',
+            'url' => 'albums',
+            'title' => 'Galerij'
         ]);
 
         Page::create([
             'id' => 4,
-            'title' => 'vragenantwoorden',
+            'url' => 'vragenantwoorden',
+            'title' => 'Veelgestelde vragen'
         ]);
 
         Page::create([
             'id' => 5,
-            'title' => 'nieuws',
+            'url' => 'nieuws',
+            'title' => 'Nieuws'
         ]);
 
         Page::create([
             'id' => 6,
-            'title' => 'partner',
+            'url' => 'partner',
+            'title' => 'Partners'
         ]);
 
         Page::create([
             'id' => 7,
-            'title' => 'team',
+            'url' => 'team',
+            'title' => 'Team'
         ]);
 
         Page::create([
             'id' => 8,
-            'title' => 'overons',
+            'url' => 'overons',
+            'title' => 'Over Ons'
         ]);
 
         Page::create([
             'id' => 9,
-            'title' => 'locatie',
+            'url' => 'locatie',
+            'title' => 'Locatie'
         ]);
 
         Page::create([
             'id' => 10,
-            'title' => 'links',
+            'url' => 'links',
+            'title' => 'Links'
+        ]);
+
+        Page::create([
+            'id' => 11,
+            'url' => '',
+            'title' => 'Special Golf Haverleij'
         ]);
     }
 }

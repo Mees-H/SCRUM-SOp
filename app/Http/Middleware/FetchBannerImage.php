@@ -21,12 +21,15 @@ class FetchBannerImage
         $segments = explode('/', trim($path, '/'));
 
         $firstword = $segments[0];
-        $banner = Page::where('title', $firstword)->first()->banner_image;
-        if ($banner == null) {
-            view()->share('banner_path', 'img/banners/default.png');
-        }
-        else {
-            view()->share('banner_path', 'img/banners/' . $banner);
+        if (Page::where('url', $firstword) != null) {
+            $banner = Page::where('url', $firstword)->first();
+            if ($banner->banner_image == null) {
+                view()->share('banner_path', 'img/banners/default.png');
+            }
+            else {
+                view()->share('banner_path', 'img/banners/' . $banner->banner_image);
+            }
+            view()->share('banner_title', $banner->title);
         }
         return $next($request);
     }
