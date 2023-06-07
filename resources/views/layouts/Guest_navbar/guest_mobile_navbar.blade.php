@@ -168,7 +168,8 @@
 
 </div>
 </nav>
-<div class="container-fluid">
+@if($banner_title != '')
+<div class="container-fluid mb-3">
   <div class="row">
     <div class="col-md-12 p-0">
       <div class="position-relative">
@@ -178,3 +179,4 @@
     </div>
   </div>
 </div>
+@endif
