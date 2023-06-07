@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Support\ServiceProvider;
 
@@ -33,5 +34,13 @@ class AppServiceProvider extends ServiceProvider
             $allYears = (new \App\Http\Controllers\GalleryController())->ShowAllYearsOfGallerys();
             view()->share('allYears', $allYears);
         }
+
+        Blade::directive('banner', function ($expression) {
+            // Get the current URL
+            $url = request()->url();
+
+            // Return the path to the banner picture based on the URL
+            return "<?php echo asset('img/banners/' . {$url} . '.*'); ?>";
+        });
     }
 }
