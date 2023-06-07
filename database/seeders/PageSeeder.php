@@ -15,52 +15,52 @@ class PageSeeder extends Seeder
     {
         Page::create([
             'id' => 1,
-            'title' => 'Trainingen',
+            'title' => 'training',
         ]);
 
         Page::create([
             'id' => 2,
-            'title' => 'Evenementen',
+            'title' => 'evenement',
         ]);
 
         Page::create([
             'id' => 3,
-            'title' => 'Galerij',
+            'title' => 'albums',
         ]);
 
         Page::create([
             'id' => 4,
-            'title' => 'Veelgestelde_Vragen',
+            'title' => 'vragenantwoorden',
         ]);
 
         Page::create([
             'id' => 5,
-            'title' => 'Nieuws',
+            'title' => 'nieuws',
         ]);
 
         Page::create([
             'id' => 6,
-            'title' => 'Partners',
+            'title' => 'partner',
         ]);
 
         Page::create([
             'id' => 7,
-            'title' => 'Team',
+            'title' => 'team',
         ]);
 
         Page::create([
             'id' => 8,
-            'title' => 'Over_Ons',
+            'title' => 'overons',
         ]);
 
         Page::create([
             'id' => 9,
-            'title' => 'Locatie',
+            'title' => 'locatie',
         ]);
 
         Page::create([
             'id' => 10,
-            'title' => 'Links',
+            'title' => 'links',
         ]);
     }
 }

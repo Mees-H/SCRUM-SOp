@@ -168,3 +168,4 @@
 
 </div>
 </nav>
+<img src="{{$banner_path}}">
