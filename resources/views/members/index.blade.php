@@ -38,7 +38,7 @@
                             <td>
                                 <div class="memberimg-box">
                                     <img src="{{ asset('img/'.$member->imgurl) }}" alt="foto van {{$member->name}}"
-                                         class="memberimg"/>
+                                         class="memberimg img-fluid"/>
                                 </div>
                             </td>
                         @else

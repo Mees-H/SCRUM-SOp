@@ -279,6 +279,8 @@ td {
 .memberimg {
     padding: 2px;
     height: auto;
+    max-height: 75px;
+    max-width: 75px;
     width: auto;
     border: 1px solid darkgray;
 }
