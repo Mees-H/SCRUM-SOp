@@ -19,8 +19,9 @@
             @method('PATCH')
             @csrf
             <div class="form-group">
-                <label for="name">Naam:</label>
+                <label for="name">Naam:
                 *<input type="text" class="form-control" name="name" value="{{$member->name}}"/>
+                </label>
             </div><br>
 
             <div class="form-group">
@@ -30,7 +31,7 @@
 
             <div class="form-group">
                 <label for="phonenumber">Telefoonnummer:</label>
-                <input type="tel" class="form-control" name="phonenumber" id="phonenumber" value="{{$member->phonenumber}}" aria-describedby="examplenumber"/>
+                <input type="tel" class="form-control" name="phonenumber" id="phonenumber" value="{{$member->phonenumber}}"/>
                 <small id="examplenumber" class="form-text text-muted">Bijv: 0612345678</small>
             </div><br>
 

@@ -30,7 +30,7 @@
 
                 <div class="form-group">
                     <label for="phonenumber">Telefoonnummer:</label>
-                    <input type="tel" class="form-control" name="phonenumber"  value="{{old('phonenumber')}}" id="phonenumber" aria-describedby="examplenumber"/>
+                    <input type="tel" class="form-control" name="phonenumber"  value="{{old('phonenumber')}}" id="phonenumber"/>
                     <small id="examplenumber" class="form-text text-muted">Bijv: 0612345678</small>
                 </div><br>
 
