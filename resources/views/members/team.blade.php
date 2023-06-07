@@ -11,7 +11,7 @@
 @foreach($groups as $group)
 <article>
     <div class="container">
-        <h2 class="text-center">{{$group->name}}</h1>
+        <h2 class="text-center">{{$group->name}}</h2>
         <br>
         <div class="row justify-content-md-left">
         @foreach($group->members as $member)
@@ -37,7 +37,7 @@
         @endforeach
         </div>
     </div>
-    <hr>
+    <hr/>
 </article>
 @endforeach
 @stop
