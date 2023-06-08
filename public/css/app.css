@@ -234,6 +234,19 @@ td{
     border: 1px solid darkgray;
 }
 
+.indexbanner-box{
+    width: 225px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.indexbanner{
+    padding: 2px;
+    height: auto;
+    width: auto;
+}
+
 .table td {
     padding: 5px; 
 }

@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\BannerController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -115,6 +116,9 @@ Route::middleware(['role:admin'])->group(function () {
 
     //Team routes
     Route::resource('members', TeamController::class);
+
+    //Banner routes
+    Route::resource('banners', BannerController::class);
 
     //Galerij routes
     Route::get('galerij/{id}/addPhoto', [GalleryController::class, 'addPhoto']);
