@@ -20,14 +20,11 @@
                     </div>
                     <br/>
                 @endif
-                <form method="post" enctype="multipart/form-data">
-                    @method('PATCH')
-                    @csrf
-                    <div class="row">
-                        <div class="col-md-12 text-center image-form">
-                            <x-image-upload-form action="{{ route('banners.update', $page->id) }}" label="Upload Afbeelding Voor Banner"/></div>
+                <div class="row">
+                    <div class="col-md-12 text-center image-form">
+                        <x-banner-upload-form action="{{ route('banners.update') }}" label="Upload Afbeelding Voor Banner" :page-id="$page->id" />
                     </div>
-                </form>
+                </div>
             </div>
         <div>
     </div>
