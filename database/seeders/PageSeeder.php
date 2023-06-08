@@ -15,62 +15,63 @@ class PageSeeder extends Seeder
     {
         Page::create([
             'id' => 1,
-            'title' => 'training',
-            'banner_image' => 'default.jpg'
+            'url' => 'training',
+            'title' => 'Trainingen',
+            'banner_image' => 'training.jpg'
         ]);
 
         Page::create([
             'id' => 2,
-            'title' => 'evenement',
-            'banner_image' => 'default.jpg'
+            'url' => 'evenement',
+            'title' => 'Evenementen'
         ]);
 
         Page::create([
             'id' => 3,
-            'title' => 'albums',
-            'banner_image' => 'default.jpg'
+            'url' => 'albums',
+            'title' => 'Galerij'
         ]);
 
         Page::create([
             'id' => 4,
-            'title' => 'vragenantwoorden',
-            'banner_image' => 'default.jpg'
+            'url' => 'vragenantwoorden',
+            'title' => 'Veelgestelde vragen'
         ]);
 
         Page::create([
             'id' => 5,
-            'title' => 'nieuws',
-            'banner_image' => 'default.jpg'
+            'url' => 'nieuws',
+            'title' => 'Nieuws'
         ]);
 
         Page::create([
             'id' => 6,
-            'title' => 'partner',
-            'banner_image' => 'default.jpg'
+            'url' => 'partner',
+            'title' => 'Partners'
         ]);
 
         Page::create([
             'id' => 7,
-            'title' => 'team',
-            'banner_image' => 'default.jpg'
+            'url' => 'team',
+            'title' => 'Team'
         ]);
 
         Page::create([
             'id' => 8,
-            'title' => 'overons',
-            'banner_image' => 'default.jpg'
+            'url' => 'overons',
+            'title' => 'Over Ons'
         ]);
 
         Page::create([
             'id' => 9,
-            'title' => 'locatie',
-            'banner_image' => 'default.jpg'
+            'url' => 'locatie',
+            'title' => 'Locatie'
         ]);
 
         Page::create([
             'id' => 10,
-            'title' => 'links',
-            'banner_image' => 'default.jpg'
+            'url' => 'links',
+            'title' => 'Links'
         ]);
     }
 }

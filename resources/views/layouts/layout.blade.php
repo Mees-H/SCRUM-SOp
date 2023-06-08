@@ -52,11 +52,7 @@
        @endif
 
 <body>
-<div class="container-fluid">
-    <div class="container">
-        @yield('content')
-    </div>
-</div>
+    @yield('content')
 </body>
 <footer class="footer">
     <div class="footer-content bg-light">

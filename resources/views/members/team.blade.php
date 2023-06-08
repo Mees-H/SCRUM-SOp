@@ -1,12 +1,6 @@
 @extends('layouts.layout')
  
 @section('content')
-<div class="container text-center">
-    <div class="row align-items-center">
-        <h1 class="col">Team samenstelling</h1>
-    </div>
-</div>
-<br>
 
 @foreach($groups as $group)
 <article>
