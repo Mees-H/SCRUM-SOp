@@ -39,7 +39,7 @@ class NewsTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
-            $browser->visit('/nieuws')
+            $browser->visit('/nieuwsartikel')
                 ->resize(3000, 3000)
                 ->clickLink("Nieuw artikel")
                 ->type('title', 'test')
@@ -48,9 +48,8 @@ class NewsTest extends DuskTestCase
                 ->attach('img[]', base_path('tests/Browser/TestImage/GolfTest.jpg'))
                 ->attach('file[]', base_path('tests/Browser/TestFile/TestNewsLetter.pdf'))
                 ->press('Voeg artikel toe')
-                ->assertPathIs('/nieuws')
+                ->assertPathIs('/nieuwsartikel')
                 ->assertSee('Artikel opgeslagen');
-
         });
     }
 
@@ -59,11 +58,11 @@ class NewsTest extends DuskTestCase
         $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
-            $browser->visit('/nieuws')
+            $browser->visit('/nieuwsartikel')
                 ->resize(3000, 3000)
                 ->clickLink("Nieuw artikel")
                 ->press('Voeg artikel toe')
-                ->assertPathIs('/nieuws/create')
+                ->assertPathIs('/nieuwsartikel/create')
                 ->assertSee('Het titel veld is verplicht.')
                 ->assertSee('Het datum veld is verplicht.')
                 ->assertSee('Het beschrijving veld is verplicht.');
@@ -76,7 +75,7 @@ class NewsTest extends DuskTestCase
         $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
-            $browser->visit('/nieuws')
+            $browser->visit('/nieuwsartikel')
                 ->resize(3000, 3000)
                 ->clickLink("Pas nieuwsartikel aan")
                 ->type('title', 'test')
@@ -85,7 +84,7 @@ class NewsTest extends DuskTestCase
                 ->attach('img[]', base_path('tests/Browser/TestImage/GolfTest.jpg'))
                 ->attach('file[]', base_path('tests/Browser/TestFile/TestNewsLetter.pdf'))
                 ->press('Pas artikel aan')
-                ->assertPathIs('/nieuws')
+                ->assertPathIs('/nieuwsartikel')
                 ->assertSee('Artikel opgeslagen');
 
         });
@@ -96,13 +95,13 @@ class NewsTest extends DuskTestCase
         $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
-            $browser->visit('/nieuws')
+            $browser->visit('/nieuwsartikel')
                 ->clickLink("Pas nieuwsartikel aan")
                 ->type('title', '')
                 ->type('date', '')
                 ->type('body', '')
                 ->press('Pas artikel aan')
-                ->assertPathIs('/nieuws/*/edit')
+                ->assertPathIs('/nieuwsartikel/*/edit')
                 ->assertSee('Het titel veld is verplicht.')
                 ->assertSee('Het datum veld is verplicht.')
                 ->assertSee('Het beschrijving veld is verplicht.');
@@ -114,12 +113,11 @@ class NewsTest extends DuskTestCase
         $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
-            $browser->visit('/nieuws')
+            $browser->visit('/nieuwsartikel')
                 ->resize(3000, 3000)
                 ->press("Verwijder nieuwsartikel")
-                ->assertPathIs('/nieuws')
+                ->assertPathIs('/nieuwsartikel')
                 ->assertSee('Artikel verwijderd.');
-
         });
     }
 
@@ -132,13 +130,13 @@ class NewsTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($newsletter) {
             $browser->loginAs(User::find(1))
-                ->visit('/nieuws')
+                ->visit('/nieuwsbrief')
                 ->resize(3000, 3000)
                 ->clickLink('Nieuwe nieuwsbrief')
                 ->type('date', '552023')
                 ->attach('file', $newsletter->pdf)
                 ->press('Voeg nieuwsbrief toe')
-                ->assertPathIs('/nieuws')
+                ->assertPathIs('/nieuwsbrief')
                 ->assertSee('Nieuwsbrief opgeslagen');
         });
     }
@@ -148,7 +146,7 @@ class NewsTest extends DuskTestCase
         $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
-            $browser->visit('/nieuws')
+            $browser->visit('/nieuwsbrief')
                 ->resize(3000, 3000)
                 ->clickLink('Nieuwe nieuwsbrief')
                 ->press('Voeg nieuwsbrief toe')
@@ -165,14 +163,14 @@ class NewsTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($newsletter) {
             $browser->loginAs(User::find(1));
-            $browser->visit('/nieuws')
+            $browser->visit('/nieuwsbrief')
                 ->resize(3000, 3000)
                 ->clickLink("Pas nieuwsbrief aan")
                 ->type('date', '552023')
                 ->screenshot('nieuwsscreenshot')
                 ->attach('file', $newsletter->pdf)
                 ->press('Wijzig nieuwsbrief')
-                ->assertPathIs('/nieuws')
+                ->assertPathIs('/nieuwsbrief')
                 ->assertSee('Nieuwsbrief opgeslagen');
         });
     }
@@ -182,14 +180,13 @@ class NewsTest extends DuskTestCase
         $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
-            $browser->visit('/nieuws')
+            $browser->visit('/nieuwsbrief')
                 ->resize(3000, 3000)
                 ->clickLink("Pas nieuwsbrief aan")
                 ->type('date', '')
                 ->press('Wijzig nieuwsbrief')
                 ->assertPathIs('/nieuwsbrief/*/edit')
-                ->assertSee('PDF bestand is verplicht.')
-                ->assertSee('Het datum veld is verplicht.');
+                ->assertSee('Datum is geen geldige datum.');
         });
     }
     public function testDeleteNewsLetter(): void
@@ -199,11 +196,11 @@ class NewsTest extends DuskTestCase
 
         $this->browse(function (Browser $browser) use ($newsletter) {
             $browser->loginAs(User::find(1));
-            $browser->visit('/nieuws')
+            $browser->visit('/nieuwsbrief')
                 ->resize(3000, 3000)
                 ->click('@eventNieuwsbrief'. $newsletter->id . '_verwijder')
                 ->press( "Verwijder nieuwsbrief")
-                ->assertPathIs('/nieuws')
+                ->assertPathIs('/nieuwsbrief')
                 ->assertSee('Nieuwsbrief verwijderd.');
 
             });

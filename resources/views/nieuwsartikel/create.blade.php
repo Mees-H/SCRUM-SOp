@@ -28,7 +28,7 @@
                                 @endif
                                 <h1 class="text-black border-bottom">Nieuwsartikelen Toevoegen</h1>
                                 <div class="card border-0">
-                                    <form method="post" action="{{ route('nieuws.store') }}"
+                                    <form method="post" action="{{ route('nieuwsartikel.store') }}"
                                           enctype="multipart/form-data">
                                         @csrf
                                         <div class="row card-body">
@@ -56,7 +56,7 @@
                                             </aside>
                                             <div class="">
                                                 <button class="btn btn-primary" alt="bevestig nieuwsbrief aanmaken" type="submit">Voeg artikel toe</button>
-                                                <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
+                                                <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuwsartikel">annuleren</a>
                                             </div>
                                         </div>
                                         </form>
