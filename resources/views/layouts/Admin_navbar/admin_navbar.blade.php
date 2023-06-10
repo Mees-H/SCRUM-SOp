@@ -9,7 +9,7 @@
        aria-controls="main-navbar" aria-label="Toggle navigation"
        id="navbar_toggle">
                 <span class="img-fluid">
-                    <img id="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
+                    <img class="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
                          alt="burger menu icon"/></span>
     </a>
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -117,7 +117,7 @@
         <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown">
             {{ Auth::user()->name }}
             <span class="img-fluid">
-                        <img id="burger_menu_icon" src="{{asset("/img/user.png")}}"
+                        <img class="burger_menu_icon" src="{{asset("/img/user.png")}}"
                              alt="user image"/>
                    </span>
         </a>
