@@ -163,13 +163,15 @@
             <li><a class="dropdown-item text-center searchitem" href="/partner">
                     Partner
                 </a></li>
-            <li><a class="dropdown-it<li>
+            <li><a class="dropdown-it">
                 <hr class="dropdown-divider">
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
                    href="/privacy">Privacy</a>
-            </li>em text-center searchitem" href="/overons">
+            </li>
+            <li><a class="dropdown-item text-center searchitem" href="/overons">
                     Over Ons
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/locatie">
@@ -178,7 +180,6 @@
             <li><a class="dropdown-item text-center searchitem" href="/links">
                     Links
                 </a></li>
-
         </ul>
     </li>
 </ul>
