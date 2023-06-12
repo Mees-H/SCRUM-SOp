@@ -1,5 +1,5 @@
 @extends('layouts.layout')
- 
+
 @section('content')
 <div class="container text-center">
     <div class="row align-items-center">
@@ -11,11 +11,11 @@
 @foreach($groups as $group)
 <article>
     <div class="container">
-        <h2 class="text-center">{{$group->name}}</h1>
+        <h2 class="text-center">{{$group->name}}</h2>
         <br>
         <div class="row justify-content-md-left">
         @foreach($group->members as $member)
-            
+
             <div class="col-sm-6">
                 <div class="row">
                     @if($member->imgurl != '')
@@ -31,13 +31,13 @@
                         <a href="mailto:{{$member->email}}" aria-labelledby="Dit is de email van {{$member->name}}">{{$member->email}}</a><br>
                         <span>{{$member->phonenumber == '' ? '' : 'Mobiel: '.$member->phonenumber}}</span>
                     </p>
-                    
+
                 </div>
             </div>
         @endforeach
         </div>
     </div>
-    <hr>
+    <hr/>
 </article>
 @endforeach
 @stop

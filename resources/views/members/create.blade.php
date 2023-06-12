@@ -19,33 +19,34 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Naam:</label>
-                    *<input type="text" class="form-control" name="name" id="name"/>
+                    *<input type="text" class="form-control" value="{{old('name')}}" name="name" id="name"/>
+
                 </div><br>
 
                 <div class="form-group">
                     <label for="email">E-mail:</label>
-                    *<input type="text" class="form-control" name="email" id="email"/>
+                    *<input type="text" class="form-control" value="{{old('email')}}" name="email" id="email"/>
                 </div><br>
 
                 <div class="form-group">
                     <label for="phonenumber">Telefoonnummer:</label>
-                    <input type="tel" class="form-control" name="phonenumber" id="phonenumber" aria-describedby="examplenumber"/>
+                    <input type="tel" class="form-control" name="phonenumber"  value="{{old('phonenumber')}}" id="phonenumber"/>
                     <small id="examplenumber" class="form-text text-muted">Bijv: 0612345678</small>
                 </div><br>
 
                 <div class="form-group">
                     <label for="function">Functie:</label>
-                    <input type="text" class="form-control" name="function" id="function"/>
+                    <input type="text" class="form-control"  value="{{old('function')}}" name="function" id="function"/>
                 </div><br>
 
                 <div class="form-group">
                     <label for="website">Website:</label>
-                    <input type="text" class="form-control" name="website" id="website"/>
+                    <input type="text" class="form-control"  value="{{old('website')}}" name="website" id="website"/>
                 </div><br>
 
                 <div class="form-group">
                     <label for="image">Foto:</label>
-                    <input type="file" class="form-control" name="image" id="image"/>
+                    <input type="file" class="form-control"  value="{{old('image')}}" name="image" id="image"/>
                 </div><br>
 
                 <label>Groepen:*</label>
