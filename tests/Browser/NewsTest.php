@@ -22,13 +22,14 @@ class NewsTest extends DuskTestCase
         {
             $browser->visit('/')
                 ->resize(3000, 3000)
-                ->clickLink('Nieuws')
-                ->assertSee('Nieuws')
+                ->click("#navbarDropdownNieuws")
+                ->clickLink("Nieuwsartikelen")
+                ->assertSee('Nieuwsartikelen')
                 ->press("2023")
                 ->waitUntilEnabled('@click_article')
                 ->assertSee('Activiteiten 2023')
                 ->click('@fullscreen')
-                ->assertPathIs('/nieuws');
+                ->assertPathIs('/nieuwsartikel');
         });
     }
 

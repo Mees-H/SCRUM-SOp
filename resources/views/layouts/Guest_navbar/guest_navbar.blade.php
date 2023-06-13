@@ -68,14 +68,14 @@
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsartikel') ? 'font-weight-bold' : '' }}"
-                   href="/nieuwsartikel">Niewsartikelen</a>
+                   href="/nieuwsartikel">Nieuwsartikelen</a>
             </li>
             <li>
                 <hr class="dropdown-divider">
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-                   href="/nieuwsbrief">Niewsbrieven</a>
+                   href="/nieuwsbrief">Nieuwsbrieven</a>
             </li>
         </ul>
     </li>

@@ -64,14 +64,14 @@
         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsartikel') ? 'font-weight-bold' : '' }}"
-                   href="/nieuwsartikel">Niewsartikelen</a>
+                   href="/nieuwsartikel">Nieuwsartikelen</a>
             </li>
             <li>
                 <hr class="dropdown-divider">
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-                   href="/nieuwsbrief">Niewsbrieven</a>
+                   href="/nieuwsbrief">Nieuwsbrieven</a>
             </li>
         </ul>
     </li>
@@ -169,8 +169,11 @@
             <li><a class="dropdown-item text-center searchitem" href="/faq">
                     FAQ
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/nieuws">
-                    Nieuws
+            <li><a class="dropdown-item text-center searchitem" href="/nieuwsartikel">
+                    Nieuwsartikelen
+                </a></li>
+            <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
+                    Nieuwsbrieven
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/team">
                     Team
@@ -178,13 +181,14 @@
             <li><a class="dropdown-item text-center searchitem" href="/partner">
                     Partner
                 </a></li>
-            <li><a class="dropdown-it<li>
+            <li><a class="dropdown-it"></li>
                 <hr class="dropdown-divider">
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
-                   href="/privacy">Privacy</a>
-            </li>em text-center searchitem" href="/overons">
+                <a class="dropdown-item text-center searchitem" href="/privacy">
+                   Privacy
+                </a></li>
+            <li><a class="dropdown-item text-center searchitem" href="/overons">
                     Over Ons
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/locatie">
