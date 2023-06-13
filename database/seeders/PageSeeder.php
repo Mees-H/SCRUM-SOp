@@ -46,7 +46,7 @@ class PageSeeder extends Seeder
 
         Page::create([
             'id' => 6,
-            'url' => 'partner',
+            'url' => 'partners',
             'title' => 'Partners'
         ]);
 
@@ -73,5 +73,6 @@ class PageSeeder extends Seeder
             'url' => 'links',
             'title' => 'Links'
         ]);
+
     }
 }
