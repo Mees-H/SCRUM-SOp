@@ -5,6 +5,9 @@ img {
     object-fit: cover;
 }
 
+
+
+
 @media (max-width: 768px) {
     #carouselContainer {
         width: 100%;
