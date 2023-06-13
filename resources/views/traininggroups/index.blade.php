@@ -38,24 +38,26 @@
                                 </div>
                             </th>
                             <td>
-                                <div class="row">
+                                <div class="row d-flex flex-wrap">
                                     @for($i = 0; $i < $group->participants->count(); $i++)
-                                        <div class="col mb-1 mt-1">{{$group->participants[$i]->Name}}</div>
-                                        <div class="col mb-1 mt-1">
-                                            <form action="/traininggroups/participants/{{$group->participants[$i]->id}}" method="post">
-                                                @csrf
-                                                @method('DELETE')
-                                                <button class="btn btn-danger" type="submit" dusk="remove-event-button" 
-                                                alt="Verwijder knop voor {{$group->participants[$i]->Name}}">
-                                                    Verwijderen
-                                                </button>
-                                            </form>
+                                        <div class="col-md mb-1 mt-1 d-flex justify-content-between">
+                                            <div class="">{{$group->participants[$i]->Name}}</div>
+                                            <div class="">
+                                                <form action="/traininggroups/participants/{{$group->participants[$i]->id}}" method="post">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button class="btn btn-danger" type="submit" dusk="remove-event-button" 
+                                                    alt="Verwijder knop voor {{$group->participants[$i]->Name}}">
+                                                        Verwijderen
+                                                    </button>
+                                                </form>
+                                            </div>
                                         </div>
-                                        @if($i % 2 == 1)
+                                    @if($i % 2 == 1)
                                 </div>
                                 <hr>
-                                <div class="row">
-                                        @endif
+                                <div class="row d-flex flex-wrap">
+                                    @endif
                                     @endfor
                                 </div>
                             </td>

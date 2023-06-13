@@ -19,13 +19,13 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">*Naam:</label>
-                    <input type="text" class="form-control" name="name" id="name"/>
+                    <input type="text" class="form-control" name="name" id="name" value="{{old('name')}}"/>
                 </div>
             
                 <label>*Groepen:</label>
                 @foreach($groups as $group)
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" name="group" value="{{$group->id}}" id="{{$group->id}}"/>
+                    <input type="radio" class="form-check-input" name="group" value="{{$group->id}}" id="{{$group->id}}" {{ old('group') == $group->id ? 'checked' : ''}}/>
                     <label for="{{$group->id}}" class="form-check-label">{{$group->Name}}</label>
                 </div>
                 @endforeach
