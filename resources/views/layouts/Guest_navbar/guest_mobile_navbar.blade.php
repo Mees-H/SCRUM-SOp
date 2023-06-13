@@ -56,7 +56,7 @@
                     <li><a class="dropdown-item text-center" href="/vragenantwoorden">
                             FAQ
                         </a></li>
-                    <li><a class="dropdown-item text-center" href="/nieuws">
+                    <li><a class="dropdown-item text-center" href="/nieuwsbrief">
                             Nieuwsbrief
                         </a></li>
                     <li><a class="dropdown-item text-center" href="/team">
