@@ -18,7 +18,6 @@
     <link rel="stylesheet" href="{{ asset('/css/slider.css') }} ">
     <link rel="stylesheet" href="{{ asset('/css/dropdown.css') }} ">
     <link rel="stylesheet" href="{{ asset('/css/app.css')}}">
-    <link rel="stylesheet" href="{{ asset('/css/EventDetails.css') }}">
     <script src="{{ asset('/js/dropdown.js') }}" defer></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css"
@@ -52,7 +51,15 @@
        @endif
 
 <body>
+@if (auth()->guest() || Auth::user()->role != 'admin')
     @yield('content')
+@else
+<div class="container-fluid">
+    <div class="container">
+        @yield('content')
+    </div>
+</div>
+@endif
 </body>
 <footer class="footer">
     <div class="footer-content bg-light">

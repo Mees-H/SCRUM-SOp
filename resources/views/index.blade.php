@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<div class="container-fluid p-0">
+<div class="p-0">
   <div id="carouselExampleCaptions" data-bs-interval="false" class="carousel slide">
     <div class="carousel-inner">
       @foreach($sliders as $slider)
