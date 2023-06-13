@@ -2,6 +2,8 @@
 
 namespace Tests\Browser;
 
+use Carbon\Carbon;
+use Faker\Core\DateTime;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
@@ -15,7 +17,7 @@ class SignoutTrainingTest extends DuskTestCase
                 ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', 'Piet Piraat')
-                ->type('date', '06062023')
+                ->type('date', Carbon::tomorrow()->format('mdY'))
                 ->press('Afmelden')
                 ->waitForText('U heeft zich successvol afgemeld.');
         });
@@ -33,7 +35,7 @@ class SignoutTrainingTest extends DuskTestCase
             $browser->visit('/training/signout')
                 ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
-                ->type('date', '06062023')
+                ->type('date', Carbon::tomorrow())
                 ->press('Afmelden')
                 ->waitForText('Uw naam is verplicht');
 
@@ -68,7 +70,7 @@ class SignoutTrainingTest extends DuskTestCase
                 ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', 'Piet Piraat')
-                ->type('date', '06062002')
+                ->type('date', Carbon::yesterday()->format('mdY'))
                 ->press('Afmelden')
                 ->waitForText('De datum moet na de datum van vandaag liggen');
         });

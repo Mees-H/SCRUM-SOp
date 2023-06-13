@@ -10,7 +10,7 @@
        aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation"
        id="navbar_toggle">
                 <span class="img-fluid">
-                    <img id="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
+                    <img class="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
                          alt="burger menu icon"/></span>
     </a>
 
@@ -65,8 +65,8 @@
            href="/nieuws">Nieuws</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}"
-           href="/partner">Partners</a>
+        <a class="nav-link text-dark {{ (request()->segment(1) == 'partners') ? 'font-weight-bold' : '' }}"
+           href="/partners">Partners</a>
     </li>
     <li class="nav-item dropdown">
         <a dusk="organisatie" class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
@@ -98,6 +98,13 @@
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}"
                    href="/links">Links</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
+                   href="/privacy">Privacy</a>
             </li>
         </ul>
     </li>
@@ -168,7 +175,7 @@
                 <li><a class="dropdown-item text-center" href="/team">
                         Team
                     </a></li>
-                <li><a class="dropdown-item text-center" href="/partner">
+                <li><a class="dropdown-item text-center" href="/partners">
                         Partner
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/overons">
@@ -179,6 +186,9 @@
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/links">
                         Links
+                    </a></li>
+                <li><a class="dropdown-item text-center" href="/privacy">
+                        Privacy
                     </a></li>
             </ul>
         </form>
