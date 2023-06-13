@@ -6,10 +6,10 @@
              alt="logo Special Golf" id="logo"></a>
 
     <a class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#main-navbar"
-       aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation"
+       aria-controls="main-navbar" aria-label="Toggle navigation"
        id="navbar_toggle">
                 <span class="img-fluid">
-                    <img id="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
+                    <img class="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
                          alt="burger menu icon"/></span>
     </a>
     <div class="collapse navbar-collapse" id="main-navbar">
@@ -68,8 +68,8 @@
            href="/nieuws">Nieuws</a>
     </li>
     <li class="nav-item">
-        <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}"
-           href="/partner">Partners</a>
+        <a class="nav-link text-dark {{ (request()->segment(1) == 'groups') ? 'font-weight-bold' : '' }}"
+           href="/groups">Partners</a>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
@@ -124,7 +124,7 @@
         <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown">
             {{ Auth::user()->name }}
             <span class="img-fluid">
-                        <img id="burger_menu_icon" src="{{asset("/img/user.png")}}"
+                        <img class="burger_menu_icon" src="{{asset("/img/user.png")}}"
                              alt="user image"/>
                    </span>
         </a>
@@ -170,13 +170,15 @@
             <li><a class="dropdown-item text-center searchitem" href="/partner">
                     Partner
                 </a></li>
-            <li><a class="dropdown-it<li>
+            <li><a class="dropdown-it">
                 <hr class="dropdown-divider">
+                </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
                    href="/privacy">Privacy</a>
-            </li>em text-center searchitem" href="/overons">
+            </li>
+            <li><a class="dropdown-item text-center searchitem" href="/overons">
                     Over Ons
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/locatie">
@@ -185,7 +187,6 @@
             <li><a class="dropdown-item text-center searchitem" href="/links">
                     Links
                 </a></li>
-
         </ul>
     </li>
 </ul>

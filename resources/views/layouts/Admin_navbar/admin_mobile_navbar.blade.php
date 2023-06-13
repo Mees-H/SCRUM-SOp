@@ -6,7 +6,7 @@
        aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation"
        id="navbar_toggle">
                 <span class="img-fluid">
-                    <img id="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
+                    <img class="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
                          alt="burger menu icon"/></span>
     </a>
     <a class="navbar-brand text-dark" href="/">
@@ -16,7 +16,7 @@
     <div class="nav-item dropdown">
         <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown">
             <span class="img-fluid">
-                        <img id="burger_menu_icon" src="{{asset("/img/user.png")}}"
+                        <img class="burger_menu_icon" src="{{asset("/img/user.png")}}"
                              alt="user image"/>
                    </span>
         </a>
@@ -97,7 +97,7 @@
 
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
-                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                   data-bs-toggle="dropdown" aria-haspopup="true" href="#">
                     Activiteiten
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -116,7 +116,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownFotos" role="button"
-                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                   data-bs-toggle="dropdown" aria-haspopup="true" href="#">
                     Foto's
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownFotos">
@@ -147,7 +147,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
-                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                   data-bs-toggle="dropdown" aria-haspopup="true" href="#">
                     Organisatie
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">

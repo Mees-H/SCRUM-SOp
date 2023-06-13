@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\CreateUserController;
 use App\Http\Controllers\GalleryController;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\PartnerController;
 use App\Http\Controllers\NewsArticleController;
 use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\TeamController;
@@ -40,7 +41,7 @@ Route::get('/training', [NavigationController::class, 'training']);
 Route::get('/evenement', [NavigationController::class, 'evenement']);
 Route::get('/vragenantwoorden', [NavigationController::class, 'vragenantwoorden']);
 Route::get('/team', [NavigationController::class, 'team']);
-Route::get('/partner', [NavigationController::class, 'partner']);
+Route::get('/partners', [NavigationController::class, 'partners']);
 Route::get('/overons', [NavigationController::class, 'overons']);
 Route::get('/locatie', [NavigationController::class, 'locatie']);
 Route::get('/links', [NavigationController::class, 'links']);
@@ -105,7 +106,7 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('nieuws.store');
 
 
-    //Resource routes
+    //Slider routes
     Route::resource('slider', SliderController::class);
 
     //FAQ routes
@@ -117,6 +118,9 @@ Route::middleware(['role:admin'])->group(function () {
     //Team routes
     Route::resource('members', TeamController::class);
 
+    //Partner routes
+    Route::resource('groups', PartnerController::class);
+
     //Galerij routes
     Route::get('galerij/{id}/addPhoto', [GalleryController::class, 'addPhoto']);
     Route::post('/galerij/{year}/{title}/wijzigbeschrijving', [GalleryController::class, 'updateAlbumDescription']);
@@ -124,7 +128,6 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/galerij/{year}/{title}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
 
     Route::resource('galerij', GalleryController::class);
-
 
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
@@ -152,6 +155,3 @@ Route::middleware(['role:admin,coach,supervisor'])->group(function () {
 });
 
 require __DIR__ . '/auth.php';
-
-
-

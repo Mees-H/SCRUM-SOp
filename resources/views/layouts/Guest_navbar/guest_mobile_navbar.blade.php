@@ -5,7 +5,7 @@
        aria-controls="main-navbar" aria-expanded="false" aria-label="Toggle navigation"
        id="navbar_toggle">
                 <span class="img-fluid">
-                    <img id="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
+                    <img class="burger_menu_icon" src="{{asset("/img/burger-menu.png")}}"
                          alt="burger menu icon"/></span>
     </a>
     <a class="navbar-brand text-dark" href="/">
@@ -16,7 +16,7 @@
 
         <a class="btn border-0 dropdown-toggle hidden-arrow {{ (request()->segment(1) == 'profile') ? 'font-weight-bold' : '' }}" type="button" id="dropdown_account" data-bs-toggle="dropdown">
             <span class="img-fluid">
-                        <img id="burger_menu_icon" src="{{asset('/img/enter.png')}}" alt="Inloggen"/>
+                        <img class="burger_menu_icon" src="{{asset('/img/enter.png')}}" alt="Inloggen"/>
                    </span>
         </a>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown_account">

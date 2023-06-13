@@ -5,9 +5,11 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use App\Models\TeamMember;
 use App\Models\MemberGroup;
+use Exception;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
 
 class TeamController extends Controller
 {
@@ -37,6 +39,7 @@ class TeamController extends Controller
             'email' => 'required|unique:team_members,email|max:255|email',
             'phonenumber' => 'nullable|numeric|digits_between:10,10',
             'groups' => 'required'],
+            ['groups.required' => 'Selecteer minimaal 1 groep.'],
             ['phonenumber.digits_between' => 'Telefoonnummer moet 10 cijfers zijn.']);
         $member = TeamMember::create([
             'name' => $request->get('name'),
@@ -48,32 +51,9 @@ class TeamController extends Controller
         ]);
 
         //Saving image
-        if($request->hasFile('image')){
-            $destination_path = 'public/img';
-            $image = $request->file('image');
-            $image_name = $image->getClientOriginalName();
-            $path = $image->storeAs($destination_path, $image_name);
-
-            $member['imgurl'] = $image_name;
-        }
-
-        //Saving groups
-        if($request->get('groups') != null){
-            foreach($request->get('groups') as $groupId){
-                $member->groups()->save(MemberGroup::find($groupId));
-            }
-        }
-        $member->save();
+        $this->storeImage($request, $member);
 
         return redirect('members')->with('success', 'Lid opgeslagen.');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id): Response
-    {
-        //
     }
 
     /**
@@ -93,45 +73,74 @@ class TeamController extends Controller
         $request->validate([
             'name' => 'required|max:255',
             'email' => 'required|max:255|email',
-            'phonenumber' => 'nullable|numeric|digits_between:10,10'
+            'groups' => 'required',
+            'phonenumber' => 'nullable|numeric|digits_between:10,10',
+        ], ['groups.required' => 'Selecteer minimaal 1 groep.'
         ], ['phonenumber.digits_between' => 'Telefoonnummer moet 10 cijfers zijn.']);
+
+
+
         $member = TeamMember::findOrFail($id);
         $member->name = $request->get('name');
         $member->email = $request->get('email');
         $member->phonenumber = $request->get('phonenumber');
         $member->function = $request->get('function');
         $member->website = $request->get('website');
-        $member->imgurl = $request->get('image');
         $member->groups()->detach();
 
-
-        //Updating image
-        if($request->hasFile('image')){
-            $destination_path = 'public/img';
-            $image = $request->file('image');
-            $image_name = $image->getClientOriginalName();
-            $path = $request->file('image')->storeAs($destination_path, $image_name);
-
-            $member['imgurl'] = $image_name;
-        }
-
-        //Updating groups
-        if($request->get('groups') != null){
-            foreach($request->get('groups') as $groupId){
-                $member->groups()->save(MemberGroup::find($groupId));
+        //Removing image
+        if($member->imgurl != null)
+        {
+            $image = $member->imgurl;
+            if (File::exists(public_path('img\\'.$image))) {
+                File::delete(public_path('img\\'.$image));
             }
         }
-        $member->save();
+        $member->imgurl = $request->get('image');
+
+        //Updating image
+        $this->storeImage($request, $member);
 
         return redirect('members')->with('success', 'Lid aangepast.');
     }
+
 
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $id): RedirectResponse
     {
-        TeamMember::findOrFail($id)->delete();
-        return redirect('/members')->with('success', 'Lid verwijderd.');
+        try {
+            $teammember = TeamMember::findOrFail($id);
+            $teammember->groups()->detach();
+            $teammember->delete();
+            return redirect('/members')->with('success', 'Lid verwijderd.');
+        } catch (Exception $e) {
+            return redirect('/members')->with('error', 'Lid niet gevonden.');
+        }
+    }
+
+    /**
+     * @param Request $request
+     * @param $member
+     * @return void
+     */
+    public function storeImage(Request $request, $member): void
+    {
+        if ($request->hasFile('image')) {
+            $destination_path = 'img';
+            $image = $request->file('image');
+            $image_name = $image->getClientOriginalName();
+            $image->move($destination_path, $image_name);
+            $member['imgurl'] = $image_name;
+        }
+
+        //Updating groups
+        if ($request->get('groups') != null) {
+            foreach ($request->get('groups') as $groupId) {
+                $member->groups()->save(MemberGroup::find($groupId));
+            }
+        }
+        $member->save();
     }
 }
