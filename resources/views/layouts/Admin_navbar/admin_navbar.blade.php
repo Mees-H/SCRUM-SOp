@@ -56,9 +56,24 @@
         <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}"
            href="/faq">Veelgestelde vragen</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-           href="/nieuws">Nieuws</a>
+    <li class="nav-item dropdown">
+        <a dusk="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
+           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+            Nieuws
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsartikel') ? 'font-weight-bold' : '' }}"
+                   href="/nieuwsartikel">Niewsartikelen</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
+                   href="/nieuwsbrief">Niewsbrieven</a>
+            </li>
+        </ul>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'groups') ? 'font-weight-bold' : '' }}"
