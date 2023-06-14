@@ -29,8 +29,8 @@ class BannerController extends Controller
 
         $banner->move(public_path('img'), $storeImage);
 
-        Page::where('id', $id)->update(['banner_image' => $storeImage]);
+        Page::where('id', $pageId)->update(['banner_image' => $storeImage]);
 
-        return redirect('/banners')->with('success', 'Banner is aangepast');
+        return back()->with('success', 'Banner is aangepast');
     }
 }

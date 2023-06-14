@@ -120,6 +120,7 @@ Route::middleware(['role:admin'])->group(function () {
 
     //Banner routes
     Route::resource('banners', BannerController::class);
+
     //Partner routes
     Route::resource('groups', PartnerController::class);
 

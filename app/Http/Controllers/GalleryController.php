@@ -6,7 +6,7 @@ use App\Models\Album;
 use App\Models\Picture;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Requests\UploadImageRequest;
+use App\Http\Requests\UploadMultipleImagesRequest;
 use Illuminate\Support\Facades\File;
 use Image;
 use Storage;
@@ -149,7 +149,7 @@ class GalleryController extends Controller
         return redirect('/galerij')->with('success', 'Album verwijderd.');
     }
 
-    public function addAlbumPictures(UploadImageRequest $request)
+    public function addAlbumPictures(UploadMultipleImagesRequest $request)
     {
         foreach ($request->images as $image) {
             $imageNameWithExt = $image->getClientOriginalName();

@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 
-class UploadImageRequest extends FormRequest
+class UploadMultipleImagesRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -22,16 +22,17 @@ class UploadImageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => 'required|mimes:jpeg,jpg,png,bmp,gif|max: 2000'
+            'images' => 'required',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'image.required' => 'Je moet een afbeelding selecteren',
-            'image.max' => 'De file moet een afbeelding zijn',
-            'image.mimes' => 'De afbeelding moet 1 van de volgende extensies zijn: jpeg, png, jpg, gif of svg'
+            'images.required' => 'Je moet 1 of meer afbeeldingen selecteren',
+            'images.*.image' => 'De file(s) moet(en) een afbeelding zijn',
+            'images.*.mimes' => 'De afbeelding(en) moet(en) 1 van de volgende extensies zijn: jpeg, png, jpg, gif of svg'
         ];
     }
 }
