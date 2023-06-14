@@ -18,11 +18,11 @@
                             @endforeach
                         </ul>
                     </div>
-                    <br/>
+                    <br/>   
                 @endif
                 <div class="row">
                     <div class="col-md-12 text-center image-form">
-                        <x-banner-upload-form action="{{ route('banners.update') }}" label="Upload Afbeelding Voor Banner" :page-id="$page->id" />
+                        <x-banner-upload-form action="{{ route('banners.update', $page->id) }}" label="Upload Afbeelding Voor Banner" :page-id="$page->id" />
                     </div>
                 </div>
             </div>
