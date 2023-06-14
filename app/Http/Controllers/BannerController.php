@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\UploadImageRequest;
 use Illuminate\Http\Request;
 use App\Models\Page;
 use Illuminate\Http\RedirectResponse;
@@ -33,4 +34,5 @@ class BannerController extends Controller
 
         return redirect('/banners')->with('success', 'Banner is aangepast');
     }
+
 }
