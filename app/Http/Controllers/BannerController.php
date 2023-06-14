@@ -20,7 +20,7 @@ class BannerController extends Controller
         return view('banners.editBanner', ['page' => Page::findOrFail($id)]);
     }
 
-    public function update(UploadImageRequest $request)
+    public function update(UploadImageRequest $request, string $pageId)
     {
         $banner = $request->file('image');
         $imageNameWithExt = $banner->getClientOriginalName();
@@ -28,11 +28,11 @@ class BannerController extends Controller
         $imageExt = $banner->getClientOriginalExtension();
         $storeImage = $imageName . time() . "." . $imageExt;
 
-        $banner->move(public_path('img'), $storeImage);
+        $banner->move(public_path('img/banners'), $storeImage);
 
-        Page::where('id', $pageId)->update(['banner_image' => $storeImage]);
+        $dbbanner = Page::where('id', $pageId)->update(['banner_image' => $storeImage]);
 
-        return back()->with('success', 'Banner is aangepast');
+        return redirect('/banners')->with('success', 'Banner is aangepast');
     }
 
 }

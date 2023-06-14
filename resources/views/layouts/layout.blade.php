@@ -51,14 +51,14 @@
        @endif
 
 <body>
-@if (auth()->guest() || Auth::user()->role != 'admin')
-    @yield('content')
-@else
+@if (Auth::user() != null)
 <div class="container-fluid">
     <div class="container">
         @yield('content')
     </div>
 </div>
+@else
+    @yield('content')
 @endif
 </body>
 <footer class="footer">
