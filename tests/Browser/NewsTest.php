@@ -18,8 +18,6 @@ class NewsTest extends DuskTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        Storage::fake('local');
-
         $this->artisan('migrate:fresh --seed');
 
     }
