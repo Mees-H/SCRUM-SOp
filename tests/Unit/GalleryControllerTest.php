@@ -105,7 +105,7 @@ class GalleryControllerTest extends TestCase
         ]);
 
         // Act
-        $response = $this->actingAs($admin)->post(url("/galerij/{$year}/{$album->title}/verwijderfotos"), ['images' => [$pic1->id, $pic2->id]]);
+        $response = $this->actingAs($admin)->post(url("/galerij/{$album->id}/verwijderfotos"), ['images' => [$pic1->id, $pic2->id]]);
 
         // Assert that the pictures were destroyed
         $this->assertDatabaseMissing('pictures', ['id' => $pic1->id]);

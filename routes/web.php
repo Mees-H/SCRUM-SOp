@@ -83,10 +83,6 @@ Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('ni
 
 Route::resource('nieuwsBrief', NewsLetterController::class);
 
-
-//Galerij routes
-//Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-//Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 //privacyverklaring routes
 Route::get('/privacy', [App\Http\Controllers\PrivacyController::class, 'index'])->name('privacy');
 Route::get('/privacy/download', [App\Http\Controllers\PrivacyController::class, 'download'])->name('privacy.download');
@@ -122,10 +118,8 @@ Route::middleware(['role:admin'])->group(function () {
 
     //Galerij routes
     Route::get('galerij/{id}/addPhoto', [GalleryController::class, 'addPhoto']);
-    Route::post('/galerij/{year}/{title}/wijzigbeschrijving', [GalleryController::class, 'updateAlbumDescription']);
-    Route::post('/galerij/{year}/{title}/voegfotostoe', [GalleryController::class, 'addAlbumPictures'])->name('addAlbumPictures');
-    Route::post('/galerij/{year}/{title}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
-
+    Route::post('/galerij/{id}/voegfotostoe', [GalleryController::class, 'addAlbumPictures'])->name('addAlbumPictures');
+    Route::post('/galerij/{id}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
     Route::resource('galerij', GalleryController::class);
 
     //Training routes
