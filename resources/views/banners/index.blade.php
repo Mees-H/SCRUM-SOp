@@ -18,6 +18,14 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <tr>
+                        <td>Slider</td>
+                        <td>
+                        </td>
+                        <td>
+                            <a class="btn btn-info" href="/slider">Slider aanpassen</a>
+                        </td>
+                    </tr>
                     @foreach($pages as $page)
                         <tr>
                             <td>{{$page->title}}</td>
