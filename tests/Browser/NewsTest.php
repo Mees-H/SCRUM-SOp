@@ -6,6 +6,7 @@ use App\Models\NewsArticle;
 use App\Models\NewsLetter;
 use App\Models\User;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Illuminate\Support\Facades\Storage;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 use Illuminate\Foundation\Testing\DatabaseTruncation;
@@ -13,13 +14,17 @@ use Illuminate\Foundation\Testing\DatabaseTruncation;
 class NewsTest extends DuskTestCase
 {
     use DatabaseTruncation;
+    protected function setUp(): void
+    {
+        parent::setUp();
+        $this->artisan('migrate:fresh --seed');
+        Storage::fake('local');
 
+
+    }
     public function testNieuwsArtikelPage(): void
     {
-        $this->artisan('db:seed');
-
-        $this->browse(function (Browser $browser)
-        {
+        $this->browse(function (Browser $browser) {
             $browser->visit('/')
                 ->resize(3000, 3000)
                 ->click("#navbarDropdownNieuws")
@@ -28,16 +33,29 @@ class NewsTest extends DuskTestCase
                 ->press("2023")
                 ->waitUntilEnabled('@click_article')
                 ->assertSee('Activiteiten 2023')
-                ->click('@fullscreen')
                 ->assertPathIs('/nieuwsartikel');
         });
     }
 
 
+    public function testNieuwsBriefPage(): void
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                ->resize(3000, 3000)
+                ->click("#navbarDropdownNieuws")
+                ->clickLink("Nieuwsbrieven")
+                ->assertSee('Nieuwsbrieven')
+                ->press("2023")
+                ->waitUntilEnabled('@click_newsletter')
+                ->assertSee('Nieuwsbrief van 31-01')
+                ->click('@fullscreen')
+                ->assertPathIs('/nieuwsbrief');
+        });
+    }
+
     public function testCreateArticle(): void
     {
-        $this->artisan('db:seed');
-
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuwsartikel')
@@ -56,7 +74,6 @@ class NewsTest extends DuskTestCase
 
     public function testFailCreateArticle(): void
     {
-        $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuwsartikel')
@@ -73,7 +90,6 @@ class NewsTest extends DuskTestCase
 
     public function testEditArticle(): void
     {
-        $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuwsartikel')
@@ -93,7 +109,6 @@ class NewsTest extends DuskTestCase
 
     public function testFailEditArticle(): void
     {
-        $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuwsartikel')
@@ -111,7 +126,6 @@ class NewsTest extends DuskTestCase
 
     public function testDeleteArticle(): void
     {
-        $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuwsartikel')
@@ -122,11 +136,8 @@ class NewsTest extends DuskTestCase
         });
     }
 
-
-
     public function testCreateNewsletter(): void
     {
-        $this->artisan('db:seed');
         $newsletter = NewsLetter::factory()->create();
 
         $this->browse(function (Browser $browser) use ($newsletter) {
@@ -144,7 +155,6 @@ class NewsTest extends DuskTestCase
 
     public function testFailCreateNewsletter(): void
     {
-        $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuwsbrief')
@@ -159,7 +169,6 @@ class NewsTest extends DuskTestCase
 
     public function testEditNewsLetter(): void
     {
-        $this->artisan('db:seed');
         $newsletter = NewsLetter::factory()->create();
 
         $this->browse(function (Browser $browser) use ($newsletter) {
@@ -178,7 +187,6 @@ class NewsTest extends DuskTestCase
 
     public function testFailEditNewsLetter(): void
     {
-        $this->artisan('db:seed');
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuwsbrief')
@@ -192,18 +200,16 @@ class NewsTest extends DuskTestCase
     }
     public function testDeleteNewsLetter(): void
     {
-        $this->artisan('db:seed');
         $newsletter = NewsLetter::factory()->create();
 
         $this->browse(function (Browser $browser) use ($newsletter) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuwsbrief')
                 ->resize(3000, 3000)
-                ->click('@eventNieuwsbrief'. $newsletter->id . '_verwijder')
-                ->press( "Verwijder nieuwsbrief")
+                ->click('@eventNieuwsbrief' . $newsletter->id . '_verwijder')
+                ->press("Verwijder nieuwsbrief")
                 ->assertPathIs('/nieuwsbrief')
                 ->assertSee('Nieuwsbrief verwijderd.');
-
-            });
+        });
     }
 }
