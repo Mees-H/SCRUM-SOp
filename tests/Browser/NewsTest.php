@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 use Illuminate\Foundation\Testing\DatabaseTruncation;
+use Illuminate\Http\UploadedFile;
 
 class NewsTest extends DuskTestCase
 {
@@ -17,9 +18,9 @@ class NewsTest extends DuskTestCase
     protected function setUp(): void
     {
         parent::setUp();
-        $this->artisan('migrate:fresh --seed');
         Storage::fake('local');
 
+        $this->artisan('migrate:fresh --seed');
 
     }
     public function testNieuwsArtikelPage(): void
@@ -177,7 +178,6 @@ class NewsTest extends DuskTestCase
                 ->resize(3000, 3000)
                 ->clickLink("Pas nieuwsbrief aan")
                 ->type('date', '552023')
-                ->screenshot('nieuwsscreenshot')
                 ->attach('file', $newsletter->pdf)
                 ->press('Wijzig nieuwsbrief')
                 ->assertPathIs('/nieuwsbrief')
@@ -200,16 +200,17 @@ class NewsTest extends DuskTestCase
     }
     public function testDeleteNewsLetter(): void
     {
-        $newsletter = NewsLetter::factory()->create();
+        $newsLetter = NewsLetter::factory()->create();
 
-        $this->browse(function (Browser $browser) use ($newsletter) {
+        $this->browse(function (Browser $browser) use ($newsLetter) {
             $browser->loginAs(User::find(1));
             $browser->visit('/nieuwsbrief')
                 ->resize(3000, 3000)
-                ->click('@eventNieuwsbrief' . $newsletter->id . '_verwijder')
+                ->click('@eventNieuwsbrief' . $newsLetter->id . '_verwijder')
                 ->press("Verwijder nieuwsbrief")
                 ->assertPathIs('/nieuwsbrief')
                 ->assertSee('Nieuwsbrief verwijderd.');
         });
     }
+
 }
