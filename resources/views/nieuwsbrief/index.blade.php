@@ -15,7 +15,7 @@
                     </div>
                 </div>
             @endif
-            {{-- @include('components.SideBar.SideBarNavigation', ['articles' => $articles], ['years' => $years]) --}}
+            @include('components.SideBar.news-letters-side-bar-navigation', ['newsLetters' => $newsLetters], ['years' => $years])
         </div>
         <div class="col-md-9">
             <div>
@@ -42,8 +42,8 @@
                                     <div class="form-group">
                                         <label for="sort" class="overflow-x-auto m-1">Sorteren op:</label>
                                         <select class="form-select" id="sort" name="sort" onchange="this.form.submit()">
-                                            <option value="date_desc" class="dropdown-item" selected>Datum Aflopend</option>
-                                            <option value="date_asc" class="dropdown-item">Datum Oplopend</option>
+                                        <option value="date_desc" class="dropdown-item">Datum Aflopend</option>
+                                        <option value="date_asc" class="dropdown-item">Datum Oplopend</option>
                                         </select>
                                     </div>
                                 </form>
@@ -55,6 +55,8 @@
                         <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
                         <ul class="list-unstyled">
                             @foreach ($newsLetters as $newsLetter)
+                            <div id="{{$newsLetter->id}}" class="row card-body">
+
                                 <li class="pb-3 border-top">
                                     <div class="d-flex justify-content-between mt-3">
                                         <h3>Datum: {{ \Carbon\Carbon::parse($newsLetter->date)->format('d-m-Y') }}</h3>
@@ -90,6 +92,7 @@
                                     </aside>
                                 @endif
                                 </li>
+                            </div>
                             @endforeach
                         </ul>
                     </div>

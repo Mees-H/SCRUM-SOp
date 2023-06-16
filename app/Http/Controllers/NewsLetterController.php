@@ -111,13 +111,12 @@ class NewsLetterController extends Controller
         //filter on date descending
         public function filterDateDesc($view){
 
-            $newsLetters = Newsletter::all()->sortByDesc('date');
-
+            $newsLetters = NewsLetter::all()->sortByDesc('date');
             return view($view, ['years' => $this->getYears()->toArray()], compact('newsLetters'));
         }
         //filter on date ascending
         public function filterDateAsc($view){
-            $newsLetters = Newsletter::all()->sortBy('date');
+            $newsLetters = NewsLetter::all()->sortBy('date');
 
             return view($view, ['years' => $this->getYears()->toArray()], compact('newsLetters'));
         }
