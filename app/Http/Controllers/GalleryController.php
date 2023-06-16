@@ -93,9 +93,11 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:255|not_regex:/[\/#?&=\\\\]/',
             'description' => 'required|max:999',
             'date' => 'required'
+        ], [
+            'title.not_regex' => 'De titel mag de volgende karakters niet bevatten: \ / # ? & ='
         ]);
 
         $album = new Album();
@@ -122,9 +124,11 @@ class GalleryController extends Controller
     public function update(Request $request, string $id)
     {
         $attributes = $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:255|not_regex:/[\/#?&=\\\\]/',
             'description' => 'required|max:999',
             'date' => 'required'
+        ], [
+            'title.not_regex' => 'De titel mag de volgende karakters niet bevatten: \ / # ? & ='
         ]);
 
         Album::where('id', $id)->update(['title' => $attributes['title'], 'description' => $attributes['description'], 'date' => $attributes['date']]);
