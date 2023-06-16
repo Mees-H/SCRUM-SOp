@@ -8,6 +8,6 @@
         <input type="file" class="form-control" name="image" id="image">
     </div>
     <div class="m-5">
-        <button class="btn btn-primary">Upload Banner</button>
+        <button dusk="upload" class="btn btn-primary">Upload Banner</button>
     </div>
 </form>

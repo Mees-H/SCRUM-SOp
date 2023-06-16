@@ -34,7 +34,7 @@
                                 <form action="{{ route('banners.edit', $page->id)}}" method="GET">
                                     @csrf
                                     <input type="hidden" name="page_id" value="{{ $page->id }}">
-                                    <button type="submit" class="btn btn-primary wide-button">Bannerfoto aanpassen</button>
+                                    <button dusk="aanpassen" type="submit" class="btn btn-primary wide-button">Bannerfoto aanpassen</button>
                                 </form>
                             </td>
                         </tr>
