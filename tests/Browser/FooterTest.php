@@ -14,7 +14,7 @@ class FooterTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->loginAs(User::find(1))
-                ->visit('/footer/edit/')
+                ->visit('/footer/edit')
                 ->resize(3000,3000)
                 ->assertSee('Footer aanpassen')
                 ->type('email', 'test@gmail.com')
@@ -22,7 +22,7 @@ class FooterTest extends DuskTestCase
                 ->type('KvKnr', '12345678')
                 ->type('RSIN', '123456789')
                 ->press('footerknop')
-                ->assertRedirect('/footer/edit/');
+                ->assertPathIs('/footer/edit');
         });
     }
 
