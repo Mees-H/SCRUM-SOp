@@ -44,17 +44,15 @@
                     <li><a class="dropdown-item text-center" href="/evenement">
                             Evenementen
                         </a></li>
-                    <li><a class="dropdown-item text-center" href="/albums/2023">
-                            2023
-                        </a></li>
-                    <li><a class="dropdown-item text-center" href="/albums/2022">
-                            2022
-                        </a></li>
-                    <li><a class="dropdown-item text-center" href="/albums/2021">
-                            2021
-                        </a></li>
+                    @if(count($allYears) > 0)
+                        @foreach($allYears as $year)
+                            <li><a class="dropdown-item text-center" href="/albums/{{$year}}">
+                                Galerij {{$year}}
+                            </a></li>
+                    @endforeach
+                    @endif
                     <li><a class="dropdown-item text-center" href="/vragenantwoorden">
-                            FAQ
+                            Veelgestelde vragen
                         </a></li>
                     <li><a class="dropdown-item text-center" href="/nieuws">
                             Nieuwsbrief
