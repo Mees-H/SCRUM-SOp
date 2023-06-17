@@ -10,6 +10,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 
@@ -57,6 +58,21 @@ class RegisteredUserController extends Controller
 
         User::find($request->id)->delete();
 
-        return back()->with('success', 'Gebruiker verwijderd!');
+        return back()->with('success', 'Gebruiker gearchiveerd!');
+    }
+
+    public function permanentlyDelete(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'id'=> [
+                'required',
+                Rule::exists('users', 'id')->whereNotNull('deleted_at'),
+                'not_in:'.auth()->user()->id,
+            ],
+        ]);
+
+        User::withTrashed()->find($request->id)->forceDelete();
+
+        return back()->with('success', 'Gebruiker permanent verwijderd!');
     }
 }
