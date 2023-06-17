@@ -56,7 +56,7 @@
                                 <form method="post" action="/admin/unarchive">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$user->id}}">
-                                    <button type="submit" dusk="dearchiveUser{{$user->id}}" class="btn btn-success">Dearchiveren</button>
+                                    <button type="submit" dusk="dearchiveUser{{$user->id}}" class="btn btn-primary">Dearchiveren</button>
                                 </form>
 
                             @endif
