@@ -3,8 +3,6 @@
 namespace Tests\Browser;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
-use Illuminate\Foundation\Testing\DatabaseTruncation;
 use Laravel\Dusk\Browser;
 use Tests\DuskTestCase;
 
@@ -78,7 +76,6 @@ class RemoveUserTest extends DuskTestCase
                     ->type('password', 'Ab12345!')
                     ->press('Inloggen')
                     ->visit('/admin/gebruikers')
-                    ->resize(3000,3000)
                     ->assertSee('gebruikers')
                     ->assertPathIs('/admin/gebruikers')
                     ->assertSee($user->email)
@@ -113,13 +110,10 @@ class RemoveUserTest extends DuskTestCase
                 //login as admin
                 $browser->visit('/login')
                     ->resize(3000,3000)
-                    ->screenshot("logoutarchiveuserblaalb")
-
                     ->type('email', $admin->email)
                     ->type('password', 'Ab12345!')
                     ->press('Inloggen')
                     ->visit('/admin/gebruikers')
-                    ->resize(3000,3000)
                     ->assertSee('gebruikers')
                     ->assertPathIs('/admin/gebruikers')
                     ->assertSee($user->email)
