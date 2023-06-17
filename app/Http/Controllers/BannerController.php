@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Page;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\File;
 
 class BannerController extends Controller
 {
@@ -30,7 +31,13 @@ class BannerController extends Controller
 
         $banner->move(public_path('img/banners'), $storeImage);
 
-        $dbbanner = Page::where('id', $pageId)->update(['banner_image' => $storeImage]);
+        $banner = Page::where('id', $pageId)->first();
+
+        if (File::exists(public_path('img\\banners\\'.$banner->banner_image))) {
+            File::delete(public_path('img\\banners\\'.$banner->banner_image));
+        }
+        
+        $banner->update(['banner_image' => $storeImage]);
 
         return redirect('/banners')->with('success', 'Banner is aangepast');
     }
