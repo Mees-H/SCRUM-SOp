@@ -62,7 +62,7 @@
                             Galerij
                         </a></li>
                     <li><a class="dropdown-item text-center searchitem" href="/faq">
-                            FAQ
+                            Veelgestelde vragen
                         </a></li>
                     <li><a class="dropdown-item text-center searchitem" href="/nieuws">
                             Nieuwsbrief
