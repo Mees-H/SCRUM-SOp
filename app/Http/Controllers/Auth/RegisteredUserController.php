@@ -75,4 +75,19 @@ class RegisteredUserController extends Controller
 
         return back()->with('success', 'Gebruiker permanent verwijderd!');
     }
+
+    public function unarchive(Request $request): RedirectResponse
+    {
+        $request->validate([
+            'id'=> [
+                'required',
+                Rule::exists('users', 'id')->whereNotNull('deleted_at'),
+                'not_in:'.auth()->user()->id,
+            ],
+        ]);
+
+        User::withTrashed()->find($request->id)->restore();
+
+        return back()->with('success', 'Gebruiker hersteld!');
+    }
 }
