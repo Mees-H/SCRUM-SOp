@@ -49,12 +49,13 @@
                     <input type="file" class="form-control"  value="{{old('image')}}" name="image" id="image"/>
                 </div><br>
 
-                <label>Groepen:*</label>
+                <label>Groepen:</label>
                 @foreach($groups as $group)
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"/>
-                    <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
-                </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"
+                            @if(in_array($group->id, old('groups', []))) checked @endif />
+                        <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
+                    </div>
                 @endforeach
                 <br>
 
