@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Exception;
 use Illuminate\Http\Request;
 use App\Models\Slider;
 use Illuminate\Database\Seeder;
@@ -55,7 +56,7 @@ class SliderController extends Controller
             ]);
             return redirect('slider')->with('success', 'Afbeelding is succesvol geüpload');
         }
-        catch (\Exception $e){
+        catch (Exception $e){
             return redirect('slider/create')->with('error', $e->getMessage());
         }
 
