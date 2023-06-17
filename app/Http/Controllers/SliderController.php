@@ -2,13 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Exception;
 use Illuminate\Http\Request;
 use App\Models\Slider;
-use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
-use Illuminate\Support\Facades\Redirect;
+use PHPUnit\Framework\Error;
 
 class SliderController extends Controller
 {
@@ -43,7 +40,7 @@ class SliderController extends Controller
     {
         try{
             $request->validate([
-            'image' => 'required|image|max:2048'
+            'slider_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             ]);
             $uploadImage = $request->file('image');
             $imageNameWithExt = $uploadImage->getClientOriginalName();
@@ -56,8 +53,8 @@ class SliderController extends Controller
             ]);
             return redirect('slider')->with('success', 'Afbeelding is succesvol geüpload');
         }
-        catch (Exception $e){
-            return redirect('slider/create')->with('error', $e->getMessage());
+        catch (Error $e){
+            return redirect('slider/create')->withErrors($e->getMessage())->withInput();
         }
 
     }
