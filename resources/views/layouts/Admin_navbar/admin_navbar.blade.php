@@ -142,7 +142,7 @@
             <li><a class="dropdown-item text-center searchitem" href="/">
                     Hoofdpagina
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/training">
+            <li><a class="dropdown-item text-center searchitem" href="/trainingsessions">
                     Trainingen
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/evenement">
@@ -157,19 +157,15 @@
             <li><a class="dropdown-item text-center searchitem" href="/nieuws">
                     Nieuws
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/team">
+            <li><a class="dropdown-item text-center searchitem" href="/members">
                     Team
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/partner">
+            <li><a class="dropdown-item text-center searchitem" href="/groups">
                     Partner
                 </a></li>
-            <li><a class="dropdown-it">
-                <hr class="dropdown-divider">
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
-                   href="/privacy">Privacy</a>
+            <li><a class="dropdown-item text-center searchitem" href="/privacy/edit">
+                    Privacy
+                </a></li>
             </li>
             <li><a class="dropdown-item text-center searchitem" href="/overons">
                     Over Ons
