@@ -98,7 +98,8 @@
                                 </li>
                             @endforeach
                         </ul>
-                    </nav>
+                    </article>
+                @endforeach
                 </div>
             </div>
             <div class="col-md">
