@@ -17,7 +17,7 @@
                 <span class="requiredStar">*</span>Email
             </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="email" name="email">
+                <input type="text" class="form-control" id="email" name="email" required>
             </div>
             @error('email')
             <div class="alert alert-danger">{{ $message }}</div>

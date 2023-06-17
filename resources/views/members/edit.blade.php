@@ -20,13 +20,13 @@
             @csrf
             <div class="form-group">
                 <label for="name">Naam:
-                *<input type="text" class="form-control" name="name" value="{{$member->name}}"/>
+                *<input type="text" class="form-control" name="name" value="{{$member->name}}" required/>
                 </label>
             </div><br>
 
             <div class="form-group">
                 <label for="email">E-mail:</label>
-                *<input type="text" class="form-control" name="email" id="email" value="{{$member->email}}"/>
+                *<input type="text" class="form-control" name="email" id="email" value="{{$member->email}}" required/>
             </div><br>
 
             <div class="form-group">

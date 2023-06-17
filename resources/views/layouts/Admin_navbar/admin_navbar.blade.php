@@ -137,7 +137,7 @@
     </li>
     <li id="searchNavBar">
         <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search"
-               placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+               placeholder="Zoek hier..." aria-label="Zoeken" autocomplete="off" onkeyup="FilterWords()">
         <ul class="border border-dark rounded d-none" id="content">
             <li><a class="dropdown-item text-center searchitem" href="/">
                     Hoofdpagina
@@ -145,7 +145,7 @@
             <li><a class="dropdown-item text-center searchitem" href="/trainingsessions">
                     Trainingen
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/evenement">
+            <li><a class="dropdown-item text-center searchitem" href="/events">
                     Evenementen
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/galerij">

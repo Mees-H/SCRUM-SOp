@@ -146,7 +146,7 @@
     <li class="nav-item" id="searchNavBar">
         <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#">
             <input dusk="search" class="form-control mr-sm-2 search" id="dropdown" type="search" name="search"
-                   placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+                   placeholder="Zoek hier..." aria-label="Zoeken" autocomplete="off" onkeyup="FilterWords()">
             <ul class="border border-dark rounded d-none" id="content">
                 <li><a class="dropdown-item text-center" href="/">
                         Hoofdpagina

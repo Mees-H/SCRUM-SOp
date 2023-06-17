@@ -36,15 +36,15 @@
                                 <div class="col-sm-7">
                                     <div class="row">
                                         <div class="col-6">
-                                            <input class="form-control form-control-lg mb-2" type="text" placeholder="Titel *" name="title" value="{{$editArticle->title}}">
+                                            <input class="form-control form-control-lg mb-2" type="text" placeholder="Titel *" name="title" value="{{$editArticle->title}}" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{$editArticle->date}}">
+                                            <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{$editArticle->date}}" required>
                                         </div>
                                     </div>
-                                    <textarea class="form-control mb-2" rows="7" placeholder="Beschrijving *" name="body">{{$editArticle->body}}</textarea>
+                                    <textarea class="form-control mb-2" rows="7" placeholder="Beschrijving *" name="body" required>{{$editArticle->body}}</textarea>
                                 </div>
 
                                 <aside class="col-sm-5">

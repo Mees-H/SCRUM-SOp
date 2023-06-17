@@ -18,13 +18,13 @@
             <form method="post" action="{{ route('events.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="title">Titel:</label>
-                    <input type="text" class="form-control" name="title" id="title"/>
+                <span class="requiredStar">*</span><label for="title">Titel:</label>
+                    <input type="text" class="form-control" name="title" id="title" required/>
                 </div>
 
                 <div class="form-group">
-                    <label for="date">Datum:</label>
-                    <input type="date" class="form-control" name="date" id="date"  placeholder="dd-mm-yyyy"/>
+                <span class="requiredStar">*</span><label for="date">Datum:</label>
+                    <input type="date" class="form-control" name="date" id="date"  placeholder="dd-mm-yyyy" required/>
                 </div>
 
                 <div class="form-group">
@@ -43,8 +43,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="body">Beschrijving:</label>
-                    <textarea rows="5" class="form-control" name="body" id="body"></textarea>
+                <span class="requiredStar">*</span><label for="body">Beschrijving:</label>
+                    <textarea rows="5" class="form-control" name="body" id="body" required></textarea>
                 </div>
 
                 <label>Groepen:</label>

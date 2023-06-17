@@ -36,9 +36,9 @@
                                         @csrf
                                         <div class="row card-body">
                                             <div class="col-sm-7">
-                                                <label for="date" class="form-label">Datum</label>
+                                                <span class="requiredStar">*</span><label for="date" class="form-label">Datum</label>
                                                 <label>
-                                                    <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date">
+                                                    <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" required>
                                                 </label>
                                                 <label for="file" class="form-label">PDF bestand</label>
                                                 <input class="form-control" type="file" name="file" id="file">

@@ -19,13 +19,13 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Naam:</label>
-                    *<input type="text" class="form-control" value="{{old('name')}}" name="name" id="name"/>
+                    *<input type="text" class="form-control" value="{{old('name')}}" name="name" id="name" required/>
 
                 </div><br>
 
                 <div class="form-group">
                     <label for="email">E-mail:</label>
-                    *<input type="text" class="form-control" value="{{old('email')}}" name="email" id="email"/>
+                    *<input type="text" class="form-control" value="{{old('email')}}" name="email" id="email" required/>
                 </div><br>
 
                 <div class="form-group">

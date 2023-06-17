@@ -5,7 +5,7 @@
     <input type="hidden" name="album_id" value="{{ $albumId }}">
     <div class="m-5">
         <h3 class="float-start mb-5">{{ $label }}</h3>
-        <input type="file" class="form-control p-1" name="images[]" id="image" multiple>
+        <input type="file" class="form-control p-1" name="images[]" id="image" multiple required>
     </div>
     <div class="m-5">
         <button class="btn btn-primary">Upload Afbeeldingen</button>

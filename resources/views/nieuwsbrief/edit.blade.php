@@ -36,9 +36,9 @@
                                         @csrf
                                         <div class="row card-body">
                                             <div class="col-sm-9">
-                                                <label for="date" class="form-label">Datum</label>
+                                                <span class="requiredStar">*</span><label for="date" class="form-label">Datum</label>
                                                 <label>
-                                                    <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}">
+                                                    <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}" required>
                                                 </label>
                                                 <label for="file" class="form-label">PDF bestand</label>
                                                 <div class="pdf-container mb-2">

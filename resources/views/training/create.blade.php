@@ -19,26 +19,26 @@
             <form method="post" action="{{ route('trainingsessions.store') }}">
                 @csrf
                 <div class="form-group">
-                    <label for="date">Datum:</label>
-                    <input type="date" class="form-control" name="date" id="date" placeholder="dd-mm-yyyy"/>
+                    <span class="requiredStar">*</span><label for="date">Datum:</label>
+                    <input type="date" class="form-control" name="date" id="date" placeholder="dd-mm-yyyy" required/>
                 </div><br>
         
                 <div class="form-group">
-                    <label for="starttime">Begintijd:</label>
-                    <input type="time" class="form-control" name="starttime" id="starttime"/>
+                    <span class="requiredStar">*</span><label for="starttime">Begintijd:</label>
+                    <input type="time" class="form-control" name="starttime" id="starttime" required/>
                 </div><br>
                 
                 <div class="form-group">
-                    <label for="endtime">Eindtijd:</label>
-                    <input type="time" class="form-control" name="endtime" id="endtime"/>
+                    <span class="requiredStar">*</span><label for="endtime">Eindtijd:</label>
+                    <input type="time" class="form-control" name="endtime" id="endtime" required/>
                 </div><br>
         
                 <div class="form-group">
-                    <label for="body">Beschrijving:</label>
-                    <textarea rows="5" class="form-control" name="body" id="body"></textarea>
+                    <span class="requiredStar">*</span><label for="body">Beschrijving:</label>
+                    <textarea rows="5" class="form-control" name="body" id="body" required></textarea>
                 </div><br>
                 
-                <label class="form-check-label">Trainingsgroep:</label>
+                <span class="requiredStar">*</span><label class="form-check-label">Trainingsgroep:</label>
                 @foreach($groups as $group)
                 <div class="form-check">
                     <input type="radio" class="form-check-input" value="{{$group->GroupNumber}}" name="group" id="{{$group->Name}}"/>

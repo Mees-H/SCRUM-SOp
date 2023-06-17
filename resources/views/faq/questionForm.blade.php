@@ -23,7 +23,7 @@
                             <span class="requiredStar">*</span>Voor- en achternaam
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name" value="{{old('name')}}">
+                            <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name" value="{{old('name')}}" required>
                         </div>
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -34,7 +34,7 @@
                             <span class="requiredStar">*</span>Email adres
                         </label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="email" placeholder="bv: jandegraaf@gmail.com" name="email"  value="{{old('email')}}">
+                            <input type="email" class="form-control" id="email" placeholder="bv: jandegraaf@gmail.com" name="email"  value="{{old('email')}}" required>
                             <div class="form-text">Het antwoord op uw vraag zal u ontvangen op dit e-mail adres.</div>
                         </div>
                         @error('email')
@@ -47,7 +47,7 @@
                         </label>
                         <div class="col-sm-8">
                             <textarea type="text" class="form-control" id="question" placeholder="Vul hier uw vraag in"
-                                name="question">{{old('question')}}</textarea>
+                                name="question" required>{{old('question')}}</textarea>
                         </div>
                         @error('question')
                         <div class="alert alert-danger">{{ $message }}</div>

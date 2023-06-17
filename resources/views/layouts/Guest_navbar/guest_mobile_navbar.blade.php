@@ -33,7 +33,7 @@
         <li class="nav-item" id="searchNavBar">
             <form class="form-inline my-2 my-lg-0 position-relative justify-content-center d-flex" method="GET" action="#">
                 <input class="form-control align-content-center search" id="dropdown" type="search" name="search"
-                       placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+                       placeholder="Zoek hier..." aria-label="Zoeken" autocomplete="off" onkeyup="FilterWords()">
                 <ul class="border border-dark rounded d-none" id="content">
                     <li><a class="dropdown-item text-center" href="/">
                             Hoofdpagina

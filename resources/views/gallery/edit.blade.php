@@ -31,18 +31,18 @@
                     <div class="form-group">
 
                         <span class="requiredStar">*</span><label for="title">Titel:</label>
-                        <input type="text" class="form-control" name="title" value="{{ $album->title }}" id="title"/>
+                        <input type="text" class="form-control" name="title" value="{{ $album->title }}" id="title" required/>
                     </div>
 
                     <div class="form-group">
                         <span class="requiredStar">*</span><label for="description">Omschrijving:</label>
                         <textarea rows="5" class="form-control" name="description"
-                                  id="description">{{ $album->description }}</textarea>
+                                  id="description" required>{{ $album->description }}</textarea>
                     </div>
 
                     <div class="form-group">
                         <span class="requiredStar">*</span><label for="date">Datum:</label>
-                        <input type="date" class="form-control" name="date" value="{{ $album->date }}" id="date"/>
+                        <input type="date" class="form-control" name="date" value="{{ $album->date }}" id="date" required/>
                     </div>
                 </form>
             </div>

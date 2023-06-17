@@ -18,12 +18,12 @@
         @method('PATCH') 
         @csrf
         <div class="form-group">
-            <label for="vraag">Vraag:</label>
+            <span class="requiredStar">*</span><label for="vraag">Vraag:</label>
             <input type="text" class="form-control" name="vraag" value="{{ $FAQ->question }}" id="vraag" required/>
         </div>
 
         <div class="form-group">
-            <label for="antwoord">Antwoord:</label>
+            <span class="requiredStar">*</span><label for="antwoord">Antwoord:</label>
             <input type="text" class="form-control" name="antwoord" value="{{ $FAQ->answer }}" id="antwoord" required/>
         </div>
 

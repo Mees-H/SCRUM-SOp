@@ -25,7 +25,7 @@
                         </label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name"
-                                   value="{{old('name')}}">
+                                   value="{{old('name')}}" required>
                         </div>
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -37,7 +37,7 @@
                         </label>
                         <div class="col-sm-8">
                             <input type="date" class="form-control" id="birthday" name="birthday" placeholder="dd-mm-yyyy"
-                                   value="{{old('birthday')}}">
+                                   value="{{old('birthday')}}" required>
                         </div>
                         @error('birthday')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -102,7 +102,7 @@
                         </label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control" id="email" placeholder="bv: jandegraaf@gmail.com"
-                                   name="email" value="{{old('email')}}">
+                                   name="email" value="{{old('email')}}" required>
                         </div>
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -114,7 +114,7 @@
                         </label>
                         <div class="col-sm-8">
                             <input type="tel" class="form-control" id="phonenumber" placeholder="bv: 0612345678"
-                                   name="phonenumber" value="{{old('phonenumber')}}">
+                                   name="phonenumber" value="{{old('phonenumber')}}" required>
                         </div>
                         @error('phonenumber')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -126,7 +126,7 @@
                         </label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="address" placeholder="bv: Bakkerweg 12"
-                                   name="address" value="{{old('address')}}">
+                                   name="address" value="{{old('address')}}" required>
                         </div>
                         @error('address')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -138,7 +138,7 @@
                         </label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control" id="city" placeholder="bv: 's Hertogenbosch"
-                                   name="city" value="{{old('city')}}">
+                                   name="city" value="{{old('city')}}" required>
                         </div>
                         @error('city')
                         <div class="alert alert-danger">{{ $message }}</div>
