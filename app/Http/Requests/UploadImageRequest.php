@@ -22,7 +22,7 @@ class UploadImageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'image' => 'required|mimes:jpeg,jpg,png,bmp,gif|max: 2000'
+            'image' => 'required|mimes:jpeg,jpg,png,bmp|max: 2000'
         ];
     }
 
@@ -30,8 +30,8 @@ class UploadImageRequest extends FormRequest
     {
         return [
             'image.required' => 'Je moet een afbeelding selecteren',
-            'image.max' => 'De file moet een afbeelding zijn',
-            'image.mimes' => 'De afbeelding moet 1 van de volgende extensies zijn: jpeg, png, jpg, gif of svg'
+            'image.max' => 'De file moet kleiner dan 2000kb zijn',
+            'image.mimes' => 'De file moet een afbeelding zijn (jpeg, jpg, png of bmp)'
         ];
     }
 }
