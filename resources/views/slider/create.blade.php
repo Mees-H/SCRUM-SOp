@@ -18,7 +18,7 @@
                     @csrf
                     <div class="m-5">
                         <h1 class="float-start mb-5 display-3">Upload afbeelding voor slider</h1>
-                        <input type="file" class="form-control form-control-lg" name="slider_image" id="slider_image">
+                        <input type="file" class="form-control form-control-lg" name="image" id="image">
                     </div>
                     <div class="m-5">
                         <button class="btn btn-primary">Upload Afbeelding</button>
