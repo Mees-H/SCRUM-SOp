@@ -74,5 +74,11 @@ class PageSeeder extends Seeder
             'title' => 'Links'
         ]);
 
+        Page::create([
+            'id' => 11,
+            'url' => 'privacy',
+            'title' => 'Privacy'
+        ]);
+
     }
 }

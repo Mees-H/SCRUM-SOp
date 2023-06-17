@@ -287,3 +287,12 @@ td {
 .table td {
     padding: 5px; 
 }
+
+.bannerimage {
+    max-height: 400px;
+    pointer-events: none;
+}
+
+.bannercontainer {
+    user-select: none;
+}
