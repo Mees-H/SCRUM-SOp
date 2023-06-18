@@ -30,7 +30,7 @@
                     @if($page->banner_image != '')
                     <td>
                         <div class="indexbanner-box">
-                            <img src="{{ asset('/img/banners/'.$page->banner_image) }}" class="indexbanner"/>
+                            <img src="{{ asset('/img/banners/'.$page->banner_image) }}" class="indexbanner" dusk="banner"/>
                         </div>
                     </td>
                     @else
@@ -40,7 +40,7 @@
                         <form action="{{ route('banners.edit', $page->id)}}" method="GET">
                             @csrf
                             <input type="hidden" name="page_id" value="{{ $page->id }}">
-                            <button dusk="aanpassen" type="submit" class="btn btn-primary wide-button">Bannerfoto aanpassen</button>
+                            <button dusk="{{ $page->title }}_banner_aanpassen" type="submit" class="btn btn-primary wide-button">Bannerfoto aanpassen</button>
                         </form>
                     </td>
                 </tr>
