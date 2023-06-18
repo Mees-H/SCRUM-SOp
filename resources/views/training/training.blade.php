@@ -3,53 +3,36 @@
 @section('content')
 <div class="container">
     <h1>Trainingen</h1>
-    @foreach($trainingGroups as $group)
-
-        <h2>Traininggroep {{$group->GroupNumber}}</h2>
-        <div class="table-container">
-            <table tabindex=0 class="table table-bordered w-auto">
-                <tr>
-                    <th>Datum</th>
-                    @foreach($group->sessions as $session)
-                        <td class="p-1 verticalText text-center">
-                            <p class="m-0">{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</p>
-                        </td>
-                    @endforeach
-                </tr>
-                <tr>
-                <th>Tijd</th>
-                @foreach($group->sessions as $session)
-                    <td class="p-1 small verticalText">{{date('H:i', strtotime($session->StartTime))}}-{{date('H:i', strtotime($session->EndTime))}}</td>
-                @endforeach
-                </tr>
-                <tr>
-                    <th>Week</th>
-                    @foreach($group->sessions as $session)
-                        <td class="p-1 verticalText">W{{$session->weekNumber}}</td>
-                    @endforeach
-                </tr>
-                <tr>
-                    <th>Leden</th>
-                    @foreach($group->sessions as $session)
-                        @if(!$session->IstrainingSession)
-                            <td rowspan='{{$group->participants->count()+1}}'
-                                class="p-1 small verticalText vacationSession text-center">{{$session->Description}}</td>
-                        @else
-                            <td rowspan='{{$group->participants->count()+1}}'
-                                class="p-1 small verticalText text-center">
-                                {{$session->Description}}
-                            </td>
-                        @endif
-                    @endforeach
-                </tr>
-                @foreach($group->participants as $participant)
-                    <tr>
-                        <td class="small mw-25">{{$participant->Name}}</td>
-                    </tr>
-                @endforeach
-            </table>
+    <form class="row justify-content-center d-flex" action="/training" method="post">
+        @csrf
+        <button class="btn btn-primary col-1" type="submit" name="weekNumber" value="{{$weekFrom - 4}}" aria-label="Knop om vorige 4 weken te bekijken">
+            <i class="fa-solid fa-caret-left"></i>
+        </button>
+        <div class="col-3">
+            <h3 class="text-center">{{$year}}</h3>
+            <h3 class="text-center">Week {{$weekFrom}} - {{$weekTo}}</h3>
         </div>
-    @endforeach
-
+        <button class="btn btn-primary col-1" type="submit" name="weekNumber" value="{{$weekFrom + 4}}" aria-label="Knop om volgende 4 weken te bekijken">
+            <i class="fa-solid fa-caret-right"></i>
+        </button>
+    </form>
+    <hr>
+    <div class="container text-center">
+        @for($i = $weekFrom; $i <= $weekTo; $i++)
+            <div class="row justify-content-md-center">
+                <h5>Week {{$i}}</h5>
+                @foreach($sessions as $session)
+                    @if($session->weekNumber == $i)
+                        <div class="row justify-content-md-center">
+                            <div class="col-md-auto">{{$session->weekDay}} {{$session->day}} {{$session->month}}</div>
+                            <div class="col-md-auto">{{$session->StartTime}}-{{$session->EndTime}}</div>
+                            <div class="col-md-auto">{{$session->training_session_group->Name}}</div>
+                        </div>
+                    @endif
+                @endforeach
+            </div>
+            <hr>
+        @endfor
+    </div>
 </div>
 @stop

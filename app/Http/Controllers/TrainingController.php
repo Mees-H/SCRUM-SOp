@@ -16,21 +16,74 @@ use Exception;
 class TrainingController extends Controller
 {
     public function training()
-    {
-        $trainingSessions = TrainingSession::all()->sortBy(function ($item) {
-            return $item['Date'];
-        });
+    {   
+        //Getting week numbers
+        $date = Carbon::now();
+        $weekFrom = $date->weekOfYear;
+        $weekTo = $weekFrom + 3;
+        $filteredTrainingSessions = $this->filterSessionsByDate($weekFrom);
 
-        foreach ($trainingSessions as $session) {
-            $session->weekNumber = $this->getWeekNumber($session->Date);
-            $session->StartTime = Carbon::createFromFormat('H:i:s', $session->StartTime)->format('H:i');
-            $session->EndTime = Carbon::createFromFormat('H:i:s', $session->EndTime)->format('H:i');
+        return view('training.training', [  'sessions' => $filteredTrainingSessions,
+                                            'year' => $date->year,
+                                            'weekFrom' => $weekFrom,
+                                            'weekTo' => $weekTo]);
+    }
+
+    public function trainingOtherWeek(Request $request)
+    {
+        //Getting sessions
+        $weekTo = $request->weekNumber + 3;
+        $filteredTrainingSessions = $this->filterSessionsByDate($request->weekNumber);
+
+        return view('training.training', [  'sessions' => $filteredTrainingSessions,
+                                            'year' => Carbon::now()->year,
+                                            'weekFrom' => $request->weekNumber,
+                                            'weekTo' => $weekTo]);
+    }
+
+    private function filterSessionsByDate($weekNumber)
+    {
+        //Getting training sessions based on weeknumber
+        $allTrainingSessions = TrainingSession::all();
+        $filteredTrainingSessions = [];
+        foreach($allTrainingSessions as $trainingSession){
+            $date = Carbon::createFromFormat('Y-m-d', $trainingSession->Date);
+            $sessionWeek = $date->weekOfYear;
+            if($sessionWeek >= $weekNumber && $sessionWeek <= $weekNumber + 3){
+
+                //Adding additional information
+                $trainingSession->weekNumber = $sessionWeek;
+                $weekmap = [
+                    0 => 'Zondag',
+                    1 => 'Maandag',
+                    2 => 'Dinsdag',
+                    3 => 'Woensdag',
+                    4 => 'Donderdag',
+                    5 => 'Vrijdag',
+                    6 => 'Zaterdag'
+                ];
+                $monthmap = [
+                    0 => 'Januari',
+                    1 => 'Februari',
+                    2 => 'Maart',
+                    3 => 'April',
+                    4 => 'Mei',
+                    5 => 'Juni',
+                    6 => 'Juli',
+                    7 => 'Augustus',
+                    8 => 'September',
+                    9 => 'October',
+                    10 => 'November',
+                    11 => 'December',
+                ];
+                $trainingSession->weekDay = $weekmap[$date->dayOfWeek];
+                $trainingSession->month = $monthmap[$date->month];
+                $trainingSession->day = $date->day;
+
+                $filteredTrainingSessions[] = $trainingSession;
+            }
         }
-        $trainingGroups = TrainingSessionGroup::all();
-        foreach ($trainingGroups as $group) {
-            $group->sessions = $trainingSessions->where('GroupNumber', '==', $group->GroupNumber);
-        }
-        return view('training.training', ['trainingGroups' => $trainingGroups]);
+        return $filteredTrainingSessions;
     }
 
     //CRUD

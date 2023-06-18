@@ -31,11 +31,11 @@ class OefensessieSeeder extends Seeder
     {
         DB::table('training_session_group')->insert([
             'GroupNumber' => 1,
-            'Name' => 'Groep 1',
+            'Name' => 'Groep A',
         ]);
         DB::table('training_session_group')->insert([
             'GroupNumber' => 2,
-            'Name' => 'Groep 2',
+            'Name' => 'Groep B',
         ]);
     }
 
