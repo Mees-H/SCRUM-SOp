@@ -68,7 +68,14 @@
 
                                 <div class="d-flex justify-content-between">
                                     <p class="col-sm-8">
-                                        {!!str_split($post->body,strpos($post->body,"."))[0]!!}...
+                                        @if(strpos($post->body,".") !== false)
+                                            {!!str_split($post->body,strpos($post->body,"."))[0]!!}...
+                                        @else
+                                            {!!substr($post->body, 0, 200)!!}
+                                            @if(strlen($post->body) > 200)
+                                                ...
+                                            @endif
+                                        @endif
                                     </p>
                                     <div>
                                         <a dusk="ButtonToDetailsEvent" href="{{route('eventsDetails', $post->id)}}"
