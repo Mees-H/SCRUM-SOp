@@ -26,9 +26,6 @@
                             <div class="col-sm-8">
                                 <input type="email" class="form-control" id="email" placeholder="{{$footer->secretariaat}}" name="email"  value="{{old('email')}}">
                             </div>
-                            @error('email')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
 
                         <div>
@@ -38,9 +35,6 @@
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" id="rekeningnummer" placeholder="{{$footer->rekeningnummer}}" name="rekeningnummer"  value="{{old('rekeningnummer')}}">
                             </div>
-                            @error('rekeningnummer')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
 
                         <div>
@@ -48,11 +42,8 @@
                                 KvK nummer:
                             </label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="KvKnr" placeholder="{{$footer->KvKnr}}" name="KvKnr"  value="{{old('KvKnr')}}">
+                                <input type="number" class="form-control" id="kvknr" placeholder="{{$footer->kvknr}}" name="kvknr"  value="{{old('kvknr')}}">
                             </div>
-                            @error('KvKnr')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
 
                         <div>
@@ -60,11 +51,8 @@
                                 RSIN:
                             </label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="RSIN" placeholder="{{$footer->RSIN}}" name="RSIN"  value="{{old('RSIN')}}">
+                                <input type="number" class="form-control" id="rsin" placeholder="{{$footer->rsin}}" name="rsin"  value="{{old('rsin')}}">
                             </div>
-                            @error('RSIN')
-                            <div class="alert alert-danger">{{ $message }}</div>
-                            @enderror
                         </div>
                         <br />
                         <button type="submit" id="footerknop" name="footerknop" class="btn btn-outline-primary">

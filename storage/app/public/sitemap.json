@@ -74,6 +74,11 @@
                     "name": "privacy verklaring aanpassen",
                     "link": "/privacy/edit",
                     "alt": "privacy verklaring"
+                },
+                {
+                    "name": "footer aanpassen",
+                    "link": "/footer/edit",
+                    "alt": "footer aanpassen"
                 }
             ]
         }
