@@ -15,6 +15,13 @@
     </div>
 </div>
         <br/>
+        <div class="container">
+          <p>Heeft u een vraag? Wij beantwoorden deze graag!</p>
+          <p>Staat uw vraag niet in het overzicht hieronden dan kunt u deze vraag stellen via de bovenliggende "stel een vraag" knop.</p>
+          <p>Uw vraag wordt via email verzonden en reactie krijgt u ook via de mail, daarom vraag wij u ook om uw emailadres in te vullen wanneer u een vraag stelt.</p>
+          <p>Wij streven ernaar uw vraag binnen 24 uur te beantwoorden.</p>
+        </div>
+        <br/>
 <div class="accordion">
 @foreach($FAQ as $faq)
   <div class="accordion-item">
