@@ -5,7 +5,7 @@
     <h1>Trainingen</h1>
     @foreach($trainingGroups as $group)
 
-        <h2>Traininggroep {{$group->GroupNumber}}</h2>
+        <h2>Traininggroep {{$group->id}}</h2>
         <div class="table-container">
             <table tabindex=0 class="table table-bordered w-auto">
                 <tr>
