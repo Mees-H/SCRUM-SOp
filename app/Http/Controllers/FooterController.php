@@ -13,9 +13,7 @@ class FooterController extends Controller
         return view('footer.edit', compact('footer'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    
     public function store(Request $request)
     {
         
