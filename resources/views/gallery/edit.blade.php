@@ -3,7 +3,7 @@
 @section('content')
     <link href="{{ asset('css/album.css') }}" rel="stylesheet">
     <script src="{{ asset('js/album.js') }}" defer></script>
-    
+
     <div class="container">
         <div class="row">
             <div class="col-sm-8 offset-sm-2">
@@ -90,7 +90,7 @@
                 </form>
             </div>
             <div class="col-md-6">
-                <form action="{{ url('/galerij/'.$year.'/'.$album->title.'/verwijderfotos') }}" method="POST"
+                <form action="{{ url('/galerij/'. $album->id .'/verwijderfotos') }}" method="POST"
                       id="deleteForm">
                     @csrf
                     <button type="submit" class="btn btn-danger wide-button">Geselecteerde foto's verwijderen</button>
