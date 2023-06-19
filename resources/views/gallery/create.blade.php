@@ -18,15 +18,15 @@
             @csrf
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="title">Album titel</label>
-                <input type="text" name="title" class="form-control" id="title" placeholder="Titel">
+                <input type="text" name="title" class="form-control" id="title" placeholder="Titel" value="{{old('title')}}">
             </div>
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="description">Omschrijving van de album</label>
-                <textarea type="text" name="description" class="form-control" id="description" placeholder="Omschrijving"></textarea>
+                <textarea type="text" name="description" class="form-control" id="description" placeholder="Omschrijving">{{old('description')}}</textarea>
             </div>
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="date">Datum gemaakte foto's</label>
-                <input type="date" name="date" class="form-control" id="date" placeholder="dd-mm-yyyy">
+                <input type="date" name="date" class="form-control" id="date" placeholder="dd-mm-yyyy" value="{{old('date')}}">
             </div>
             <button type="submit" class="btn btn-primary">Album toevoegen</button>
         </form>

@@ -7,10 +7,20 @@ use App\Models\NewsLetter;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\File;
 
 class NewsLetterController extends Controller
 {
+    public function index()
+    {
+        $view = 'nieuwsbrief.index';
+        return match ($_GET['sort'] ?? null) {
+            'date_asc' => $this->filterDateAsc($view),
+            default => $this->filterDateDesc($view),
+        };
+    }
+
     public function create()
     {
         $newsLetters = NewsLetter::all()->sortByDesc('date');
@@ -46,19 +56,17 @@ class NewsLetterController extends Controller
 
         try {
             $newsletter->save();
-            return redirect()->route('nieuws.index')->with('success', 'Nieuwsbrief opgeslagen');
+            return redirect('/nieuwsbrief')->with('success', 'Nieuwsbrief opgeslagen');
         } catch (ModelNotFoundException $e) {
-            return redirect()->route('nieuws.index')->with('error', 'Nieuwsbrief niet kunnen opslaan');
+            return redirect('/nieuwsbrief')->with('error', 'Nieuwsbrief niet kunnen opslaan');
         }
     }
 
     public function update(Request $request, string $id)
     {
         $request->validate([
-            'file' => 'required|mimes:pdf',
-            'date' => 'required|date',
-        ], [
-            'file.required' => 'PDF bestand is verplicht.'
+            'file' => 'mimes:pdf',
+            'date' => 'date',
         ]);
 
         $newsletter = Newsletter::find($id);
@@ -74,9 +82,9 @@ class NewsLetterController extends Controller
 
         try {
             $newsletter->save();
-            return redirect()->route('nieuws.index')->with('success', 'Nieuwsbrief opgeslagen');
+            return redirect('/nieuwsbrief')->with('success', 'Nieuwsbrief opgeslagen');
         } catch (ModelNotFoundException $e) {
-            return redirect()->route('nieuws.index')->with('error', 'Nieuwsbrief niet kunnen opslaan');
+            return redirect('/nieuwsbrief')->with('error', 'Nieuwsbrief niet kunnen opslaan');
         }
     }
 
@@ -97,6 +105,24 @@ class NewsLetterController extends Controller
 
         $newsletter->delete();
 
-        return redirect()->route('nieuws.index')->with('success', 'Nieuwsbrief verwijderd.');
+        return redirect('/nieuwsbrief')->with('success', 'Nieuwsbrief verwijderd.');
     }
+
+        //filter on date descending
+        public function filterDateDesc($view){
+
+            $newsLetters = NewsLetter::all()->sortByDesc('date');
+            return view($view, ['years' => $this->getYears()->toArray()], compact('newsLetters'));
+        }
+        //filter on date ascending
+        public function filterDateAsc($view){
+            $newsLetters = NewsLetter::all()->sortBy('date');
+
+            return view($view, ['years' => $this->getYears()->toArray()], compact('newsLetters'));
+        }
+        public function getYears(){
+            return NewsLetter::all()->sortByDesc('date')->groupBy(function($date) {
+                return Carbon::parse($date->date)->format('Y'); // grouping by years
+            });
+        }
 }

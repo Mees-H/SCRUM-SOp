@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
-    <title>Special Golf Haverlij</title>
+    <title>Special Golf Haverleij</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
@@ -27,7 +27,9 @@
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
 
-    <style> @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap'); </style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@400;500&display=swap');
+    </style>
 </head>
 
         @if (auth()->guest() || Auth::user()->role != 'admin')
@@ -53,27 +55,15 @@
        @endif
 
 <body>
+@if (Auth::user() != null)
 <div class="container-fluid">
     <div class="container">
         @yield('content')
     </div>
 </div>
+@else
+    @yield('content')
+@endif
 </body>
-<footer class="footer">
-    <div class="footer-content bg-light">
-        <div class="footer-info">
-            <p class="text-dark">Secretariaat Stichting Special Golf: specialgolfhaverleij@gmail.com</p>
-            <p class="text-dark">Rekeningnummer Rabobank: NL 38 RABO 0118102206 o.v.v. Special Golf</p>
-            <p class="text-dark">KvK nr. 88714543 - RSIN 864744328 - ANBI</p>
-        </div>
-        <ul class='socials text-dark'>
-            <li><a class="text-dark" aria-label="Icoontje met link naar het Facebook account van Special Golf Haverlij"
-                   href=https://www.facebook.com/DeHaverleij/?locale=nl_NL><i class="fa-brands fa-facebook"></i></a>
-            </li>
-            <li><a class="text-dark" aria-label="Icoontje met link naar het Instagram account van Special Golf Haverlij"
-                   href=https://www.instagram.com/specialgolf2021/ ><i class="fa-brands fa-instagram"></i></a></li>
-        </ul>
-
-    </div>
-</footer>
+    @include('layouts.footer')
 </html>

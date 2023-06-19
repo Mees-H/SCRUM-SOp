@@ -4,10 +4,6 @@ body {
     flex-direction: column;
 }
 
-nav {
-    margin-bottom: 20px;
-}
-
 #page-container {
     position: relative;
     min-height: 100vh;
@@ -90,17 +86,21 @@ nav {
 #guest_navbar {
     display: block;
 }
-
+   
 #admin_navbar {
     display: block;
 }
 
 h1 {
-    color: #65591A;
+    color: black
 }
 
 .specialHeader {
     color: #8d7824;
+    font-family: 'Roboto Slab', serif;
+}
+
+.specialText {
     font-family: 'Roboto Slab', serif;
 }
 
@@ -276,12 +276,28 @@ td {
     border: 1px solid darkgray;
 }
 
-.partnerimg {
+.indexbanner-box{
+    width: 225px;
+    height: 75px;
+    display: flex;
+    justify-content: center;
+}
+
+.indexbanner{
     padding: 2px;
     height: auto;
     width: auto;
 }
 
 .table td {
-    padding: 5px;
+    padding: 5px; 
+}
+
+.bannerimage {
+    max-height: 400px;
+    pointer-events: none;
+}
+
+.bannercontainer {
+    user-select: none;
 }

@@ -28,6 +28,13 @@
                 <hr class="dropdown-divider">
             </li>
             <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'traininggroups') ? 'font-weight-bold' : '' }}"
+                   href="/traininggroups">Training groepen</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}"
                    href="/events">Evenementen</a>
             </li>
@@ -47,8 +54,8 @@
                 <hr class="dropdown-divider">
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'slider') ? 'font-weight-bold' : '' }}"
-                   href="/slider">Slider</a>
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'banners') ? 'font-weight-bold' : '' }}"
+                   href="/banners">Paginabanners</a>
             </li>
         </ul>
     </li>
@@ -56,9 +63,24 @@
         <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}"
            href="/faq">Veelgestelde vragen</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-           href="/nieuws">Nieuws</a>
+    <li class="nav-item dropdown">
+        <a dusk="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
+           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+            Nieuws
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsartikel') ? 'font-weight-bold' : '' }}"
+                   href="/nieuwsartikel">Nieuwsartikelen</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
+                   href="/nieuwsbrief">Nieuwsbrieven</a>
+            </li>
+        </ul>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'groups') ? 'font-weight-bold' : '' }}"
@@ -101,6 +123,13 @@
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}"
                    href="/links">Links</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'footer') ? 'font-weight-bold' : '' }}"
+                   href="/footer/edit">Footer</a>
             </li>
             <li>
                 <hr class="dropdown-divider">
@@ -154,8 +183,11 @@
             <li><a class="dropdown-item text-center searchitem" href="/faq">
                     FAQ
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/nieuws">
-                    Nieuws
+            <li><a class="dropdown-item text-center searchitem" href="/nieuwsartikel">
+                    Nieuwsartikelen
+                </a></li>
+            <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
+                    Nieuwsbrieven
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/team">
                     Team

@@ -1,23 +1,17 @@
 @extends('layouts.layout')
- 
+
 @section('content')
-    <div class="">
-        <h1 class="text-center p-4 display-3">Links</h1>
-        <div class="d-flex flex-row flex-wrap justify-content-center">
+    <div class="px-4">
+        <h1 class="text-center pt-2 display-3">Links</h1>
+        <div class="d-flex row justify-content-center">
             @foreach($links as $category)
-                <div class="w-25 pb-3">
-                    <div class="">
-                        <div class="">
-                            <h2>{{$category['name']}}</h2>
+                <div class="col-md-auto  p-3">
+                    <h2>{{$category['name']}}</h2>
+                    @foreach($category['links'] as $link)
+                        <div>
+                            <a href="{{$link['link']}}" alt="{{$link['alt']}}">{{$link['name']}}</a>
                         </div>
-                        <div class="col">
-                            @foreach($category['links'] as $link)
-                                <div class="row">
-                                    <a href="{{$link['link']}}" alt="{{$link['alt']}}">{{$link['name']}}</a>
-                                </div>
-                            @endforeach
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             @endforeach
         </div>
