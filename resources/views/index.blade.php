@@ -22,22 +22,27 @@
         </button>
     </div>
     <div class="container justify-content-center text-center col-sm-9 specialText">
-        <h2 class="specialHeader">Stichting Special Golf</h2>
-        <p class="fw-bold">
-            Sporten en met name Special Golf is bouwen aan eigenwaarde, sociale vaardigheden, gezond blijven en plezier beleven
-        </p>
-        <p class="fw-bold">
-            Doel: mensen met een verstandelijke beperking laten kennismaken met- en integreren in- de golfsport.
-        </p>
-        <p>
-            Belangrijke aspecten hiervan zijn: contact met de golfleraren, begeleiders en medespelers, buiten zijn in een mooie omgeving, 
-            fysiek bezig zijn met een sport (waarbij het risico op blessures laag is), leren en respecteren van de golfregels en de etiquette. 
-            Na het golf samen genieten van een drankje en bezoeken van andere golfclubs voor onderlinge wedstrijden tegen andere golf-teams.
-        </p>
-        <div class="row">
+        <div class="m-4">
+            <h2 class="specialHeader">Stichting Special Golf</h2>
+            <p class="fw-bold">
+                Sporten en met name Special Golf is bouwen aan eigenwaarde, sociale vaardigheden, gezond blijven en plezier beleven
+            </p>
+            <p class="fw-bold">
+                Doel: mensen met een verstandelijke beperking laten kennismaken met- en integreren in- de golfsport.
+            </p>
+            <div>
+                Belangrijke aspecten hiervan zijn: contact met de golfleraren, begeleiders en medespelers, buiten zijn in een mooie omgeving, 
+                fysiek bezig zijn met een sport (waarbij het risico op blessures laag is), leren en respecteren van de golfregels en de etiquette. 
+                Na het golf samen genieten van een drankje en bezoeken van andere golfclubs voor onderlinge wedstrijden tegen andere golf-teams.
+            </div>
+            <div>
+                Na het golf samen genieten van een drankje en bezoeken van andere golfclubs voor onderlinge wedstrijden tegen andere golf-teams.
+            </div>
+        </div>
+        <div class="row m-4">
             <div class="col-sm-6">
                 <h2 class="specialHeader">De start</h2>
-                <p>
+                <div>
                     <strong>1 juni 2021.</strong> De commissie Special Golf, in samenwerking met BurgGolf Haverleij, golf coaches en vrijwilligers, 
                     zet zich in om mensen met een verstandelijke beperking te laten deelnemen aan de golfsport tijdens de oefensessies op zaterdagen. 
                     In 2021 is gestart met Special Golf met als thuisbasis BurgGolf Haverleij, waar Special Golf deelnemers zich thuis voelen en kunnen 
@@ -45,18 +50,31 @@
                     Dank aan Leo van de Meer golfprofessional en inspirator van het eerste uur,  Wim Jansen als coördinator, vrijwilligers, 
                     het management dat BurgGolf Haverleij open stelt voor Special Golf (G-Golf) en aan de verenigingsleden van BurgGolf die bij ontbinding van de vereniging, 
                     eind 2021, een genereus financieel gebaar hebben gemaakt.
-                </p>
+                </div>
             </div>
             <div class="col-sm-6">
                 <h2 class="specialHeader">365 dagen</h2>
-                <p>
+                <div>
                     <strong>1 juni 2022.</strong> Het initiatief om mensen met een verstandelijke beperking te laten golfen, heeft geleid tot deelname van vijftien deelnemers. 
                     Golfprofessionals Naud Bank en Suzanne Lanfermeijer als vaste waarde hebben hun vaardigheden en kennis ingezet om de deelnemers de beginselen van het golfen aan te leren. 
                     De inzet van de Golfprofessionals en begeleiders verdient een welgemeend compliment, zij stonden de zaterdagen klaar voor de deelnemers. 
                     Eind juli 2022 gaan we kort met zomerreces en starten 3 september 2022 weer met de oefensessies op de zaterdagen. 
                     Het team bestaat inmiddels uit Golfprofessional Naud Bank en Robbin Schuurman, bijgestaan door de begeleiders Hetty Stoof, Edith Reek, Karl Stoof, Lau Verhoeven, Edwin Bijlsma, Hans van Ettekoven en Marcel Bosboom. 
                     De werkwijze, ambitie en het succes van Special Golf Haverleij in 2021 en 2022, zal worden voortgezet in 2023.
-                </p>
+                </div>
+            </div>
+        </div>
+        <hr/>
+        <div class="m-4">
+            <h2 class="specialHeader">2020 - 2022</h2>
+            <div>
+                Bij de voorbereiding in <strong>2020</strong> hebben Leo van der Meer en Wim Jansen de tijdslijn uitgestippeld om mensen met een verstandelijk beperking deel te laten nemen aan de golfsport. 
+                Gedurende de voorbereidingen, waar gesproken is met BurgGolf Haverleij, Golfleraren, Cello-Zorg, potentiële sponsoren, het werven van vrijwilligers en bezoeken aan G-Golf clubs, zijn we in juni 2021, 
+                onder de naam Special Golf Haverleij van start gegaan met vijftien deelnemers op de zaterdagmiddagen.
+            </div>
+            <div>
+                De achter ons liggende golfseizoenen, <strong>2021</strong> en <strong>2022</strong>, werden door alle bij Special Golf betrokken gekenmerkt als leerzaam, ontspannend en prettig. 
+                Op <strong>26 november 2022</strong> was de laatste oefensessie voor de winterstop op BurgGolf Haverleij. We  gaan met 13 deelnemers weer van start op <strong>4 maart 2023</strong>,  met  ondersteuning van golfleraren, vrijwilligers en BurgGolf Haverleij.
             </div>
         </div>
     </div>
