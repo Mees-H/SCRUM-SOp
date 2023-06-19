@@ -2,7 +2,6 @@
 
 @section('content')
 <div class="container">
-    <h1>Trainingen</h1>
     @foreach($trainingGroups as $group)
 
         <h2>Traininggroep {{$group->id}}</h2>

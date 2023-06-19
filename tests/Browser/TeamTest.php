@@ -117,7 +117,7 @@ class TeamTest extends DuskTestCase
                     ->scrollIntoView('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
-                    ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
+                    ->assertSee('Telefoonnummer moet tussen 10 en 10 cijfers zijn.');
         });
     }
 
@@ -138,7 +138,7 @@ class TeamTest extends DuskTestCase
                     ->scrollIntoView('button[type="submit"]')
                     ->press('Voeg lid toe')
                     ->assertPathIs('/members/create')
-                    ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
+                    ->assertSee('Telefoonnummer moet tussen 10 en 10 cijfers zijn.');
         });
     }
 
@@ -285,7 +285,7 @@ class TeamTest extends DuskTestCase
                     ->scrollIntoView('button[type="submit"]')
                     ->press("Update")
                     ->assertPathIs('/members/*/edit')
-                    ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
+                    ->assertSee('Telefoonnummer moet tussen 10 en 10 cijfers zijn.');
         });
     }
 
@@ -306,7 +306,7 @@ class TeamTest extends DuskTestCase
                     ->scrollIntoView('button[type="submit"]')
                     ->press("Update")
                     ->assertPathIs('/members/*/edit')
-                    ->assertSee('Telefoonnummer moet 10 cijfers zijn.');
+                    ->assertSee('Telefoonnummer moet tussen 10 en 10 cijfers zijn.');
         });
     }
 
