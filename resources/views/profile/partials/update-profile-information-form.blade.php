@@ -21,7 +21,7 @@
                 Naam
             </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="naam" name="naam" value="{{old('naam', $user->name)}}">
+                <input type="text" class="form-control @error('text') is-invalid @enderror" id="naam" name="naam" value="{{old('naam', $user->name)}}">
             </div>
             @error('naam')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -33,7 +33,7 @@
                 E-mail
             </label>
             <div class="col-sm-8">
-                <input type="email" class="form-control" id="email" placeholder="bv: jan@gmail.com" name="email" value="{{old('email', $user->email)}}">
+                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="bv: jan@gmail.com" name="email" value="{{old('email', $user->email)}}">
             </div>
             @error('email')
             <div class="alert alert-danger">{{ $message }}</div>

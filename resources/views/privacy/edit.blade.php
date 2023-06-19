@@ -23,7 +23,7 @@
                     @csrf
                     <div class="m-5">
                         <h3 class="float-start mb-5">Upload privacyverklaring</h3>
-                        <input type="file" class="form-control form-control-lg" name="file" id="file">
+                        <input type="file" class="form-control form-control-lg @error('file') is-invalid @enderror" name="file" id="file">
                     </div>
                     <div class="m-5">
                         <button class="btn btn-primary">Upload privacyverklaring</button>

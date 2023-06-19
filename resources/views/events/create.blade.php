@@ -19,38 +19,38 @@
                 @csrf
                 <div class="form-group">
                 <span class="requiredStar">*</span><label for="title">Titel:</label>
-                    <input type="text" class="form-control" name="title" id="title" required/>
+                    <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" id="title" required/>
                 </div>
 
                 <div class="form-group">
                 <span class="requiredStar">*</span><label for="date">Datum:</label>
-                    <input type="date" class="form-control" name="date" id="date"  placeholder="dd-mm-yyyy" required/>
+                    <input type="date" class="form-control @error('date') is-invalid @enderror" name="date" id="date"  placeholder="dd-mm-yyyy" required/>
                 </div>
 
                 <div class="form-group">
                     <label for="time">Tijd:</label>
-                    <input type="time" class="form-control" name="time" id="time"/>
+                    <input type="time" class="form-control @error('time') is-invalid @enderror" name="time" id="time"/>
                 </div>
 
                 <div class="form-group">
                     <label for="price">Prijs:</label>
-                    <input type="number" class="form-control" name="price" id="price"/>
+                    <input type="number" class="form-control @error('price') is-invalid @enderror" name="price" id="price"/>
                 </div>
 
                 <div class="form-group">
                     <label for="bankaccount">Rekeningnummer:</label>
-                    <input type="text" class="form-control" name="bankaccount" id="bankaccount"/>
+                    <input type="text" class="form-control @error('bankaccount') is-invalid @enderror" name="bankaccount" id="bankaccount"/>
                 </div>
 
                 <div class="form-group">
                 <span class="requiredStar">*</span><label for="body">Beschrijving:</label>
-                    <textarea rows="5" class="form-control" name="body" id="body" required></textarea>
+                    <textarea rows="5" class="form-control @error('body') is-invalid @enderror" name="body" id="body" required></textarea>
                 </div>
 
                 <label>Groepen:</label>
                 @foreach($groups as $group)
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"/>
+                    <input type="checkbox" class="form-check-input @error('groups[]') is-invalid @enderror" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"/>
                     <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
                 </div>
                 @endforeach

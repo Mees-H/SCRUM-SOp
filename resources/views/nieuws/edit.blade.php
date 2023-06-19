@@ -36,26 +36,26 @@
                                 <div class="col-sm-7">
                                     <div class="row">
                                         <div class="col-6">
-                                            <input class="form-control form-control-lg mb-2" type="text" placeholder="Titel *" name="title" value="{{$editArticle->title}}" required>
+                                            <input class="form-control form-control-lg mb-2 @error('title') is-invalid @enderror" type="text" placeholder="Titel *" name="title" value="{{$editArticle->title}}" required>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-6">
-                                            <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{$editArticle->date}}" required>
+                                            <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror" type="date" placeholder="Datum *" name="date" value="{{$editArticle->date}}" required>
                                         </div>
                                     </div>
-                                    <textarea class="form-control mb-2" rows="7" placeholder="Beschrijving *" name="body" required>{{$editArticle->body}}</textarea>
+                                    <textarea class="form-control mb-2 @error('body') is-invalid @enderror" rows="7" placeholder="Beschrijving *" name="body" required>{{$editArticle->body}}</textarea>
                                 </div>
 
                                 <aside class="col-sm-5">
                                     <div class="mb-3">
                                         <label for="img[]" class="form-label">Foto's</label>
-                                        <input class="form-control" type="file" name="img[]" id="img[]"
+                                        <input class="form-control @error('img[]') is-invalid @enderror" type="file" name="img[]" id="img[]"
                                                multiple>
                                     </div>
                                     <div class="mb-3">
                                         <label for="file[]" class="form-label">Bestanden</label>
-                                        <input class="form-control" type="file" name="file[]" id="file[]"
+                                        <input class="form-control @error('file[]') is-invalid @enderror" type="file" name="file[]" id="file[]"
                                                multiple>
                                     </div>
                                 </aside>
@@ -64,7 +64,7 @@
                                     <label class="form-label">Verwijder foto's</label>
                                         @foreach($editArticle->imgurl as $img)
                                             <div class="form-check">
-                                                <input class="form-check-input" type="checkbox"
+                                                <input class="form-check-input @error('deleteImages[]') is-invalid @enderror" type="checkbox"
                                                        value="{{$img}}"
                                                        id="{{$img}}" name="deleteImages[]">
                                                 <label for="{{$img}}" class="form-check-label">

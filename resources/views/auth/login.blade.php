@@ -19,7 +19,7 @@
                             <span class="requiredStar">*</span>E-mail
                         </label>
                         <div class="col-sm-5">
-                            <input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
+                            <input id="email" class="form-control @error('email') is-invalid @enderror" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                             <span class="requiredStar">*</span>Wachtwoord
                         </label>
                         <div class="col-sm-5">
-                            <input id="password" class="form-control"
+                            <input id="password" class="form-control @error('password') is-invalid @enderror"
                                         type="password"
                                         name="password"
                                         required autocomplete="current-password">

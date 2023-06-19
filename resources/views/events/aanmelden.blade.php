@@ -24,7 +24,7 @@
                             <span class="requiredStar">*</span>Voor- en achternaam
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name"
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="bv: Jan de Graaf" name="name"
                                    value="{{old('name')}}" required>
                         </div>
                         @error('name')
@@ -36,7 +36,7 @@
                             <span class="requiredStar">*</span>Geboortedatum
                         </label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="dd-mm-yyyy"
+                            <input type="date" class="form-control @error('birthday') is-invalid @enderror" id="birthday" name="birthday" placeholder="dd-mm-yyyy"
                                    value="{{old('birthday')}}" required>
                         </div>
                         @error('birthday')
@@ -48,7 +48,7 @@
                             Golfhandicap
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="golfhandicap"
+                            <input type="text" class="form-control @error('golfhandicap') is-invalid @enderror" id="golfhandicap"
                             placeholder="Vul hier uw golfhandicap(s) in" name="golfhandicap" value="{{old('golfhandicap')}}">
                         </div>
                         @error('golfhandicap')
@@ -62,21 +62,21 @@
                         <div class="col-sm-8">
                             <div>
                                 <label>
-                                    <input id="GenderMan" type="radio" name="gender" value="Man"
+                                    <input class="@error('gender') is-invalid @enderror" id="GenderMan" type="radio" name="gender" value="Man"
                                            @if(old('gender')==='Man') checked="checked" @endif>
                                     Man
                                 </label>
                             </div>
                             <div>
                                 <label>
-                                    <input id="GenderVrouw" type="radio" name="gender" value="Vrouw"
+                                    <input class="@error('gender') is-invalid @enderror" id="GenderVrouw" type="radio" name="gender" value="Vrouw"
                                            @if(old('gender')==='Vrouw') checked="checked" @endif>
                                     Vrouw
                                 </label>
                             </div>
                             <div>
                                 <label>
-                                    <input id="GenderAnders" type="radio" name="gender" value="Anders"
+                                    <input class="@error('gender') is-invalid @enderror" id="GenderAnders" type="radio" name="gender" value="Anders"
                                            @if(old('gender')==='Anders') checked="checked" @endif>
                                     Anders
                                 </label>

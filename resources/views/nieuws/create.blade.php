@@ -34,9 +34,9 @@
                                         <div class="row card-body">
                                             <div class="col">
                                                 <label alt="maak een nieuw artikel aan">
-                                                    <input class="form-control form-control-lg mb-2" type="text"
+                                                    <input class="form-control form-control-lg mb-2 @error('title') is-invalid @enderror" type="text"
                                                            placeholder="Titel *" name="title" required>
-                                                    <input class="form-control form-control-sm mb-2" type="date"
+                                                    <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror" type="date"
                                                            placeholder="Datum *" name="date" required>
                                                     <textarea class="form-control mb-2" rows="3"
                                                               placeholder="Beschrijving *" name="body" required></textarea>
@@ -45,12 +45,12 @@
                                             <aside class="col">
                                                 <div class="mb-3">
                                                     <label for="img[]" class="form-label">Foto's</label>
-                                                    <input class="form-control" type="file" name="img[]" id="img[]"
+                                                    <input class="form-control @error('img[]') is-invalid @enderror" type="file" name="img[]" id="img[]"
                                                            multiple>
                                                 </div>
                                                 <div class="mb-3">
                                                     <label for="file[]" class="form-label">Bestanden</label>
-                                                    <input class="form-control" type="file" name="file[]" id="file[]"
+                                                    <input class="form-control @error('file[]') is-invalid @enderror" type="file" name="file[]" id="file[]"
                                                            multiple>
                                                 </div>
                                             </aside>

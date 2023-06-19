@@ -21,38 +21,38 @@
             <div class="form-group">
 
                 <span class="requiredStar">*</span><label for="title">Titel:</label>
-                <input type="text" class="form-control" name="title" value="{{ $event->title }}" id="title" required/>
+                <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $event->title }}" id="title" required/>
             </div>
 
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="date">Datum:</label>
-                <input type="date" class="form-control" name="date" placeholder="dd-mm-yyyy" value="{{ $event->date }}" id="date" required/>
+                <input type="date" class="form-control @error('date') is-invalid @enderror" name="date" placeholder="dd-mm-yyyy" value="{{ $event->date }}" id="date" required/>
             </div>
 
             <div class="form-group">
                 <label for="time">Tijd:</label>
-                <input type="time" class="form-control" name="time" value="{{ $event->time }}" id="time"/>
+                <input type="time" class="form-control @error('time') is-invalid @enderror" name="time" value="{{ $event->time }}" id="time"/>
             </div>
 
             <div class="form-group">
                 <label for="price">Prijs:</label>
-                <input type="number" min="0" step="0.01" lang="nl" class="form-control" name="price" value="{{ $event->price }}" id="price"/>
+                <input type="number" min="0" step="0.01" lang="nl" class="form-control @error('price') is-invalid @enderror" name="price" value="{{ $event->price }}" id="price"/>
             </div>
 
             <div class="form-group">
                     <label for="bankaccount">Rekeningnummer:</label>
-                    <input type="text" class="form-control" name="bankaccount" value="{{ $event->bankaccount }}" id="bankaccount"/>
+                    <input type="text" class="form-control @error('bankaccount') is-invalid @enderror" name="bankaccount" value="{{ $event->bankaccount }}" id="bankaccount"/>
                 </div>
 
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="body">Beschrijving:</label>
-                <textarea rows="5" class="form-control" name="body" id="body" required>{{ $event->body }}</textarea>
+                <textarea rows="5" class="form-control @error('body') is-invalid @enderror" name="body" id="body" required>{{ $event->body }}</textarea>
             </div>
 
             <label>Groepen:</label>
                 @foreach($groups as $group)
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"
+                    <input type="checkbox" class="form-check-input @error('groups[]') is-invalid @enderror" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"
                         {{in_array($group->id, $event->groups()->allRelatedIds()->toArray())? 'checked':''}}
                     />
                     <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>

@@ -19,40 +19,40 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">Naam:</label>
-                    *<input type="text" class="form-control" value="{{old('name')}}" name="name" id="name" required/>
+                    *<input type="text" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}" name="name" id="name" required/>
 
                 </div><br>
 
                 <div class="form-group">
                     <label for="email">E-mail:</label>
-                    *<input type="text" class="form-control" value="{{old('email')}}" name="email" id="email" required/>
+                    *<input type="text" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" name="email" id="email" required/>
                 </div><br>
 
                 <div class="form-group">
                     <label for="phonenumber">Telefoonnummer:</label>
-                    <input type="tel" class="form-control" name="phonenumber"  value="{{old('phonenumber')}}" id="phonenumber"/>
+                    <input type="tel" class="form-control @error('phonenumber') is-invalid @enderror" name="phonenumber"  value="{{old('phonenumber')}}" id="phonenumber"/>
                     <small id="examplenumber" class="form-text text-muted">Bijv: 0612345678</small>
                 </div><br>
 
                 <div class="form-group">
                     <label for="function">Functie:</label>
-                    <input type="text" class="form-control"  value="{{old('function')}}" name="function" id="function"/>
+                    <input type="text" class="form-control @error('function') is-invalid @enderror"  value="{{old('function')}}" name="function" id="function"/>
                 </div><br>
 
                 <div class="form-group">
                     <label for="website">Website:</label>
-                    <input type="text" class="form-control"  value="{{old('website')}}" name="website" id="website"/>
+                    <input type="text" class="form-control @error('website') is-invalid @enderror"  value="{{old('website')}}" name="website" id="website"/>
                 </div><br>
 
                 <div class="form-group">
                     <label for="image">Foto:</label>
-                    <input type="file" class="form-control"  value="{{old('image')}}" name="image" id="image"/>
+                    <input type="file" class="form-control @error('image') is-invalid @enderror"  value="{{old('image')}}" name="image" id="image"/>
                 </div><br>
 
                 <label>Groepen:*</label>
                 @foreach($groups as $group)
                 <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"/>
+                    <input type="checkbox" class="form-check-input @error('groups[]') is-invalid @enderror" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"/>
                     <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
                 </div>
                 @endforeach

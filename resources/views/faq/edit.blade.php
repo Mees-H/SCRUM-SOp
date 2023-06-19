@@ -19,12 +19,12 @@
         @csrf
         <div class="form-group">
             <span class="requiredStar">*</span><label for="vraag">Vraag:</label>
-            <input type="text" class="form-control" name="vraag" value="{{ $FAQ->question }}" id="vraag" required/>
+            <input type="text" class="form-control @error('vraag') is-invalid @enderror" name="vraag" value="{{ $FAQ->question }}" id="vraag" required/>
         </div>
 
         <div class="form-group">
             <span class="requiredStar">*</span><label for="antwoord">Antwoord:</label>
-            <input type="text" class="form-control" name="antwoord" value="{{ $FAQ->answer }}" id="antwoord" required/>
+            <input type="text" class="form-control @error('antwoord') is-invalid @enderror" name="antwoord" value="{{ $FAQ->answer }}" id="antwoord" required/>
         </div>
 
         <button type="submit" class="btn btn-primary">Pas veelgestelde vraag aan</button>

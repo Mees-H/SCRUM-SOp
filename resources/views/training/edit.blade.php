@@ -21,17 +21,17 @@
 
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="date">Datum:</label>
-                <input type="date" class="form-control" name="date" id="date" placeholder="dd-mm-yyyy" value="{{$session->Date}}" required/>
+                <input type="date" class="form-control @error('date') is-invalid @enderror" name="date" id="date" placeholder="dd-mm-yyyy" value="{{$session->Date}}" required/>
             </div><br>
             
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="starttime">Begintijd:</label>
-                <input type="time" class="form-control" name="starttime" value="{{ $session->StartTime }}" id="time" required/>
+                <input type="time" class="form-control @error('starttime') is-invalid @enderror" name="starttime" value="{{ $session->StartTime }}" id="time" required/>
             </div><br>
             
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="endtime">Eindtijd:</label>
-                <input type="time" class="form-control" name="endtime" value="{{ $session->EndTime }}" id="time" required/>
+                <input type="time" class="form-control @error('endtime') is-invalid @enderror" name="endtime" value="{{ $session->EndTime }}" id="time" required/>
             </div><br>
 
             <div class="form-group">
