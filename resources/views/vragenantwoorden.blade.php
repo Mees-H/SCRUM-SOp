@@ -11,7 +11,7 @@
         <h1>Veelgestelde Vragen</h1>
     </div>
     <div>
-    <a href="/vragenantwoorden/vraagformulier" class="btn-primary btn mt-4">Stel een vraag</a>
+    <a href="/vragenantwoorden/vraagformulier" class="btn-primary btn mt-4" autofocus>Stel een vraag</a>
     </div>
 </div>
 <br/>

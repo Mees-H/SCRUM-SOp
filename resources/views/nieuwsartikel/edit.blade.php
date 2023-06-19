@@ -36,7 +36,7 @@
                                 <div class="col-sm-7">
                                     <div class="row">
                                         <div class="col-6">
-                                            <input class="form-control form-control-lg mb-2 @error('title') is-invalid @enderror" type="text" placeholder="Titel *" name="title" value="{{$editArticle->title}}" required>
+                                            <input class="form-control form-control-lg mb-2 @error('title') is-invalid @enderror" type="text" placeholder="Titel *" name="title" value="{{$editArticle->title}}" required autofocus>
                                         </div>
                                     </div>
                                     <div class="row">

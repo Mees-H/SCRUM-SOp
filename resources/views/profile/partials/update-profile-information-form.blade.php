@@ -21,7 +21,7 @@
                 Naam
             </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control @error('text') is-invalid @enderror" id="naam" name="naam" value="{{old('naam', $user->name)}}">
+                <input type="text" class="form-control @error('text') is-invalid @enderror" id="naam" name="naam" value="{{old('naam', $user->name)}}" autofocus>
             </div>
             @error('naam')
             <div class="alert alert-danger">{{ $message }}</div>

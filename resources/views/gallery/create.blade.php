@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
         <h1 class="display-3">Album toevoegen</h1>
-        <a href="/galerij" class="btn btn-primary">Ga terug</a>
+        <a href="/galerij" class="btn btn-primary" autofocus>Ga terug</a>
             @if ($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -18,7 +18,7 @@
             @csrf
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="title">Album titel</label>
-                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Titel" required>
+                <input type="text" name="title" class="form-control @error('title') is-invalid @enderror autofocus" id="title" placeholder="Titel" required>
             </div>
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="description">Omschrijving van de album</label>

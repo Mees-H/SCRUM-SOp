@@ -22,7 +22,7 @@
                             <h3>Data</h3>
                             <p>Evenementen per dag</p>
                             <div class="col d-flex justify-content-center">
-                                <a class="btn btn-primary" href="evenement/export">Agenda exporteren</a>
+                                <a class="btn btn-primary" href="evenement/export" autofocus>Agenda exporteren</a>
                             </div>
                         </div>
                         <ul class="list-unstyled">

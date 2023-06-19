@@ -38,7 +38,7 @@
                                             <div class="col-sm-9">
                                                 <span class="requiredStar">*</span><label for="date" class="form-label">Datum</label>
                                                 <label>
-                                                    <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}" required>
+                                                    <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}" required autofocus>
                                                 </label>
                                                 <label for="file" class="form-label">PDF bestand</label>
                                                 <div class="pdf-container mb-2">

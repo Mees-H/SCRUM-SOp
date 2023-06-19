@@ -3,7 +3,7 @@
     <div class="row">
         <div class="col-sm-8 offset-sm-2">
             <h1 class="display-3">Partner aanpassen</h1>
-            <a href="/groups" class="btn btn-primary">Ga terug</a>
+            <a href="/groups" class="btn btn-primary" autofocus>Ga terug</a>
 
             @if ($errors->any())
                 <div class="alert alert-danger">

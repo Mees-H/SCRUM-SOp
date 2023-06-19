@@ -35,7 +35,7 @@
                                             <div class="col">
                                                 <label alt="maak een nieuw artikel aan">
                                                     <input class="form-control form-control-lg mb-2 @error('title') is-invalid @enderror" type="text"
-                                                           placeholder="Titel *" name="title" value="{{old('title')}}" required>
+                                                           placeholder="Titel *" name="title" value="{{old('title')}}" required autofocus>
                                                     <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror" type="date"
                                                            placeholder="Datum *" name="date" value="{{old('date')}}" required>
                                                     <textarea class="form-control mb-2 @error('body') is-invalid @enderror" rows="3"

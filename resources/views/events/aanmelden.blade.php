@@ -25,7 +25,7 @@
                         </label>
                         <div class="col-sm-8">
                             <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="bv: Jan de Graaf" name="name"
-                                   value="{{old('name')}}" required>
+                                   value="{{old('name')}}" required autofocus>
                         </div>
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>

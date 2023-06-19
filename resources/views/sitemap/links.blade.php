@@ -13,7 +13,11 @@
                         <div class="col">
                             @foreach($category['links'] as $link)
                                 <div class="row">
+                                @if ($loop->first)
+                                    <a autofocus href="{{$link['link']}}" alt="{{$link['alt']}}">{{$link['name']}}</a>
+                                @else
                                     <a href="{{$link['link']}}" alt="{{$link['alt']}}">{{$link['name']}}</a>
+                                @endif
                                 </div>
                             @endforeach
                         </div>

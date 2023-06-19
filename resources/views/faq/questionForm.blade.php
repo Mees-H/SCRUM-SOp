@@ -5,7 +5,7 @@
         <div class="d-flex justify-content-between">
         <h1>Stel een vraag</h1>
             <div>
-                <button class="btn btn-secondary" onclick="window.location.href='/vragenantwoorden'">Ga terug</button>
+                <button class="btn btn-secondary" onclick="window.location.href='/vragenantwoorden'" autofocus>Ga terug</button>
             </div>
         </div>
         @if(session()->get('success'))

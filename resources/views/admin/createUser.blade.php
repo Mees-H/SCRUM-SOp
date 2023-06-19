@@ -22,7 +22,7 @@
                             Functie
                         </label>
                         <div class="col-sm-8">
-                            <select class="@error('role') is-invalid @enderror" name="role" required>
+                            <select class="@error('role') is-invalid @enderror" name="role" required autofocus>
                                 <option value="coach">
                                     Coach
                                 </option>
