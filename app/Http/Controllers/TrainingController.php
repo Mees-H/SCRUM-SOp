@@ -44,7 +44,7 @@ class TrainingController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'date' => 'required|after:today',
+            'date' => 'required|date|after:today',
             'starttime' => 'required',
             'endtime' => 'required|after:starttime',
             'body' => 'required|max:999',
@@ -77,7 +77,7 @@ class TrainingController extends Controller
     public function update(Request $request, string $id){
 
         $request->validate([
-            'date' => 'required|after:today',
+            'date' => 'required|date|after:today',
             'starttime' => 'required|before:endtime',
             'endtime' => 'required|after:starttime',
             'body' => 'required|max:999',

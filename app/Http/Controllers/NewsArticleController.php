@@ -7,12 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\NewsArticle;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
-use Illuminate\Http\Response;
 use Illuminate\Support\Carbon;
-use Illuminate\Support\Facades\File;
-use Psr\Container\ContainerExceptionInterface;
-use Psr\Container\NotFoundExceptionInterface;
-use App\Models\NewsLetter;
 
 
 class NewsArticleController extends Controller
@@ -31,8 +26,9 @@ class NewsArticleController extends Controller
         };
     }
 
-    public function getYears(){
-        return NewsArticle::all()->sortByDesc('date')->groupBy(function($date) {
+    public function getYears()
+    {
+        return NewsArticle::all()->sortByDesc('date')->groupBy(function ($date) {
             return Carbon::parse($date->date)->format('Y'); // grouping by years
         });
     }
@@ -53,7 +49,7 @@ class NewsArticleController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
-            'date' => 'required',
+            'date' => 'required|date',
             'body' => 'required|max:999',
             'img' => 'nullable|array',
             'img.*' => 'image',
@@ -68,10 +64,10 @@ class NewsArticleController extends Controller
         ]);
 
         //Saving image
-        if($request->hasFile('img')){
+        if ($request->hasFile('img')) {
             $destination_path = 'img';
             $imgArr = [];
-            foreach($request->img as $img){
+            foreach ($request->img as $img) {
                 $image_name = $img->getClientOriginalName();
                 $img->move(public_path($destination_path), $image_name);
                 $imgArr[] = $image_name;
@@ -80,20 +76,20 @@ class NewsArticleController extends Controller
         }
 
         //Saving files
-        if($request->hasFile('file')){
+        if ($request->hasFile('file')) {
             $destination_path = 'storage/files/nieuws';
             $fileArr = [];
-            foreach($request->file as $file){
+            foreach ($request->file as $file) {
                 $file_name = $file->getClientOriginalName();
                 $file->move(public_path($destination_path), $file_name);
                 $fileArr[] = $file_name;
             }
             $article['fileurl'] = $fileArr;
         }
-        try{
+        try {
             $article->save();
             return redirect('/nieuwsartikel')->with('success', 'Artikel opgeslagen');
-        } catch(ModelNotFoundException $e){
+        } catch (ModelNotFoundException $e) {
             return redirect('/nieuwsartikel')->with('error', 'Artikel niet kunnen opslaan');
         }
     }
@@ -103,9 +99,9 @@ class NewsArticleController extends Controller
      */
     public function edit(string $id)
     {
-        try{
+        try {
             $editArticle = NewsArticle::findOrFail($id);
-        } catch(ModelNotFoundException $e){
+        } catch (ModelNotFoundException $e) {
             return redirect('/nieuwsartikel')->with('error', 'Kon artikel niet ophalen');
         }
         return view('nieuwsartikel.edit', compact('editArticle'));
@@ -118,7 +114,7 @@ class NewsArticleController extends Controller
     {
         $request->validate([
             'title' => 'required|max:255',
-            'date' => 'required',
+            'date' => 'required|date',
             'body' => 'required|max:999',
             'img' => 'nullable|array',
             'img.*' => 'image',
@@ -132,15 +128,15 @@ class NewsArticleController extends Controller
         $article->date = $request->get('date');
 
         $imgArr = [];
-        if($request->hasFile('img')){
+        if ($request->hasFile('img')) {
             $destination_path = 'img';
-            foreach($request->img as $img){
+            foreach ($request->img as $img) {
                 $image_name = $img->getClientOriginalName();
                 $img->move(public_path($destination_path), $image_name);
                 $imgArr[] = $image_name;
             }
             if ($article['imgurl'] != null) {
-                foreach($article['imgurl'] as $existingImage){
+                foreach ($article['imgurl'] as $existingImage) {
                     if (!in_array($existingImage, $request->input('deleteImages', []))) {
                         $imgArr[] = $existingImage;
                     }
@@ -148,7 +144,7 @@ class NewsArticleController extends Controller
             }
         } else {
             if ($article['imgurl'] != null) {
-                foreach($article['imgurl'] as $existingImage){
+                foreach ($article['imgurl'] as $existingImage) {
                     if (!in_array($existingImage, $request->input('deleteImages', []))) {
                         $imgArr[] = $existingImage;
                     }
@@ -159,10 +155,10 @@ class NewsArticleController extends Controller
         $article['imgurl'] = $imgArr;
 
         //Saving files
-        if($request->hasFile('file')){
+        if ($request->hasFile('file')) {
             $destination_path = 'storage/files/nieuws';
             $fileArr = [];
-            foreach($request->file as $file){
+            foreach ($request->file as $file) {
                 $file_name = $file->getClientOriginalName();
                 $file->move(public_path($destination_path), $file_name);
                 $fileArr[] = $file_name;
@@ -170,10 +166,10 @@ class NewsArticleController extends Controller
             $article['fileurl'] = $fileArr;
         }
 
-        try{
+        try {
             $article->save();
             return redirect('/nieuwsartikel')->with('success', 'Artikel opgeslagen');
-        } catch(ModelNotFoundException $e){
+        } catch (ModelNotFoundException $e) {
             return redirect('/nieuwsartikel')->with('error', 'Artikel niet kunnen opslaan');
         }
     }
@@ -184,20 +180,20 @@ class NewsArticleController extends Controller
      */
     public function destroy(string $id): RedirectResponse
     {
-        try{
+        try {
             $article = NewsArticle::findOrFail($id);
-        } catch(ModelNotFoundException $e){
+        } catch (ModelNotFoundException $e) {
             return redirect('/nieuwsartikel')->with('error', 'Kon artikel niet ophalen');
         }
 
-        if($article->imgurl != null){
-            foreach($article->imgurl as $img){
+        if ($article->imgurl != null) {
+            foreach ($article->imgurl as $img) {
                 $article['imgurl'] = [];
             }
         }
 
-        if($article->fileurl != null){
-            foreach($article->fileurl as $file){
+        if ($article->fileurl != null) {
+            foreach ($article->fileurl as $file) {
                 $article['fileurl'] = [];
             }
         }
@@ -208,18 +204,21 @@ class NewsArticleController extends Controller
     }
 
     //filter on date descending
-    public function filterDateDesc($view){
+    public function filterDateDesc($view)
+    {
         $articles = NewsArticle::all()->sortByDesc('date');
         return view($view, ['years' => $this->getYears()->toArray()], compact('articles'));
     }
     //filter on date ascending
-    public function filterDateAsc($view){
+    public function filterDateAsc($view)
+    {
         $articles = NewsArticle::all()->sortBy('date');
 
         return view($view, ['years' => $this->getYears()->toArray()], compact('articles'));
     }
     //filter on title desc
-    public function filterTitleDesc($view){
+    public function filterTitleDesc($view)
+    {
         $articles = NewsArticle::all()->sortByDesc('title');
         return view($view, ['years' => $this->getYears()->toArray()], compact('articles'));
 
