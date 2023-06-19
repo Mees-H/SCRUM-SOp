@@ -34,12 +34,12 @@
                                         <div class="row card-body">
                                             <div class="col">
                                                 <label alt="maak een nieuw artikel aan">
-                                                    <input class="form-control form-control-lg mb-2 @error('title') is-invalid @enderror"" type="text"
-                                                           placeholder="Titel *" name="title" value="{{old('title')}}">
-                                                    <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror"" type="date"
-                                                           placeholder="Datum *" name="date" value="{{old('date')}}">
+                                                    <input class="form-control form-control-lg mb-2 @error('title') is-invalid @enderror" type="text"
+                                                           placeholder="Titel *" name="title" value="{{old('title')}}" required>
+                                                    <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror" type="date"
+                                                           placeholder="Datum *" name="date" value="{{old('date')}}" required>
                                                     <textarea class="form-control mb-2 @error('body') is-invalid @enderror" rows="3"
-                                                              placeholder="Beschrijving *" name="body">{{old('body')}}</textarea>
+                                                              placeholder="Beschrijving *" name="body" required>{{old('body')}}</textarea>
                                                 </label>
                                             </div>
                                             <aside class="col">
