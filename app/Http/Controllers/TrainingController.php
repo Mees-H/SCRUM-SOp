@@ -21,9 +21,13 @@ class TrainingController extends Controller
         $date = Carbon::now();
         $weekFrom = $date->weekOfYear;
         $weekTo = $weekFrom + 3;
+
+        //Getting sessions and groups
         $filteredTrainingSessions = $this->filterSessionsByDate($weekFrom);
+        $groups = TrainingSessionGroup::all()->sortBy('Name');
 
         return view('training.training', [  'sessions' => $filteredTrainingSessions,
+                                            'groups' => $groups,
                                             'year' => $date->year,
                                             'weekFrom' => $weekFrom,
                                             'weekTo' => $weekTo]);
@@ -33,11 +37,28 @@ class TrainingController extends Controller
     {
         //Getting sessions
         $weekTo = $request->weekNumber + 3;
+        $weekFrom = $request->weekNumber;
+        $year = $request->year;
+
+        //Changing years
+        if($weekTo > 52){
+            $weekFrom = 1;
+            $weekTo = $weekFrom + 3;
+            $year++;
+        }
+        else if ($weekFrom < 1){
+            $weekTo = 52;
+            $weekFrom = $weekTo - 3;
+            $year--;
+        }
+        
         $filteredTrainingSessions = $this->filterSessionsByDate($request->weekNumber);
+        $groups = TrainingSessionGroup::all()->sortBy('Name');
 
         return view('training.training', [  'sessions' => $filteredTrainingSessions,
-                                            'year' => Carbon::now()->year,
-                                            'weekFrom' => $request->weekNumber,
+                                            'groups' => $groups,
+                                            'year' => $year,
+                                            'weekFrom' => $weekFrom,
                                             'weekTo' => $weekTo]);
     }
 
@@ -46,6 +67,29 @@ class TrainingController extends Controller
         //Getting training sessions based on weeknumber
         $allTrainingSessions = TrainingSession::all();
         $filteredTrainingSessions = [];
+        $weekmap = [
+            0 => 'Zondag',
+            1 => 'Maandag',
+            2 => 'Dinsdag',
+            3 => 'Woensdag',
+            4 => 'Donderdag',
+            5 => 'Vrijdag',
+            6 => 'Zaterdag'
+        ];
+        $monthmap = [
+            0 => 'Januari',
+            1 => 'Februari',
+            2 => 'Maart',
+            3 => 'April',
+            4 => 'Mei',
+            5 => 'Juni',
+            6 => 'Juli',
+            7 => 'Augustus',
+            8 => 'September',
+            9 => 'October',
+            10 => 'November',
+            11 => 'December',
+        ];
         foreach($allTrainingSessions as $trainingSession){
             $date = Carbon::createFromFormat('Y-m-d', $trainingSession->Date);
             $sessionWeek = $date->weekOfYear;
@@ -53,30 +97,8 @@ class TrainingController extends Controller
 
                 //Adding additional information
                 $trainingSession->weekNumber = $sessionWeek;
-                $weekmap = [
-                    0 => 'Zondag',
-                    1 => 'Maandag',
-                    2 => 'Dinsdag',
-                    3 => 'Woensdag',
-                    4 => 'Donderdag',
-                    5 => 'Vrijdag',
-                    6 => 'Zaterdag'
-                ];
-                $monthmap = [
-                    0 => 'Januari',
-                    1 => 'Februari',
-                    2 => 'Maart',
-                    3 => 'April',
-                    4 => 'Mei',
-                    5 => 'Juni',
-                    6 => 'Juli',
-                    7 => 'Augustus',
-                    8 => 'September',
-                    9 => 'October',
-                    10 => 'November',
-                    11 => 'December',
-                ];
                 $trainingSession->weekDay = $weekmap[$date->dayOfWeek];
+                $trainingSession->year = $date->year;
                 $trainingSession->month = $monthmap[$date->month];
                 $trainingSession->day = $date->day;
 
