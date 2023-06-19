@@ -10,6 +10,7 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\TrainingGroupController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\SiteMapController;
 use App\Models\Mail\MailFactory;
@@ -120,6 +121,10 @@ Route::middleware(['role:admin'])->group(function () {
 
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
+    Route::resource('traininggroups', TrainingGroupController::class);
+    Route::get('/traininggroups/participants/create', [TrainingGroupController::class, 'createParticipant']);
+    Route::post('/traininggroups/participants', [TrainingGroupController::class, 'storeParticipant']);
+    Route::delete('/traininggroups/participants/{participant}', [TrainingGroupController::class, 'destroyParticipant']);
 
     //privacyverklaring routes
     Route::get('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'edit'])->name('privacy.edit');

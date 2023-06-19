@@ -41,7 +41,7 @@
                 <label class="form-check-label">Trainingsgroep:</label>
                 @foreach($groups as $group)
                 <div class="form-check">
-                    <input type="radio" class="form-check-input" value="{{$group->GroupNumber}}" name="group" id="{{$group->Name}}"/>
+                    <input type="radio" class="form-check-input" value="{{$group->id}}" name="group" id="{{$group->Name}}"/>
                     <label for="{{$group->Name}}" class="form-check-label">{{$group->Name}}</label>
                 </div>
                 @endforeach
