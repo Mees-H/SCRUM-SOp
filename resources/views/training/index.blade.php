@@ -21,42 +21,42 @@
                 {{ session()->get('error') }}
             </div>
         @endif
-        @if ($agent->isMobile())
-        <div>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <td>Datum</td>
-                        <td>Beschrijving</td>
-                        <td>Groep</td>
-                        <td colspan = 2>Actions</td>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($sessions as $session)
-                        <tr>
-                            <td>{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</td>
-                            <td>{{$session->Description}}</td>
-                            <td>Groep {{$session->GroupNumber}}</td>
-                            <td>
-                                <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>
+{{--        @if ($agent->isMobile())--}}
+{{--        <div>--}}
+{{--            <table class="table table-striped">--}}
+{{--                <thead>--}}
+{{--                    <tr>--}}
+{{--                        <td>Datum</td>--}}
+{{--                        <td>Beschrijving</td>--}}
+{{--                        <td>Groep</td>--}}
+{{--                        <td colspan = 2>Actions</td>--}}
+{{--                    </tr>--}}
+{{--                </thead>--}}
+{{--                <tbody>--}}
+{{--                    @foreach($sessions as $session)--}}
+{{--                        <tr>--}}
+{{--                            <td>{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</td>--}}
+{{--                            <td>{{$session->Description}}</td>--}}
+{{--                            <td>Groep {{$session->GroupNumber}}</td>--}}
+{{--                            <td>--}}
+{{--                                <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>--}}
 
-                                <form action="{{ route('trainingsessions.destroy', $session->Id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Verwijderen</button>
-                                </form>
-                            </td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
+{{--                                <form action="{{ route('trainingsessions.destroy', $session->Id)}}" method="post">--}}
+{{--                                @csrf--}}
+{{--                                @method('DELETE')--}}
+{{--                                <button class="btn btn-danger" type="submit">Verwijderen</button>--}}
+{{--                                </form>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                    @endforeach--}}
+{{--                </tbody>--}}
+{{--            </table>--}}
+{{--        </div>--}}
 
-        @endif
+{{--        @endif--}}
 
-        @if (!$agent->isMobile())
-        <div>
+{{--        @if (!$agent->isMobile())--}}
+        <div class="table-container">
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -64,7 +64,7 @@
                         <td>tijd</td>
                         <td>Beschrijving</td>
                         <td>Groep</td>
-                        <td colspan = 2>Actions</td>
+                        <td>Actions</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,21 +75,21 @@
                             <td>{{$session->Description}}</td>
                             <td>Groep {{$session->GroupNumber}}</td>
                             <td>
-                                <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>
-                            </td>
-                            <td>
-                                <form action="{{ route('trainingsessions.destroy', $session->Id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Verwijderen</button>
-                                </form>
+                                <div class="d-flex h-100 flex-wrap">
+                                    <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>
+                                    <form action="{{ route('trainingsessions.destroy', $session->Id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Verwijderen</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
-        @endif
+{{--        @endif--}}
 
     <div>
 </div>
