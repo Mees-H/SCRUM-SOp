@@ -41,7 +41,11 @@ class TrainingGroupController extends Controller
     public function storeParticipant(Request $request)
     {
         $request->validate([
-            'name' => 'required|max:255',
+            'name' => [
+                'required',
+                'max:255',
+                'regex:/\b[A-Za-z ëäöïü]+\b/',
+            ],
             'group' => 'required'
         ]);
 
