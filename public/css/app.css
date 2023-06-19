@@ -99,8 +99,9 @@ h1 {
     color: #65591A;
 }
 
-.specialBrown {
+.specialHeader {
     color: #8d7824;
+    font-family: 'Roboto Slab', serif;
 }
 
 .footer {
