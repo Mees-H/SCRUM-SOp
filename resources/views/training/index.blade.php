@@ -73,7 +73,7 @@
                             <td>{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</td>
                             <td>{{date('H:i', strtotime($session->StartTime))}} - {{date('H:i', strtotime($session->EndTime))}}</td>
                             <td>{{$session->Description}}</td>
-                            <td>Groep {{$session->group_id}}</td>
+                            <td>{{$session->Name}}</td>
                             <td>
                                 <div class="d-flex h-100 flex-wrap">
                                     <a href="{{ route('trainingsessions.edit',$session->id)}}" class="btn btn-primary">Aanpassen</a>
