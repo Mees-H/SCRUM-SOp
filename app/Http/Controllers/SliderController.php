@@ -38,9 +38,9 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        ]);
+//        $request->validate([
+//            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+//        ]);
         try {
             $uploadImage = $request->file('image');
             $imageNameWithExt = $uploadImage->getClientOriginalName();
