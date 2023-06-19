@@ -5,6 +5,11 @@ const listItems = content.querySelectorAll(".searchitem");
 
 let activeIndex = -1;
 
+$(document).ready(function() {
+  // Find the first input field with an error and set focus to it
+  $('.is-invalid:first').focus();
+});
+
 dropdown.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
     event.preventDefault();
