@@ -95,7 +95,7 @@ class GalleryController extends Controller
         $request->validate([
             'title' => 'required|max:255|not_regex:/[\/#?&=\\\\]/',
             'description' => 'required|max:999',
-            'date' => 'required'
+            'date' => 'required|date'
         ], [
             'title.not_regex' => 'De titel mag de volgende karakters niet bevatten: \ / # ? & ='
         ]);
@@ -126,7 +126,7 @@ class GalleryController extends Controller
         $attributes = $request->validate([
             'title' => 'required|max:255|not_regex:/[\/#?&=\\\\]/',
             'description' => 'required|max:999',
-            'date' => 'required'
+            'date' => 'required|date'
         ], [
             'title.not_regex' => 'De titel mag de volgende karakters niet bevatten: \ / # ? & ='
         ]);
