@@ -136,6 +136,10 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'edit'])->name('privacy.edit');
     Route::post('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'store'])->name('privacy.store');
 
+    //footer routes
+    Route::get('/footer/edit', [App\Http\Controllers\FooterController::class, 'edit'])->name('footer.edit');
+    Route::post('/footer/store', [App\Http\Controllers\FooterController::class, 'store'])->name('footer.store');
+
 });
 
 //News routes

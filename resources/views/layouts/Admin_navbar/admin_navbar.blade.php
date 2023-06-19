@@ -128,6 +128,13 @@
                 <hr class="dropdown-divider">
             </li>
             <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'footer') ? 'font-weight-bold' : '' }}"
+                   href="/footer/edit">Footer</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
                    href="/privacy/edit">Privacy</a>
             </li>
