@@ -16,7 +16,7 @@ use Exception;
 class TrainingController extends Controller
 {
     public function training()
-    {   
+    {
         //Getting week numbers
         $date = Carbon::now();
         $weekFrom = $date->weekOfYear;
@@ -110,7 +110,7 @@ class TrainingController extends Controller
 
     //CRUD
     public function index(){
-        return view('training.index', ['sessions' => TrainingSession::all()]);
+        return view('training.index', ['sessions' => TrainingSession::where('Date', '>=' , Carbon::now())->get()]);
     }
 
     public function create(){
