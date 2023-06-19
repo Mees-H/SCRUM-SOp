@@ -30,7 +30,7 @@
                     @if($page->banner_image != '')
                     <td>
                         <div class="indexbanner-box">
-                            <img src="{{ asset('/img/banners/'.$page->banner_image) }}" class="indexbanner" dusk="banner"/>
+                            <img src="{{ asset('/img/banners/'.$page->banner_image) }}" class="indexbanner" dusk="banner" alt="{{ $page->title }} banner"/>
                         </div>
                     </td>
                     @else
