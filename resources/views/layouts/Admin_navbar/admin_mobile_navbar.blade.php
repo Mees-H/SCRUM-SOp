@@ -64,8 +64,11 @@
                     <li><a class="dropdown-item text-center searchitem" href="/faq">
                             FAQ
                         </a></li>
-                    <li><a class="dropdown-item text-center searchitem" href="/nieuws">
-                            Nieuwsbrief
+                    <li><a class="dropdown-item text-center searchitem" href="/nieuwsartikel">
+                            NieuwsArtikelen
+                        </a></li>
+                        <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
+                            Nieuwsbrieven
                         </a></li>
                     <li><a class="dropdown-item text-center searchitem" href="/team">
                             Team
@@ -128,8 +131,8 @@
                         <hr class="dropdown-divider">
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'slider') ? 'font-weight-bold' : '' }}"
-                           href="/slider">Slider</a>
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'banners') ? 'font-weight-bold' : '' }}"
+                        href="/banners">Paginabanners</a>
                     </li>
                 </ul>
             </li>
@@ -137,9 +140,24 @@
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}"
                    href="/faq">Veelgestelde vragen</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-                   href="/nieuwsbrief">Nieuws</a>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
+                   data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+                   Nieuws
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsartikel') ? 'font-weight-bold' : '' }}"
+                           href="/nieuwsartikel">Nieuwsartikelen</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
+                           href="/nieuwsbrief">Nieuwsbrieven</a>
+                    </li>
+                </ul>
             </li>
             <li class="nav-item">
                 <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}"

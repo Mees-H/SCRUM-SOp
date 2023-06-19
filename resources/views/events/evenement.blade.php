@@ -5,14 +5,7 @@
         <link rel="stylesheet" href="{{ asset('css/EventDetails.css') }}">
         <title>Events</title>
     </head>
-    <div class="container justify-content-between ">
-        <div class="row align-items-center">
-            <h1 class="col">Evenementen</h1>
-        </div>
-    </div>
-    </div>
     <div class="container">
-        <hr>
         <div class="row">
             <div class="col-md-2">
                 <div class="col-md">
@@ -68,7 +61,14 @@
 
                                 <div class="d-flex justify-content-between">
                                     <p class="col-sm-8">
-                                        {!!str_split($post->body,strpos($post->body,"."))[0]!!}...
+                                        @if(strpos($post->body,".") !== false)
+                                            {!!str_split($post->body,strpos($post->body,"."))[0]!!}...
+                                        @else
+                                            {!!substr($post->body, 0, 200)!!}
+                                            @if(strlen($post->body) > 200)
+                                                ...
+                                            @endif
+                                        @endif
                                     </p>
                                     <div>
                                         <a dusk="ButtonToDetailsEvent" href="{{route('eventsDetails', $post->id)}}"
@@ -106,4 +106,3 @@
         </div>
     </div>
 @stop
-

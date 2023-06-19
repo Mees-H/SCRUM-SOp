@@ -15,7 +15,7 @@
             </div>
             <br /> 
         @endif
-        <form method="post" action="{{ route('trainingsessions.update', $session->Id) }}">
+        <form method="post" action="{{ route('trainingsessions.update', $session->id) }}">
             @method('PATCH') 
             @csrf
 
@@ -42,8 +42,8 @@
             <label class="form-check-label">Trainingsgroep:</label>
             @foreach($groups as $group)
             <div class="form-check">
-                <input type="radio" class="form-check-input" value="{{$group->GroupNumber}}" name="group" id="{{$group->Name}}" {{$session->GroupNumber == $group->GroupNumber ? 'checked' : ''}}/>
-                <label for="{{$group->Name}}" class="form-check-label">{{$group->Name}}</label>
+                <input type="radio" class="form-check-input" value="{{$group->id}}" name="group" id="{{$group->id}}" {{$session->group_id == $group->id ? 'checked' : ''}}/>
+                <label for="{{$group->id}}" class="form-check-label">{{$group->Name}}</label>
             </div>
             @endforeach
             <br>

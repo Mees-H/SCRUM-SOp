@@ -70,7 +70,7 @@ class SignoutTrainingTest extends DuskTestCase
                 ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', 'Piet Piraat')
-                ->type('date', Carbon::yesterday()->format('mdY'))
+                ->type('date', Carbon::yesterday()->format('dmY'))
                 ->press('Afmelden')
                 ->waitForText('De datum moet na de datum van vandaag liggen');
         });

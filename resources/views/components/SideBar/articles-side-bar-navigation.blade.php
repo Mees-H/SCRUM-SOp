@@ -24,7 +24,6 @@
 
                         <div class="collapse collapsed" id="articleOfYear{{$year}}">
                             <ul class="btn-toggle-nav list-unstyled fw-normal small">
-
                                 @foreach($articles_year as $article)
                                     <li>
                                         <a id="articleNav" href="#{{$article['id']}}" dusk="click_article" class="border-0 text-decoration-none text-black ">
@@ -36,7 +35,6 @@
                                         </a>
                                     </li>
                                 @endforeach
-
                             </ul>
                         </div>
                     @endforeach

@@ -19,7 +19,7 @@
                             <span class="requiredStar">*</span>E-mail
                         </label>
                         <div class="col-sm-5">
-                            <input id="email" class="form-control" type="email" name="email" :value="old('email')" required autofocus autocomplete="username">
+                            <input id="email" class="form-control" type="email" name="email" value="{{old('email')}}" required autofocus autocomplete="username">
                         </div>
                     </div>
 

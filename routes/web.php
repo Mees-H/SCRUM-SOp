@@ -10,8 +10,10 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\TrainingGroupController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\BannerController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -74,19 +76,9 @@ Route::resource('links', SiteMapController::class);
 Route::get('/albums/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
 Route::get('/albums/{id}/{year}', [GalleryController::class, 'show'])->name('galerij_album');
 
-//News routes
-Route::resource('nieuws', NewsArticleController::class);
-Route::resource('nieuwsbrief', NewsLetterController::class);
-Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
-Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('nieuws.store');
 
 
-Route::resource('nieuwsBrief', NewsLetterController::class);
 
-
-//Galerij routes
-//Route::get('/galerij/{year}', [GalleryController::class, 'showGallery'])->name('galerij_jaar');
-//Route::get('/galerij/{year}/{title}', [GalleryController::class, 'show'])->name('galerij_album');
 //privacyverklaring routes
 Route::get('/privacy', [App\Http\Controllers\PrivacyController::class, 'index'])->name('privacy');
 Route::get('/privacy/download', [App\Http\Controllers\PrivacyController::class, 'download'])->name('privacy.download');
@@ -97,12 +89,16 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
     Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
+    Route::post('/admin/permanentlydelete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'permanentlyDelete']);
+    Route::post('/admin/unarchive', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'unarchive']);
     Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
 
     //News routes
-    Route::resource('nieuws', NewsArticleController::class);
-    Route::resource('nieuwsbrief', NewsLetterController::class);
-    Route::post('/nieuws/create', [NewsArticleController::class, 'store'])->name('nieuws.store');
+
+    Route::resource('nieuwsartikel', NewsArticleController::class)->except(['index']);
+    Route::resource('nieuwsbrief', NewsLetterController::class)->except(['show']);
+    Route::post('/nieuwsartikel/create', [NewsArticleController::class, 'store'])->name('nieuwsartikel.store');
+    Route::post('/nieuwsbrief/create', [NewsLetterController::class, 'store'])->name('nieuwsbrief.store');
 
 
     //Slider routes
@@ -117,19 +113,24 @@ Route::middleware(['role:admin'])->group(function () {
     //Team routes
     Route::resource('members', TeamController::class);
 
+    //Banner routes
+    Route::resource('banners', BannerController::class);
+    Route::post('banners/{id}', [BannerController::class, 'update']);
     //Partner routes
     Route::resource('groups', PartnerController::class);
 
     //Galerij routes
     Route::get('galerij/{id}/addPhoto', [GalleryController::class, 'addPhoto']);
-    Route::post('/galerij/{year}/{title}/wijzigbeschrijving', [GalleryController::class, 'updateAlbumDescription']);
-    Route::post('/galerij/{year}/{title}/voegfotostoe', [GalleryController::class, 'addAlbumPictures'])->name('addAlbumPictures');
-    Route::post('/galerij/{year}/{title}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
-
+    Route::post('/galerij/{id}/voegfotostoe', [GalleryController::class, 'addAlbumPictures'])->name('addAlbumPictures');
+    Route::post('/galerij/{id}/verwijderfotos', [GalleryController::class, 'deleteAlbumPictures']);
     Route::resource('galerij', GalleryController::class);
 
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
+    Route::resource('traininggroups', TrainingGroupController::class);
+    Route::get('/traininggroups/participants/create', [TrainingGroupController::class, 'createParticipant']);
+    Route::post('/traininggroups/participants', [TrainingGroupController::class, 'storeParticipant']);
+    Route::delete('/traininggroups/participants/{participant}', [TrainingGroupController::class, 'destroyParticipant']);
 
     //privacyverklaring routes
     Route::get('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'edit'])->name('privacy.edit');
@@ -142,8 +143,10 @@ Route::middleware(['role:admin'])->group(function () {
 });
 
 //News routes
-Route::get('/nieuws', [NewsArticleController::class, 'index'])->name('nieuws.index');
-Route::post('/nieuws', [NewsArticleController::class, 'index'])->name('sorting');
+Route::get('/nieuwsartikel', [NewsArticleController::class, 'index'])->name('newsArticle.index');
+Route::get('/nieuwsbrief', [NewsLetterController::class, 'index'])->name('newsLetter.index');
+Route::post('/nieuwsartikel', [NewsArticleController::class, 'index'])->name('newsArticle.sorting');
+Route::post('/nieuwsbrief', [NewsLetterController::class, 'index'])->name('newsLetter.sorting');
 
 Route::middleware(['role:admin,coach'])->group(function () {
 

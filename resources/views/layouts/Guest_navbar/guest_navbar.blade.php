@@ -46,9 +46,7 @@
             @if(count($allYears) > 0)
                 @foreach($allYears as $year)
                     <li><a class="dropdown-item nav-link text-dark"
-                           href="{{ route('galerij_jaar', $year) }}">{{$year}}</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
+                           href="{{ route('galerij_jaar', $year) }}">{{$year}}</a>
                     </li>
                 @endforeach
             @else
@@ -60,9 +58,24 @@
         <a class="nav-link text-dark {{ (request()->segment(1) == 'faq') ? 'font-weight-bold' : '' }}"
            href="/vragenantwoorden">Veelgestelde vragen</a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link text-dark {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
-           href="/nieuws">Nieuws</a>
+    <li class="nav-item dropdown">
+        <a dusk="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
+           data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
+            Nieuws
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsartikel') ? 'font-weight-bold' : '' }}"
+                   href="/nieuwsartikel">Nieuwsartikelen</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'nieuwsbrief') ? 'font-weight-bold' : '' }}"
+                   href="/nieuwsbrief">Nieuwsbrieven</a>
+            </li>
+        </ul>
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'partners') ? 'font-weight-bold' : '' }}"
@@ -169,8 +182,11 @@
                 <li><a class="dropdown-item text-center" href="/vragenantwoorden">
                         FAQ
                     </a></li>
-                <li><a class="dropdown-item text-center" href="/nieuws">
-                        Nieuws
+                <li><a class="dropdown-item text-center" href="/nieuwsartikel">
+                        Nieuwsartikelen
+                    </a></li>
+                <li><a class="dropdown-item text-center" href="/nieuwsbrief">
+                        Nieuwsbrieven
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/team">
                         Team
@@ -196,3 +212,15 @@
 </ul>
     </div>
 </nav>
+@if($banner_title != '')
+<div class="container-fluid mb-3 bannercontainer" style="user-select: none;">
+  <div class="row">
+    <div class="col-md-12 p-0">
+      <div class="position-relative">
+        <img src="{{ asset($banner_path) }}" alt="Bannerfoto van {{ $banner_title }}" class="img-fluid w-100 opacity-75 bannerimage">
+        <h1 class="position-absolute top-50 start-50 translate-middle text-center">{{ $banner_title }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+@endif

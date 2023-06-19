@@ -6,7 +6,7 @@ use App\Models\Album;
 use App\Models\Picture;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use App\Http\Requests\UploadImageRequest;
+use App\Http\Requests\UploadMultipleImagesRequest;
 use Illuminate\Support\Facades\File;
 use Image;
 use Storage;
@@ -93,9 +93,11 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:255|not_regex:/[\/#?&=\\\\]/',
             'description' => 'required|max:999',
             'date' => 'required'
+        ], [
+            'title.not_regex' => 'De titel mag de volgende karakters niet bevatten: \ / # ? & ='
         ]);
 
         $album = new Album();
@@ -122,9 +124,11 @@ class GalleryController extends Controller
     public function update(Request $request, string $id)
     {
         $attributes = $request->validate([
-            'title' => 'required|max:255',
+            'title' => 'required|max:255|not_regex:/[\/#?&=\\\\]/',
             'description' => 'required|max:999',
             'date' => 'required'
+        ], [
+            'title.not_regex' => 'De titel mag de volgende karakters niet bevatten: \ / # ? & ='
         ]);
 
         Album::where('id', $id)->update(['title' => $attributes['title'], 'description' => $attributes['description'], 'date' => $attributes['date']]);
@@ -149,7 +153,7 @@ class GalleryController extends Controller
         return redirect('/galerij')->with('success', 'Album verwijderd.');
     }
 
-    public function addAlbumPictures(UploadImageRequest $request)
+    public function addAlbumPictures(UploadMultipleImagesRequest $request)
     {
         foreach ($request->images as $image) {
             $imageNameWithExt = $image->getClientOriginalName();
