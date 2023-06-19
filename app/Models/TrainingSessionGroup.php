@@ -8,20 +8,19 @@ use Illuminate\Database\Eloquent\Model;
 class TrainingSessionGroup extends Model
 {
     protected $table = 'training_session_group';
-    protected $primaryKey = 'GroupNumber';
+    protected $primaryKey = 'id';
     public $incrementing = false;
     protected $fillable = [
-        'GroupNumber',
         'Name',
     ];
 
     public function participants()
     {
-        return $this->hasMany(Member::class, 'GroupNumber');
+        return $this->hasMany(Member::class, 'group_id');
     }
 
     public function trainingsessions()
     {
-        return $this->hasMany(TrainingSession::class, 'GroupNumber');
+        return $this->hasMany(TrainingSession::class, 'group_id');
     }
 }

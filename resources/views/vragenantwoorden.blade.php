@@ -11,7 +11,16 @@
     <a href="/vragenantwoorden/vraagformulier" class="btn-primary btn mt-4">Stel een vraag</a>
     </div>
 </div>
-        <br/>
+<br/>
+<div class="card">
+  <div class="container card-body">
+    <p>Heeft u een vraag? Wij beantwoorden deze graag!</p>
+    <p>Staat uw vraag niet in het overzicht hieronder dan kunt u deze vraag stellen via de bovenliggende "Stel een vraag" knop.</p>
+    <p>Uw vraag wordt via email verzonden en de reactie krijgt u ook via de mail, daarom vragen wij u ook om uw emailadres in te vullen wanneer u een vraag stelt.</p>
+    <p>Wij streven ernaar uw vraag binnen 24 uur te beantwoorden.</p>
+  </div>
+</div>
+<br/>
 <div class="accordion">
 @foreach($FAQ as $faq)
   <div class="accordion-item">
