@@ -17,11 +17,11 @@
             @csrf
             <div class="form-group">    
                 <label for="vraag">Vraag:</label>
-                <input type="text" class="form-control" name="vraag" id="vraag" required/>
+                <input type="text" class="form-control" name="vraag" id="vraag" required value="{{old('vraag')}}"/>
             </div>
             <div class="form-group">
                 <label for="antwoord">Antwoord:</label>
-                <input type="text" class="form-control" name="antwoord" id="antwoord" required/>
+                <input type="text" class="form-control" name="antwoord" id="antwoord" required value="{{old('antwoord')}}"/>
             </div>
             <button type="submit" class="btn btn-primary">Voeg veelgestelde vraag toe</button>
         </form>
