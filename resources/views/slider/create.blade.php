@@ -17,7 +17,8 @@
                       action="{{ route('slider.store') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="m-5">
-                        <h1 class="float-start mb-5 display-3">Upload afbeelding voor slider</h1>
+                        <h1 class=" mb-5 display-3">Upload afbeelding voor slider</h1>
+                        <div class="w-100 alert alert-warning col-md-6 text-center"><p>de afbeelding mag niet groter dan 2 GB zijn.</p></div>
                         <input type="file" class="form-control form-control-lg" name="image" id="image">
                     </div>
                     <div class="m-5">
