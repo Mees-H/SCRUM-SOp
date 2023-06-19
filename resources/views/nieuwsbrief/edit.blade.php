@@ -51,7 +51,7 @@
                                         </div>
                                         <div class="col">
                                             <button class="btn btn-primary" type="submit">Wijzig nieuwsbrief</button>
-                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">Annuleren</a>
+                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuwsbrief">Annuleren</a>
                                         </div>
                                         <hr>
                                     </form>

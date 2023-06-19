@@ -28,7 +28,7 @@
                 @endif
                     <h1 class="text-black border-bottom">Nieuwsartikel Aanpassen</h1>
                     <div class="card border-0">
-                        <form method="post" action="{{ route('nieuws.update', $editArticle->id) }}"
+                        <form method="post" action="{{ route('nieuwsartikel.update', $editArticle->id) }}"
                               enctype="multipart/form-data">
                             @method('PATCH')
                             @csrf
@@ -77,7 +77,7 @@
                                 </div>
                                 <div class="col">
                                     <button class="btn btn-primary" type="submit" alt="bevestig artikel aanpassen">Pas artikel aan</button>
-                                    <a class="btn btn-danger" type="reset" href="/nieuws" alt="annuleer bewerken">Annuleren</a>
+                                    <a class="btn btn-danger" type="reset" href="/nieuwsartikel" alt="annuleer bewerken">Annuleren</a>
                                 </div>
                             </div>
                         </form>

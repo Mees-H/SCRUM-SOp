@@ -28,8 +28,13 @@ class NavigationTest extends DuskTestCase
                         ->clickLink("Veelgestelde vragen")
                         ->assertPathIs("/vragenantwoorden");
                 $browser->visit('/')->resize(3000,3000)
-                        ->clickLink("Nieuws")
-                        ->assertPathIs("/nieuws");
+                        ->click("#navbarDropdownNieuws")
+                        ->clickLink("Nieuwsartikelen")
+                        ->assertPathIs("/nieuwsartikel");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownNieuws")
+                        ->clickLink("Nieuwsbrieven")
+                        ->assertPathIs("/nieuwsbrief");
                 $browser->visit('/')->resize(3000,3000)
                         ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Team")
@@ -90,8 +95,12 @@ class NavigationTest extends DuskTestCase
                         ->assertPathIs("/vragenantwoorden");
                 $browser->visit('/')->resize(3000,3000)
                         ->type('#dropdown',' ')
-                        ->clickLink("Nieuws")
-                        ->assertPathIs("/nieuws");
+                        ->clickLink("Nieuwsartikelen")
+                        ->assertPathIs("/nieuwsartikel");
+                $browser->visit('/')->resize(3000,3000)
+                        ->type('#dropdown',' ')
+                        ->clickLink("Nieuwsbrieven")
+                        ->assertPathIs("/nieuwsbrief");
                 $browser->visit('/')->resize(3000,3000)
                         ->type('#dropdown',' ')
                         ->clickLink("Team")
@@ -143,8 +152,13 @@ class NavigationTest extends DuskTestCase
                         ->clickLink("Veelgestelde vragen")
                         ->assertPathIs("/faq");
                 $browser->visit('/')->resize(3000,3000)
-                        ->clickLink("Nieuws")
-                        ->assertPathIs("/nieuws");
+                        ->click("#navbarDropdownNieuws")
+                        ->clickLink("Nieuwsartikelen")
+                        ->assertPathIs("/nieuwsartikel");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownNieuws")
+                        ->clickLink("Nieuwsbrieven")
+                        ->assertPathIs("/nieuwsbrief");
                 $browser->visit('/')->resize(3000,3000)
                         ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Team")

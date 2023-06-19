@@ -38,7 +38,7 @@
                                             <div class="col-sm-7">
                                                 <span class="requiredStar">*</span><label for="date" class="form-label">Datum</label>
                                                 <label>
-                                                    <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror" type="date" placeholder="Datum *" name="date" required>
+                                                    <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror" type="date" placeholder="Datum *" name="date" value="{{old('date')}}" required>
                                                 </label>
                                                 <label for="file" class="form-label">PDF bestand</label>
                                                 <input class="form-control @error('file') is-invalid @enderror" type="file" name="file" id="file">
@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="col">
                                             <button class="btn btn-primary" type="submit">Voeg nieuwsbrief toe</button>
-                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
+                                            <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuwsbrief">annuleren</a>
                                         </div>
                                         <hr>
                                     </form>
