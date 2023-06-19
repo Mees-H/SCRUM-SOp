@@ -43,7 +43,6 @@ class TrainingController extends Controller
     }
 
     public function store(Request $request){
-
         $request->validate([
             'date' => 'required|after:today',
             'starttime' => 'required',
@@ -57,7 +56,7 @@ class TrainingController extends Controller
             'StartTime' => $request->get('starttime'),
             'EndTime' => $request->get('endtime'),
             'Description' => $request->get('body'),
-            'GroupNumber' => $request->get('group'),
+            'group_id' => $request->get('group'),
             'IstrainingSession' => ($request->get('vacationweek') == 'true' ? '0' : '1')
         ]);
         $session->save();
@@ -94,7 +93,7 @@ class TrainingController extends Controller
         $session->StartTime = $request->get('starttime');
         $session->EndTime = $request->get('endtime');
         $session->Description = $request->get('body');
-        $session->GroupNumber = $request->get('group');
+        $session->group_id = $request->get('group');
         $session->IstrainingSession = ($request->get('vacationweek') == 'true' ? '0' : '1');
         $session->save();
         return redirect('/trainingSessions')->with('success', 'Trainingsessie opgeslagen.');
