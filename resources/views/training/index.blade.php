@@ -76,8 +76,8 @@
                             <td>Groep {{$session->group_id}}</td>
                             <td>
                                 <div class="d-flex h-100 flex-wrap">
-                                    <a href="{{ route('trainingsessions.edit',$session->Id)}}" class="btn btn-primary">Aanpassen</a>
-                                    <form action="{{ route('trainingsessions.destroy', $session->Id)}}" method="post">
+                                    <a href="{{ route('trainingsessions.edit',$session->id)}}" class="btn btn-primary">Aanpassen</a>
+                                    <form action="{{ route('trainingsessions.destroy', $session->id)}}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger" type="submit">Verwijderen</button>

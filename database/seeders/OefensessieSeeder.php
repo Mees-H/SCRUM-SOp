@@ -30,11 +30,11 @@ class OefensessieSeeder extends Seeder
     public function seedTrainingGroups(): void
     {
         DB::table('training_session_group')->insert([
-            'GroupNumber' => 1,
+            'id' => 1,
             'Name' => 'Groep A',
         ]);
         DB::table('training_session_group')->insert([
-            'GroupNumber' => 2,
+            'id' => 2,
             'Name' => 'Groep B',
         ]);
     }
@@ -125,7 +125,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Pinksteren',
-                'GroupNumber' => 1,
+                'group_id' => 1,
                 'IstrainingSession' => false,
             ],
             [
