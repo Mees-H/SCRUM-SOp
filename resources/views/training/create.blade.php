@@ -41,10 +41,10 @@
                 <label class="form-check-label">Trainingsgroep:</label>
                 @foreach($groups as $group)
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="group" id="group_{{$group->GroupNumber}}"
-                            value="{{$group->GroupNumber}}" 
+                        <input type="radio" class="form-check-input" name="group" id="{{$group->Name}}"
+                            value="{{$group->id}}"
                             @if(old('group') == $group->GroupNumber) checked @endif />
-                        <label for="group_{{$group->GroupNumber}}" class="form-check-label">{{$group->Name}}</label>
+                        <label for="{{$group->Name}}" class="form-check-label">{{$group->Name}}</label>
                     </div>
                 @endforeach
                 <br>

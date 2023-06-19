@@ -12,14 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('training_session', function (Blueprint $table) {
-            $table->increments('Id');
+            $table->id();
             $table->date('Date');
             $table->time('StartTime');
             $table->time('EndTime');
             $table->string('Description')->nullable();
-            $table->unsignedBigInteger('GroupNumber');
+            $table->unsignedBigInteger('group_id');
             $table->boolean('IstrainingSession');
-            $table->foreign('GroupNumber')->references('GroupNumber')->on('training_session_group');
+            $table->foreign('group_id')->references('id')->on('training_session_group')->onDelete('cascade');
         });
     }
 

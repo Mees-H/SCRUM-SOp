@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class TrainingSession extends Model
 {
     protected $table = 'training_session';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'id';
     public $timestamps = false;
     protected $fillable = [
-        'Id',
-        'GroupNumber',
+        'id',
+        'group_id',
         'Date',
         'StartTime',
         'EndTime',
@@ -22,6 +22,6 @@ class TrainingSession extends Model
 
     public function training_session_group()
     {
-        return $this->belongsTo(TrainingSessionGroup::class, 'GroupNumber');
+        return $this->belongsTo(TrainingSessionGroup::class, 'id');
     }
 }
