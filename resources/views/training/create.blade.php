@@ -43,7 +43,7 @@
                     <div class="form-check">
                         <input type="radio" class="form-check-input" name="group" id="{{$group->Name}}"
                             value="{{$group->id}}"
-                            @if(old('group') == $group->GroupNumber) checked @endif />
+                            @if(old('group') == $group->id) checked @endif />
                         <label for="{{$group->Name}}" class="form-check-label">{{$group->Name}}</label>
                     </div>
                 @endforeach
