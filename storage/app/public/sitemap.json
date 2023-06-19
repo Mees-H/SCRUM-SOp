@@ -79,6 +79,11 @@
                     "name": "privacy verklaring aanpassen",
                     "link": "/privacy/edit",
                     "alt": "privacy verklaring"
+                },
+                {
+                    "name": "Training groepen aanpassen",
+                    "link": "/traininggroups",
+                    "alt": "Traininggroepen"
                 }
             ]
         }
