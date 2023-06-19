@@ -30,11 +30,11 @@ class OefensessieSeeder extends Seeder
     public function seedTrainingGroups(): void
     {
         DB::table('training_session_group')->insert([
-            'GroupNumber' => 1,
+            'id' => 1,
             'Name' => 'Groep 1',
         ]);
         DB::table('training_session_group')->insert([
-            'GroupNumber' => 2,
+            'id' => 2,
             'Name' => 'Groep 2',
         ]);
     }
@@ -81,7 +81,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'BurgGolf Haverleij',
-                'GroupNumber' => 1,
+                'group_id' => 1,
                 'IstrainingSession' => true,
             ];
             $values[] = [
@@ -89,7 +89,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'BurgGolf Haverleij',
-                'GroupNumber' => 2,
+                'group_id' => 2,
                 'IstrainingSession' => true,
             ];
         }
@@ -101,7 +101,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Pasen',
-                'GroupNumber' => 1,
+                'group_id' => 1,
                 'IstrainingSession' => false,
             ],
             [
@@ -109,7 +109,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Pasen',
-                'GroupNumber' => 2,
+                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
             [
@@ -117,7 +117,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Limeer Golf Bokaal',
-                'GroupNumber' => 1,
+                'group_id' => 1,
                 'IstrainingSession' => false,
             ],
             [
@@ -125,7 +125,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Limeer Golf Bokaal',
-                'GroupNumber' => 2,
+                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
             [
@@ -133,7 +133,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Haverleij Prise d\'Eau',
-                'GroupNumber' => 1,
+                'group_id' => 1,
                 'IstrainingSession' => false,
             ],
             [
@@ -141,7 +141,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Haverleij Prise d\'Eau',
-                'GroupNumber' => 2,
+                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
             [
@@ -149,7 +149,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Pinksterren',
-                'GroupNumber' => 1,
+                'group_id' => 1,
                 'IstrainingSession' => false,
             ],
             [
@@ -157,7 +157,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Pinksterren',
-                'GroupNumber' => 2,
+                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
             [
@@ -165,7 +165,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Zomervakantie',
-                'GroupNumber' => 1,
+                'group_id' => 1,
                 'IstrainingSession' => false,
             ],
             [
@@ -173,7 +173,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Zomervakantie',
-                'GroupNumber' => 2,
+                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
             [
@@ -181,7 +181,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Herfstvakantie',
-                'GroupNumber' => 1,
+                'group_id' => 1,
                 'IstrainingSession' => false,
             ],
             [
@@ -189,7 +189,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Herfstvakantie',
-                'GroupNumber' => 2,
+                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
             [
@@ -197,7 +197,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Afsluiting seizoen',
-                'GroupNumber' => 1,
+                'group_id' => 1,
                 'IstrainingSession' => false,
             ],
             [
@@ -205,7 +205,7 @@ class OefensessieSeeder extends Seeder
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Afsluiting seizoen',
-                'GroupNumber' => 2,
+                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
         ]);
@@ -219,55 +219,55 @@ class OefensessieSeeder extends Seeder
         DB::table('participant')->insert([
             [
                 'Name' => 'Frans Toonen',
-                'GroupNumber' => 1,
+                'group_id' => 1,
             ],
             [
                 'Name' => 'Connie van de Ven',
-                'GroupNumber' => 1,
+                'group_id' => 1,
             ],
             [
                 'Name' => 'Renee Balvers',
-                'GroupNumber' => 1,
+                'group_id' => 1,
             ],
             [
                 'Name' => 'Roel Rademakers',
-                'GroupNumber' => 1,
+                'group_id' => 1,
             ],
             [
                 'Name' => 'Jacky Dekker',
-                'GroupNumber' => 1,
+                'group_id' => 1,
             ],
             [
                 'Name' => 'Bert van de Burgt',
-                'GroupNumber' => 1,
+                'group_id' => 1,
             ],
             [
                 'Name' => 'Johan Voermans',
-                'GroupNumber' => 1,
+                'group_id' => 1,
             ],
             [
                 'Name' => 'Bart van der Maale',
-                'GroupNumber' => 1,
+                'group_id' => 1,
             ],
             [
                 'Name' => 'Ilco Bosboom',
-                'GroupNumber' => 2,
+                'group_id' => 2,
             ],
             [
                 'Name' => 'Sjoerd Veenstra',
-                'GroupNumber' => 2,
+                'group_id' => 2,
             ],
             [
                 'Name' => 'Bart Schenk',
-                'GroupNumber' => 2,
+                'group_id' => 2,
             ],
             [
                 'Name' => 'Frank Bijnen',
-                'GroupNumber' => 2,
+                'group_id' => 2,
             ],
             [
                 'Name' => 'Peter van der Putten',
-                'GroupNumber' => 2,
+                'group_id' => 2,
             ],
         ]);
     }

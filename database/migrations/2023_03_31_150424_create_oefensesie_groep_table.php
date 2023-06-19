@@ -12,8 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('training_session_group', function (Blueprint $table) {
-            $table->unsignedBigInteger('GroupNumber')->primary();
+            $table->id();
             $table->string('Name');
+            $table->timestamps();
         });
     }
 

@@ -28,6 +28,13 @@
                 <hr class="dropdown-divider">
             </li>
             <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'traininggroups') ? 'font-weight-bold' : '' }}"
+                   href="/traininggroups">Training groepen</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'evenement') ? 'font-weight-bold' : '' }}"
                    href="/events">Evenementen</a>
             </li>
@@ -47,8 +54,8 @@
                 <hr class="dropdown-divider">
             </li>
             <li class="nav-item">
-                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'slider') ? 'font-weight-bold' : '' }}"
-                   href="/slider">Slider</a>
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'banners') ? 'font-weight-bold' : '' }}"
+                   href="/banners">Paginabanners</a>
             </li>
         </ul>
     </li>
@@ -116,6 +123,13 @@
             <li class="nav-item">
                 <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'links') ? 'font-weight-bold' : '' }}"
                    href="/links">Links</a>
+            </li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'footer') ? 'font-weight-bold' : '' }}"
+                   href="/footer/edit">Footer</a>
             </li>
             <li>
                 <hr class="dropdown-divider">

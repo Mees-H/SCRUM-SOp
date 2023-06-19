@@ -1,10 +1,6 @@
 @extends('layouts.layout')
 
 @section('content')
-    <div class="row align-items-center">
-        <h1 class="col">Partners {{$year}}</h1>
-    </div>
-    <hr>
     <div class="container">
         <div class="row row-cols-sm-4 g-4 justify-content-evenly">
             @for($i = 0; $i < $groups->count(); $i++)
