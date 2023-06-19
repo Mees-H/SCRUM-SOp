@@ -18,10 +18,10 @@ class FooterController extends Controller
     {
         
         $request->validate([
-            'email' => ['required','email','max:255','regex:/^.*@.*(\.nl|\.com)$/'],
+            'email' => ['required','email','max:255','regex:/^[a-zA-Z0-9.!#$%&’+\=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:.[a-zA-Z0-9-]+)$/'],
             'rekeningnummer' => ['required','max:255','regex:/^[A-Z]{2}[ ]?\d{2}[ ]?[A-Z]{4}[ ]?\d{4}[ ]?\d{4}[ ]?\d{2}$/'],
             'kvknr' => ['required','max:8','min:8'],
-            'rsin' => ['required','max:9','min:8'],
+            'rsin' => ['required','max:9','min:9'],
         ]);
         $footer = Footer::all()->first();
         
