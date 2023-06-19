@@ -28,18 +28,18 @@
                                 @endif
                                 <h1 class="text-black border-bottom">Nieuwsartikelen Toevoegen</h1>
                                 <div class="card border-0">
-                                    <form method="post" action="{{ route('nieuws.store') }}"
+                                    <form method="post" action="{{ route('nieuwsartikel.store') }}"
                                           enctype="multipart/form-data">
                                         @csrf
                                         <div class="row card-body">
                                             <div class="col">
                                                 <label alt="maak een nieuw artikel aan">
                                                     <input class="form-control form-control-lg mb-2" type="text"
-                                                           placeholder="Titel *" name="title">
+                                                           placeholder="Titel *" name="title" value="{{old('title')}}">
                                                     <input class="form-control form-control-sm mb-2" type="date"
-                                                           placeholder="Datum *" name="date">
+                                                           placeholder="Datum *" name="date" value="{{old('date')}}">
                                                     <textarea class="form-control mb-2" rows="3"
-                                                              placeholder="Beschrijving *" name="body"></textarea>
+                                                              placeholder="Beschrijving *" name="body">{{old('body')}}</textarea>
                                                 </label>
                                             </div>
                                             <aside class="col">
@@ -56,7 +56,7 @@
                                             </aside>
                                             <div class="">
                                                 <button class="btn btn-primary" alt="bevestig nieuwsbrief aanmaken" type="submit">Voeg artikel toe</button>
-                                                <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuws">annuleren</a>
+                                                <a class="btn btn-danger" alt="annuleer aanmaken" type="reset" href="/nieuwsartikel">annuleren</a>
                                             </div>
                                         </div>
                                         </form>

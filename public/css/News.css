@@ -53,10 +53,15 @@ h3{
 .pdf_layout{
     flex-direction: column;
     justify-content: center;
-    margin-top: 5%;
+    /* margin-top: 5%; */
 }
 
 
 #sidebarHeader{
     font-size: 20px;
+}
+
+.newsEmbed{
+    height: 30em;
+    /* width: 40em; */
 }
