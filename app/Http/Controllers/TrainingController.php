@@ -135,7 +135,7 @@ class TrainingController extends Controller
             'IstrainingSession' => ($request->get('vacationweek') == 'true' ? '0' : '1')
         ]);
         $session->save();
-        return redirect('/trainingSessions')->with('success', 'Trainingsessie opgeslagen.');
+        return redirect('/trainingsessions')->with('success', 'Trainingsessie opgeslagen.');
 
     }
 
@@ -143,7 +143,7 @@ class TrainingController extends Controller
         try{
             $session = TrainingSession::findOrFail($id);
         } catch (Exception $e){
-            return redirect('/trainingSessions')->with('error', 'Trainingsessie niet kunnen vinden.');
+            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen vinden.');
         }
         return view('training.edit', ['session' => $session,
                                     'groups' => TrainingSessionGroup::all()]);
@@ -162,7 +162,7 @@ class TrainingController extends Controller
         try{
             $session = TrainingSession::findOrFail($id);
         } catch (Exception $e){
-            return redirect('/trainingSessions')->with('error', 'Trainingsessie niet kunnen updaten.');
+            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen updaten.');
         }
         $session->Date = $request->get('date');
         $session->StartTime = $request->get('starttime');
@@ -171,17 +171,17 @@ class TrainingController extends Controller
         $session->group_id = $request->get('group');
         $session->IstrainingSession = ($request->get('vacationweek') == 'true' ? '0' : '1');
         $session->save();
-        return redirect('/trainingSessions')->with('success', 'Trainingsessie opgeslagen.');
+        return redirect('/trainingsessions')->with('success', 'Trainingsessie opgeslagen.');
     }
 
     public function destroy(string $id){
         try{
             $result = TrainingSession::findOrFail($id);
         } catch (Exception $e){
-            return redirect('/trainingSessions')->with('error', 'Trainingsessie niet kunnen verwijderen.');
+            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen verwijderen.');
         }
         $result->delete();
-        return redirect('/trainingSessions')->with('success', 'Trainingsessie verwijderd.');
+        return redirect('/trainingsessions')->with('success', 'Trainingsessie verwijderd.');
     }
 
 
