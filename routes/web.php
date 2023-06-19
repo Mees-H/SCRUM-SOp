@@ -89,6 +89,8 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
     Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
+    Route::post('/admin/permanentlydelete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'permanentlyDelete']);
+    Route::post('/admin/unarchive', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'unarchive']);
     Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
 
     //News routes
