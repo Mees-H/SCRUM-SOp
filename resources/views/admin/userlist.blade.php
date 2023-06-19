@@ -38,25 +38,26 @@
                     <th>{{__('Email')}}</th>
                     <th>{{__('Functie')}}</th>
                     <th></th>
+                    <th></th>
                     </thead>
 
                     @foreach($users as $user)
                     <tr>
                         <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
-                        <td>{{$user->role}}@if($user->deleted_at !== null )💀 @endif</td>
+                        <td>{{$user->role}}@if($user->deleted_at !== null )📁 @endif</td>
                         <td>
                             @if($user->deleted_at === null)
                                 <form method="post" action="/admin/delete">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$user->id}}">
-                                    <button type="submit" dusk="archiveUser{{$user->id}}" class="btn btn-warning">Archiveer gebruiker</button>
+                                    <button type="submit" dusk="archiveUser{{$user->id}}" class="btn btn-warning w-75">Archiveer gebruiker</button>
                                 </form>
                             @else
                                 <form method="post" action="/admin/unarchive">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$user->id}}">
-                                    <button type="submit" dusk="dearchiveUser{{$user->id}}" class="btn btn-primary">Dearchiveren</button>
+                                    <button type="submit" dusk="dearchiveUser{{$user->id}}" class="btn btn-primary w-75">Dearchiveren</button>
                                 </form>
 
                             @endif
@@ -66,7 +67,7 @@
                                 <form method="post" action="/admin/permanentlydelete">
                                     @csrf
                                     <input type="hidden" name="id" value="{{$user->id}}">
-                                    <button type="submit" dusk="permanentlyDeleteUser{{$user->id}}" class="btn btn-danger">Verwijder permanent</button>
+                                    <button type="submit" dusk="permanentlyDeleteUser{{$user->id}}" class="btn btn-danger w-75">Verwijder permanent</button>
                                 </form>
                             @endif
                         </td>
