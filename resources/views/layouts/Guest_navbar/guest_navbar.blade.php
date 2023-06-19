@@ -46,9 +46,7 @@
             @if(count($allYears) > 0)
                 @foreach($allYears as $year)
                     <li><a class="dropdown-item nav-link text-dark"
-                           href="{{ route('galerij_jaar', $year) }}">{{$year}}</a></li>
-                    <li>
-                        <hr class="dropdown-divider">
+                           href="{{ route('galerij_jaar', $year) }}">{{$year}}</a>
                     </li>
                 @endforeach
             @else
@@ -214,3 +212,15 @@
 </ul>
     </div>
 </nav>
+@if($banner_title != '')
+<div class="container-fluid mb-3 bannercontainer" style="user-select: none;">
+  <div class="row">
+    <div class="col-md-12 p-0">
+      <div class="position-relative">
+        <img src="{{ asset($banner_path) }}" alt="Bannerfoto van {{ $banner_title }}" class="img-fluid w-100 opacity-75 bannerimage">
+        <h1 class="position-absolute top-50 start-50 translate-middle text-center">{{ $banner_title }}</h1>
+      </div>
+    </div>
+  </div>
+</div>
+@endif

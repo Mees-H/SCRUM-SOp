@@ -22,17 +22,16 @@ class UploadImageRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'images' => 'required',
-            'images.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
+            'image' => 'required|mimes:jpeg,jpg,png,bmp|max: 2000'
         ];
     }
 
     public function messages(): array
     {
         return [
-            'images.required' => 'Je moet 1 of meer afbeeldingen selecteren',
-            'images.*.image' => 'De file(s) moet(en) een afbeelding zijn',
-            'images.*.mimes' => 'De afbeelding(en) moet(en) 1 van de volgende extensies zijn: jpeg, png, jpg, gif of svg'
+            'image.required' => 'Je moet een afbeelding selecteren',
+            'image.max' => 'De file moet kleiner dan 2000kb zijn',
+            'image.mimes' => 'De file moet een afbeelding zijn (jpeg, jpg, png of bmp)'
         ];
     }
 }
