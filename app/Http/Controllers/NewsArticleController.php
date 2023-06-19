@@ -22,7 +22,7 @@ class NewsArticleController extends Controller
      */
     public function index()
     {
-        $view = 'nieuws.nieuwsbrief';
+        $view = 'nieuwsartikel.index';
         return match ($_GET['sort'] ?? null) {
             'date_asc' => $this->filterDateAsc($view),
             'title_desc' => $this->filterTitleDesc($view),
@@ -42,7 +42,7 @@ class NewsArticleController extends Controller
      */
     public function create()
     {
-        $view = 'nieuws.create';
+        $view = 'nieuwsartikel.create';
         return $this->filterDateDesc($view);
     }
 
@@ -92,9 +92,9 @@ class NewsArticleController extends Controller
         }
         try{
             $article->save();
-            return redirect('/nieuws')->with('success', 'Artikel opgeslagen');
+            return redirect('/nieuwsartikel')->with('success', 'Artikel opgeslagen');
         } catch(ModelNotFoundException $e){
-            return redirect('/nieuws')->with('error', 'Artikel niet kunnen opslaan');
+            return redirect('/nieuwsartikel')->with('error', 'Artikel niet kunnen opslaan');
         }
     }
 
@@ -106,9 +106,9 @@ class NewsArticleController extends Controller
         try{
             $editArticle = NewsArticle::findOrFail($id);
         } catch(ModelNotFoundException $e){
-            return redirect('/nieuws')->with('error', 'Kon artikel niet ophalen');
+            return redirect('/nieuwsartikel')->with('error', 'Kon artikel niet ophalen');
         }
-        return view('nieuws.edit', compact('editArticle'));
+        return view('nieuwsartikel.edit', compact('editArticle'));
     }
 
     /**
@@ -172,9 +172,9 @@ class NewsArticleController extends Controller
 
         try{
             $article->save();
-            return redirect('/nieuws')->with('success', 'Artikel opgeslagen');
+            return redirect('/nieuwsartikel')->with('success', 'Artikel opgeslagen');
         } catch(ModelNotFoundException $e){
-            return redirect('/nieuws')->with('error', 'Artikel niet kunnen opslaan');
+            return redirect('/nieuwsartikel')->with('error', 'Artikel niet kunnen opslaan');
         }
     }
 
@@ -187,7 +187,7 @@ class NewsArticleController extends Controller
         try{
             $article = NewsArticle::findOrFail($id);
         } catch(ModelNotFoundException $e){
-            return redirect('/nieuws')->with('error', 'Kon artikel niet ophalen');
+            return redirect('/nieuwsartikel')->with('error', 'Kon artikel niet ophalen');
         }
 
         if($article->imgurl != null){
@@ -204,37 +204,31 @@ class NewsArticleController extends Controller
 
         $article->delete();
 
-        return redirect('/nieuws')->with('success', 'Artikel verwijderd.');
+        return redirect('/nieuwsartikel')->with('success', 'Artikel verwijderd.');
     }
 
     //filter on date descending
     public function filterDateDesc($view){
-
         $articles = NewsArticle::all()->sortByDesc('date');
-        $newsLetters = Newsletter::all()->sortByDesc('date');
-
-        return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
+        return view($view, ['years' => $this->getYears()->toArray()], compact('articles'));
     }
     //filter on date ascending
     public function filterDateAsc($view){
         $articles = NewsArticle::all()->sortBy('date');
-        $newsLetters = Newsletter::all()->sortBy('date');
 
-        return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
+        return view($view, ['years' => $this->getYears()->toArray()], compact('articles'));
     }
     //filter on title desc
     public function filterTitleDesc($view){
         $articles = NewsArticle::all()->sortByDesc('title');
-        $newsLetters = Newsletter::all();
-        return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
+        return view($view, ['years' => $this->getYears()->toArray()], compact('articles'));
 
     }
     //filter on title ascending
     public function filterTitleAsc($view)
     {
         $articles = NewsArticle::all()->sortBy('title');
-        $newsLetters = Newsletter::all();
-        return view($view, ['years' => $this->getYears()->toArray()], compact('articles','newsLetters'));
+        return view($view, ['years' => $this->getYears()->toArray()], compact('articles'));
     }
 
 
