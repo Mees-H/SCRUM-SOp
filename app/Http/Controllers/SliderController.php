@@ -38,22 +38,21 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        try{
-            $request->validate([
+        $request->validate([
             'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            ]);
+        ]);
+        try {
             $uploadImage = $request->file('image');
             $imageNameWithExt = $uploadImage->getClientOriginalName();
-            $imageName =pathinfo($imageNameWithExt, PATHINFO_FILENAME);
-            $imageExt=$uploadImage->getClientOriginalExtension();
-            $storeImage=$imageName . time() . "." . $imageExt;
+            $imageName = pathinfo($imageNameWithExt, PATHINFO_FILENAME);
+            $imageExt = $uploadImage->getClientOriginalExtension();
+            $storeImage = $imageName . time() . "." . $imageExt;
             $request->image->move(public_path('img'), $storeImage);
             slider::create([
                 'image' => $storeImage
             ]);
             return redirect('slider')->with('success', 'Afbeelding is succesvol geüpload');
-        }
-        catch (Error $e){
+        } catch (Error $e) {
             return redirect('slider/create')->withErrors($e->getMessage())->withInput();
         }
 
