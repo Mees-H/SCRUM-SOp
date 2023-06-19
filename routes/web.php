@@ -100,10 +100,6 @@ Route::middleware(['role:admin'])->group(function () {
     Route::post('/nieuwsartikel/create', [NewsArticleController::class, 'store'])->name('nieuwsartikel.store');
     Route::post('/nieuwsbrief/create', [NewsLetterController::class, 'store'])->name('nieuwsbrief.store');
 
-
-    //Slider routes
-    Route::resource('slider', SliderController::class);
-
     //FAQ routes
     Route::resource('faq', FAQController::class);
 
