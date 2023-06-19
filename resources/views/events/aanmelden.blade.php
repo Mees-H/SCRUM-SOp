@@ -113,7 +113,7 @@
                             <span class="requiredStar">*</span>Telefoonnummer
                         </label>
                         <div class="col-sm-8">
-                            <input type="tel" class="form-control" id="phonenumber" placeholder="bv: 0612345678"
+                            <input type="tel" class="form-control @error('phonenumber') is-invalid @enderror" id="phonenumber" placeholder="bv: 0612345678"
                                    name="phonenumber" value="{{old('phonenumber')}}" required>
                         </div>
                         @error('phonenumber')
@@ -125,7 +125,7 @@
                             <span class="requiredStar">*</span>Adres
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="address" placeholder="bv: Bakkerweg 12"
+                            <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="bv: Bakkerweg 12"
                                    name="address" value="{{old('address')}}" required>
                         </div>
                         @error('address')
@@ -137,7 +137,7 @@
                             <span class="requiredStar">*</span>Woonplaats
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="city" placeholder="bv: 's Hertogenbosch"
+                            <input type="text" class="form-control @error('city') is-invalid @enderror" id="city" placeholder="bv: 's Hertogenbosch"
                                    name="city" value="{{old('city')}}" required>
                         </div>
                         @error('city')
