@@ -25,9 +25,14 @@
                     "alt": "Veelgestelde vragen"
                 },
                 {
-                    "name": "Nieuws",
-                    "link": "/nieuws",
-                    "alt": "Nieuws pagina"
+                    "name": "Nieuwsartikelen",
+                    "link": "/nieuwsartikel",
+                    "alt": "Nieuwsartikelen pagina"
+                },
+                {
+                    "name": "Nieuwsbrieven",
+                    "link": "/nieuwsbrief",
+                    "alt": "Nieuwsbrieven pagina"
                 },
                 {
                     "name": "Team",
