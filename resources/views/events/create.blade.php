@@ -47,7 +47,7 @@
                     <textarea rows="5" class="form-control" name="body" id="body">{{old('body')}}</textarea>
                 </div>
 
-                <label>Groepen:</label>
+                <label>Groepen:*</label>
                 @foreach($groups as $group)
                     <div class="form-check">
                         <input type="checkbox" class="form-check-input" name="groups[]" value="{{$group->id}}" id="{{$group->id}}"
