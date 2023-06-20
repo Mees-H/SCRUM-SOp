@@ -10,7 +10,7 @@
         </div>
             <div class="col text-center">
 
-            <h1>{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}} | {{$album->title}}</h1>
+            <h1 class="specialHeader">{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}} | {{$album->title}}</h1>
             <article>
                 {{$album->description}}
             </article>
