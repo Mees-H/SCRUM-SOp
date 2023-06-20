@@ -15,14 +15,14 @@
                                  alt="Logo van {{$groups[$i]->name}}">
                             <div class="card-body">
                                 <p class="card-text">
-                                @if ($loop->first)
+                                @if ($i == 0)
                                     <a href="https://{{$groups[$i]->link}}"
                                         aria-label="Link naar de site van {{$groups[$i]->name}}" autofocus>
                                 @else
                                     <a href="https://{{$groups[$i]->link}}"
                                         aria-label="Link naar de site van {{$groups[$i]->name}}">
                                 @endif
-                                    
+
                                         <i class="fa-regular fa-building"></i> {{$groups[$i]->name}}
                                     </a>
                                 <div>
