@@ -7,7 +7,7 @@
         <div class="justify-content-evenly d-lg-flex mb-3">
             <form action="/traininggroups" method="post">
                 @csrf
-                <button class="btn btn-primary" type="submit" dusk="remove-event-button">Groep toevoegen</button>
+                <button class="btn btn-primary" type="submit" dusk="remove-event-button" autofocus>Groep toevoegen</button>
             </form>
             <a href="/traininggroups/participants/create" class="btn btn-primary" dusk="create-event-button">Persoon toevoegen</a>
         </div>
@@ -46,7 +46,7 @@
                                                 <form action="/traininggroups/participants/{{$group->participants[$i]->id}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button class="btn btn-danger" type="submit" dusk="remove-event-button" 
+                                                    <button class="btn btn-danger" type="submit" dusk="remove-event-button"
                                                     alt="Verwijder knop voor {{$group->participants[$i]->Name}}">
                                                         Verwijderen
                                                     </button>

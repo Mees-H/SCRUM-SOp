@@ -1,7 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
-<h1 class="display-3">Paginabanners beheren</h1>  
+<h1 class="display-3">Paginabanners beheren</h1>
 <div class="container">
     @if(session()->get('error'))
     <div class="alert alert-danger">
@@ -16,7 +16,7 @@
                 @endforeach
             </ul>
         </div>
-        <br/>   
+        <br/>
     @endif
     <div class="row">
         <div class="col-md-12 text-center image-form">
