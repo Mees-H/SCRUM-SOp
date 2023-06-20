@@ -45,7 +45,7 @@ class AlbumSeeder extends Seeder
                 'id' => 5,
                 'title' => 'Een warme zonnige dag',
                 'description' => 'Ondanks een oplopende temperatuur naar 30 graden hebben de deelnemers weer met veel plezier deelgenomen aan de golfoefeningen.
-Korte pauzes met voldoende water maakte het mogelijk om samen de golfvaardigheden ter hand te nemen. Ook werd gespeeld op de Par-3 baan waar met name het korte spel werd doorgenomen.',
+                Korte pauzes met voldoende water maakte het mogelijk om samen de golfvaardigheden ter hand te nemen. Ook werd gespeeld op de Par-3 baan waar met name het korte spel werd doorgenomen.',
                 'date' => '2023-10-06'
             ]
         );
@@ -53,7 +53,7 @@ Korte pauzes met voldoende water maakte het mogelijk om samen de golfvaardighede
             [
                 'id' => 6,
                 'title' => 'Special Golf Extreem',
-                'description' => 'Op de Par-3 baan werd afgeslagen met een \'tennisopslag\' en een \'hockeyafslag\' - waarna werd verder gespeeld met de golfclubs en golfballen. Een speed hole stond ook op het programma (hoe snel kun je op een hole uitholen) en werd het opgenomen tegen de Pro.Op de Par-3 baan werd afgeslagen met een \'tennisopslag\' en een \'hockeyafslag\' - waarna werd verder gespeeld met de golfclubs en golfballen. Een speed hole stond ook op het programma (hoe snel kun je op een hole uitholen) en werd het opgenomen tegen de Pro.',
+                'description' => 'Op de Par-3 baan werd afgeslagen met een \'tennisopslag\' en een \'hockeyafslag\' - waarna werd verder gespeeld met de golfclubs en golfballen. Een speed hole stond ook op het programma (hoe snel kun je op een hole uitholen) en werd het opgenomen tegen de Pro.',
                 'date' => '2023-09-06'
             ]
         );
