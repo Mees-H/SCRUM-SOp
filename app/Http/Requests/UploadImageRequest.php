@@ -18,11 +18,11 @@ class UploadImageRequest extends FormRequest
     {
         return true;
     }
-     
+
     public function rules(): array
     {
         return [
-            'image' => 'required|mimes:jpeg,jpg,png,bmp|max: 2000'
+            'image' => 'required|mimes:jpeg,jpg,png,bmp|max: 1999'
         ];
     }
 
