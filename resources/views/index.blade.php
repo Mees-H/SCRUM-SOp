@@ -23,13 +23,13 @@
     </div>
     <div class="container justify-content-center text-center col-sm-9 specialText">
         <div class="m-4">
-            <h2 class="specialHeader">Stichting Special Golf</h2>
+            <h2 class="specialHeader mt-5">Stichting Special Golf</h2>
             <p class="fw-bold">
                 Sporten en met name Special Golf is bouwen aan eigenwaarde, sociale vaardigheden, gezond blijven en plezier beleven
             </p>
-            <p class="fw-bold">
+            <div class="fw-bold">
                 Doel: mensen met een verstandelijke beperking laten kennismaken met- en integreren in- de golfsport.
-            </p>
+            </div>
             <div>
                 Belangrijke aspecten hiervan zijn: contact met de golfleraren, begeleiders en medespelers, buiten zijn in een mooie omgeving, 
                 fysiek bezig zijn met een sport (waarbij het risico op blessures laag is), leren en respecteren van de golfregels en de etiquette. 
