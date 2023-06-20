@@ -42,7 +42,7 @@
                 Herhaal nieuw wachtwoord
             </label>
             <div class="col-sm-8">
-                <input type="password" class="form-control @error('password') is-invalid @enderror" id="wachtwoord_confirmation" name="wachtwoord_confirmation">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="wachtwoord_confirmation" name="wachtwoordconfirm">
             </div>
             @error('wachtwoord_confirmation')
             <div class="alert alert-danger">{{ $message }}</div>

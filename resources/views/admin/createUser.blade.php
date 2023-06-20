@@ -65,7 +65,7 @@
                             Wachtwoord
                         </label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="bv: jan123" name="password" value="{{old('password')}}" required>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="bv: jan12345" name="password" value="{{old('password')}}">
                         </div>
                         @error('password')
                         <div class="alert alert-danger">{{ $message }}</div>

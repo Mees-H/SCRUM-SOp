@@ -8,15 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Member extends Model
 {
     protected $table = 'Participant';
-    protected $primaryKey = 'Id';
+    protected $primaryKey = 'id';
     protected $fillable = [
-        'Id',
+        'id',
         'Name',
-        'GroupNumber',
+        'group_id',
     ];
 
     public function training_sessionGroup()
     {
-        return $this->belongsTo(TrainingSessionGroup::class, 'GroupNumber');
+        return $this->belongsTo(TrainingSessionGroup::class, 'id');
     }
 }

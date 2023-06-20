@@ -10,8 +10,10 @@ use App\Http\Controllers\TeamController;
 use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TrainingController;
+use App\Http\Controllers\TrainingGroupController;
 use App\Http\Controllers\FAQController;
 use App\Http\Controllers\SiteMapController;
+use App\Http\Controllers\BannerController;
 use App\Models\Mail\MailFactory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -87,6 +89,8 @@ Route::middleware(['role:admin'])->group(function () {
     Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
     Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
+    Route::post('/admin/permanentlydelete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'permanentlyDelete']);
+    Route::post('/admin/unarchive', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'unarchive']);
     Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
 
     //News routes
@@ -109,6 +113,9 @@ Route::middleware(['role:admin'])->group(function () {
     //Team routes
     Route::resource('members', TeamController::class);
 
+    //Banner routes
+    Route::resource('banners', BannerController::class);
+    Route::post('banners/{id}', [BannerController::class, 'update']);
     //Partner routes
     Route::resource('groups', PartnerController::class);
 
@@ -120,10 +127,18 @@ Route::middleware(['role:admin'])->group(function () {
 
     //Training routes
     Route::resource('trainingsessions', TrainingController::class);
+    Route::resource('traininggroups', TrainingGroupController::class);
+    Route::get('/traininggroups/participants/create', [TrainingGroupController::class, 'createParticipant']);
+    Route::post('/traininggroups/participants', [TrainingGroupController::class, 'storeParticipant']);
+    Route::delete('/traininggroups/participants/{participant}', [TrainingGroupController::class, 'destroyParticipant']);
 
     //privacyverklaring routes
     Route::get('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'edit'])->name('privacy.edit');
     Route::post('/privacy/edit', [App\Http\Controllers\PrivacyController::class, 'store'])->name('privacy.store');
+
+    //footer routes
+    Route::get('/footer/edit', [App\Http\Controllers\FooterController::class, 'edit'])->name('footer.edit');
+    Route::post('/footer/store', [App\Http\Controllers\FooterController::class, 'store'])->name('footer.store');
 
 });
 

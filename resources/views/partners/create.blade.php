@@ -60,7 +60,7 @@
                             evenement maar zijn niet te zien op de Partners pagina voor website bezoekers.</p>
                         <input type="checkbox" class="form-check-input @error('currently_a_partner') is-invalid @enderror" name="currently_a_partner"
                                id="currently_a_partner" @if(old('currently_a_partner'))checked="@checked(true)"@endif/>
-                        <label for="currently_a_partner">>Is huidig een
+                        <label for="currently_a_partner">Is huidig een
                             partner</label>
                     </div>
 

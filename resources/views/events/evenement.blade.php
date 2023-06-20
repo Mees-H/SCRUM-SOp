@@ -5,14 +5,7 @@
         <link rel="stylesheet" href="{{ asset('css/EventDetails.css') }}">
         <title>Events</title>
     </head>
-    <div class="container justify-content-between ">
-        <div class="row align-items-center">
-            <h1 class="col">Evenementen</h1>
-        </div>
-    </div>
-    </div>
     <div class="container">
-        <hr>
         <div class="row">
             <div class="col-md-2">
                 <div class="col-md">
@@ -113,4 +106,3 @@
         </div>
     </div>
 @stop
-

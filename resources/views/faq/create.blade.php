@@ -15,13 +15,13 @@
         @endif
         <form method="post" action="{{ route('faq.store') }}">
             @csrf
-            <div class="form-group">    
+            <div class="form-group">
                 <span class="requiredStar">*</span><label for="vraag">Vraag:</label>
-                <input type="text" class="form-control @error('vraag') is-invalid @enderror" name="vraag" id="vraag" required autofocus/>
+                <input type="text" class="form-control @error('vraag') is-invalid @enderror" name="vraag" id="vraag" required value="{{old('vraag')}}" autofocus/>
             </div>
             <div class="form-group">
                 <span class="requiredStar">*</span><label for="antwoord">Antwoord:</label>
-                <input type="text" class="form-control @error('antwoord') is-invalid @enderror" name="antwoord" id="antwoord" required/>
+                <input type="text" class="form-control @error('antwoord') is-invalid @enderror" name="antwoord" id="antwoord" required value="{{old('antwoord')}}"/>
             </div>
             <button type="submit" class="btn btn-primary">Voeg veelgestelde vraag toe</button>
         </form>
