@@ -76,6 +76,9 @@
                 De achter ons liggende golfseizoenen, <strong>2021</strong> en <strong>2022</strong>, werden door alle bij Special Golf betrokken gekenmerkt als leerzaam, ontspannend en prettig. 
                 Op <strong>26 november 2022</strong> was de laatste oefensessie voor de winterstop op BurgGolf Haverleij. We  gaan met 13 deelnemers weer van start op <strong>4 maart 2023</strong>,  met  ondersteuning van golfleraren, vrijwilligers en BurgGolf Haverleij.
             </div>
+            <div class="p-t-4">
+                <img class="m-t-2 w-auto h-100" src="img/startpagina1.jpg" alt="foto van de 13 huidige deelnemers, de vrijwilligers en de golfleraren">
+            </div>
         </div>
     </div>
 </div>
