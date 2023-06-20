@@ -4,17 +4,17 @@
         <link rel="stylesheet" href="{{asset('/css/Album.css')}}">
         <title>Show Album</title>
     </head>
-    <body>
+<div class="container justify-content-center text-center">
         <div class="col d-flex justify-content-end">
             <button class="btn btn-outline-secondary mt-4 text-right" name="Terugknop naar galerij" onclick="window.location='{{url("/albums/{$year}")}}'">Terug</button>
         </div>
-            <div class="col text-center">
-
+            <div class="col">
             <h1 class="specialHeader">{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}} | {{$album->title}}</h1>
-            <article>
-                {{$album->description}}
-            </article>
+                <article class="text-start">
+                    {{$album->description}}
+                </article>
             </div>
+
             <div class="album py-5 container">
             <div class="row">
                 @foreach($pictures as $picture)
@@ -27,7 +27,7 @@
             </div>
             </div>
 
-    </body>
+</div>
     <div class="modal fade" id="imageModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-body">
