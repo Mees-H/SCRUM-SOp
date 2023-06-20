@@ -18,5 +18,10 @@ class NewsLetterSeeder extends Seeder
             'date' => '2023-01-31',
             'pdf' => '31-01-2023.pdf'
         ]);
+
+        NewsLetter::create([
+            'date' => '2023-05-25',
+            'pdf' => '25-05-2023.pdf'
+        ]);
     }
 }
