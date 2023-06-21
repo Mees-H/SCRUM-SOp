@@ -55,6 +55,7 @@
                         <img src="{{asset('img/'.$group->imageurl)}}" alt="Foto van het huidige logo"
                              class="partner-logo-big">
                     </div>
+                    <x-image-size-warning></x-image-size-warning>
                     <div class="col-8">
                         <label for="imageurl">Nieuw logo uploaden (niks invullen betekend oude behouden):</label>
                         <input type="file" class="form-control form-control-lg" name="image" id="image">

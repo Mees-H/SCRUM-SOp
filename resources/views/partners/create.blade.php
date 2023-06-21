@@ -51,6 +51,7 @@
                     </div>
                     <div class="form-group mt-2">
                         <label for="image"><span class="requiredStar">*</span>Upload logo:</label>
+                        <x-image-size-warning></x-image-size-warning>
                         <input type="file" class="form-control form-control-lg" name="image" id="image">
                     </div>
                     <div class="form-group mt-2 mb-1">

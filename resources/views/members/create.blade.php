@@ -46,6 +46,7 @@
 
                 <div class="form-group">
                     <label for="image">Foto:</label>
+                    <x-image-size-warning></x-image-size-warning>
                     <input type="file" class="form-control"  value="{{old('image')}}" name="image" id="image"/>
                 </div><br>
 

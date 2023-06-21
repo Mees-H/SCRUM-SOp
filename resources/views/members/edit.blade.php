@@ -47,6 +47,7 @@
 
             <div class="form-group">
                 <label for="image">Foto:</label>
+                <x-image-size-warning></x-image-size-warning>
                 <input type="file" class="form-control" name="image" id="image" value="{{$member->imgurl}}"/>
                 <small id="imagehelp" class="form-text text-muted">Laat leeg om foto te verwijderen.</small>
             </div><br>
