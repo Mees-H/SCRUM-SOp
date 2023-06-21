@@ -11,6 +11,9 @@ class NavigationTest extends DuskTestCase
 {
     public function testNavigation(): void
     {
+        $this->artisan('migrate:fresh');
+        $this->artisan('db:seed');
+
         $this->browse(function (Browser $browser) {
                 $browser->visit('/')->resize(3000,3000)
                         ->click("#navbarDropdownActiviteiten")
@@ -61,60 +64,58 @@ class NavigationTest extends DuskTestCase
     {
 
         $this->browse(function (Browser $browser) {
-            $this->browse(function (Browser $browser) {
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('Zoeken',' ')
-                        ->clickLink("Hoofdpagina")
-                        ->assertPathIs("/");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Trainingen")
-                        ->assertPathIs("/training");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Evenementen")
-                        ->assertPathIs("/evenement");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Galerij 2022")
-                        ->assertPathIs("/albums/2022");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Galerij 2021")
-                        ->assertPathIs("/albums/2021");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Veelgestelde vragen")
-                        ->assertPathIs("/vragenantwoorden");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Nieuwsartikelen")
-                        ->assertPathIs("/nieuwsartikel");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Nieuwsbrieven")
-                        ->assertPathIs("/nieuwsbrief");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Team")
-                        ->assertPathIs("/team");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Partner")
-                        ->assertPathIs("/partners");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Over Ons")
-                        ->assertPathIs("/overons");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Locatie")
-                        ->assertPathIs("/locatie");
-                $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
-                        ->clickLink("Links")
-                        ->assertPathIs("/links");
-            });
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Hoofdpagina")
+                ->assertPathIs("/");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Trainingen")
+                ->assertPathIs("/training");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Evenementen")
+                ->assertPathIs("/evenement");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Galerij 2022")
+                ->assertPathIs("/albums/2022");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Galerij 2021")
+                ->assertPathIs("/albums/2021");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Veelgestelde vragen")
+                ->assertPathIs("/vragenantwoorden");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Nieuwsartikelen")
+                ->assertPathIs("/nieuwsartikel");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Nieuwsbrieven")
+                ->assertPathIs("/nieuwsbrief");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Team")
+                ->assertPathIs("/team");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Partner")
+                ->assertPathIs("/partners");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Over Ons")
+                ->assertPathIs("/overons");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Locatie")
+                ->assertPathIs("/locatie");
+        $browser->visit('/')->resize(3000,3000)
+                ->type('search',' ')
+                ->clickLink("Links")
+                ->assertPathIs("/links");
         });
     }
 

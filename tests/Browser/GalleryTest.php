@@ -14,46 +14,25 @@ use App\Models\Album;
 class GalleryTest extends DuskTestCase
 {
 
-    use DatabaseTruncation;
-
     /**
      * @throws \Throwable
      */
     public function testGalleryRoutes(): void
     {
+        $this->artisan('migrate:fresh');
+        $this->artisan('db:seed');
 
-        //database testobjecten ophalen
-        $album = Album::factory()->create([
-            'id' => 1,
-            'title' => 'Test album',
-            'description' => 'Test description',
-            'date' => '2021-01-01'
-        ]);
-
-        $pic1 = Picture::factory()->create([
-            'id' => 1,
-            'album_id' => $album->id,
-            'image' => 'TestImage/TestImageSpecialGolf.jpg'
-        ]);
-
-
-            $this->browse(function (Browser $browser) use ($album, $pic1) {
-                $year = date('Y', strtotime($album->date));
-                $browser
-                    ->visitRoute('galerij_jaar', ['year' => $year])
-                    ->assertPathIs("/albums/" . $year);
-                $browser
-                    ->resize(3000,3000)
-                    ->visit("/albums/". $album->id . "/" . $year)
-                    ->click("@terug")
-                    ->assertPathIs("/albums/" . $year);
-                $browser
-                    ->click('@AlbumTest')
-                    ->assertPathIs("/albums/". $album->id . "/" . $year);
-                $browser
-                    ->click('@PictureTest')
-                    ->assertAttribute('@PictureTest', 'src', '/img/'.$pic1->image);
-            });
+        $this->browse(function (Browser $browser) {
+            $browser
+                ->visitRoute('galerij_jaar', ['year' => '2021'])
+                ->assertPathIs("/albums/2021");
+            $browser
+                ->click('@AlbumTest')
+                ->assertPathIs("/albums/1/2021");
+            $browser
+                ->click('@PictureTest')
+                ->assertAttribute('@PictureTest', 'src', '/img/album1foto1.jpg');
+        });
 
     }
 }

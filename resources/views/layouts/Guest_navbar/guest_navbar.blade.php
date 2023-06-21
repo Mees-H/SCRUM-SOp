@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="main-navbar">
 <ul class="navbar-nav me-auto nav-tabs">
     <li class="nav-item dropdown">
-        <a name="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
+        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Activiteiten
         </a>

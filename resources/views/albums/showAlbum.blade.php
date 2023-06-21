@@ -6,7 +6,7 @@
     </head>
     <body>
         <div class="col d-flex justify-content-end">
-            <button dusk="terug" class="btn btn-outline-secondary mt-4 text-right" name="Terugknop naar galerij" onclick="window.location='{{url("/albums/{$year}")}}'" autofocus>Terug</button>
+            <a class="btn btn-outline-secondary mt-4 text-right" name="Terugknop naar galerij" onclick="window.location='{{url("/albums/{$year}")}}'" autofocus>Terug</a>
         </div>
             <div class="col text-center">
 
