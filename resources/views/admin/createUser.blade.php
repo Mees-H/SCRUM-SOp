@@ -13,7 +13,7 @@
         <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
             <div class="max-w-xl">
                 <h1 class="text-lg font-medium text-gray-900 dark:text-gray-100 display-3">
-                    {{ __('Gebruiker aanmaken') }}
+                    {{ __('Account aanmaken') }}
                 </h1>
                 <form method="POST" action="/admin/submit" class="mt-6 space-y-6">
                     @csrf
@@ -86,7 +86,7 @@
 
                     <br />
 
-                    <button type="submit" id="registreerknop" name="registreerknop" class="btn btn-outline-primary">Registreer gebruiker
+                    <button type="submit" id="registreerknop" name="registreerknop" class="btn btn-outline-primary">Registreer account
                     </button>
                 </form>
             </div>
