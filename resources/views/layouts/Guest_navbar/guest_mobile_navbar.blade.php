@@ -105,7 +105,7 @@
             Galerij
         </a>
 
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul class="dropdown-menu scrollbar" aria-labelledby="navbarDropdown">
             @if(count($allYears) > 0)
                 @foreach($allYears as $year)
                     <li><a class="dropdown-item nav-link text-dark"

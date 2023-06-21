@@ -296,3 +296,8 @@ td {
 .bannercontainer {
     user-select: none;
 }
+
+.dropdown-menu.scrollbar {
+    max-height: 300px; 
+    overflow-y: auto; 
+}
