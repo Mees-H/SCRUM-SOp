@@ -25,7 +25,7 @@
                         <td>Datum</td>
                         <td>Beschrijving</td>
                         <td>Groep</td>
-                        <td colspan = 2>Actions</td>
+                        <td colspan = 2>Handelingen</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,7 +63,7 @@
                         <td>Beschrijving</td>
                         <td>Groep</td>
                         <td>Vakantieweek</td>
-                        <td colspan = 2>Actions</td>
+                        <td colspan = 2>Handelingen</td>
                     </tr>
                 </thead>
                 <tbody>

@@ -22,7 +22,7 @@
                     <th>Website</th>
                     <th>Foto</th>
                     <th>Groepen</th>
-                    <th colspan=2>Actions</th>
+                    <th colspan=2>Handelingen</th>
                 </tr>
                 </thead>
                 <tbody>

@@ -52,7 +52,7 @@
 
 <body>
 @if (Auth::user() != null)
-<div class="container-fluid">
+<div class="container-fluid mb-3">
     <div class="container">
         @yield('content')
     </div>

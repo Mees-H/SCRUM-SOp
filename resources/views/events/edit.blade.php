@@ -58,7 +58,7 @@
                     <label for="{{$group->id}}" class="form-check-label">{{$group->name}}</label>
                 </div>
                 @endforeach
-            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="submit" class="btn btn-primary mt-3">Update</button>
         </form>
     </div>
 </div>
