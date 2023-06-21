@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="main-navbar">
 <ul class="navbar-nav me-auto nav-tabs">
     <li class="nav-item dropdown">
-        <a dusk="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
+        <a name="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Activiteiten
         </a>
@@ -37,7 +37,7 @@
     </li>
     <li class="nav-item dropdown">
 
-        <a dusk="galerij" class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
+        <a name="galerij" class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
            id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true" href="#">
             Galerij
         </a>
@@ -59,7 +59,7 @@
            href="/vragenantwoorden">Veelgestelde vragen</a>
     </li>
     <li class="nav-item dropdown">
-        <a dusk="nieuws" class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
+        <a name="nieuws" class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Nieuws
         </a>
@@ -82,7 +82,7 @@
            href="/partners">Partners</a>
     </li>
     <li class="nav-item dropdown">
-        <a dusk="organisatie" class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
+        <a name="organisatie" class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Organisatie
         </a>
