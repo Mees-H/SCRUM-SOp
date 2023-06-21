@@ -69,7 +69,7 @@
                                         FAQ
                                     </a></li>
                                 <li><a class="dropdown-item text-center searchitem" href="/nieuwsartikel">
-                                        NieuwsArtikelen
+                                        Nieuwsartikelen
                                     </a></li>
                                 <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
                                         Nieuwsbrieven
