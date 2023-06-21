@@ -2,7 +2,7 @@
     @csrf
     <div class="m-5">
         <h3 class="float-start mb-5">{{ $label }}</h3>
-        <input type="file" class="form-control" name="image" id="image">
+        <input type="file" class="form-control @error('image') is-invalid @enderror" name="image" id="image" required>
     </div>
     <div class="m-5">
         <button class="btn btn-primary">Upload Afbeelding</button>

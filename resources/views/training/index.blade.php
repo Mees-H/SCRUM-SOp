@@ -5,7 +5,7 @@
     <div class="col-sm-12 container">
         <h1 class="display-3">Trainingen</h1>
         <div class="justify-content-between d-lg-flex mb-3">
-            <a id="Creeër nieuwe training" href="{{ route('trainingsessions.create')}}" class="btn btn-primary">Creeër nieuwe training</a>
+            <a id="Creeër nieuwe training" href="{{ route('trainingsessions.create')}}" class="btn btn-primary" autofocus>Creeër nieuwe training</a>
             <div class="d-flex align-items-center">
                 <div class="bg-info" style="min-width: 1em;min-height: 1em;max-width: 1em;max-height: 1em"></div>
                 <span> = vakantie week</span>

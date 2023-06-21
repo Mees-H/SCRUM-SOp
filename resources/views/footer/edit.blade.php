@@ -24,7 +24,7 @@
                                 Secretariaat Stichting Special Golf:
                             </label>
                             <div class="col-sm-8">
-                                <input type="email" class="form-control" id="email" placeholder="{{$footer->secretariaat}}" name="email"  value="{{old('email')}}">
+                                <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="{{$footer->secretariaat}}" name="email"  value="{{old('email')}}" autofocus>
                             </div>
                         </div>
 
@@ -33,7 +33,7 @@
                                 Rekeningnummer Rabobank:
                             </label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="rekeningnummer" placeholder="{{$footer->rekeningnummer}}" name="rekeningnummer"  value="{{old('rekeningnummer')}}">
+                                <input type="text" class="form-control @error('rekeningnummer') is-invalid @enderror" id="rekeningnummer" placeholder="{{$footer->rekeningnummer}}" name="rekeningnummer"  value="{{old('rekeningnummer')}}">
                             </div>
                         </div>
 
@@ -42,7 +42,7 @@
                                 KvK nummer:
                             </label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="kvknr" placeholder="{{$footer->kvknr}}" name="kvknr"  value="{{old('kvknr')}}">
+                                <input type="number" class="form-control @error('kvknr') is-invalid @enderror" id="kvknr" placeholder="{{$footer->kvknr}}" name="kvknr"  value="{{old('kvknr')}}">
                             </div>
                         </div>
 
@@ -51,7 +51,7 @@
                                 RSIN:
                             </label>
                             <div class="col-sm-8">
-                                <input type="number" class="form-control" id="rsin" placeholder="{{$footer->rsin}}" name="rsin"  value="{{old('rsin')}}">
+                                <input type="number" class="form-control @error('rsin') is-invalid @enderror" id="rsin" placeholder="{{$footer->rsin}}" name="rsin"  value="{{old('rsin')}}">
                             </div>
                         </div>
                         <br />

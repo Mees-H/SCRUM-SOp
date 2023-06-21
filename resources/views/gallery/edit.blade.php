@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-sm-8 offset-sm-2">
                 <h1 class="display-3">Album aanpassen
-                    <a href="/galerij" class="btn btn-primary">Ga terug</a></h1>
+                    <a href="/galerij" class="btn btn-primary" autofocus>Ga terug</a></h1>
 
                 @if(session()->get('error'))
                     <div class="alert alert-danger">
@@ -31,18 +31,18 @@
                     <div class="form-group">
 
                         <span class="requiredStar">*</span><label for="title">Titel:</label>
-                        <input type="text" class="form-control" name="title" value="{{ $album->title }}" id="title"/>
+                        <input type="text" class="form-control @error('title') is-invalid @enderror" name="title" value="{{ $album->title }}" id="title" required/>
                     </div>
 
                     <div class="form-group">
                         <span class="requiredStar">*</span><label for="description">Omschrijving:</label>
-                        <textarea rows="5" class="form-control" name="description"
-                                  id="description">{{ $album->description }}</textarea>
+                        <textarea rows="5" class="form-control @error('description') is-invalid @enderror" name="description"
+                                  id="description" required>{{ $album->description }}</textarea>
                     </div>
 
                     <div class="form-group">
                         <span class="requiredStar">*</span><label for="date">Datum:</label>
-                        <input type="date" class="form-control" name="date" value="{{ $album->date }}" id="date"/>
+                        <input type="date" class="form-control @error('date') is-invalid @enderror" name="date" value="{{ $album->date }}" id="date" required/>
                     </div>
                 </form>
             </div>
