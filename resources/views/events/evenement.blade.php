@@ -85,16 +85,10 @@
                                                      src="{{asset('img/'.$group->imageurl)}}">
                                                 <div class="fullcap text-wrap">
                                                     <div>{{$group->name}}</div>
-                                                    <div>{{$group->zipcode}}, {{$group->city}}</div>
+                                                    <div class="text-center">{{$group->zipcode}}, {{$group->city}}</div>
                                                 </div>
                                             </div>
                                         </a>
-                                        <div class="m-3">
-                                            {{$group->name}}<br>
-                                            {{$group->street}} {{$group->housenumber}}<br>
-                                            {{$group->zipcode}} {{$group->city}}<br>
-                                            <a id="link" href="https://{{$group->link}}">{{$group->link}}</a>
-                                        </div>
                                     @endforeach
                                 </div>
                             </div>
