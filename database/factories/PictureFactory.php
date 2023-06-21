@@ -17,6 +17,8 @@ class PictureFactory extends Factory
     public function definition(): array
     {
         return [
+                'album_id' => 1,
+                'image' => 'album1foto1.jpg',
             ];
     }
 }
