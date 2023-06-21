@@ -26,8 +26,10 @@
             <li>
                 <hr class="dropdown-divider">
             </li>
-            <li><a class="dropdown-item" href="{{ route('profile.edit') }}"> <i class="fas fa-user-alt pe-2"></i>Mijn
-                    Profiel</a></li>
+            <li><a class="dropdown-item" href="{{ route('profile.edit') }}">
+                    <i class="fas fa-user-alt pe-2"></i>
+                    Mijn Profiel</a>
+            </li>
             <li>
                 <a>
                     <form method="POST" action="{{ route('logout') }}">
