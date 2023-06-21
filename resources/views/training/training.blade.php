@@ -4,7 +4,8 @@
 <div class="container">
     @foreach($trainingGroups as $group)
 
-        <h2>Traininggroep {{$group->id}}</h2>
+        <h2 class="specialHeader">Traininggroep {{$group->id}}</h2>
+        <br />
         <div class="table-container">
             <table tabindex=0 class="table table-bordered w-auto">
                 <tr>
@@ -48,6 +49,8 @@
                 @endforeach
             </table>
         </div>
+        <br />
+        <hr style="width:80%;text-align:center;margin-left:10%;margin-right:10%">
     @endforeach
 
 </div>
