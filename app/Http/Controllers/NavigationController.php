@@ -28,7 +28,10 @@ class NavigationController extends Controller
 
     function evenement()
     {
-        return view('events.evenement', ['posts' => Event::all()->where('date', '>=', Carbon::now())->sortBy('updated_at')]);
+        return view('events.evenement', ['posts' => Event::whereBetween('date', [
+            Carbon::now()->startOfYear(),
+            Carbon::now()->endOfYear(),
+        ])->get()]);
     }
 
     function vragenantwoorden()
