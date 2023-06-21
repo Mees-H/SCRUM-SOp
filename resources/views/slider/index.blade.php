@@ -9,7 +9,7 @@
                         <h1 class="display-3">Foto toevoegen aan slider op home pagina</h1>
                     </div>
                     <div class="col-md-4 add-slider mb-3 p-0">
-                        <a href="{{ route('slider.create') }}" class="btn btn-lg btn-primary float-end me-4">Foto
+                        <a href="{{ route('slider.create') }}" class="btn btn-lg btn-primary float-end me-4" autofocus>Foto
                             Toevoegen</a>
                     </div>
                 </div>

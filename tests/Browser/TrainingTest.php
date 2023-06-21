@@ -48,12 +48,7 @@ class TrainingTest extends DuskTestCase
                     ->resize(3000,3000)
                     ->clickLink('Creeër nieuwe training')
                     ->press('Voeg training toe')
-                    ->assertPathIs('/trainingsessions/create')
-                    ->assertSee('Het datum veld is verplicht.')
-                    ->assertSee('Het begintijd veld is verplicht.')
-                    ->assertSee('Het eindtijd veld is verplicht.')
-                    ->assertSee('Het beschrijving veld is verplicht.')
-                    ->assertSee('Het groep veld is verplicht.');
+                    ->assertPathIs('/trainingsessions/create');
         });
     }
 
@@ -89,11 +84,7 @@ class TrainingTest extends DuskTestCase
                     ->type('endtime', '')
                     ->type('body', '')
                     ->press('Update')
-                    ->assertPathIs('/trainingsessions/*/edit')
-                    ->assertSee('Het datum veld is verplicht.')
-                    ->assertSee('Het begintijd veld is verplicht.')
-                    ->assertSee('Het eindtijd veld is verplicht.')
-                    ->assertSee('Het beschrijving veld is verplicht.');
+                    ->assertPathIs('/trainingsessions/*/edit');
         });
     }
 

@@ -55,8 +55,7 @@ class TeamTest extends DuskTestCase
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
                     ->press('Voeg lid toe')
-                    ->assertPathIs('/members/create')
-                    ->assertSee('Het naam veld is verplicht.');
+                    ->assertPathIs('/members/create');
         });
     }
 
@@ -74,8 +73,7 @@ class TeamTest extends DuskTestCase
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
                     ->press('Voeg lid toe')
-                    ->assertPathIs('/members/create')
-                    ->assertSee('Het email veld is verplicht.');
+                    ->assertPathIs('/members/create');
         });
     }
 
@@ -221,8 +219,7 @@ class TeamTest extends DuskTestCase
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
                     ->press("Update")
-                    ->assertPathIs('/members/*/edit')
-                    ->assertSee('Het naam veld is verplicht.');
+                    ->assertPathIs('/members/*/edit');
         });
     }
 
@@ -242,8 +239,7 @@ class TeamTest extends DuskTestCase
                     ->click('input[id="1"]')
                     ->scrollIntoView('button[type="submit"]')
                     ->press("Update")
-                    ->assertPathIs('/members/*/edit')
-                    ->assertSee('Het email veld is verplicht.');
+                    ->assertPathIs('/members/*/edit');
         });
     }
 

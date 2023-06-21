@@ -166,22 +166,22 @@
     </li>
     <li id="searchNavBar">
         <input class="form-control mr-sm-2 search" id="dropdown" type="search" name="search"
-               placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+               placeholder="Zoek hier..." aria-label="Zoeken" autocomplete="off" onkeyup="FilterWords()">
         <ul class="border border-dark rounded d-none" id="content">
             <li><a class="dropdown-item text-center searchitem" href="/">
                     Hoofdpagina
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/training">
+            <li><a class="dropdown-item text-center searchitem" href="/trainingsessions">
                     Trainingen
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/evenement">
+            <li><a class="dropdown-item text-center searchitem" href="/events">
                     Evenementen
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/galerij">
                     Galerij
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/faq">
-                    FAQ
+                    Veelgestelde vragen
                 </a></li>
             <li><a class="dropdown-item text-center searchitem" href="/nieuwsartikel">
                     Nieuwsartikelen
@@ -189,19 +189,15 @@
             <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
                     Nieuwsbrieven
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/team">
+            <li><a class="dropdown-item text-center searchitem" href="/members">
                     Team
                 </a></li>
-            <li><a class="dropdown-item text-center searchitem" href="/partner">
+            <li><a class="dropdown-item text-center searchitem" href="/groups">
                     Partner
                 </a></li>
-            <li><a class="dropdown-it">
-                <hr class="dropdown-divider">
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
-                   href="/privacy">Privacy</a>
+            <li><a class="dropdown-item text-center searchitem" href="/privacy/edit">
+                    Privacy
+                </a></li>
             </li>
             <li><a class="dropdown-item text-center searchitem" href="/overons">
                     Over Ons
