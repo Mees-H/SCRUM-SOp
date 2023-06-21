@@ -13,45 +13,45 @@ class NavigationTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("@activiteiten")
+                        ->clickLink("@activiteiten")
                         ->clickLink("Trainingen")
                         ->assertPathIs("/training");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("@activiteiten")
+                        ->clickLink("@activiteiten")
                         ->clickLink("Evenementen")
                         ->assertPathIs("/evenement");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("@galerij")
+                        ->clickLink("@galerij")
                         ->clickLink("2021")
                         ->assertPathIs("/albums/2021");
                 $browser->visit('/')->resize(3000,3000)
                         ->clickLink("Veelgestelde vragen")
                         ->assertPathIs("/vragenantwoorden");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("@nieuws")
+                        ->clickLink("@nieuws")
                         ->clickLink("Nieuwsartikelen")
                         ->assertPathIs("/nieuwsartikel");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("@nieuws")
+                        ->clickLink("@nieuws")
                         ->clickLink("Nieuwsbrieven")
                         ->assertPathIs("/nieuwsbrief");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("@organisatie")
+                        ->clickLink("@organisatie")
                         ->clickLink("Team")
                         ->assertPathIs("/team");
                 $browser->visit('/')->resize(3000,3000)
                         ->clickLink("Partners")
                         ->assertPathIs("/partners");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("@organisatie")
+                        ->clickLink("@organisatie")
                         ->clickLink("Over Ons")
                         ->assertPathIs("/overons");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("@organisatie")
+                        ->clickLink("@organisatie")
                         ->clickLink("Locatie")
                         ->assertPathIs("/locatie");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("@organisatie")
+                        ->clickLink("@organisatie")
                         ->clickLink("Links")
                         ->assertPathIs("/links");
         });
@@ -63,55 +63,55 @@ class NavigationTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $this->browse(function (Browser $browser) {
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Hoofdpagina")
                         ->assertPathIs("/");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Trainingen")
                         ->assertPathIs("/training");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Evenementen")
                         ->assertPathIs("/evenement");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Galerij 2022")
                         ->assertPathIs("/albums/2022");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Galerij 2021")
                         ->assertPathIs("/albums/2021");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Veelgestelde vragen")
                         ->assertPathIs("/vragenantwoorden");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Nieuwsartikelen")
                         ->assertPathIs("/nieuwsartikel");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Nieuwsbrieven")
                         ->assertPathIs("/nieuwsbrief");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Team")
                         ->assertPathIs("/team");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Partner")
                         ->assertPathIs("/partners");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Over Ons")
                         ->assertPathIs("/overons");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Locatie")
                         ->assertPathIs("/locatie");
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('@search',' ')
+                        ->type('search',' ')
                         ->clickLink("Links")
                         ->assertPathIs("/links");
             });
