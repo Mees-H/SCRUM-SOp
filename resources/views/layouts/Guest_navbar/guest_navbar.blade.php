@@ -59,7 +59,7 @@
            href="/vragenantwoorden">Veelgestelde vragen</a>
     </li>
     <li class="nav-item dropdown">
-        <a dusk="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
+        <a dusk="nieuws" class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Nieuws
         </a>

@@ -44,7 +44,7 @@ class GalleryTest extends DuskTestCase
                     ->assertPathIs("/albums/" . $year);
                 $browser->
                     visit("/albums/". $album->id . "/" . $year)
-                    ->press("Terug")
+                    ->press("Terugknop naar galerij")
                     ->assertPathIs("/albums/" . $year);
                 $browser
                     ->click('@AlbumTest')

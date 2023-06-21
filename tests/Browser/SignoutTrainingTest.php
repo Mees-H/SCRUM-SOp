@@ -44,6 +44,7 @@ class SignoutTrainingTest extends DuskTestCase
                 ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', $string)
+                ->type('date', Carbon::tomorrow()->format('dmY'))
                 ->press('Afmelden')
                 ->waitForText('Uw naam mag niet langer zijn dan 255 karakters');
         });
