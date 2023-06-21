@@ -112,7 +112,7 @@ class NewsTest extends DuskTestCase
                 ->type('date', '')
                 ->type('body', '')
                 ->press('Pas artikel aan')
-                ->assertPathIs('/nieuwsartikel/*/edit')
+                ->assertPathIs('/nieuwsartikel/*/edit');
         });
     }
 
