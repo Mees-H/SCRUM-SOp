@@ -20,7 +20,7 @@ class NavigationTest extends DuskTestCase
                         ->click("#navbarDropdownActiviteiten")
                         ->clickLink("Evenementen")
                         ->assertPathIs("/evenement");
-                $browser->visit('/')->resize(3000,3000)->resize(3000,3000)
+                $browser->visit('/')->resize(3000,3000)
                         ->click("#navbarDropdownGalerij")
                         ->clickLink("2021")
                         ->assertPathIs("/albums/2021");

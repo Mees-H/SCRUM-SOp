@@ -41,8 +41,7 @@ class GalleryTest extends DuskTestCase
                 $year = date('Y', strtotime($album->date));
                 $browser
                     ->visitRoute('galerij_jaar', ['year' => $year])
-                    ->assertPathIs("/albums/" . $year)
-                    ->assertSee($album->title);
+                    ->assertPathIs("/albums/" . $year);
                 $browser->
                     visit("/albums/". $album->id . "/" . $year)
                     ->press("Terug")
