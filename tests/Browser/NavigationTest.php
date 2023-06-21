@@ -13,45 +13,45 @@ class NavigationTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("activiteiten")
+                        ->click("#navbarDropdownActiviteiten")
                         ->clickLink("Trainingen")
                         ->assertPathIs("/training");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("activiteiten")
+                        ->click("#navbarDropdownActiviteiten")
                         ->clickLink("Evenementen")
                         ->assertPathIs("/evenement");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("galerij")
+                        ->click("#navbarDropdownGalerij")
                         ->clickLink("2021")
                         ->assertPathIs("/albums/2021");
                 $browser->visit('/')->resize(3000,3000)
                         ->clickLink("Veelgestelde vragen")
                         ->assertPathIs("/vragenantwoorden");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("nieuws")
+                        ->click("#navbarDropdownNieuws")
                         ->clickLink("Nieuwsartikelen")
                         ->assertPathIs("/nieuwsartikel");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("nieuws")
+                        ->click("#navbarDropdownNieuws")
                         ->clickLink("Nieuwsbrieven")
                         ->assertPathIs("/nieuwsbrief");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("organisatie")
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Team")
                         ->assertPathIs("/team");
                 $browser->visit('/')->resize(3000,3000)
                         ->clickLink("Partners")
                         ->assertPathIs("/partners");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("organisatie")
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Over Ons")
                         ->assertPathIs("/overons");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("organisatie")
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Locatie")
                         ->assertPathIs("/locatie");
                 $browser->visit('/')->resize(3000,3000)
-                        ->click("organisatie")
+                        ->click("#navbarDropdownOrganisatie")
                         ->clickLink("Links")
                         ->assertPathIs("/links");
         });
@@ -63,7 +63,7 @@ class NavigationTest extends DuskTestCase
         $this->browse(function (Browser $browser) {
             $this->browse(function (Browser $browser) {
                 $browser->visit('/')->resize(3000,3000)
-                        ->type('search',' ')
+                        ->type('Zoeken',' ')
                         ->clickLink("Hoofdpagina")
                         ->assertPathIs("/");
                 $browser->visit('/')->resize(3000,3000)
