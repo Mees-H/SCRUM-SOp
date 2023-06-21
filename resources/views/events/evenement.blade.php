@@ -81,7 +81,7 @@
                                     @foreach($post->groups as $group)
                                         <a href="https://{{$group->link}}">
                                             <div class="fullwrap m-3">
-                                                <img style="height: 12vh;" alt="logo van {{$group->name}}"
+                                                <img class="sponsor_img" alt="logo van {{$group->name}}"
                                                      src="{{asset('img/'.$group->imageurl)}}">
                                                 <div class="fullcap text-wrap">
                                                     <div>{{$group->name}}</div>
