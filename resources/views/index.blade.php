@@ -103,7 +103,24 @@
                 </div>
             </div>
         </div>
-
+        <hr class="hrheight"/>
+        <p>
+            <div>
+                Voor de voor ons liggende jaren, is het wenselijk, dat we als Special Golf Haverleij donateurs en sponsoren aan ons kunnen binden, en daarmee mensen met een beperking kunnen laten deelnemen aan de golfsport.
+            </div>
+        </p>
+        <hr/>
+        <div class="m-4">
+            <h2 class="specialHeader">Wordt sponsor</h2>
+            <p>
+                <div>
+                    Stichting Special Golf 's-Hertogenbosch is een ANBI-stichting zonder winstoogmerk. Onze vrijwilligers zetten zich in voor mensen met een verstandelijke beperking, door hen ‘golfactiviteiten’ aan te bieden. 
+                    Bewegen is niet alleen belangrijk als onmisbare schakel in een mensenleven, maar gaat veel verder. Het draagt bij aan fysiek welzijn, meedoen aan sociale activiteiten en de mentale gezondheid van de deelnemers. 
+                    Daar is wel het een en ander bij nodig, zoals de inzet van vrijwilligers, en voldoende financiële middelen. Stichting Special golf ’s-Hertogenbosch is dan ook voortdurende op zoek naar subsidienten, sponsoren en donateurs! 
+                    Onderkent u het belang van deze rol in onze samenleving en wenst u zich met ons te afficheren, dan kan dat, wordt sponsor van Special Golf ’s-Hertogenbosch. 
+                </div>
+            </p>
+        </div>
     </div>
 </div>
 
