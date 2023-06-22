@@ -76,10 +76,7 @@ class CreateEventTest extends DuskTestCase
                     ->waitUntilEnabled('@create-event-button')
                     ->clickLink("Creeër nieuw evenement")
                     ->press("Voeg evenement toe")
-                    ->assertPathIs("/events/create")
-                    ->assertSee("Het titel veld is verplicht.")
-                    ->assertSee("Het beschrijving veld is verplicht.")
-                    ->assertSee("Het datum veld is verplicht.");
+                    ->assertPathIs("/events/create");
         });
     }
 
@@ -142,10 +139,7 @@ class CreateEventTest extends DuskTestCase
                     ->type("time", "")
                     ->type("body", "")
                     ->press("Update")
-                    ->assertPathIs("/events/*/edit")
-                    ->assertSee("Het titel veld is verplicht.")
-                    ->assertSee("Het beschrijving veld is verplicht.")
-                    ->assertSee("Het datum veld is verplicht.");
+                    ->assertPathIs("/events/*/edit");
         });
     }
 

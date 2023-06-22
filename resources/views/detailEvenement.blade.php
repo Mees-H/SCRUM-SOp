@@ -11,7 +11,7 @@
                     {{$event->title}}
                 </h1>
                 <div class="col-sm-2">
-                    <a href="/events/enroll/{{$event->id}}" class="btn-primary btn">Inschrijven</a>
+                    <a href="/events/enroll/{{$event->id}}" class="btn-primary btn" autofocus>Inschrijven</a>
                     <a dusk="BackButton" class="btn btn-secondary" href="/evenement">Terug</a>
                 </div>
             </div>

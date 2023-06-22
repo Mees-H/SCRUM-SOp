@@ -5,7 +5,7 @@
 <div class="py-12">
     <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
         <div class="p-6 text-gray-900 d-flex justify-content-between">
-            <a href="/admin/create" class="btn btn-primary m-1" dusk="createUserButton">{{__('Voeg account toe')}}</a>
+            <a href="/admin/create" class="btn btn-primary m-1" dusk="createUserButton" autofocus>{{__('Voeg account toe')}}</a>
             @if(request()->path() == 'admin/accounts/all')
                 <a href="/admin/accounts" class="btn btn-secondary" dusk="viewActiveUsers">Zie actieve accounts</a>
                 @else
