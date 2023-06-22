@@ -125,57 +125,57 @@ class NavigationTest extends DuskTestCase
         $this->artisan('db:seed');
 
         $this->browse(function (Browser $browser) {
-            $browser->loginAs(User::find(1));
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownActiviteiten")
-                ->clickLink("Trainingen")
-                ->assertPathIs("/trainingsessions");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownActiviteiten")
-                ->clickLink("Evenementen")
-                ->assertPathIs("/events");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownFotos")
-                ->clickLink("Galerij")
-                ->assertPathIs("/galerij");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownFotos")
-                ->clickLink("Paginabanners")
-                ->assertPathIs("/banners");
-            $browser->visit('/')->resize(3000, 3000)
-                ->clickLink("Veelgestelde vragen")
-                ->assertPathIs("/faq");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownNieuws")
-                ->clickLink("Nieuwsartikelen")
-                ->assertPathIs("/nieuwsartikel");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownNieuws")
-                ->clickLink("Nieuwsbrieven")
-                ->assertPathIs("/nieuwsbrief");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownOrganisatie")
-                ->clickLink("Team")
-                ->assertPathIs("/members");
-            $browser->visit('/')->resize(3000, 3000)
-                ->clickLink("Partners")
-                ->assertPathIs("/groups");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownOrganisatie")
-                ->clickLink("Over Ons")
-                ->assertPathIs("/overons");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownOrganisatie")
-                ->clickLink("Locatie")
-                ->assertPathIs("/locatie");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownOrganisatie")
-                ->clickLink("Links")
-                ->assertPathIs("/links");
-            $browser->visit('/')->resize(3000, 3000)
-                ->click("#navbarDropdownOrganisatie")
-                ->clickLink("Gebruikers")
-                ->assertPathIs("/admin/gebruikers");
+                $browser->loginAs(User::find(1));
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownActiviteiten")
+                        ->clickLink("Trainingen")
+                        ->assertPathIs("/trainingsessions");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownActiviteiten")
+                        ->clickLink("Evenementen")
+                        ->assertPathIs("/events");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownFotos")
+                        ->clickLink("Galerij")
+                        ->assertPathIs("/galerij");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownFotos")
+                        ->clickLink("Paginabanners")
+                        ->assertPathIs("/banners");
+                $browser->visit('/')->resize(3000,3000)
+                        ->clickLink("Veelgestelde vragen")
+                        ->assertPathIs("/faq");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownNieuws")
+                        ->clickLink("Nieuwsartikelen")
+                        ->assertPathIs("/nieuwsartikel");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownNieuws")
+                        ->clickLink("Nieuwsbrieven")
+                        ->assertPathIs("/nieuwsbrief");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownOrganisatie")
+                        ->clickLink("Team")
+                        ->assertPathIs("/members");
+                $browser->visit('/')->resize(3000,3000)
+                        ->clickLink("Partners")
+                        ->assertPathIs("/groups");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownOrganisatie")
+                        ->clickLink("Over Ons")
+                        ->assertPathIs("/overons");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownOrganisatie")
+                        ->clickLink("Locatie")
+                        ->assertPathIs("/locatie");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownOrganisatie")
+                        ->clickLink("Links")
+                        ->assertPathIs("/links");
+                $browser->visit('/')->resize(3000,3000)
+                        ->click("#navbarDropdownOrganisatie")
+                        ->clickLink("accounts")
+                        ->assertPathIs("/admin/accounts");
 
         });
     }

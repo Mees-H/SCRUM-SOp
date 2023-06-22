@@ -5,7 +5,7 @@
         <title>Galerij</title>
     </head>
     <div class="container justify-content-center text-center">
-        <h1>{{$year}}</h1>
+        <h1 class="specialHeader">{{$year}}</h1>
 
         <div class="row justify-content-center p-3">
             @if(count($albums) > 0)

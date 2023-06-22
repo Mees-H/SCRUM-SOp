@@ -55,7 +55,7 @@ class EventAndGroupSeeder extends Seeder
             'link' => 'www.burggolf.nl',
             'contact_person' => 'Danny Hulscher',
             'currently_a_partner' => true,
-            'imageurl' => 'burggolf-logo.jpeg',
+            'imageurl' => 'burggolf-logo.jpg',
         ]);
 
         $cello = Group::create([
@@ -67,7 +67,7 @@ class EventAndGroupSeeder extends Seeder
             'link' => '​www.cello-zorg.nl',
             'contact_person' => 'Peter Janssen',
             'currently_a_partner' => true,
-            'imageurl' => 'cello-logo.jpeg',
+            'imageurl' => 'cello-logo.svg',
         ]);
 
         $specialGolf = Group::create([

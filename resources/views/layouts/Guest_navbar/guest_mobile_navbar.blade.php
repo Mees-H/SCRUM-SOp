@@ -103,7 +103,7 @@
             Galerij
         </a>
 
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul class="dropdown-menu scrollbar" aria-labelledby="navbarDropdown">
             @if(count($allYears) > 0)
                 @foreach($allYears as $year)
                     <li><a class="dropdown-item nav-link text-dark"
@@ -142,7 +142,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}"
-           href="/partner">Partners</a>
+           href="/partners">Partners</a>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"

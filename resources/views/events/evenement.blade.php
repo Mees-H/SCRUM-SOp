@@ -50,8 +50,8 @@
                                 <a href="/events/enroll/{{$post->id}}" class="btn-primary btn">Inschrijven</a>
                             </div>
                             <div>
-                                <label>Datum: {{ \Carbon\Carbon::parse($post->date)->format('d-m-Y')}}
-                                    om {{date('H:i', strtotime($post->time))}}</label>
+                                <label>Datum: <b>{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y')}}</b>
+                                    om <b>{{date('H:i', strtotime($post->time))}}</b></label>
                                 <br/>
                                 @if($post->price <= 0)
                                     <p>Prijs: Gratis</p>
@@ -81,7 +81,7 @@
                                     @foreach($post->groups as $group)
                                         <a href="https://{{$group->link}}">
                                             <div class="fullwrap m-3">
-                                                <img style="height: 12vh;" alt="logo van {{$group->name}}"
+                                                <img class="sponsor_img" alt="logo van {{$group->name}}"
                                                      src="{{asset('img/'.$group->imageurl)}}">
                                                 <div class="fullcap text-wrap">
                                                     <div>{{$group->name}}</div>

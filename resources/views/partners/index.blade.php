@@ -31,7 +31,7 @@
                     <td>Contact persoon</td>
                     <td>Logo</td>
                     <td>Is huidig een partner</td>
-                    <td colspan=2>Actions</td>
+                    <td colspan=2>Handelingen</td>
                 </tr>
                 </thead>
                 <tbody>

@@ -55,9 +55,9 @@
                     "alt": "Locatie van special golf"
                 },
                 {
-                    "name": "privacy verklaring",
+                    "name": "Privacy verklaring",
                     "link": "/privacy",
-                    "alt": "privacy verklaring"
+                    "alt": "Privacy verklaring"
                 }
             ]
         },
@@ -76,14 +76,14 @@
                     "alt": "Pas galerij aan"
                 },
                 {
-                    "name": "privacy verklaring aanpassen",
+                    "name": "Privacy verklaring aanpassen",
                     "link": "/privacy/edit",
-                    "alt": "privacy verklaring"
+                    "alt": "Privacy verklaring"
                 },
                 {
-                    "name": "footer aanpassen",
+                    "name": "Footer aanpassen",
                     "link": "/footer/edit",
-                    "alt": "footer aanpassen"
+                    "alt": "Footer aanpassen"
                 },
                 {
                     "name": "Training groepen aanpassen",

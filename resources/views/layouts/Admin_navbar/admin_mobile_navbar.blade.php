@@ -176,7 +176,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li class="nav-item">
                         <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'createuser') ? 'font-weight-bold' : '' }}"
-                           href="/admin/gebruikers">Gebruikers</a>
+                           href="/admin/accounts">Accounts</a>
                     <li class="nav-item">
                     <li>
                         <hr class="dropdown-divider">

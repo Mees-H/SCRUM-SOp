@@ -5,7 +5,7 @@
 @foreach($groups as $group)
 <article>
     <div class="container">
-        <h2 class="text-center">{{$group->name}}</h2>
+        <h2 class="text-center specialHeader">{{$group->name}}</h2>
         <br>
         <div class="row justify-content-md-left">
         @foreach($group->members as $member)
@@ -29,7 +29,6 @@
                         @endif
                         <span>{{$member->phonenumber == '' ? '' : 'Mobiel: '.$member->phonenumber}}</span>
                     </p>
-
                 </div>
             </div>
         @endforeach

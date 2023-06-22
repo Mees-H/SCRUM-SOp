@@ -34,7 +34,7 @@
 
                     <div class="d-flex justify-content-between container pb-2">
 
-                        <h1 class="text-black">Nieuwsbrieven</h1>
+                        <h1 class="specialHeader">Nieuwsbrieven</h1>
                         <div id="filter_mobile">
                             <div class="mt-2 pb-3">
                                 <form method="Get" action="{{route('newsLetter.sorting')}}" class="d-flex">
@@ -42,7 +42,7 @@
                                     <div class="form-group">
                                         <label for="sort" class="overflow-x-auto m-1">Sorteren op:</label>
                                         <select class="form-select" id="sort" name="sort" onchange="this.form.submit()">
-                                        <option value="date_desc" class="dropdown-item">Datum Aflopend</option>
+                                        <option value="date_desc" class="dropdown-item" selected>Datum Aflopend</option>
                                         <option value="date_asc" class="dropdown-item">Datum Oplopend</option>
                                         </select>
                                     </div>
@@ -51,7 +51,7 @@
                         </div>
                     </div>
 
-                    <div class="">
+                    <div>
                         <p>De nieuwsbrieven van de afgelopen jaren zijn hieronder te vinden.</p>
                         <ul class="list-unstyled">
                             @foreach ($newsLetters as $newsLetter)
@@ -59,7 +59,7 @@
 
                                 <li class="pb-3 border-top">
                                     <div class="d-flex justify-content-between mt-3">
-                                        <h3>Datum: {{ \Carbon\Carbon::parse($newsLetter->date)->format('d-m-Y') }}</h3>
+                                        <h3 class="specialHeader">Datum: {{ \Carbon\Carbon::parse($newsLetter->date)->format('d-m-Y') }}</h3>
                                         <span>
                                             Full Screen
                                             <button class="btn btn-dark" dusk="fullscreen"

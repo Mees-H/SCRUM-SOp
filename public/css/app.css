@@ -105,8 +105,13 @@ h1 {
     color: black
 }
 
-.specialBrown {
+.specialHeader {
     color: #8d7824;
+    font-family: 'Roboto Slab', serif;
+}
+
+.specialText {
+    font-family: 'Roboto Slab', serif;
 }
 
 .footer {
@@ -247,6 +252,23 @@ td {
     max-width: 250px;
 }
 
+ul.indexUL {
+    display: inline-block;
+    text-align: left;
+  }
+
+hr {
+    width:90%;
+    text-align:center;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.hrheight {
+    height: 3px;
+    background-color: black;
+}
+
 .requiredStar {
     color: rgb(147, 4, 4);
     font-size: 1em;
@@ -305,4 +327,9 @@ td {
 
 .bannercontainer {
     user-select: none;
+}
+
+.dropdown-menu.scrollbar {
+    max-height: 300px; 
+    overflow-y: auto; 
 }

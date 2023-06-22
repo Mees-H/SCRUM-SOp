@@ -44,7 +44,7 @@ class EventController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'body' => 'required|max:999',
-            'date' => 'required|after:today'
+            'date' => 'required|date|after:today'
         ]);
 
         $event = new Event([
@@ -128,7 +128,7 @@ class EventController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'body' => 'required|max:999',
-            'date' => 'required|after:today'
+            'date' => 'required|date|after:today'
         ]);
         $event = Event::find($id);
         $event->title = $request->get('title');
