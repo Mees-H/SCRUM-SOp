@@ -21,7 +21,7 @@
             <span class="visually-hidden">Volgende</span>
         </button>
     </div>
-    <div class="container justify-content-center text-center col-sm-9 specialText">
+    <div class="container text-center col-sm-9 specialText">
         <div class="m-4">
             <h2 class="specialHeader mt-5">Stichting Special Golf</h2>
             <p class="fw-bold">
@@ -118,6 +118,23 @@
                     Bewegen is niet alleen belangrijk als onmisbare schakel in een mensenleven, maar gaat veel verder. Het draagt bij aan fysiek welzijn, meedoen aan sociale activiteiten en de mentale gezondheid van de deelnemers. 
                     Daar is wel het een en ander bij nodig, zoals de inzet van vrijwilligers, en voldoende financiële middelen. Stichting Special golf ’s-Hertogenbosch is dan ook voortdurende op zoek naar subsidienten, sponsoren en donateurs! 
                     Onderkent u het belang van deze rol in onze samenleving en wenst u zich met ons te afficheren, dan kan dat, wordt sponsor van Special Golf ’s-Hertogenbosch. 
+                </div>
+            </p>
+            <div class="justify-content-left text-left">
+                <h3>Sponsormogelijkheden</h3>
+                <ul>
+                    <li>Er zijn diverse mogelijkheden voor naam en/of logo-vermelding.</li> 
+                    <li>Uw organisatie voorzien van exposure bij golfwedstrijden.</li>
+                    <li>Deelnemers en vrijwilligers voorzien van kleding met uw logo.</li>
+                    <li>Beschikkingstellen van golfmaterialen voor trainingen.</li>
+                    <li>Schenking (ook als particulieren) wordt op prijs gesteld.</li>
+                </ul>
+            </div>
+            <p>
+                <div>
+                    De Stichting heeft de ANBI-status, waardoor schenkingen aftrekbaar zijn van de belasting. 
+                    Draagt u ons initiatief een warm hart toe? En heeft u de ruimte om Special Golf met een financiële bijdrage, onder gunstige fiscale voorwaarden, te ondersteunen bent u van harte welkom. Voor informatie stuur een mailtje naar specialgolfhaverleij@gmail.com
+                    Wij hopen u als sponsor te mogen verwelkomen!
                 </div>
             </p>
         </div>
