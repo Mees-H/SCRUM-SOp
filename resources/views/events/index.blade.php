@@ -60,7 +60,7 @@
                         <td>Rekeningnummer</td>
                         <td>Beschrijving</td>
                         <td>Groepen</td>
-                        <td colspan = 2>Actions</td>
+                        <td colspan = 2>Handelingen</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,7 +72,7 @@
                             <td>{{date('H:i', strtotime($event->time))}}</td>
                             <td>€{{number_format($event->price, 2, ',', ' ')}}</td>
                             <td>{{$event->bankaccount}}</td>
-                            <td>{{$event->body}}</td>
+                            <td>{{Str::limit($event->body, 100)}}</td>
                             <td>
                                 @foreach($event->groups as $group)
                                     {{$group->name}}<br>
@@ -94,8 +94,6 @@
             </table>
         <div>
         @endif
-
-        
     <div>
 </div>
 @endsection
