@@ -17,25 +17,100 @@ class TrainingController extends Controller
 {
     public function training()
     {
-        $trainingSessions = TrainingSession::all()->sortBy(function ($item) {
-            return $item['Date'];
-        });
+        //Getting week numbers
+        $date = Carbon::now();
+        $weekFrom = $date->weekOfYear;
+        $weekTo = $weekFrom + 3;
 
-        foreach ($trainingSessions as $session) {
-            $session->weekNumber = $this->getWeekNumber($session->Date);
-            $session->StartTime = Carbon::createFromFormat('H:i:s', $session->StartTime)->format('H:i');
-            $session->EndTime = Carbon::createFromFormat('H:i:s', $session->EndTime)->format('H:i');
+        //Getting sessions and groups
+        $filteredTrainingSessions = $this->filterSessionsByDate($weekFrom);
+        $groups = TrainingSessionGroup::all()->sortBy('Name');
+
+        return view('training.training', [  'sessions' => $filteredTrainingSessions,
+                                            'groups' => $groups,
+                                            'year' => $date->year,
+                                            'weekFrom' => $weekFrom,
+                                            'weekTo' => $weekTo]);
+    }
+
+    public function trainingOtherWeek(Request $request)
+    {
+        //Getting sessions
+        $weekTo = $request->weekNumber + 3;
+        $weekFrom = $request->weekNumber;
+        $year = $request->year;
+
+        //Changing years
+        if($weekTo > 52){
+            $weekFrom = 1;
+            $weekTo = $weekFrom + 3;
+            $year++;
         }
-        $trainingGroups = TrainingSessionGroup::all();
-        foreach ($trainingGroups as $group) {
-            $group->sessions = $trainingSessions->where('GroupNumber', '==', $group->GroupNumber);
+        else if ($weekFrom < 1){
+            $weekTo = 52;
+            $weekFrom = $weekTo - 3;
+            $year--;
         }
-        return view('training.training', ['trainingGroups' => $trainingGroups]);
+        
+        $filteredTrainingSessions = $this->filterSessionsByDate($request->weekNumber);
+        $groups = TrainingSessionGroup::all()->sortBy('Name');
+
+        return view('training.training', [  'sessions' => $filteredTrainingSessions,
+                                            'groups' => $groups,
+                                            'year' => $year,
+                                            'weekFrom' => $weekFrom,
+                                            'weekTo' => $weekTo]);
+    }
+
+    private function filterSessionsByDate($weekNumber)
+    {
+        //Getting training sessions based on weeknumber
+        $allTrainingSessions = TrainingSession::all();
+        $filteredTrainingSessions = [];
+        $weekmap = [
+            0 => 'Zondag',
+            1 => 'Maandag',
+            2 => 'Dinsdag',
+            3 => 'Woensdag',
+            4 => 'Donderdag',
+            5 => 'Vrijdag',
+            6 => 'Zaterdag'
+        ];
+        $monthmap = [
+            0 => 'Januari',
+            1 => 'Februari',
+            2 => 'Maart',
+            3 => 'April',
+            4 => 'Mei',
+            5 => 'Juni',
+            6 => 'Juli',
+            7 => 'Augustus',
+            8 => 'September',
+            9 => 'October',
+            10 => 'November',
+            11 => 'December',
+        ];
+        foreach($allTrainingSessions as $trainingSession){
+            $date = Carbon::createFromFormat('Y-m-d', $trainingSession->Date);
+            $sessionWeek = $date->weekOfYear;
+            if($sessionWeek >= $weekNumber && $sessionWeek <= $weekNumber + 3){
+
+                //Adding additional information
+                $trainingSession->weekNumber = $sessionWeek;
+                $trainingSession->weekDay = $weekmap[$date->dayOfWeek];
+                $trainingSession->year = $date->year;
+                $trainingSession->month = $monthmap[$date->month];
+                $trainingSession->day = $date->day;
+
+                $filteredTrainingSessions[] = $trainingSession;
+            }
+        }
+        return $filteredTrainingSessions;
     }
 
     //CRUD
     public function index(){
-        return view('training.index', ['sessions' => TrainingSession::all()]);
+        return view('training.index', ['sessions' => TrainingSession::where('Date', '>=' , Carbon::now())->get()]);
     }
 
     public function create(){
@@ -44,7 +119,7 @@ class TrainingController extends Controller
 
     public function store(Request $request){
         $request->validate([
-            'date' => 'required|after:today',
+            'date' => 'required|date|after:today',
             'starttime' => 'required',
             'endtime' => 'required|after:starttime',
             'body' => 'required|max:999',
@@ -60,7 +135,7 @@ class TrainingController extends Controller
             'IstrainingSession' => ($request->get('vacationweek') == 'true' ? '0' : '1')
         ]);
         $session->save();
-        return redirect('/trainingSessions')->with('success', 'Trainingsessie opgeslagen.');
+        return redirect('/trainingsessions')->with('success', 'Trainingsessie opgeslagen.');
 
     }
 
@@ -68,7 +143,7 @@ class TrainingController extends Controller
         try{
             $session = TrainingSession::findOrFail($id);
         } catch (Exception $e){
-            return redirect('/trainingSessions')->with('error', 'Trainingsessie niet kunnen vinden.');
+            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen vinden.');
         }
         return view('training.edit', ['session' => $session,
                                     'groups' => TrainingSessionGroup::all()]);
@@ -77,7 +152,7 @@ class TrainingController extends Controller
     public function update(Request $request, string $id){
 
         $request->validate([
-            'date' => 'required|after:today',
+            'date' => 'required|date|after:today',
             'starttime' => 'required|before:endtime',
             'endtime' => 'required|after:starttime',
             'body' => 'required|max:999',
@@ -87,7 +162,7 @@ class TrainingController extends Controller
         try{
             $session = TrainingSession::findOrFail($id);
         } catch (Exception $e){
-            return redirect('/trainingSessions')->with('error', 'Trainingsessie niet kunnen updaten.');
+            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen updaten.');
         }
         $session->Date = $request->get('date');
         $session->StartTime = $request->get('starttime');
@@ -96,17 +171,17 @@ class TrainingController extends Controller
         $session->group_id = $request->get('group');
         $session->IstrainingSession = ($request->get('vacationweek') == 'true' ? '0' : '1');
         $session->save();
-        return redirect('/trainingSessions')->with('success', 'Trainingsessie opgeslagen.');
+        return redirect('/trainingsessions')->with('success', 'Trainingsessie opgeslagen.');
     }
 
     public function destroy(string $id){
         try{
             $result = TrainingSession::findOrFail($id);
         } catch (Exception $e){
-            return redirect('/trainingSessions')->with('error', 'Trainingsessie niet kunnen verwijderen.');
+            return redirect('/trainingsessions')->with('error', 'Trainingsessie niet kunnen verwijderen.');
         }
         $result->delete();
-        return redirect('/trainingSessions')->with('success', 'Trainingsessie verwijderd.');
+        return redirect('/trainingsessions')->with('success', 'Trainingsessie verwijderd.');
     }
 
 

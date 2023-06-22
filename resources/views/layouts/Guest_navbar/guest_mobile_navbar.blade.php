@@ -33,7 +33,7 @@
         <li class="nav-item" id="searchNavBar">
             <form class="form-inline my-2 my-lg-0 position-relative justify-content-center d-flex" method="GET" action="#">
                 <input class="form-control align-content-center search" id="dropdown" type="search" name="search"
-                       placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+                       placeholder="Zoek hier..." aria-label="Zoeken" autocomplete="off" onkeyup="FilterWords()">
                 <ul class="border border-dark rounded d-none" id="content">
                     <li><a class="dropdown-item text-center" href="/">
                             Hoofdpagina
@@ -44,17 +44,15 @@
                     <li><a class="dropdown-item text-center" href="/evenement">
                             Evenementen
                         </a></li>
-                    <li><a class="dropdown-item text-center" href="/albums/2023">
-                            2023
-                        </a></li>
-                    <li><a class="dropdown-item text-center" href="/albums/2022">
-                            2022
-                        </a></li>
-                    <li><a class="dropdown-item text-center" href="/albums/2021">
-                            2021
-                        </a></li>
+                    @if(count($allYears) > 0)
+                        @foreach($allYears as $year)
+                            <li><a class="dropdown-item text-center" href="/albums/{{$year}}">
+                                Galerij {{$year}}
+                            </a></li>
+                    @endforeach
+                    @endif
                     <li><a class="dropdown-item text-center" href="/vragenantwoorden">
-                            FAQ
+                            Veelgestelde vragen
                         </a></li>
                     <li><a class="dropdown-item text-center" href="/nieuwsbrief">
                             Nieuwsbrief
@@ -144,7 +142,7 @@
     </li>
     <li class="nav-item">
         <a class="nav-link text-dark {{ (request()->segment(1) == 'partner') ? 'font-weight-bold' : '' }}"
-           href="/partner">Partners</a>
+           href="/partners">Partners</a>
     </li>
     <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"

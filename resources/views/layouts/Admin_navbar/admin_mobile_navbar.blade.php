@@ -47,22 +47,22 @@
             <li class="nav-item" id="searchNavBar">
                 <form class="form-inline my-2 my-lg-0 position-relative justify-content-center d-flex" method="GET" action="#">
                 <input class="form-control align-content-center search" id="dropdown" type="search" name="search"
-                       placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+                       placeholder="Zoek hier..." aria-label="Zoeken" autocomplete="off" onkeyup="FilterWords()">
                 <ul class="border border-dark rounded d-none" id="content">
                     <li><a class="dropdown-item text-center searchitem" href="/">
                             Hoofdpagina
                         </a></li>
-                    <li><a class="dropdown-item text-center searchitem" href="/training">
+                    <li><a class="dropdown-item text-center searchitem" href="/trainingsessions">
                             Trainingen
                         </a></li>
-                    <li><a class="dropdown-item text-center searchitem" href="/evenement">
+                    <li><a class="dropdown-item text-center searchitem" href="/events">
                             Evenementen
                         </a></li>
                     <li><a class="dropdown-item text-center searchitem" href="/galerij">
                             Galerij
                         </a></li>
                     <li><a class="dropdown-item text-center searchitem" href="/faq">
-                            FAQ
+                            Veelgestelde vragen
                         </a></li>
                     <li><a class="dropdown-item text-center searchitem" href="/nieuwsartikel">
                             NieuwsArtikelen
@@ -70,10 +70,10 @@
                         <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
                             Nieuwsbrieven
                         </a></li>
-                    <li><a class="dropdown-item text-center searchitem" href="/team">
+                    <li><a class="dropdown-item text-center searchitem" href="/members">
                             Team
                         </a></li>
-                    <li><a class="dropdown-item text-center searchitem" href="/partner">
+                    <li><a class="dropdown-item text-center searchitem" href="/groups">
                             Partner
                         </a></li>
                     <li><a class="dropdown-item text-center searchitem" href="/overons">
@@ -85,13 +85,9 @@
                     <li><a class="dropdown-item text-center searchitem" href="/links">
                             Links
                         </a></li>
-                    <li>
-                        <hr class="dropdown-divider">
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
-                           href="/privacy/edit">Privacy</a>
-                    </li>
+                    <li><a class="dropdown-item text-center searchitem" href="/privacy/edit">
+                            Privacy
+                        </a></li>
                 </ul>
                 </form>
             </li>
@@ -171,7 +167,7 @@
                 <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <li class="nav-item">
                         <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'createuser') ? 'font-weight-bold' : '' }}"
-                           href="/admin/gebruikers">Gebruikers</a>
+                           href="/admin/accounts">Accounts</a>
                     <li class="nav-item">
                     <li>
                         <hr class="dropdown-divider">

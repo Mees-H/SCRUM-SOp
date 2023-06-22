@@ -18,7 +18,7 @@
                         <div class="d-flex justify-content-between">
                             <button class="btn btn-toggle d-inline-flex align-items-center border-0"
                                 data-bs-toggle="collapse" data-bs-target="#newsletterOfYear{{ $year }}"
-                                aria-expanded="true">
+                                aria-expanded="true" autofocus>
                                 {{ $year }}
                                 <i class="bi bi-arrow-down text-secondary"></i>
                             </button>

@@ -17,7 +17,7 @@ class SignoutTrainingTest extends DuskTestCase
                 ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', 'Piet Piraat')
-                ->type('date', Carbon::tomorrow()->format('mdY'))
+                ->type('date', Carbon::tomorrow()->format('dmY'))
                 ->press('Afmelden')
                 ->waitForText('U heeft zich successvol afgemeld.');
         });
@@ -35,15 +35,16 @@ class SignoutTrainingTest extends DuskTestCase
             $browser->visit('/training/signout')
                 ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
-                ->type('date', Carbon::tomorrow())
+                ->type('date', Carbon::tomorrow()->format('dmY'))
                 ->press('Afmelden')
-                ->waitForText('Uw naam is verplicht');
+                ->assertPathIs('/training/signout');
 
             //Test max length
             $browser->visit('/training/signout')
                 ->resize(3000,3000)
                 ->assertSee('Afmelden voor training')
                 ->type('name', $string)
+                ->type('date', Carbon::tomorrow()->format('dmY'))
                 ->press('Afmelden')
                 ->waitForText('Uw naam mag niet langer zijn dan 255 karakters');
         });
@@ -63,7 +64,7 @@ class SignoutTrainingTest extends DuskTestCase
                 ->assertSee('Afmelden voor training')
                 ->type('name', 'Piet Piraat')
                 ->press('Afmelden')
-                ->waitForText('De datum is verplicht');
+                ->assertPathIs('/training/signout');
 
             //Test before today
             $browser->visit('/training/signout')
