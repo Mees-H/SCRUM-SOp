@@ -79,7 +79,7 @@
                             <td>{{date('H:i', strtotime($session->StartTime))}}</td>
                             <td>{{date('H:i', strtotime($session->EndTime))}}</td>
                             <td>{{$session->Description}}</td>
-                            <td>Groep {{$session->group_id}}</td>
+                            <td>{{$session->training_session_group->Name}}</td>
                             <td>{{$session->IstrainingSession == 1 ? 'X' : '✓'}}</td>
                             <td>
                                 <a href="{{ route('trainingsessions.edit',$session->id)}}" class="btn btn-primary">Aanpassen</a>
