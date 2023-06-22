@@ -22,6 +22,7 @@
             </div>
         @endif
         <div class="table-container">
+        @if ($agent->isMobile())
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -54,9 +55,7 @@
                 </tbody>
             </table>
         </div>
-
         @endif
-
         @if (!$agent->isMobile())
         <div>
             <table class="table table-striped">
