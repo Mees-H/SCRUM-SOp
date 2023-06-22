@@ -122,7 +122,7 @@
             </p>
             <div class="justify-content-left text-left">
                 <h5>Sponsormogelijkheden</h5>
-                <ul>
+                <ul class="indexUL">
                     <li>Er zijn diverse mogelijkheden voor naam en/of logo-vermelding.</li> 
                     <li>Uw organisatie voorzien van exposure bij golfwedstrijden.</li>
                     <li>Deelnemers en vrijwilligers voorzien van kleding met uw logo.</li>
