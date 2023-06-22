@@ -105,8 +105,13 @@ h1 {
     color: black
 }
 
-.specialBrown {
+.specialHeader {
     color: #8d7824;
+    font-family: 'Roboto Slab', serif;
+}
+
+.specialText {
+    font-family: 'Roboto Slab', serif;
 }
 
 .footer {
@@ -245,6 +250,23 @@ h1 {
 
 td {
     max-width: 250px;
+}
+
+ul.indexUL {
+    display: inline-block;
+    text-align: left;
+  }
+
+hr {
+    width:90%;
+    text-align:center;
+    margin-left:5%;
+    margin-right:5%;
+}
+
+.hrheight {
+    height: 3px;
+    background-color: black;
 }
 
 .requiredStar {

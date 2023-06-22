@@ -31,7 +31,7 @@
 
             <div class="border-0">
                 <div class="d-flex justify-content-between container pb-2">
-                    <h1 class="text-black">Nieuwsartikelen</h1>
+                    <h1 class="specialHeader">Nieuwsartikelen</h1>
                     <div id="filter_mobile">
                         <div class="mt-2 pb-3">
                             <form method="Get" action="{{route('newsArticle.sorting')}}" class="d-flex">
@@ -53,8 +53,8 @@
                 <div class="card border-0">
                     @foreach($articles as $article)
                         <div id="{{$article->id}}" class="row card-body">
-                            <h2 id="articleTitle">{{$article->title}}</h2>
-                            <small>Datum: {{ \Carbon\Carbon::parse($article->date)->format('d-m-Y')}}</small>
+                            <h2 class="specialHeader" id="articleTitle">{{$article->title}}</h2>
+                            <small><b>Datum: {{ \Carbon\Carbon::parse($article->date)->format('d-m-Y')}}</b></small>
                             @if($article->imgurl != null)
                                 <div class="col">
                                     @else

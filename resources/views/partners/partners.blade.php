@@ -2,6 +2,10 @@
 
 @section('content')
     <div class="container">
+        <div style='text-align: center;' class='mb-4'>
+        Zonder onze donateurs en sponsoren staan we nergens. Dankzij hun kunnen wij mensen met een verstandelijke beperking <br />
+        golfvaardigheden aanleren met ondersteuning van golfprofessionals en vrijwilligers. Trots op onze partners!
+        </div>
         <div class="row row-cols-sm-4 g-4 justify-content-evenly">
             @for($i = 0; $i < $groups->count(); $i++)
                 @if($groups[$i]->currently_a_partner)

@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+<div class="container">
 @if(session()->get('success'))
   <div class="alert alert-success">
       {{ session()->get('success') }}
@@ -12,6 +13,8 @@
     </div>
 </div>
 <br/>
+
+
 <div class="card">
   <div class="container card-body">
     <p>Heeft u een vraag? Wij beantwoorden deze graag!</p>
@@ -21,6 +24,7 @@
   </div>
 </div>
 <br/>
+
 <div class="accordion">
 @foreach($FAQ as $faq)
   <div class="accordion-item">
@@ -36,5 +40,6 @@
     </div>
   </div>
 @endforeach
+</div>
 </div>
 @stop

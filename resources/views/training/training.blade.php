@@ -9,8 +9,8 @@
             <i class="fa-solid fa-caret-left"></i>
         </button>
         <div class="col-auto">
-            <h3 class="text-center">{{$year}}</h3>
-            <h3 class="text-center">Week {{$weekFrom}} - {{$weekTo}}</h3>
+            <h3 class="text-center specialHeader">{{$year}}</h3>
+            <h3 class="text-center specialHeader">Week {{$weekFrom}} - {{$weekTo}}</h3>
         </div>
         <button class="btn btn-primary col-auto" type="submit" name="weekNumber" value="{{$weekFrom + 4}}" aria-label="Knop om volgende 4 weken te bekijken">
             <i class="fa-solid fa-caret-right"></i>
@@ -20,7 +20,7 @@
     <div class="container text-center">
         @for($i = $weekFrom; $i <= $weekTo; $i++)
             <div class="row justify-content-center">
-                <h5>Week {{$i}}</h5>
+                <h5 class="specialHeader">Week {{$i}}</h5>
                 @php($sessionAmount = 0)
                 @foreach($sessions as $session)
                     <div class="row justify-content-center">
@@ -57,7 +57,7 @@
                 @else
                 <div class="col border-start">
                 @endif
-                    <h2>{{$groups[$i]->Name}}</h2>
+                    <h2 class="specialHeader">{{$groups[$i]->Name}}</h2>
                     @foreach($groups[$i]->participants as $participant)
                         <p>{{$participant->Name}}</p>
                     @endforeach

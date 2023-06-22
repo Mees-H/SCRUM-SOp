@@ -2,7 +2,6 @@
 
 @section('content')
     <div class="px-4">
-        <h1 class="text-center pt-2 display-3">Links</h1>
         <div class="d-flex row justify-content-center">
             @foreach($links as $category)
                 <div class="col-md-auto  p-3">

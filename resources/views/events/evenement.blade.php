@@ -50,8 +50,8 @@
                                 <a href="/events/enroll/{{$post->id}}" class="btn-primary btn">Inschrijven</a>
                             </div>
                             <div>
-                                <label>Datum: {{ \Carbon\Carbon::parse($post->date)->format('d-m-Y')}}
-                                    om {{date('H:i', strtotime($post->time))}}</label>
+                                <label>Datum: <b>{{ \Carbon\Carbon::parse($post->date)->format('d-m-Y')}}</b>
+                                    om <b>{{date('H:i', strtotime($post->time))}}</b></label>
                                 <br/>
                                 @if($post->price <= 0)
                                     <p>Prijs: Gratis</p>
