@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
         <div class="col-sm-12 container">
-            <h1 class="display-3">Groepen en partners</h1>
+            <h1 class="display-3">Partners</h1>
             <p>Huidige partners zijn te zien op de Partners pagina voor website bezoekers.
                 Partners die huidig geen partner zijn kunnen nog steeds geselecteerd worden bij een evenement maar
                 zijn niet te zien op de Partners pagina voor website bezoekers.</p>
