@@ -79,7 +79,7 @@
                 </div>
             </p>
             <div>
-                <img class="m-t-2 w-auto h-100" src="img/startpagina1.jpg" alt="foto van de 13 huidige deelnemers, de vrijwilligers en de golfleraren">
+                <img class="m-t-2 w-auto h-100 img-fluid" src="img/startpagina1.jpg" alt="foto van de 13 huidige deelnemers, de vrijwilligers en de golfleraren">
             </div>
         </div>
         <hr/>
@@ -93,13 +93,13 @@
             </p>
             <div class="row">
                 <div class="col-sm-4">
-                    <img class="" src="img/startpagina2.jpg">
+                    <img class="" src="img/startpagina2.jpg" alt="foto van 4 begeleiders en coaches op de golfbaan">
                 </div>
                 <div class="col-sm-4">
-                    <img class="" src="img/startpagina3.jpeg">
+                    <img class="" src="img/startpagina3.jpeg" alt="foto van het gebruikte materiaal">
                 </div>
                 <div class="col-sm-4">
-                    <img class="" src="img/startpagina4.jpg">
+                    <img class="" src="img/startpagina4.jpg" alt="foto van de deelnemers van specialgolf">
                 </div>
             </div>
         </div>
