@@ -174,8 +174,8 @@ class NavigationTest extends DuskTestCase
                         ->assertPathIs("/links");
                 $browser->visit('/')->resize(3000,3000)
                         ->click("#navbarDropdownOrganisatie")
-                        ->clickLink("Gebruikers")
-                        ->assertPathIs("/admin/gebruikers");
+                        ->clickLink("accounts")
+                        ->assertPathIs("/admin/accounts");
 
         });
     }

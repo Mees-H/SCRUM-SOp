@@ -16,14 +16,14 @@ class CreateUserController extends Controller
     {
         $users = User::where('id', '!=', auth()->user()->id)->get();
 
-        return view('admin.userlist', ['users' => $users, 'title' => 'Actieve gebruikers']);
+        return view('admin.userlist', ['users' => $users, 'title' => 'Actieve accounts']);
     }
 
     public function showAll()
     {
         $users = User::where('id', '!=', auth()->user()->id)->withTrashed()->get();
 
-        return view('admin.userlist', ['users' => $users, 'title' => 'Alle gebruikers']);
+        return view('admin.userlist', ['users' => $users, 'title' => 'Alle accounts']);
     }
 
     public function adminCreateUser()
@@ -49,6 +49,6 @@ class CreateUserController extends Controller
 
         event(new Registered($user));
 
-        return redirect('/admin/gebruikers')->with('success', 'Gebruiker aangemaakt.');
+        return redirect('/admin/accounts')->with('success', 'Account aangemaakt.');
     }
 }
