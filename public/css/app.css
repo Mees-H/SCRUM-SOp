@@ -252,6 +252,11 @@ td {
     max-width: 250px;
 }
 
+ul.indexUL {
+    display: inline-block;
+    text-align: left;
+  }
+
 hr {
     width:90%;
     text-align:center;
