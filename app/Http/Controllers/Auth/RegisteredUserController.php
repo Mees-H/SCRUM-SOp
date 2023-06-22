@@ -58,7 +58,7 @@ class RegisteredUserController extends Controller
 
         User::find($request->id)->delete();
 
-        return back()->with('success', 'Gebruiker gearchiveerd!');
+        return back()->with('success', 'Account gearchiveerd!');
     }
 
     public function permanentlyDelete(Request $request): RedirectResponse
@@ -73,7 +73,7 @@ class RegisteredUserController extends Controller
 
         User::withTrashed()->find($request->id)->forceDelete();
 
-        return back()->with('success', 'Gebruiker permanent verwijderd!');
+        return back()->with('success', 'Account permanent verwijderd!');
     }
 
     public function unarchive(Request $request): RedirectResponse
@@ -88,6 +88,6 @@ class RegisteredUserController extends Controller
 
         User::withTrashed()->find($request->id)->restore();
 
-        return back()->with('success', 'Gebruiker hersteld!');
+        return back()->with('success', 'Account hersteld!');
     }
 }

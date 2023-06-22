@@ -5,7 +5,11 @@
     <div class="col-sm-12 container">
         <h1 class="display-3">Trainingen</h1>
         <div class="justify-content-between d-lg-flex mb-3">
-            <a id="Creeër nieuwe training" href="{{ route('trainingsessions.create')}}" class="btn btn-primary">Creeër nieuwe training</a>
+            <a id="Creeër nieuwe training" href="{{ route('trainingsessions.create')}}" class="btn btn-primary" autofocus>Creeër nieuwe training</a>
+            <div class="d-flex align-items-center">
+                <div class="bg-info" style="min-width: 1em;min-height: 1em;max-width: 1em;max-height: 1em"></div>
+                <span> = vakantie week</span>
+            </div>
         </div>
         @if(session()->get('success'))
             <div class="alert alert-success">
@@ -17,12 +21,12 @@
                 {{ session()->get('error') }}
             </div>
         @endif
-        @if ($agent->isMobile())
-        <div>
+        <div class="table-container">
             <table class="table table-striped">
                 <thead>
                     <tr>
                         <td>Datum</td>
+                        <td>Tijd</td>
                         <td>Beschrijving</td>
                         <td>Groep</td>
                         <td colspan = 2>Handelingen</td>
@@ -30,18 +34,20 @@
                 </thead>
                 <tbody>
                     @foreach($sessions as $session)
-                        <tr>
+                        <tr @if(!$session->IstrainingSession)class="bg-info border-info" @endif>
                             <td>{{ \Carbon\Carbon::parse($session->Date)->format('d-m-Y')}}</td>
+                            <td>{{date('H:i', strtotime($session->StartTime))}} - {{date('H:i', strtotime($session->EndTime))}}</td>
                             <td>{{$session->Description}}</td>
-                            <td>Groep {{$session->group_id}}</td>
+                            <td>{{$session->Name}}</td>
                             <td>
-                                <a href="{{ route('trainingsessions.edit',$session->id)}}" class="btn btn-primary">Aanpassen</a>
-                            
-                                <form action="{{ route('trainingsessions.destroy', $session->id)}}" method="post">
-                                @csrf
-                                @method('DELETE')
-                                <button class="btn btn-danger" type="submit">Verwijderen</button>
-                                </form>
+                                <div class="d-flex h-100 flex-wrap">
+                                    <a href="{{ route('trainingsessions.edit',$session->id)}}" class="btn btn-primary me-2">Aanpassen</a>
+                                    <form action="{{ route('trainingsessions.destroy', $session->id)}}" method="post">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger" type="submit">Verwijderen</button>
+                                    </form>
+                                </div>
                             </td>
                         </tr>
                     @endforeach

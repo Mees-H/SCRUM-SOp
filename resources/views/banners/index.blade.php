@@ -1,10 +1,10 @@
 @extends('layouts.layout')
 
 @section('content')
-    <h1 class="display-3">Paginabanners beheren</h1>   
+    <h1 class="display-3">Paginabanners beheren</h1>
     @if(session()->get('success'))
         <div class="alert alert-success">
-            {{ session()->get('success') }}  
+            {{ session()->get('success') }}
         </div>
     @endif
     <table class="table table-striped">
@@ -21,7 +21,7 @@
                 <td>
                 </td>
                 <td>
-                    <a class="btn btn-info" href="/slider">Slider aanpassen</a>
+                    <a class="btn btn-info" href="/slider" autofocus>Slider aanpassen</a>
                 </td>
             </tr>
             @foreach($pages as $page)

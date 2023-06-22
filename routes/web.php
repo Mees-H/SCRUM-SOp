@@ -52,8 +52,8 @@ Route::get('slider-delete/{slider}', [SliderController::class, 'delete'])->name(
 Route::resource('slider', SliderController::class);
 
 //Training routes
-Route::resource('trainingSessions', TrainingController::class);
 Route::get('training', [TrainingController::class, 'training']);
+Route::post('training', [TrainingController::class, 'trainingOtherWeek']);
 Route::get('/training/signout', [TrainingController::class, 'signout']);
 Route::post('/training/signout', [TrainingController::class, 'sendsignoutmail']);
 
@@ -85,13 +85,13 @@ Route::get('/privacy/download', [App\Http\Controllers\PrivacyController::class, 
 
 Route::middleware(['role:admin'])->group(function () {
     //User creation routes
-    Route::get('/admin/gebruikers', [CreateUserController::class, 'adminIndex']);
+    Route::get('/admin/accounts', [CreateUserController::class, 'adminIndex']);
     Route::get('/admin/create', [CreateUserController::class, 'adminCreateUser']);
     Route::post('/admin/submit', [CreateUserController::class, 'storeUser']);
     Route::post('/admin/delete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'destroy']);
     Route::post('/admin/permanentlydelete', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'permanentlyDelete']);
     Route::post('/admin/unarchive', [\App\Http\Controllers\Auth\RegisteredUserController::class, 'unarchive']);
-    Route::get('/admin/gebruikers/all', [CreateUserController::class, 'showAll']);
+    Route::get('/admin/accounts/all', [CreateUserController::class, 'showAll']);
 
     //News routes
 

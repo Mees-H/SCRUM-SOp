@@ -17,7 +17,7 @@
     <div class="collapse navbar-collapse" id="main-navbar">
 <ul class="navbar-nav me-auto nav-tabs">
     <li class="nav-item dropdown">
-        <a dusk="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
+        <a class="nav-link dropdown-toggle text-dark" id="navbarDropdownActiviteiten" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Activiteiten
         </a>
@@ -37,12 +37,12 @@
     </li>
     <li class="nav-item dropdown">
 
-        <a dusk="galerij" class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
+        <a name="galerij" class="nav-link dropdown-toggle text-dark {{ (request()->segment(1) == 'galerij') ? 'font-weight-bold' : '' }}"
            id="navbarDropdownGalerij" role="button" data-bs-toggle="dropdown" aria-haspopup="true" href="#">
             Galerij
         </a>
 
-        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <ul class="dropdown-menu scrollbar" aria-labelledby="navbarDropdown">
             @if(count($allYears) > 0)
                 @foreach($allYears as $year)
                     <li><a class="dropdown-item nav-link text-dark"
@@ -59,7 +59,7 @@
            href="/vragenantwoorden">Veelgestelde vragen</a>
     </li>
     <li class="nav-item dropdown">
-        <a dusk="activiteiten" class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
+        <a name="nieuws" class="nav-link dropdown-toggle text-dark" id="navbarDropdownNieuws" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Nieuws
         </a>
@@ -82,7 +82,7 @@
            href="/partners">Partners</a>
     </li>
     <li class="nav-item dropdown">
-        <a dusk="organisatie" class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
+        <a name="organisatie" class="nav-link dropdown-toggle text-dark" id="navbarDropdownOrganisatie" role="button"
            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">
             Organisatie
         </a>
@@ -159,7 +159,7 @@
     <li class="nav-item" id="searchNavBar">
         <form class="form-inline my-2 my-lg-0 position-relative" method="GET" action="#">
             <input dusk="search" class="form-control mr-sm-2 search" id="dropdown" type="search" name="search"
-                   placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
+                   placeholder="Zoek hier..." aria-label="Zoeken" autocomplete="off" onkeyup="FilterWords()">
             <ul class="border border-dark rounded d-none" id="content">
                 <li><a class="dropdown-item text-center" href="/">
                         Hoofdpagina
@@ -170,17 +170,15 @@
                 <li><a class="dropdown-item text-center" href="/evenement">
                         Evenementen
                     </a></li>
-                <li><a class="dropdown-item text-center" href="/albums/2023">
-                        2023
-                    </a></li>
-                <li><a class="dropdown-item text-center" href="/albums/2022">
-                        2022
-                    </a></li>
-                <li><a class="dropdown-item text-center" href="/albums/2021">
-                        2021
-                    </a></li>
+                @if(count($allYears) > 0)
+                    @foreach($allYears as $year)
+                        <li><a class="dropdown-item text-center" href="/albums/{{$year}}">
+                            Galerij {{$year}}
+                        </a></li>
+                    @endforeach
+                @endif
                 <li><a class="dropdown-item text-center" href="/vragenantwoorden">
-                        FAQ
+                        Veelgestelde vragen
                     </a></li>
                 <li><a class="dropdown-item text-center" href="/nieuwsartikel">
                         Nieuwsartikelen

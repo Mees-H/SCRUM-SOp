@@ -19,8 +19,8 @@ class FooterTest extends DuskTestCase
                 ->assertSee('Footer aanpassen')
                 ->type('email', 'test@gmail.com')
                 ->type('rekeningnummer', 'NL 38 RABO 123456789')
-                ->type('KvKnr', '12345678')
-                ->type('RSIN', '123456789')
+                ->type('kvknr', '12345678')
+                ->type('rsin', '123456789')
                 ->press('footerknop')
                 ->assertPathIs('/footer/edit');
         });
