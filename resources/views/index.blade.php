@@ -121,7 +121,7 @@
                 </div>
             </p>
             <div class="justify-content-left text-left">
-                <h3>Sponsormogelijkheden</h3>
+                <h5>Sponsormogelijkheden</h5>
                 <ul>
                     <li>Er zijn diverse mogelijkheden voor naam en/of logo-vermelding.</li> 
                     <li>Uw organisatie voorzien van exposure bij golfwedstrijden.</li>
@@ -139,6 +139,25 @@
             </p>
         </div>
         <hr class="hrheight"/>
+        <div class="m-4">
+            <h2 class="specialHeader">Wordt Donateur</h2>
+            <p>
+                <div>
+                    Bij de Stichting Special Golf ’s-Hertogenbosch werken uitsluitend vrijwilligers. Maar ondanks dat hebben we kosten voor de inhuur van golfleraren, materialen en gebruik baanfaciliteiten. 
+                    Voor onze inkomsten zijn we volledig afhankelijk van sponsors, donateurs en subsidiënten.
+                </div>
+            </p>
+            <p>
+                <h5>Donaties komen goed terecht</h5>
+                <div>
+                    Wij zijn daarom voortdurend op zoek naar donateurs die met hun bijdrage, nu en in de toekomst, het werk van de Stichting Special Golf ’s-Hertogenbosch willen ondersteunen. Uw donatie komt goed terecht: iedereen bij de Stichting, m.u.v. golfleraren, werkt als vrijwilliger. Ook geven we geen vrijwilligersvergoedingen. Met uw donatie verzorgen wij golflessen aan mensen met een verstandelijke beperking. Special Golf ’s-Hertogenbosch draagt op die manier bij aan een betere fysieke en mentale gezondheid van de deelnemers.
+                </div>
+            </p>
+            <p>
+                <h4>Hartelijk dank voor uw bijdrage!</h4>
+            </p>
+        </div>
+        <hr/>
     </div>
 </div>
 
