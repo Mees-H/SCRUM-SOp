@@ -47,60 +47,51 @@
     <div class="collapse navbar-collapse" id="main-navbar">
         <ul class="navbar-nav me-auto nav-tabs">
             <li>
-                <ul class="navbar-nav ">
-                    <li class="nav-item" id="searchNavBar">
-                        <form class="form-inline my-2 my-lg-0 position-relative justify-content-center d-flex"
-                              method="GET" action="#">
-                            <input class="form-control align-content-center search" id="dropdown" type="search"
-                                   name="search"
-                                   placeholder="Zoek hier..." aria-label="Search" onkeyup="FilterWords()">
-                            <ul class="border border-dark rounded d-none" id="content">
-                                <li><a class="dropdown-item text-center searchitem" href="/">
-                                        Hoofdpagina
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/training">
-                                        Trainingen
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/evenement">
-                                        Evenementen
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/galerij">
-                                        Galerij
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/faq">
-                                        FAQ
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/nieuwsartikel">
-                                        Nieuwsartikelen
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
-                                        Nieuwsbrieven
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/team">
-                                        Team
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/partner">
-                                        Partner
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/overons">
-                                        Over Ons
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/locatie">
-                                        Locatie
-                                    </a></li>
-                                <li><a class="dropdown-item text-center searchitem" href="/links">
-                                        Links
-                                    </a></li>
-                                <li>
-                                    <hr class="dropdown-divider">
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link text-dark dropdown-item {{ (request()->segment(1) == 'privacy') ? 'font-weight-bold' : '' }}"
-                                       href="/privacy/edit">Privacy</a>
-                                </li>
-                            </ul>
-                        </form>
-                    </li>
+        <ul class="navbar-nav ">
+            <li class="nav-item" id="searchNavBar">
+                <form class="form-inline my-2 my-lg-0 position-relative justify-content-center d-flex" method="GET" action="#">
+                <input class="form-control align-content-center search" id="dropdown" type="search" name="search"
+                       placeholder="Zoek hier..." aria-label="Zoeken" autocomplete="off" onkeyup="FilterWords()">
+                <ul class="border border-dark rounded d-none" id="content">
+                    <li><a class="dropdown-item text-center searchitem" href="/">
+                            Hoofdpagina
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/trainingsessions">
+                            Trainingen
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/events">
+                            Evenementen
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/galerij">
+                            Galerij
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/faq">
+                            Veelgestelde vragen
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/nieuwsartikel">
+                            NieuwsArtikelen
+                        </a></li>
+                        <li><a class="dropdown-item text-center searchitem" href="/nieuwsbrief">
+                            Nieuwsbrieven
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/members">
+                            Team
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/groups">
+                            Partner
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/overons">
+                            Over Ons
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/locatie">
+                            Locatie
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/links">
+                            Links
+                        </a></li>
+                    <li><a class="dropdown-item text-center searchitem" href="/privacy/edit">
+                            Privacy
+                        </a></li>
                 </ul>
             </li>
 

@@ -20,7 +20,7 @@
                                 <span class="requiredStar">*</span>Voor- en achternaam
                             </label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name" value="{{old('name')}}">
+                                <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="bv: Jan de Graaf" name="name" value="{{old('name')}}" required autofocus>
                             </div>
                             @error('name')
                             <div class="alert alert-danger">{{ $message }}</div>
@@ -31,7 +31,7 @@
                                 <span class="requiredStar">*</span>Datum
                             </label>
                             <div class="col-sm-8">
-                                <input type="date" placeholder="dd-mm-yyyy" class="form-control" id="date" name="date" value="{{old('date')}}">
+                                <input type="date" placeholder="dd-mm-yyyy" class="form-control @error('date') is-invalid @enderror" id="date" name="date" value="{{old('date')}}" required>
                             </div>
                             @error('date')
                             <div class="alert alert-danger">{{ $message }}</div>

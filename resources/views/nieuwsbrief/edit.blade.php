@@ -36,16 +36,16 @@
                                         @csrf
                                         <div class="row card-body">
                                             <div class="col-sm-9">
-                                                <label for="date" class="form-label">Datum</label>
+                                                <span class="requiredStar">*</span><label for="date" class="form-label">Datum</label>
                                                 <label>
-                                                    <input class="form-control form-control-sm mb-2" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}">
+                                                    <input class="form-control form-control-sm mb-2 @error('date') is-invalid @enderror" type="date" placeholder="Datum *" name="date" value="{{ $newsletter->date }}" required autofocus>
                                                 </label>
                                                 <label for="file" class="form-label">PDF bestand</label>
                                                 <div class="pdf-container mb-2">
                                                     <embed src="{{ asset('storage/files/nieuws/' . $newsletter->pdf) }}" width="500" height="375" type="application/pdf">
                                                 </div>
                                                 <label for="file" class="form-label">Wijzig PDF bestand</label>
-                                                <input class="form-control" type="file" name="file" id="file">
+                                                <input class="form-control @error('file') is-invalid @enderror" type="file" name="file" id="file">
                                             </div>
 
                                         </div>

@@ -18,7 +18,7 @@
                 Huidig wachtwoord
             </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="huidig_wachtwoord" name="huidig_wachtwoord">
+                <input type="text" class="form-control @error('huidig_wachtwoord') is-invalid @enderror" id="huidig_wachtwoord" name="huidig_wachtwoord">
             </div>
             @error('huidig_wachtwoord')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -30,7 +30,7 @@
                 Nieuw wachtwoord
             </label>
             <div class="col-sm-8">
-                <input type="password" class="form-control" id="wachtwoord" name="wachtwoord">
+                <input type="password" class="form-control @error('wachtwoord') is-invalid @enderror" id="wachtwoord" name="wachtwoord">
             </div>
             @error('wachtwoord')
             <div class="alert alert-danger">{{ $message }}</div>
@@ -42,7 +42,7 @@
                 Herhaal nieuw wachtwoord
             </label>
             <div class="col-sm-8">
-                <input type="password" class="form-control" id="wachtwoord_confirmation" name="wachtwoordconfirm">
+                <input type="password" class="form-control @error('password') is-invalid @enderror" id="wachtwoord_confirmation" name="wachtwoordconfirm">
             </div>
             @error('wachtwoord_confirmation')
             <div class="alert alert-danger">{{ $message }}</div>

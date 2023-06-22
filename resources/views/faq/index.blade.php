@@ -4,7 +4,7 @@
 <div class="container">
 <h1 class="display-3">Veelgestelde vragen beheren</h1>
     <div>
-        <a href="{{ route('faq.create')}}" class="btn btn-primary mb-3">Creeër nieuwe veelgestelde vraag</a>
+        <a href="{{ route('faq.create')}}" class="btn btn-primary mb-3" autofocus>Creeër nieuwe veelgestelde vraag</a>
     </div>
     @if(session()->get('success'))
         <div class="alert alert-success">

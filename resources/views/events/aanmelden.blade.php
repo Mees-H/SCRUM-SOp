@@ -24,8 +24,8 @@
                             <span class="requiredStar">*</span>Voor- en achternaam
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="name" placeholder="bv: Jan de Graaf" name="name"
-                                   value="{{old('name')}}">
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="bv: Jan de Graaf" name="name"
+                                   value="{{old('name')}}" required autofocus>
                         </div>
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -36,8 +36,8 @@
                             <span class="requiredStar">*</span>Geboortedatum
                         </label>
                         <div class="col-sm-8">
-                            <input type="date" class="form-control" id="birthday" name="birthday" placeholder="dd-mm-yyyy"
-                                   value="{{old('birthday')}}">
+                            <input type="date" class="form-control @error('birthday') is-invalid @enderror" id="birthday" name="birthday" placeholder="dd-mm-yyyy"
+                                   value="{{old('birthday')}}" required>
                         </div>
                         @error('birthday')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -48,7 +48,7 @@
                             Golfhandicap
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="golfhandicap"
+                            <input type="text" class="form-control @error('golfhandicap') is-invalid @enderror" id="golfhandicap"
                             placeholder="Vul hier uw golfhandicap(s) in" name="golfhandicap" value="{{old('golfhandicap')}}">
                         </div>
                         @error('golfhandicap')
@@ -62,21 +62,21 @@
                         <div class="col-sm-8">
                             <div>
                                 <label>
-                                    <input id="GenderMan" type="radio" name="gender" value="Man"
+                                    <input class="@error('gender') is-invalid @enderror" id="GenderMan" type="radio" name="gender" value="Man"
                                            @if(old('gender')==='Man') checked="checked" @endif>
                                     Man
                                 </label>
                             </div>
                             <div>
                                 <label>
-                                    <input id="GenderVrouw" type="radio" name="gender" value="Vrouw"
+                                    <input class="@error('gender') is-invalid @enderror" id="GenderVrouw" type="radio" name="gender" value="Vrouw"
                                            @if(old('gender')==='Vrouw') checked="checked" @endif>
                                     Vrouw
                                 </label>
                             </div>
                             <div>
                                 <label>
-                                    <input id="GenderAnders" type="radio" name="gender" value="Anders"
+                                    <input class="@error('gender') is-invalid @enderror" id="GenderAnders" type="radio" name="gender" value="Anders"
                                            @if(old('gender')==='Anders') checked="checked" @endif>
                                     Anders
                                 </label>
@@ -102,7 +102,7 @@
                         </label>
                         <div class="col-sm-8">
                             <input type="email" class="form-control" id="email" placeholder="bv: jandegraaf@gmail.com"
-                                   name="email" value="{{old('email')}}">
+                                   name="email" value="{{old('email')}}" required>
                         </div>
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -113,8 +113,8 @@
                             <span class="requiredStar">*</span>Telefoonnummer
                         </label>
                         <div class="col-sm-8">
-                            <input type="tel" class="form-control" id="phonenumber" placeholder="bv: 0612345678"
-                                   name="phonenumber" value="{{old('phonenumber')}}">
+                            <input type="tel" class="form-control @error('phonenumber') is-invalid @enderror" id="phonenumber" placeholder="bv: 0612345678"
+                                   name="phonenumber" value="{{old('phonenumber')}}" required>
                         </div>
                         @error('phonenumber')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -125,8 +125,8 @@
                             <span class="requiredStar">*</span>Adres
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="address" placeholder="bv: Bakkerweg 12"
-                                   name="address" value="{{old('address')}}">
+                            <input type="text" class="form-control @error('address') is-invalid @enderror" id="address" placeholder="bv: Bakkerweg 12"
+                                   name="address" value="{{old('address')}}" required>
                         </div>
                         @error('address')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -137,8 +137,8 @@
                             <span class="requiredStar">*</span>Woonplaats
                         </label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" id="city" placeholder="bv: 's Hertogenbosch"
-                                   name="city" value="{{old('city')}}">
+                            <input type="text" class="form-control @error('city') is-invalid @enderror" id="city" placeholder="bv: 's Hertogenbosch"
+                                   name="city" value="{{old('city')}}" required>
                         </div>
                         @error('city')
                         <div class="alert alert-danger">{{ $message }}</div>

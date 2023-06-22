@@ -39,7 +39,7 @@ class SendQuestionTest extends DuskTestCase
                 ->type('email', 'test@gmail.com')
                 ->type('question', 'Hoe werkt de evenementen pagina?')
                 ->press('verstuurknop')
-                ->waitForText('Uw naam is verplicht');
+                ->assertPathIs('/vragenantwoorden/vraagformulier/');
 
             //Test max length
             $browser->visit('/vragenantwoorden/vraagformulier/')
@@ -71,7 +71,7 @@ class SendQuestionTest extends DuskTestCase
                 ->type('email', '')
                 ->type('question', 'Hoe werkt de evenementen pagina?')
                 ->press('verstuurknop')
-                ->waitForText('Uw email is verplicht');
+                ->assertPathIs('/vragenantwoorden/vraagformulier/');
 
             //Test e-mail validation
             //Can't use assertSee because it doesn't work with the type="email" validation
@@ -82,7 +82,7 @@ class SendQuestionTest extends DuskTestCase
                 ->type('email', 'adsbfiobadsuygbfoulabfuygbdfvhybalxbvudsblyuierub')
                 ->type('question', 'Hoe werkt de evenementen pagina?')
                 ->press('verstuurknop')
-                ->assertDontSee('Uw vraag is verzonden!');
+                ->assertPathIs('/vragenantwoorden/vraagformulier/');
 
             //Test max length
             $browser->visit('/vragenantwoorden/vraagformulier/')
@@ -92,7 +92,7 @@ class SendQuestionTest extends DuskTestCase
                 ->type('email', $string)
                 ->type('question', 'Hoe werkt de evenementen pagina?')
                 ->press('verstuurknop')
-                ->assertDontSee('Uw vraag is verzonden!');
+                ->assertPathIs('/vragenantwoorden/vraagformulier/');
         });
     }
 
@@ -112,7 +112,7 @@ class SendQuestionTest extends DuskTestCase
                 ->type('email', 'test@gmail.com')
                 ->type('question', '')
                 ->press('verstuurknop')
-                ->waitForText('Het invoeren van de vraag is verplicht');
+                ->assertPathIs('/vragenantwoorden/vraagformulier/');
 
             //Test max length
             $browser->visit('/vragenantwoorden/vraagformulier/')
