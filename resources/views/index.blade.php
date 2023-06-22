@@ -64,22 +64,46 @@
                 </div>
             </div>
         </div>
-        <hr/>
+        <hr class="hrheight"/>
         <div class="m-4">
             <h2 class="specialHeader">2020 - 2022</h2>
+            <p>
+                <div>
+                    Bij de voorbereiding in <strong>2020</strong> hebben Leo van der Meer en Wim Jansen de tijdslijn uitgestippeld om mensen met een verstandelijk beperking deel te laten nemen aan de golfsport. 
+                    Gedurende de voorbereidingen, waar gesproken is met BurgGolf Haverleij, Golfleraren, Cello-Zorg, potentiële sponsoren, het werven van vrijwilligers en bezoeken aan G-Golf clubs, zijn we in juni 2021, 
+                    onder de naam Special Golf Haverleij van start gegaan met vijftien deelnemers op de zaterdagmiddagen.
+                </div>
+                <div>
+                    De achter ons liggende golfseizoenen, <strong>2021</strong> en <strong>2022</strong>, werden door alle bij Special Golf betrokken gekenmerkt als leerzaam, ontspannend en prettig. 
+                    Op <strong>26 november 2022</strong> was de laatste oefensessie voor de winterstop op BurgGolf Haverleij. We  gaan met 13 deelnemers weer van start op <strong>4 maart 2023</strong>,  met  ondersteuning van golfleraren, vrijwilligers en BurgGolf Haverleij.
+                </div>
+            </p>
             <div>
-                Bij de voorbereiding in <strong>2020</strong> hebben Leo van der Meer en Wim Jansen de tijdslijn uitgestippeld om mensen met een verstandelijk beperking deel te laten nemen aan de golfsport. 
-                Gedurende de voorbereidingen, waar gesproken is met BurgGolf Haverleij, Golfleraren, Cello-Zorg, potentiële sponsoren, het werven van vrijwilligers en bezoeken aan G-Golf clubs, zijn we in juni 2021, 
-                onder de naam Special Golf Haverleij van start gegaan met vijftien deelnemers op de zaterdagmiddagen.
-            </div>
-            <div>
-                De achter ons liggende golfseizoenen, <strong>2021</strong> en <strong>2022</strong>, werden door alle bij Special Golf betrokken gekenmerkt als leerzaam, ontspannend en prettig. 
-                Op <strong>26 november 2022</strong> was de laatste oefensessie voor de winterstop op BurgGolf Haverleij. We  gaan met 13 deelnemers weer van start op <strong>4 maart 2023</strong>,  met  ondersteuning van golfleraren, vrijwilligers en BurgGolf Haverleij.
-            </div>
-            <div class="p-t-4">
                 <img class="m-t-2 w-auto h-100" src="img/startpagina1.jpg" alt="foto van de 13 huidige deelnemers, de vrijwilligers en de golfleraren">
             </div>
         </div>
+        <hr/>
+        <div class="m-4">
+            <h2 class="specialHeader">Help ons verder met Special Golf</h2>
+            <p>
+                <div>
+                    Om Special Golf gezond te houden en daarmee mensen met een beperking blijvend aan golf te laten deelnemen, zijn sponsoren en donateurs onontbeerlijk, zodat zij naast het aanleren van golfvaardigheden ook sociaal en maatschappelijk kunnen integreren binnen de golfsport. 
+                    <strong>Draagt u ook een steentje bij!</strong> Dat kan al via een donatie van <strong>€ 5,00</strong> op bankrekeningnummer --------  o.v.v. donatie. Uw donatie wordt bijzonder op prijs gesteld.
+                </div>
+            </p>
+            <div class="row">
+                <div class="col-sm-4">
+                    <img class="" src="img/startpagina2.jpg">
+                </div>
+                <div class="col-sm-4">
+                    <img class="" src="img/startpagina3.jpeg">
+                </div>
+                <div class="col-sm-4">
+                    <img class="" src="img/startpagina4.jpg">
+                </div>
+            </div>
+        </div>
+
     </div>
 </div>
 

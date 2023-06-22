@@ -30,7 +30,7 @@
         @endforeach
         </div>
     </div>
-    <hr style="width:80%;text-align:center;margin-left:10%;margin-right:10%">
+    <hr/>
 </article>
 @endforeach
 @stop
