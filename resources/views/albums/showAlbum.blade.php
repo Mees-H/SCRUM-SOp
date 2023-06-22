@@ -6,7 +6,7 @@
     </head>
 <div class="container justify-content-center text-center">
         <div class="col d-flex justify-content-end">
-            <button class="btn btn-outline-secondary mt-4 text-right" name="Terugknop naar galerij" onclick="window.location='{{url("/albums/{$year}")}}'">Terug</button>
+            <a class="btn btn-outline-secondary mt-4 text-right" name="Terugknop naar galerij" onclick="window.location='{{url("/albums/{$year}")}}'" autofocus>Terug</a>
         </div>
             <div class="col">
             <h1 class="specialHeader">{{ \Carbon\Carbon::parse($album->date)->format('d-m-Y')}} | {{$album->title}}</h1>
@@ -18,11 +18,32 @@
             <div class="album py-5 container">
             <div class="row">
                 @foreach($pictures as $picture)
-                    <div class="col-md-4">
-                        <div class="card mb-4 shadow-sm">
+                @if(count($pictures) == 1)
+                    <div class="col">
+                        <div class="card mb-5 shadow-sm col">
                             <img type="button" class="card-img-top" src="{{ asset('img/' . $picture->image) }}" dusk="PictureTest" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
                         </div>
                     </div>
+                @elseif(count($pictures) == 2)
+                    <div class="col-md-6">
+                        <div class="card mb-5 shadow-sm col">
+                            <img type="button" class="card-img-top" src="{{ asset('img/' . $picture->image) }}" dusk="PictureTest" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
+                        </div>
+                    </div>
+                @elseif(count($pictures) == 3)
+                    <div class="col-md-4">
+                        <div class="card mb-5 shadow-sm col">
+                            <img type="button" class="card-img-top" src="{{ asset('img/' . $picture->image) }}" dusk="PictureTest" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
+                        </div>
+                    </div>
+                @else
+                    <div class="col-md-3">
+                        <div class="card mb-4 shadow-sm col">
+                            <img type="button" class="card-img-top" src="{{ asset('img/' . $picture->image) }}" dusk="PictureTest" alt="Afbeelding {{$picture->id}} uit album {{$album->title}}">
+                        </div>
+                    </div>
+                @endif
+                    
                 @endforeach
             </div>
             </div>

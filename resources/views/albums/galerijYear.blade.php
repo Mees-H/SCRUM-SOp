@@ -14,12 +14,20 @@
                         <div class="card mb-4 shadow-sm border-0">
 
                             @if(count($album->picture) > 0)
-                                <a href="{{route('galerij_album',[$album->id, $year])}}">
+                                @if ($loop->first)
+                                    <a href="{{route('galerij_album',[$album->id, $year])}}" autofocus>
+                                @else
+                                    <a href="{{route('galerij_album',[$album->id, $year])}}">
+                                @endif
                                     <img src="{{ asset('img/' . $album->picture[0]->image) }}" dusk="AlbumTest"
                                          class="card-img-top" alt="Knop album {{$album->title}}">
                                 </a>
                             @else
-                                <a type="button">
+                                @if ($loop->first)
+                                    <a type="button" autofocus>
+                                @else
+                                    <a type="button">
+                                @endif          
                                     <img src="/img/dummy_500x375_ffffff_cccccc_voeg-fotos-toe.png" class="card-img-top"
                                          alt="Knop album {{$album->title}}">
                                 </a>

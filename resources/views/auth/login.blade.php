@@ -19,7 +19,7 @@
                             <span class="requiredStar">*</span>E-mail
                         </label>
                         <div class="col-sm-5">
-                            <input id="email" class="form-control" type="email" name="email" value="{{old('email')}}" required autofocus autocomplete="username">
+                            <input id="email" class="form-control @error('email') is-invalid @enderror" type="email" name="email" value="{{old('email')}}" required autofocus autocomplete="username">
                         </div>
                     </div>
 
@@ -29,7 +29,7 @@
                             <span class="requiredStar">*</span>Wachtwoord
                         </label>
                         <div class="col-sm-5">
-                            <input id="password" class="form-control"
+                            <input id="password" class="form-control @error('password') is-invalid @enderror"
                                         type="password"
                                         name="password"
                                         required autocomplete="current-password">
@@ -39,7 +39,7 @@
                     <div class='mt-2'>
                         <button class="btn btn-primary" type="submit">Inloggen</button>
                     </div>
-                    
+
                     @if ($errors->any())
                         <div class="alert alert-danger">
                             <ul>
@@ -49,7 +49,7 @@
                             </ul>
                         </div><br />
                     @endif
-                    
+
                     <div class="flex items-center justify-end mt-2">
                         @if (Route::has('password.request'))
                             <a class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800" href="{{ route('password.request') }}">

@@ -22,7 +22,11 @@
                     <p class="col">
                         <span>{{$member->name}}{{$member->function == '' ? '' : ' - '.$member->function}}</span><br>
                         <span>Email:</span>
-                        <a href="mailto:{{$member->email}}" aria-labelledby="Dit is de email van {{$member->name}}">{{$member->email}}</a><br>
+                        @if ($loop->first)
+                            <a autofocus href="mailto:{{$member->email}}" aria-labelledby="Dit is de email van {{$member->name}}">{{$member->email}}</a><br>
+                        @else
+                            <a href="mailto:{{$member->email}}" aria-labelledby="Dit is de email van {{$member->name}}">{{$member->email}}</a><br>
+                        @endif
                         <span>{{$member->phonenumber == '' ? '' : 'Mobiel: '.$member->phonenumber}}</span>
                     </p>
                 </div>

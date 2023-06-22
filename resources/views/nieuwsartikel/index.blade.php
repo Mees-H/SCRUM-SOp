@@ -9,7 +9,7 @@
             @if (Auth::user() != null && Auth::user()->role == 'admin')
                 <div class="justify-content-start p-2">
                 <div class="row pb-2">
-                    <a href="{{ route('nieuwsartikel.create')}}" class="btn btn-primary">Nieuw artikel</a>
+                    <a href="{{ route('nieuwsartikel.create')}}" class="btn btn-primary" autofocus>Nieuw artikel</a>
                 </div>
 
                 </div>

@@ -5,7 +5,7 @@
     <div class="col-sm-12 container">
         <h1 class="display-3">Evenementen</h1>
         <div class="justify-content-between d-lg-flex mb-3">
-            <a href="{{ route('events.create')}}" class="btn btn-primary" dusk="create-event-button">Creeër nieuw evenement</a>
+            <a href="{{ route('events.create')}}" class="btn btn-primary" dusk="create-event-button" autofocus>Creeër nieuw evenement</a>
         </div>
         @if(session()->get('success'))
             <div class="alert alert-success">
@@ -60,7 +60,7 @@
                         <td>Rekeningnummer</td>
                         <td>Beschrijving</td>
                         <td>Groepen</td>
-                        <td colspan = 2>Actions</td>
+                        <td colspan = 2>Handelingen</td>
                     </tr>
                 </thead>
                 <tbody>
@@ -72,7 +72,7 @@
                             <td>{{date('H:i', strtotime($event->time))}}</td>
                             <td>€{{number_format($event->price, 2, ',', ' ')}}</td>
                             <td>{{$event->bankaccount}}</td>
-                            <td>{{$event->body}}</td>
+                            <td>{{Str::limit($event->body, 100)}}</td>
                             <td>
                                 @foreach($event->groups as $group)
                                     {{$group->name}}<br>
@@ -94,8 +94,6 @@
             </table>
         <div>
         @endif
-
-        
     <div>
 </div>
 @endsection

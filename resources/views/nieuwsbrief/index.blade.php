@@ -11,7 +11,7 @@
                 <div class="justify-content-start p-2">
                     <div class="row">
                         <a href="{{ route('nieuwsbrief.create') }}" class="btn btn-primary"
-                            alt="maak een nieuwe nieuwsbrief">Nieuwe nieuwsbrief</a>
+                            alt="maak een nieuwe nieuwsbrief" autofocus>Nieuwe nieuwsbrief</a>
                     </div>
                 </div>
             @endif

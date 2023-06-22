@@ -17,7 +17,7 @@
                 <span class="requiredStar">*</span>Email
             </label>
             <div class="col-sm-8">
-                <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}">
+                <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email" value="{{old('email')}}" required autofocus>
             </div>
             @error('email')
             <div class="alert alert-danger">{{ $message }}</div>

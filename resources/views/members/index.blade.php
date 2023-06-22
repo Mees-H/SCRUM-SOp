@@ -4,7 +4,7 @@
         <div class="col-sm-12">
             <h1 class="display-3">Teamleden</h1>
             <div>
-                <a href="{{ route('members.create')}}" class="btn btn-primary mb-3">Voeg nieuw lid toe</a>
+                <a href="{{ route('members.create')}}" class="btn btn-primary mb-3" autofocus>Voeg nieuw lid toe</a>
             </div>
             @if(session()->get('success'))
                 <div class="alert alert-success">
@@ -22,7 +22,7 @@
                     <th>Website</th>
                     <th>Foto</th>
                     <th>Groepen</th>
-                    <th colspan=2>Actions</th>
+                    <th colspan=2>Handelingen</th>
                 </tr>
                 </thead>
                 <tbody>

@@ -32,11 +32,9 @@
 }
 
 
-#sponsor_img{
-    width: 300px;
-    height: 200px;
-    margin-right: 30px;
-    margin-bottom: 30px;
+.sponsor_img{
+    width: auto;
+    height: 12vh;
 }
 span{
     margin-right: 10px;

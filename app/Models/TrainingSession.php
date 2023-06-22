@@ -22,6 +22,6 @@ class TrainingSession extends Model
 
     public function training_session_group()
     {
-        return $this->belongsTo(TrainingSessionGroup::class, 'id');
+        return $this->belongsTo(TrainingSessionGroup::class, 'group_id');
     }
 }

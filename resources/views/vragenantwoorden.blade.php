@@ -9,7 +9,7 @@
 @endif
 <div class="justify-content-between d-flex">
     <div>
-    <a href="/vragenantwoorden/vraagformulier" class="btn-primary btn mt-4">Stel een vraag</a>
+    <a href="/vragenantwoorden/vraagformulier" class="btn-primary btn mt-4" autofocus>Stel een vraag</a>
     </div>
 </div>
 <br/>

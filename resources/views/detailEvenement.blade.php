@@ -11,7 +11,7 @@
                     {{$event->title}}
                 </h1>
                 <div class="col-sm-2">
-                    <a href="/events/enroll/{{$event->id}}" class="btn-primary btn">Inschrijven</a>
+                    <a href="/events/enroll/{{$event->id}}" class="btn-primary btn" autofocus>Inschrijven</a>
                     <a dusk="BackButton" class="btn btn-secondary" href="/evenement">Terug</a>
                 </div>
             </div>
@@ -48,7 +48,7 @@
             </div>
             <div id="detailsImages" class=" d-lg-flex">
                 @foreach($groups as $group)
-                    <img src="{{asset('img/'.$group->imageurl)}}" class="shadow border-0" id="sponsor_img" alt="Evenement afbeelding">
+                    <img src="{{asset('img/'.$group->imageurl)}}" class="shadow border-0 sponsor_img" alt="Evenement afbeelding">
                 @endforeach
             </div>
         </div>

@@ -8,7 +8,7 @@
                 Partners die huidig geen partner zijn kunnen nog steeds geselecteerd worden bij een evenement maar
                 zijn niet te zien op de Partners pagina voor website bezoekers.</p>
             <div class="justify-content-between d-lg-flex mb-3">
-                <a href="{{ route('groups.create')}}" class="btn btn-primary">Creeër een nieuwe
+                <a href="{{ route('groups.create')}}" class="btn btn-primary" autofocus>Creeër een nieuwe
                     partner</a>
                 <a class="btn btn-secondary" href="/partners">Bekijk bezoekers pagina</a>
             </div>
@@ -31,7 +31,7 @@
                     <td>Contact persoon</td>
                     <td>Logo</td>
                     <td>Is huidig een partner</td>
-                    <td colspan=2>Actions</td>
+                    <td colspan=2>Handelingen</td>
                 </tr>
                 </thead>
                 <tbody>
