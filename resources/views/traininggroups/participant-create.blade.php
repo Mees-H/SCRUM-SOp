@@ -4,7 +4,7 @@
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
         <h1 class="display-3">Persoon toevoegen</h1>
-        <a href="/traininggroups" class="btn btn-primary">Ga terug</a>
+        <a href="/traininggroups" class="btn btn-primary" autofocus>Ga terug</a>
         <div>
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -19,9 +19,9 @@
                 @csrf
                 <div class="form-group">
                     <label for="name">*Naam:</label>
-                    <input type="text" class="form-control" name="name" id="name" value="{{old('name')}}"/>
+                    <input type="text" class="form-control @error('name') is-invalid @enderror" name="name" id="name" value="{{old('name')}}"/>
                 </div>
-            
+
                 <label>*Groepen:</label>
                 @foreach($groups as $group)
                 <div class="form-check">

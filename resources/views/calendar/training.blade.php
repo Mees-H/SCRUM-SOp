@@ -7,6 +7,6 @@
     </div>
 @endif
 <div>
-    <a href="/training/signout" class="btn btn-primary mb-3">Afmelden</a>
+    <a href="/training/signout" class="btn btn-primary mb-3" autofocus>Afmelden</a>
 </div>   
 @stop

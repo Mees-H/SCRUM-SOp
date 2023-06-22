@@ -2,7 +2,7 @@
 
 @section('content')
 <h1 class="display-3">Veelgestelde vragen aanpassen</h1>
-    <a href="/faq" class="btn btn-primary">Ga terug</a>
+    <a href="/faq" class="btn btn-primary" autofocus>Ga terug</a>
 
     @if ($errors->any())
         <div class="alert alert-danger">
@@ -12,19 +12,19 @@
                 @endforeach
             </ul>
         </div>
-        <br /> 
+        <br />
     @endif
     <form method="POST" action="{{ route('faq.update', $FAQ->id) }}">
-        @method('PATCH') 
+        @method('PATCH')
         @csrf
         <div class="form-group">
-            <label for="vraag">Vraag:</label>
-            <input type="text" class="form-control" name="vraag" value="{{ $FAQ->question }}" id="vraag" required/>
+            <span class="requiredStar">*</span><label for="vraag">Vraag:</label>
+            <input type="text" class="form-control @error('vraag') is-invalid @enderror" name="vraag" value="{{ $FAQ->question }}" id="vraag" required/>
         </div>
 
         <div class="form-group">
-            <label for="antwoord">Antwoord:</label>
-            <input type="text" class="form-control" name="antwoord" value="{{ $FAQ->answer }}" id="antwoord" required/>
+            <span class="requiredStar">*</span><label for="antwoord">Antwoord:</label>
+            <input type="text" class="form-control @error('antwoord') is-invalid @enderror" name="antwoord" value="{{ $FAQ->answer }}" id="antwoord" required/>
         </div>
 
         <button type="submit" class="btn btn-primary">Pas veelgestelde vraag aan</button>

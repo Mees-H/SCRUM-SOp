@@ -13,7 +13,7 @@
         <div class="p-4 sm:p-8 bg-white dark:bg-gray-800 shadow sm:rounded-lg">
             <div class="max-w-xl">
                 <h1 class="text-lg font-medium text-gray-900 dark:text-gray-100 display-3">
-                    {{ __('Gebruiker aanmaken') }}
+                    {{ __('Account aanmaken') }}
                 </h1>
                 <form method="POST" action="/admin/submit" class="mt-6 space-y-6">
                     @csrf
@@ -22,7 +22,7 @@
                             Functie
                         </label>
                         <div class="col-sm-8">
-                            <select name="role">
+                            <select class="@error('role') is-invalid @enderror" name="role" required autofocus>
                                 <option value="coach">
                                     Coach
                                 </option>
@@ -41,7 +41,7 @@
                             Naam
                         </label>
                         <div class="col-sm-8">
-                            <input type="name" class="form-control" id="name" placeholder="bv: jan de graaf" name="name"  value="{{old('name')}}">
+                            <input type="name" class="form-control @error('name') is-invalid @enderror" id="name" placeholder="bv: jan de graaf" name="name"  value="{{old('name')}}" required>
                         </div>
                         @error('name')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -53,7 +53,7 @@
                             Email adres
                         </label>
                         <div class="col-sm-8">
-                            <input type="email" class="form-control" id="email" placeholder="bv: jan@gmail.com" name="email"  value="{{old('email')}}">
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="bv: jan@gmail.com" name="email"  value="{{old('email')}}" required>
                         </div>
                         @error('email')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -65,7 +65,7 @@
                             Wachtwoord
                         </label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" id="password" placeholder="bv: jan12345" name="password">
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" placeholder="bv: jan12345" name="password" value="{{old('password')}}">
                         </div>
                         @error('password')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -77,7 +77,7 @@
                             Wachtwoord herhalen
                         </label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" id="password_confirmation" placeholder="herhaal wachtwoord" name="password_confirmation">
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password_confirmation" placeholder="herhaal wachtwoord" name="password_confirmation" required>
                         </div>
                         @error('password_confirmation')
                         <div class="alert alert-danger">{{ $message }}</div>
@@ -86,7 +86,7 @@
 
                     <br />
 
-                    <button type="submit" id="registreerknop" name="registreerknop" class="btn btn-outline-primary">Registreer gebruiker
+                    <button type="submit" id="registreerknop" name="registreerknop" class="btn btn-outline-primary">Registreer account
                     </button>
                 </form>
             </div>

@@ -31,11 +31,11 @@ class OefensessieSeeder extends Seeder
     {
         DB::table('training_session_group')->insert([
             'id' => 1,
-            'Name' => 'Groep 1',
+            'Name' => 'Groep A',
         ]);
         DB::table('training_session_group')->insert([
             'id' => 2,
-            'Name' => 'Groep 2',
+            'Name' => 'Groep B',
         ]);
     }
 
@@ -105,27 +105,11 @@ class OefensessieSeeder extends Seeder
                 'IstrainingSession' => false,
             ],
             [
-                'Date' => Carbon::createFromFormat('d-m-Y', '08-04-2023')->toDateString(),
-                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
-                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
-                'Description' => 'Pasen',
-                'group_id' => 2,
-                'IstrainingSession' => false,
-            ],
-            [
                 'Date' => Carbon::createFromFormat('d-m-Y', '22-04-2023')->toDateString(),
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Limeer Golf Bokaal',
                 'group_id' => 1,
-                'IstrainingSession' => false,
-            ],
-            [
-                'Date' => Carbon::createFromFormat('d-m-Y', '22-04-2023')->toDateString(),
-                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
-                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
-                'Description' => 'Limeer Golf Bokaal',
-                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
             [
@@ -137,27 +121,11 @@ class OefensessieSeeder extends Seeder
                 'IstrainingSession' => false,
             ],
             [
-                'Date' => Carbon::createFromFormat('d-m-Y', '13-05-2023')->toDateString(),
-                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
-                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
-                'Description' => 'Haverleij Prise d\'Eau',
-                'group_id' => 2,
-                'IstrainingSession' => false,
-            ],
-            [
                 'Date' => Carbon::createFromFormat('d-m-Y', '27-05-2023')->toDateString(),
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
-                'Description' => 'Pinksterren',
+                'Description' => 'Pinksteren',
                 'group_id' => 1,
-                'IstrainingSession' => false,
-            ],
-            [
-                'Date' => Carbon::createFromFormat('d-m-Y', '27-05-2023')->toDateString(),
-                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
-                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
-                'Description' => 'Pinksterren',
-                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
             [
@@ -169,27 +137,11 @@ class OefensessieSeeder extends Seeder
                 'IstrainingSession' => false,
             ],
             [
-                'Date' => Carbon::createFromFormat('d-m-Y', '29-07-2023')->toDateString(),
-                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
-                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
-                'Description' => 'Zomervakantie',
-                'group_id' => 2,
-                'IstrainingSession' => false,
-            ],
-            [
                 'Date' => Carbon::createFromFormat('d-m-Y', '14-09-2023')->toDateString(),
                 'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
                 'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
                 'Description' => 'Herfstvakantie',
                 'group_id' => 1,
-                'IstrainingSession' => false,
-            ],
-            [
-                'Date' => Carbon::createFromFormat('d-m-Y', '14-09-2023')->toDateString(),
-                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
-                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
-                'Description' => 'Herfstvakantie',
-                'group_id' => 2,
                 'IstrainingSession' => false,
             ],
             [
@@ -199,15 +151,7 @@ class OefensessieSeeder extends Seeder
                 'Description' => 'Afsluiting seizoen',
                 'group_id' => 1,
                 'IstrainingSession' => false,
-            ],
-            [
-                'Date' => Carbon::createFromFormat('d-m-Y', '25-10-2023')->toDateString(),
-                'StartTime' => Carbon::createFromFormat('H:i', '13:00')->toTimeString(),
-                'EndTime' => Carbon::createFromFormat('H:i', '15:00')->toTimeString(),
-                'Description' => 'Afsluiting seizoen',
-                'group_id' => 2,
-                'IstrainingSession' => false,
-            ],
+            ]
         ]);
     }
 

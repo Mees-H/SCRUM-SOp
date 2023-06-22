@@ -2,7 +2,7 @@
 @section('content')
     <h1 class="display-3">Albums aanpassen</h1>
     <div class="justify-content-between d-lg-flex mb-3">
-        <a href="{{ route('galerij.create')}}" class="btn btn-primary" dusk="create">Creeër nieuw album</a>
+        <a href="{{ route('galerij.create')}}" class="btn btn-primary" dusk="create" autofocus>Creeër nieuw album</a>
     </div>
     @if(session()->get('success'))
         <div class="alert alert-success">

@@ -9,7 +9,12 @@
                     <h2>{{$category['name']}}</h2>
                     @foreach($category['links'] as $link)
                         <div>
-                            <a href="{{$link['link']}}" alt="{{$link['alt']}}">{{$link['name']}}</a>
+                            @if ($loop->first)
+                                <a autofocus href="{{$link['link']}}" alt="{{$link['alt']}}">{{$link['name']}}</a>
+                            @else
+                                <a href="{{$link['link']}}" alt="{{$link['alt']}}">{{$link['name']}}</a>
+                            @endif
+
                         </div>
                     @endforeach
                 </div>

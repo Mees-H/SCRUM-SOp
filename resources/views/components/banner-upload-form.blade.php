@@ -5,7 +5,7 @@
     <input type="hidden" name="page_id" value="{{ $pageId }}">
     <div class="m-5">
         <h3 class="float-start mb-5">Banner</h3>
-        <input type="file" class="form-control" name="image" id="image">
+        <input type="file" class="form-control" name="image" id="image" autofocus>
     </div>
     <div class="m-5">
         <button dusk="upload" class="btn btn-primary">Upload Banner</button>
